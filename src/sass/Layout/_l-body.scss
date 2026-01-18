@@ -1,0 +1,30 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	body
+----------------------------------------------------*/
+html {
+	//overscroll-behavior: none;
+}
+body {
+	position: relative;
+	&.is-leaving {
+		// animation: bodyLeaving .8s forwards;
+	}
+	@include config.pc {
+	}
+	@include config.sp-tab {
+	}
+	&.page-color {
+		background: var(--color-light);
+	}
+	&.page-gray {
+		background: #F6F7F9;
+	}
+}
+.l-body-wrap {
+	width: 100%;
+	min-height: 100%;
+	@include config.sp-tab {}
+}

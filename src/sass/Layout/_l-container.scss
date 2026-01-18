@@ -1,0 +1,15 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	コンテナ
+----------------------------------------------------*/
+.l-container {
+	@include config.container;
+}
+.l-container--lg {
+	@include config.pc {
+		padding-left: 60/16+rem;
+		padding-right: 60/16+rem;
+	}
+}

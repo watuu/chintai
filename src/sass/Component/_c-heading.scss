@@ -1,0 +1,89 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	c-heading
+----------------------------------------------------*/
+.c-heading-section {
+	@include config.pc {}
+}
+.c-heading-section__title {
+	color: var(--title, #829CCC);
+	font-size: 13/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 16/16+rem;
+	}
+}
+.c-heading-section__en {
+	margin-top: 4/16+rem;
+	font-family: var(--Outfit);
+	font-size: 42/16+rem;
+	font-weight: 600;
+	line-height: 100%;
+	text-transform: capitalize;
+	@include config.pc {
+		font-size: 80/16+rem;
+	}
+}
+.c-heading-page__single {
+	font-size: 32/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	@include config.pc {
+		font-size: 53px;
+	}
+}
+.c-heading-page {}
+.c-heading-page--wh {
+	color: #fff;
+	.c-heading-page__title {
+		color: #fff;
+	}
+}
+.c-heading-page__title {
+	@extend .c-heading-section__title;
+	font-size: 13/16+rem;
+	color: var(--color);
+	@include config.pc {
+		font-size: 22/16+rem;
+	}
+}
+.c-heading-page__en {
+	@extend .c-heading-section__en;
+	font-size: 50/16+rem;
+	@include config.pc {
+		font-size: 100/16+rem;
+	}
+}
+.c-heading-section--sm {
+	.c-heading-section__en {
+		font-size: 36/16+rem;
+		@include config.pc {
+			font-size: 60/16+rem;
+		}
+	}
+}
+.c-heading-section--center {
+	text-align: center;
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.c-heading-text {
+	font-size: 20/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 32/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.c-heading-text-sm {
+	font-size: 19/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 26/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

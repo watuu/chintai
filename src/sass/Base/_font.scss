@@ -1,0 +1,38 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	フォント
+----------------------------------------------------*/
+html {
+	font-size: 16px;
+	@include config.sp {
+		font-size: (16/375*100vw);
+	}
+	@include config.tab {
+		font-size: (16/750*100vw);
+	}
+	@include config.pc {
+		// font-size: (16/1440*100vw);
+		font-size: min(16px, #{16/1440*100vw} );
+	}
+	@include config.wide {
+		//font-size: (16*1920/1440+px);
+	}
+}
+body {
+	font-family: var(--font);
+	line-height: 1.5;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	word-wrap:break-word;
+	color: var(--color);
+
+	:lang(ja) & {
+		text-align: justify;
+		font-feature-settings: 'palt' on;
+	}
+}
+.serif {
+	font-family: var(--serif);
+}

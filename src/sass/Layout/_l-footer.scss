@@ -1,0 +1,174 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	フッター
+----------------------------------------------------*/
+.l-footer {
+	position: relative;
+	padding: 60/16+rem 0;
+	border-radius: 20/16+rem 20/16+rem 0 0;
+	background: #1A318A;
+	@include config.pc {
+		padding: 120/16+rem 0 80/16+rem;
+	}
+}
+.l-footer__chintiger {
+	position: absolute;
+	right: 70/16+rem;
+	top: -26/16+rem;
+	img {
+		width: 66/16+rem;
+	}
+	@include config.pc {
+		top: -36/16+rem;
+		right: 232/16+rem;
+		img {
+			width: 100/16+rem;
+		}
+	}
+}
+.l-footer__wrap {
+	display: grid;
+	gap: 25/16+rem;
+	@include config.pc {
+		grid-template-areas:
+			"logo nav"
+			"sns nav"
+			"info nav"
+			"group other"
+		;
+		grid-template-columns: 1fr 612/16+rem;
+		grid-template-rows: auto auto 1fr auto;
+	}
+}
+.l-footer-logo {
+	img {
+		width: 110.003/16+rem;
+	}
+	@include config.pc {
+		margin-top: 16/16+rem;
+		grid-area: logo;
+		img {
+			width: 167.198/16+rem;
+		}
+	}
+}
+.l-footer-nav {
+	margin-top: 5/16+rem;
+	@include config.pc {
+		margin-top: 0;
+		grid-area: nav;
+	}
+}
+.l-footer-sns {
+	margin-top: 10/16+rem;
+	display: flex;
+	gap: 25/16+rem;
+	img {
+		height: 22/16+rem;
+	}
+	a {
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+	@include config.pc {
+		margin-top: 55/16+rem;
+		grid-area: sns;
+	}
+}
+.l-footer-info {
+	font-size: 13/16+rem;
+	font-family: var(--Roboto);
+	letter-spacing: 0.06em;
+	@include config.pc {
+		margin-top: 16/16+rem;
+		grid-area: info;
+		font-size: 13/16+rem;
+	}
+}
+.l-footer-group {
+	display: flex;
+	flex-direction: column;
+	gap: 9/16+rem;
+	a {
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+	@include config.pc {
+		grid-area: group;
+	}
+}
+.l-footer-group__head {
+	font-family: var(--Outfit);
+	font-size: 13/16+rem;
+	font-weight: 600;
+	line-height: 175%;
+	letter-spacing: 0.06em;
+	@include config.sp-tab {
+		display: none;
+	}
+	@include config.pc {}
+}
+.l-footer-group__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10/16+rem;
+	li {
+		width: 148/16+rem;
+	}
+	@include config.pc {
+		gap: 24/16+rem;
+		li {
+			width: 168/16+rem;
+		}
+	}
+}
+.l-footer-other {
+	margin-top: 20/16+rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	a {
+		display: inline-flex;
+		align-items: center;
+
+		font-size: 12/16+rem;
+		line-height: 150%; /* 18/16+rem */
+		letter-spacing: 0.06em;
+		gap: 5/16+rem;
+		svg {
+		    width: 13/16+rem;
+		    height: auto;
+			fill: var(--color);
+			stroke: var(--color);
+		}
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+	@include config.pc {
+		grid-area: other;
+		margin-top: 0;
+		flex-direction: row;
+		gap: 24/16+rem;
+		align-self: flex-end;
+	}
+}
+.l-footer__copyright {
+	position: absolute;
+	right: 28/16+rem;
+	text-align: right;
+	font-size: 9/16+rem;
+	font-family: var(--Roboto);
+	letter-spacing: 0.06em;
+	opacity: 0.4;
+	transform: rotate(90deg);
+	transform-origin: right bottom;
+	@include config.pc {
+		right: 64/16+rem;
+		font-size: 11/16+rem;
+	}
+}

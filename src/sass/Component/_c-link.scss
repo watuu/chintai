@@ -1,0 +1,66 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	...
+----------------------------------------------------*/
+.c-link-text {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	span {
+		transform-origin: center center 1.25em;
+		will-change: transform;
+	}
+	span:nth-child(2) {
+		position: absolute;
+		opacity: 0;
+		transform: rotate3d(1, 0, 0, 45deg);
+	}
+	a:hover &,
+	&:hover {
+		span {
+			transition: var(--duration) var(--easeTheme);
+		}
+		span:nth-child(1) {
+			transform: rotate3d(-1, 0, 0, 45deg);
+			opacity: 0;
+		}
+		span:nth-child(2) {
+			opacity: 1;
+			transform: rotate3d(0, 0, 0, 0);
+		}
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.c-link-underline {
+	position: relative;
+	&:before {
+		content: '';
+		display: block;
+		width: 0;
+		height: 100%;
+		position: absolute;
+		left: 50%;
+		top: 100%;
+		pointer-events: none;
+		border-top: var(--border);
+
+	}
+	&:hover,
+	a:hover & {
+		&:before {
+			width: 100%;
+			left: 0;
+			transition: .25s var(--easeTheme);
+		}
+	}
+	@media (hover: none) {
+		&:before {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

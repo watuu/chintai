@@ -1,0 +1,12 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	main
+----------------------------------------------------*/
+.l-main {
+	@include config.pc {
+	}
+	@include config.sp-tab {
+	}
+}

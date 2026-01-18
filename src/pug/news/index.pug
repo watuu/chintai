@@ -1,0 +1,123 @@
+extends ../_default
+block vars
+    - var path = "../"
+    - var title = "お知らせ"
+    - var pageClass = "page-color"
+
+block content
+    .p-news
+        section.cm-section-header
+            .l-container
+                .cm-section-header__wrap
+                    .c-heading-page
+                        h2.c-heading-page__title
+                            | お知らせ
+                        p.c-heading-page__en
+                            | News
+            ul.cm-section-header__bc
+                li
+                    a(href=path+"")
+                        | Top
+                li
+                    span
+                        | News
+
+        .p-news__wrap
+            .l-container
+                .p-news__nav
+                    .cm-block-filter
+                        .cm-block-filter__inputs
+                            .c-form-select
+                                select.c-form-select__input
+                                    option(value="") 年代
+                                    option(value="") 2025年
+                                svg(width=17 height=12).c-form-select__angle
+                                    use(href="#ico-angle-down")
+                            .c-form-select
+                                select.c-form-select__input
+                                    option(value="") カテゴリー
+                                    option(value="お知らせ") お知らせ
+                                    option(value="プレスリリース") プレスリリース
+                                    option(value="暮らし調査") 暮らし調査
+                                svg(width=17 height=12).c-form-select__angle
+                                    use(href="#ico-angle-down")
+                        .cm-block-filter__action
+                            button.c-form-btn
+                                span 絞り込む
+                .p-news__list
+                    - for (var x = 1; x <= 4; x++)
+                        .c-card-news
+                            .c-card-news__wrap
+                                p.c-card-news__date 2025.05.17
+                                p.c-card-news__category
+                                    span.c-card-news__label(style="background: #EF92AE;")
+                                    span 暮らし調査
+                                h3.c-card-news__title
+                                    a(href=path + "single-news/").c-card-news__link
+                                        | なにわ男子・大橋和也さんがミュージカル仕立てでお部屋探し！
+                        .c-card-news
+                            .c-card-news__wrap
+                                p.c-card-news__date 2025.04.17
+                                p.c-card-news__category
+                                    span.c-card-news__label(style="background: #7EBEAF;")
+                                    span お知らせ
+                                h3.c-card-news__title
+                                    a(href=path + "single-news/").c-card-news__link
+                                        | なにわ男子・大橋和也さんがミュージカル仕立てでお部屋探し！ 2行の場合2行の場合2行の場合2行の場合2行の場合2行の場合
+                        .c-card-news
+                            .c-card-news__wrap
+                                p.c-card-news__date 2025.04.17
+                                p.c-card-news__category
+                                    span.c-card-news__label(style="background: #EBBA5F;")
+                                    span プレスリリース
+                                h3.c-card-news__title
+                                    a(href=path + "single-news/").c-card-news__link
+                                        | サービス開始50周年！日本記念日協会が登録認定11月1日を「CHINTAIの日」に制定
+                                    .c-card-news__pdf
+                                        a(href="" target="_blank")
+                                            span PDF
+                                            svg(width=13 height=13)
+                                                use(href="#ico-external-sm")
+
+
+                .p-news__paginate
+                    ul.cm-nav-paginate
+                        li.cm-nav-paginate__ctrl
+                            a(href="#").c-btn-circle.c-btn-circle--prev
+                                svg(width=42 height=42)
+                                    use(href="#ico-circle")
+                                svg(width=42 height=42)._arrow
+                                    use(href="#ico-arrow-right")
+                        li.cm-nav-paginate__page.is-current
+                            span 1
+                        li.cm-nav-paginate__page
+                            a(href="#") 2
+                        li.cm-nav-paginate__page
+                            a(href="#") 3
+                        li.cm-nav-paginate__page
+                            a(href="#") 4
+                        li.cm-nav-paginate__dot
+                            span …
+                        li.cm-nav-paginate__ctrl
+                            a(href="#").c-btn-circle
+                                svg(width=42 height=42)
+                                    use(href="#ico-circle")
+                                svg(width=42 height=42)._arrow
+                                    use(href="#ico-arrow-right")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,324 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	...
+----------------------------------------------------*/
+.cm-section-header {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	margin-bottom: -20/16+rem;
+	background: #fff;
+	height: 310/16+rem;
+	@include config.pc {
+		height: 555/16+rem;
+	}
+}
+.cm-section-header--hasBG {
+	height: 400/16+rem;
+	@include config.pc {
+		height: 620/16+rem;
+	}
+}
+.cm-section-header__bg {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+.cm-section-header__wrap {
+	position: relative;
+	padding: 60/16+rem 0;
+	@include config.pc {
+		padding: 110/16+rem 0;
+	}
+}
+.cm-section-header__bc {
+	display: flex;
+	justify-content: flex-end;
+	position: absolute;
+	width: calc(100% - #{48/16+rem});
+	max-width: config.$container-width;
+	left: 24/16+rem;
+	bottom: -20/16+rem;
+	//right: 24/16+rem;
+	z-index: 5;
+
+	font-family: var(--Outfit);
+	font-size: 12/16+rem;
+	li {
+		display: inline-flex;
+		span {
+			opacity: 0.5;
+		}
+	}
+	li:not(:first-child) {
+		&:before {
+			content: '／';
+			margin-inline: 5/16+rem;
+		}
+	}
+	@include config.tab {
+		width: calc(100% - #{96/16+rem});
+		left: 48/16+rem;
+	}
+	@include config.pc {
+		width: calc(100% - #{120/16+rem});
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: -32/16+rem;
+		font-size: 13/16+rem;
+	}
+}
+/*--- service ---*/
+.cm-section-header-service {
+	padding-bottom: var(--padding-section);
+	position: relative;
+	overflow: hidden;
+}
+
+.cm-section-header-service__wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 47/16+rem;
+	@include config.pc {
+		flex-direction: row;
+		gap: 134/16+rem;
+	}
+}
+.cm-section-header-service__content {
+	padding: 162/16+rem 0 0 ;
+	display: flex;
+	flex-direction: column;
+	gap: 15/16+rem;
+	@include config.pc {
+		padding: 347/16+rem 0 0 ;
+		width: 559/16+rem;
+	}
+}
+.cm-section-header-service__sub {
+	margin-top: 25/16+rem;
+	font-size: 20/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		margin-top: 55/16+rem;
+		font-size: 32/16+rem;
+	}
+}
+.cm-section-header-service__bg {
+	margin-right: calc(50% - 50vw);
+	@include config.sp-tab {
+		margin-left: 50/16+rem;
+	}
+	@include config.pc {
+		flex: 1;
+	}
+}
+.cm-section-header-service__bc {
+	margin-top: 20/16+rem;
+	@extend .cm-section-header__bc;
+	position: relative;
+	top: 0;
+}
+
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.cm-section-cta {
+	display: flex;
+	flex-direction: column;
+	gap: 15/16+rem;
+	@include config.pc {
+		gap: 24/16+rem;
+	}
+}
+.cm-section-cta__item {
+	display: flex;
+	flex-direction: column;
+	gap: 15/16+rem;
+	@include config.pc {
+		flex-direction: row;
+		gap: 20/16+rem;
+	}
+}
+.cm-section-cta-item--service {}
+.cm-section-cta-item--company {
+	.cm-section-cta-item__link {
+		background: linear-gradient(99deg, rgba(66, 167, 201, 0.00) 8.41%, rgba(52, 159, 195, 0.40) 67.13%), #5BBFE1;
+	}
+}
+.cm-section-cta-item--initiatives {
+	.cm-section-cta-item__link {
+		background: linear-gradient(109deg, rgba(234, 162, 26, 0.00) 23.97%, rgba(234, 162, 26, 0.20) 44.32%), #EBBA5F;
+	}
+}
+.cm-section-cta-item {
+	flex: 1;
+	@include config.pc {}
+}
+.cm-section-cta-item__link {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	overflow: hidden;
+	height: 110/16+rem;
+	border-radius: 10/16+rem;
+	background: linear-gradient(98deg, rgba(55, 178, 149, 0.00) 32.67%, rgba(55, 178, 149, 0.20) 41.31%), #7EBEAF;
+	color: #fff;
+	@include config.pc {
+		height: 220/16+rem;
+	}
+}
+.cm-section-cta-item__wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 10/16+rem;
+	padding: 16/16+rem 24/16+rem;
+	@include config.pc {
+		padding: 48/16+rem 57/16+rem 32/16+rem;
+		gap: 35/16+rem;
+	}
+}
+.cm-section-cta-item__title {
+
+	@include config.pc {}
+}
+.cm-section-cta-item__ja {
+	color: #FFF;
+	font-size: 11/16+rem;
+	font-weight: 700;
+	line-height: 100%; /* 11/16+rem */
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 15/16+rem;
+	}
+}
+.cm-section-cta-item__en {
+	color: #FFF;
+	font-family: var(--Outfit);
+	font-weight: 600;
+	font-size: 24/16+rem;
+	line-height: 100%; /* 24/16+rem */
+	letter-spacing: 0.06em;
+	text-transform: capitalize;
+	@include config.pc {
+		font-size: 42/16+rem;
+	}
+}
+.cm-section-cta-item__pic {
+	height: 100%;
+	img {
+		width: auto;
+		height: 100%;
+	}
+	@include config.pc {
+		width: 327/16+rem;
+	}
+}
+.cm-section-cta-recruit {
+	@include config.pc {}
+}
+.cm-section-cta-recruit__link {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 30/16+rem 24/16+rem;
+	height: 190/16+rem;
+	border-radius: 10/16+rem;
+	overflow: hidden;
+	@include config.pc {
+		height: 500/16+rem;
+		padding: 85/16+rem 60/16+rem;
+	}
+}
+.cm-section-cta-recruit__wrap {
+	position: relative;
+	z-index: 2;
+	color: #fff;
+	@include config.sp-tab {
+		.c-btn-circle {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+	}
+	@include config.pc {
+		.c-btn-circle {
+			margin-top: 36/16+rem;
+			width: 56/16+rem;
+			height: 56/16+rem;
+		}
+	}
+}
+.cm-section-cta-recruit__title {
+	@include config.pc {}
+}
+.cm-section-cta-recruit__ja {
+	font-size: 11/16+rem;
+	font-weight: 700;
+	line-height: 100%; /* 11/16+rem */
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 15/16+rem;
+	}
+}
+.cm-section-cta-recruit__en {
+	font-family: var(--Outfit);
+	font-size: 36/16+rem;
+	font-weight: 600;
+	line-height: 100%; /* 36/16+rem */
+	text-transform: capitalize;
+	@include config.pc {
+		margin-top: 4/16+rem;
+		font-size: 70/16+rem;
+	}
+}
+.cm-section-cta-recruit__sub {
+	font-size: 12/16+rem;
+	font-weight: 500;
+	letter-spacing: 0.06em;
+	@include config.sp-tab {
+		display: none;
+	}
+	@include config.pc {
+		margin-top: 55/16+rem;
+		font-size: 26/16+rem;
+	}
+}
+.cm-section-cta-recruit__desc {
+	margin-top: 20/16+rem;
+	width: 211/16+rem;
+	font-size: 12/16+rem;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		margin-top: 12/16+rem;
+		width: 551/16+rem;
+		font-size: 16/16+rem;
+	}
+}
+.cm-section-cta-recruit__pic {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	@include config.pc {}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

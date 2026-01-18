@@ -1,0 +1,169 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	汎用クラス
+----------------------------------------------------*/
+.bold,
+.strong {
+	font-weight: bold;
+}
+
+.u-hide {
+	display: none;
+}
+.u-breakLine {
+	display: inline-block;
+}
+.u-center {
+	text-align: center;
+}
+
+.u-only-sp {
+	display: block !important;
+	@include config.pc-tab {
+		display: none !important;
+	}
+}
+
+.u-only-pc {
+	display: none !important;
+	@include config.pc-tab {
+		display: block !important;
+	}
+}
+
+.u-color-accent {
+	color: var(--color-accent);
+}
+
+.u-template {
+	display: flex;
+	flex-direction: column;
+	gap: 80/16+rem;
+	padding-bottom: 100/16+rem;
+	> div {
+		display: flex;
+		flex-direction: column;
+		gap: 24/16+rem;
+	}
+}
+.u-gap {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--gap);
+}
+.u-section-dark {
+	// background: var(--accent-color-dark);
+}
+.u-underline-dash {
+	position: relative;
+	display: inline-block;
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0;
+		position: absolute;
+		left: 0;
+		top: 5%;
+		pointer-events: none;
+		border-top: var(--border-dashed);
+	}
+	&:after {
+		top: 95%;
+	}
+}
+.u-text-circle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	svg {
+		position: absolute;
+	    width: 100%;
+	    height: auto;
+	}
+	@include config.pc {
+		svg {
+			max-width: none;
+			width: 106%;
+		}
+	}
+}
+.u-text-search {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 0.5em;
+	margin-right: 0.2em;
+	gap: 0.2em;
+	position: relative;
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 1.75em;
+		position: absolute;
+		left: 0;
+		pointer-events: none;
+		border-radius: 2.2em;
+		border: var(--border);
+	}
+	@include config.pc {
+		&:before {
+			border-radius: 2.4em;
+		}
+	}
+}
+.is-disabled {
+	opacity: 0.7;
+	pointer-events: none;
+}
+
+.u-budoux {
+	word-break: keep-all;
+	overflow-wrap: anywhere;
+}
+
+@for $i from 1 through 30 {
+	[data-delay="#{$i * 0.1}"] {
+		transition-delay: #{$i * 0.1}s;
+	}
+}
+
+.__loop {
+	animation: loopLeft linear 30s infinite;
+	will-change: transform;
+	backface-visibility: hidden;
+	display: flex;
+	img {
+		width: auto;
+		max-width: none;
+		height: 300/16+rem;
+	}
+	@include config.pc {
+		animation: loopLeft linear 50s infinite;
+		img {
+			height: 526/16+rem;
+		}
+	}
+}
+@keyframes loopLeft {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		transform: translate3d(-100%, 0, 0);
+	}
+}
+@keyframes loopRight {
+	from {
+		transform: translate3d(-100%, 0, 0);
+	}
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+}

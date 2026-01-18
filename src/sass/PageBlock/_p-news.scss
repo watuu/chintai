@@ -1,0 +1,42 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	...
+----------------------------------------------------*/
+.p-news {
+	padding-bottom: var(--padding-section);
+	@include config.pc {}
+}
+.p-news__wrap {
+	position: relative;
+	background: var(--color-light);
+	border-radius: 20/16+rem 20/16+rem 0 0;
+	padding: var(--padding-section) 0 0;
+	@include config.pc {}
+}
+.p-news__nav {
+	padding: 0 24/16+rem 35/16+rem;
+	border-bottom: var(--border-dashed);
+	@include config.sp-tab {
+		margin-inline: calc(50% - 50vw);
+	}
+	@include config.pc {
+		padding: 0 0 40/16+rem;
+	}
+}
+.p-news__list {
+	padding-top: 35/16+rem;
+	@include config.pc {
+		padding-top: 50/16+rem;
+		max-width: 986/16+rem;
+		margin-inline: auto;
+	}
+}
+.p-news__paginate {
+	margin-top: 40/16+rem;
+	@include config.pc {
+		margin-top: 80/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

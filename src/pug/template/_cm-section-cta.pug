@@ -1,0 +1,102 @@
+.l-container.l-container--lg
+    section.cm-section-cta
+        .cm-section-cta__item
+            if (cta == 'service')
+                .cm-section-cta-item.cm-section-cta-item--company
+                    a(href=path + "company/").cm-section-cta-item__link
+                        .cm-section-cta-item__wrap
+                            .cm-section-cta-item__title
+                                h3.cm-section-cta-item__ja 会社概要
+                                p.cm-section-cta-item__en Company
+                            .c-btn-circle
+                                svg(width=42 height=42)
+                                    use(href="#ico-circle")
+                                svg(width=42 height=42)._arrow
+                                    use(href="#ico-arrow-right")
+                        figure.cm-section-cta-item__pic
+                            img(src=img + "cta-company.webp" alt="")
+                .cm-section-cta-item.cm-section-cta-item--initiatives
+                    a(href=path + "initiative/").cm-section-cta-item__link
+                        .cm-section-cta-item__wrap
+                            .cm-section-cta-item__title
+                                h3.cm-section-cta-item__ja CHINTAIの取り組み
+                                p.cm-section-cta-item__en Initiatives
+                            .c-btn-circle
+                                svg(width=42 height=42)
+                                    use(href="#ico-circle")
+                                svg(width=42 height=42)._arrow
+                                    use(href="#ico-arrow-right")
+                        figure.cm-section-cta-item__pic
+                            img(src=img + "cta-initiatives.webp" alt="")
+            else if (cta == 'initiatives')
+                .cm-section-cta-item.cm-section-cta-item--company
+                    a(href=path + "company/").cm-section-cta-item__link
+                        .cm-section-cta-item__wrap
+                            .cm-section-cta-item__title
+                                h3.cm-section-cta-item__ja 会社概要
+                                p.cm-section-cta-item__en Company
+                            .c-btn-circle
+                                svg(width=42 height=42)
+                                    use(href="#ico-circle")
+                                svg(width=42 height=42)._arrow
+                                    use(href="#ico-arrow-right")
+                        figure.cm-section-cta-item__pic
+                            img(src=img + "cta-company.webp" alt="")
+                .cm-section-cta-item.cm-section-cta-item--service
+                    a(href=path + "service/").cm-section-cta-item__link
+                        .cm-section-cta-item__wrap
+                            .cm-section-cta-item__title
+                                h3.cm-section-cta-item__ja サービス
+                                p.cm-section-cta-item__en Service
+                            .c-btn-circle
+                                svg(width=42 height=42)
+                                    use(href="#ico-circle")
+                                svg(width=42 height=42)._arrow
+                                    use(href="#ico-arrow-right")
+                        figure.cm-section-cta-item__pic
+                            img(src=img + "cta-service.webp" alt="")
+            else if (cta == 'top')
+
+            else
+                .cm-section-cta-item.cm-section-cta-item--service
+                    a(href=path + "service/").cm-section-cta-item__link
+                        .cm-section-cta-item__wrap
+                            .cm-section-cta-item__title
+                                h3.cm-section-cta-item__ja サービス
+                                p.cm-section-cta-item__en Service
+                            .c-btn-circle
+                                svg(width=42 height=42)
+                                    use(href="#ico-circle")
+                                svg(width=42 height=42)._arrow
+                                    use(href="#ico-arrow-right")
+                        figure.cm-section-cta-item__pic
+                            img(src=img + "cta-service.webp" alt="")
+                .cm-section-cta-item.cm-section-cta-item--initiatives
+                    a(href=path + "initiative/").cm-section-cta-item__link
+                        .cm-section-cta-item__wrap
+                            .cm-section-cta-item__title
+                                h3.cm-section-cta-item__ja CHINTAIの取り組み
+                                p.cm-section-cta-item__en Initiatives
+                            .c-btn-circle
+                                svg(width=42 height=42)
+                                    use(href="#ico-circle")
+                                svg(width=42 height=42)._arrow
+                                    use(href="#ico-arrow-right")
+                        figure.cm-section-cta-item__pic
+                            img(src=img + "cta-initiatives.webp" alt="")
+        .cm-section-cta-recruit
+            a(href="https://www.chintai.jp/recruit/").cm-section-cta-recruit__link
+                .cm-section-cta-recruit__wrap
+                    .cm-section-cta-recruit__title
+                        h3.cm-section-cta-recruit__ja 採用情報
+                        p.cm-section-cta-recruit__en Recruit
+                    p.cm-section-cta-recruit__sub あなたの心に触れる、心が動く、サービスを。
+                    p.cm-section-cta-recruit__desc
+                        | ユーザーに想像以上の暮らしを提供するため、一緒に新たな価値を創造し、チャレンジし続けられる人と働きたいと思っています。
+                    .c-btn-circle
+                        svg(width=42 height=42)
+                            use(href="#ico-circle")
+                        svg(width=42 height=42)._arrow
+                            use(href="#ico-arrow-right")
+                figure.cm-section-cta-recruit__pic
+                    img(src=img + "cta-recruit.webp" alt="")

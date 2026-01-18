@@ -1,0 +1,132 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	...
+----------------------------------------------------*/
+.c-list-data {
+	display: flex;
+	padding: 20/16+rem 0;
+	gap: 20/16+rem;
+	border-bottom: var(--border-dashed);
+	@include config.pc {
+		padding: 24/16+rem 0;
+		gap: 24/16+rem;
+	}
+}
+.c-list-data__title {
+	width: 56/16+rem;
+	font-size: 13/16+rem;
+	font-weight: 700;
+	line-height: 1.75;
+	letter-spacing: 0.06em;
+	font-family: var(--Urbanist);
+	@include config.pc {
+		width: 70/16+rem;
+		font-size: 16/16+rem;
+	}
+}
+.c-list-data__data {
+	flex: 1;
+	padding-left: 24/16+rem;
+	border-left: var(--border);
+	font-family: var(--Urbanist);
+	font-size: 13/16+rem;
+	font-weight: 500;
+	line-height: 1.75;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 16/16+rem;
+	}
+}
+.c-list-data__company {
+	@include config.pc {
+		display: flex;
+		gap: 20/16+rem;
+	}
+}
+.c-list-data__member {
+	display: flex;
+	span:nth-child(1) {
+		width: 106/16+rem;
+	}
+	span:nth-child(2) {
+		flex: 1;
+	}
+	& + & {
+		margin-top: 3/16+rem;
+	}
+	@include config.pc {
+		span:nth-child(1) {
+			width: 150/16+rem;
+		}
+		& + & {
+			margin-top: 6/16+rem;
+		}
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.c-list-office {
+	border-bottom: var(--border-dashed);
+	@include config.pc {}
+}
+.c-list-office__button {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20/16+rem 0;
+	@include config.pc {
+		padding: 25/16+rem 0;
+	}
+}
+.c-list-office__name {
+	font-size: 13/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 16/16+rem;
+	}
+}
+.c-list-office__status {
+	@extend .c-btn-status;
+	._status {
+		@extend .c-btn-status__status;
+	}
+	._circle {
+		@extend .c-btn-status__circle;
+	}
+	@include config.pc {}
+}
+.c-list-office__data {
+	display: none;
+	padding-left: 20/16+rem;
+	margin: -10/16+rem 0 20/16+rem;
+	border-left: var(--border);
+
+	font-family: var(--Urbanist);
+	font-size: 13/16+rem;
+	font-weight: 500;
+	letter-spacing: 0.06em;
+	a {
+		display: inline-flex;
+		align-items: center;
+		gap: 5/16+rem;
+		text-decoration: underline;
+		svg {
+			width: 13/16+rem;
+			height: auto;
+			fill: var(--color);
+			stroke: var(--color);
+		}
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	@include config.pc {
+		margin: -58/16+rem 0 25/16+rem 270/16+rem;
+		font-size: 16/16+rem;
+		line-height: 1.75;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

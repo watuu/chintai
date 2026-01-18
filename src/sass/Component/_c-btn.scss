@@ -1,0 +1,326 @@
+@use '../Base/config' as config;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	c-btn
+----------------------------------------------------*/
+.c-btn-circle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36/16+rem;
+	height: 36/16+rem;
+	//background: #fff;
+	border-radius: 100%;
+	padding: 0;
+	position: relative;
+	overflow: hidden;
+	flex-shrink: 0;
+	svg {
+	    width: 100%;
+	    height: auto;
+		will-change: stroke-dasharray, stroke-dashoffset, transform;
+	}
+	svg:nth-child(1) {
+		stroke-dasharray: 126; /* 40*π */
+		stroke-dashoffset: 0;
+		transform: rotate(-120deg);
+		fill: #fff;
+		stroke: var(--color);
+	}
+	svg:nth-child(2) {
+		position: absolute;
+		left: 0;
+		top: 0;
+		fill: var(--color);
+		stroke: var(--color);
+	}
+	&:hover,
+	a:hover &,
+	button:hover & {
+		svg:nth-child(1) {
+			animation: btnCircle .5s var(--easeTheme) forwards;
+			animation-timing-function: linear;
+		}
+		._arrow {
+			animation: btnArrow var(--duration) var(--easeOutSine) forwards;
+			animation-timing-function: linear;
+		}
+	}
+	@include config.pc {
+		width: 42/16+rem;
+		height: 42/16+rem;
+	}
+}
+.c-btn-circle--sm {
+	width: 28/16+rem;
+	height: 28/16+rem;
+	@include config.pc {
+		width: 30/16+rem;
+		height: 30/16+rem;
+	}
+}
+.c-btn-circle--prev {
+	transform: rotate(180deg);
+}
+.c-btn-circle--down {
+	transform: rotate(90deg);
+}
+.c-btn-circle--color {
+	//background: var(--color);
+	svg:nth-child(1) {
+		stroke: #fff;
+		fill: var(--color);
+	}
+	svg:nth-child(2) {
+		fill: #fff;
+		stroke: #fff;
+	}
+}
+@keyframes btnCircle {
+	0% {
+		stroke-dasharray: 80;
+		stroke-dashoffset: 0;
+		transform: rotate(-120deg);
+	}
+	50% {
+		stroke-dashoffset: -126;
+	}
+	100% {
+		stroke-dasharray: 126;
+		transform: rotate(90deg);
+		stroke-dashoffset: -252;
+	}
+}
+@keyframes btnArrow {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	30% {
+		transform: translate3d(70%, 0, 0);
+	}
+	30.1% {
+		transform: translate3d(-70%, 0, 0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.c-btn-status {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 38/16+rem;
+	height: 38/16+rem;
+	position: relative;
+	padding: 0;
+}
+.c-btn-status__status {
+	position: absolute;
+	width: 46%;
+	height: auto;
+	transition: var(--duration-s) var(--easeTheme);
+	.is-open & {
+		transform: rotate(45deg);
+	}
+}
+.c-btn-status__circle {
+	width: 100%;
+	stroke: var(--color);
+	fill: #fff;
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.c-btn-more {
+	display: inline-flex;
+	align-items: center;
+	gap: 5/16+rem;
+
+	font-size: 14/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 15/16+rem;
+	}
+}
+.c-btn-more__txt {
+	white-space: nowrap;
+}
+.c-btn-more__ico {
+	@extend .c-btn-circle;
+}
+.c-btn-more--sm {
+	.c-btn-more__ico {
+		@extend .c-btn-circle--sm;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.c-btn-square {
+	display: inline-flex;
+	width: 100%;
+	height: 80/16+rem;
+	padding: 0 24/16+rem;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 10/16+rem;
+	background: #FFF;
+
+	font-size: 15/16+rem;
+	font-weight: 500;
+	line-height: 1.35;
+	letter-spacing: 0.08em;
+	&:hover {
+		background: var(--color);
+		color: #fff;
+		.c-btn-square__ico,
+		.c-btn-square__arrow {
+			svg:nth-child(1) {
+				stroke: #fff;
+				fill: var(--color);
+			}
+			svg:nth-child(2) {
+				fill: #fff;
+				stroke: #fff;
+			}
+		}
+	}
+	@include config.pc {
+		max-width: 588/16+rem;
+		height: 140/16+rem;
+		padding: 0 40/16+rem;
+
+		font-size: 21/16+rem;
+		line-height: 1.5;
+	}
+}
+.c-btn-square__txt {
+	@include config.pc {}
+}
+.c-btn-square__ico {
+	@extend .c-btn-circle;
+}
+.c-btn-square__arrow {
+	@extend .c-btn-circle;
+}
+.c-btn-square--media {
+	color: #fff;
+	font-weight: 700;
+	background: linear-gradient(89deg, rgba(55, 178, 149, 0.00) 22.21%, rgba(55, 178, 149, 0.30) 60.29%), #7EBEAF;
+	@include config.pc {
+		font-size: 23/16+rem;
+	}
+}
+.c-btn-square--initiative {
+	color: #fff;
+	font-weight: 700;
+	background: linear-gradient(94deg, rgba(238, 97, 139, 0.00) 3.11%, rgba(238, 97, 139, 0.30) 38.33%), #EF92AE;
+	@include config.pc {
+		font-size: 23/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.c-btn-round {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 180/16+rem;
+	height: 59/16+rem;
+	border: 2/16+rem solid var(--color);
+	border-radius: 100/16+rem;
+	background: #fff;
+
+	font-size: 14/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	position: relative;
+	&:before {
+		content: '';
+		display: block;
+		width: 0%;
+		height: 0%;
+		position: absolute;
+		left: calc(50% - 0%);
+		top: calc(50% - 0%);
+		pointer-events: none;
+		background: var(--color);
+		border-radius: 100/16+rem;
+		//box-shadow: 0 0 20/16+rem var(--color);
+		opacity: 0;
+		transition: .1s var(--easeTheme);
+	}
+	a:hover &,
+	&:hover {
+		&:before {
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			opacity: 1;
+			//box-shadow: 0 0 0 var(--color);
+			transition: var(--duration-s) var(--easeTheme);
+		}
+		.c-btn-round__txt {
+			color: #fff;
+			transition: var(--duration-s) var(--easeTheme);
+		}
+	}
+	@include config.pc {
+		width: 200/16+rem;
+		height: 65/16+rem;
+		font-size: 17/16+rem;
+	}
+}
+.c-btn-round__txt {
+	position: relative;
+}
+.c-btn-round__arrow {
+	position: absolute;
+	right: 17/16+rem;
+	bottom: -18/16+rem;
+	@extend .c-btn-circle;
+	@extend .c-btn-circle--color;
+	@include config.pc {
+		right: 19/16+rem;
+		bottom: -21/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.c-btn-menu {
+	display: inline-flex;
+	width: 55/16+rem;
+	height: 55/16+rem;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	background: var(--color);
+	border-radius: 100%;
+	span {
+		display: block;
+		position: absolute;
+		height: 0;
+		width: 24/16+rem;
+		left: calc(50% - #{12/16+rem});
+		border-top: var(--border-wh);
+		transition: top .35s var(--easeTheme), transform 0s var(--easeTheme);
+		transform-origin: center center ;
+	}
+	span:nth-child(1) {
+		top: calc(50% - #{4/16+rem});
+	}
+	span:nth-child(2) {
+		top: calc(50% + #{4/16+rem});
+	}
+	&.is-nav-open {
+		span {
+			transition: top .2s var(--easeTheme), transform .3s .2s var(--easeTheme);
+		}
+		span:nth-child(1) {
+			top: calc(50%);
+			transform: scale(-1, -1) rotate(-35deg);
+		}
+		span:nth-child(2) {
+			top: calc(50%);
+			transform:  scale(-1, -1) rotate(35deg);
+		}
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

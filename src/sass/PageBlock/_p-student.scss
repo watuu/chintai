@@ -1,0 +1,242 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	...
+----------------------------------------------------*/
+.p-student {
+	padding-bottom: var(--padding-section);
+	@include config.pc {}
+}
+.p-student-message {
+	position: relative;
+	padding: var(--padding-section) 0 var(--padding-section-sm);
+	border-radius: 20/16+rem 20/16+rem 0 0;
+	background: #F6F7F9;
+	@include config.pc {}
+}
+.p-student-message__wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 30/16+rem;
+	@include config.pc {
+		gap: 50/16+rem;
+		width: 864/16+rem;
+		margin-inline: auto;
+	}
+}
+.p-student-message__title {
+	font-size: 19/16+rem;
+	font-weight: 700;
+	line-height: 1.75;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 26/16+rem;
+	}
+}
+.p-student-message__txt {
+	font-size: 14/16+rem;
+	line-height: 2;
+	letter-spacing: 0.06em;
+	//text-align: left;
+	@include config.pc {
+		font-size: 18/16+rem;
+		line-height: 2.2;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.p-student-project {
+	@include config.pc {}
+}
+.p-student-project__wrap {
+	position: relative;
+	padding: 70/16+rem 0 120/16+rem;
+	border-radius: 2/16+rem;
+	background: #FFF;
+	@include config.pc {
+		padding: 120/16+rem 0 240/16+rem;
+	}
+}
+.p-student-project__bg {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 350/16+rem;
+	pointer-events: none;
+	@include config.pc {
+		top: 795/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.p-student-project-gakusapo {
+	position: relative;
+	margin-top: 40/16+rem;
+	padding: 0 24/16+rem;
+	display: flex;
+	flex-direction: column;
+	gap: 50/16+rem;
+	@include config.pc {
+		margin-top: 70/16+rem;
+		padding: 0 120/16+rem;
+		flex-direction: row;
+		align-items: center;
+		gap: 50/16+rem;
+	}
+}
+.p-student-project-gakusapo__pic {
+	text-align: center;
+	img {
+		width: 245/16+rem;
+	}
+	@include config.pc {
+		width: 610/16+rem;
+		img {
+			width: 100%;
+		}
+	}
+}
+.p-student-project-gakusapo__content {
+	flex: 1;
+	padding-top: 15/16+rem;
+	@include config.pc {}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.p-student-project-service {
+	padding: 64/16+rem 0 180/16+rem;
+	position: relative;
+	@include config.pc {
+		padding: 64/16+rem 274/16+rem 270/16+rem;
+	}
+}
+.p-student-project-service__title {
+	font-size: 22/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-align: center;
+	@include config.pc {
+		font-size: 35/16+rem;
+	}
+}
+.p-student-project-service__items {
+	margin-top: 25/16+rem;
+	display: flex;
+	gap: 20/16+rem;
+	position: relative;
+	padding: 0 24/16+rem;
+	&:before {
+		content: '';
+		display: block;
+		width: 0;
+		height: 100%;
+		position: absolute;
+		left: 50%;
+		top: 0;
+		pointer-events: none;
+		border-left: var(--border-dashed);
+	}
+	@include config.pc {
+		margin-top: 40/16+rem;
+		gap: 80/16+rem;
+		padding: 0;
+	}
+}
+.p-student-project-service-item {
+	flex: 1;
+	position: relative;
+	@include config.pc {}
+}
+.p-student-project-service-item__pic {
+	img {
+		border-radius: 10/16+rem;
+	}
+	@include config.pc {}
+}
+.p-student-project-service-item__caption {
+	position: absolute;
+	@include config.pc {}
+}
+.p-student-project-service-item__body {
+	margin-top: 15/16+rem;
+	display: flex;
+	flex-direction: column;
+	gap: 5/16+rem;
+	p {
+		font-size: 12/16+rem;
+		font-weight: 400;
+		letter-spacing: 0.06em;
+	}
+	@include config.pc {
+		margin-top: 22/16+rem;
+		gap: 15/16+rem;
+		p {
+			font-size: 15/16+rem;
+			line-height: 1.75;
+		}
+	}
+}
+.p-student-project-service-item__title {
+	font-size: 15/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 23/16+rem;
+	}
+}
+.p-student-project-service-item:nth-child(1) {
+	.p-student-project-service-item__caption {
+		left: -34/16+rem;
+		top: -14/16+rem;
+		@include config.pc {
+			left: -102/16+rem;
+			top: 170/16+rem;
+		}
+	}
+}
+.p-student-project-service-item:nth-child(2) {
+	.p-student-project-service-item__caption {
+		top: 58/16+rem;
+		right: -48/16+rem;
+		@include config.pc {
+			top: 228/16+rem;
+			right: -105/16+rem;
+		}
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.p-student-project-list {
+	display: flex;
+	flex-direction: column;
+	gap: 130/16+rem;
+	padding: 0 24/16+rem 0;
+	@include config.pc {
+		padding: 0 114/16+rem 0;
+		gap: 110/16+rem;
+	}
+}
+.p-student-project__more {
+	margin-top: -46/16+rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	gap: 10/16+rem;
+	li {
+		width: 279/16+rem;
+	}
+	@include config.pc {
+		margin-top: -75/16+rem;
+		flex-direction: row;
+		justify-content: center;
+		gap: 24/16+rem;
+		li {
+			width: 564/16+rem;
+		}
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

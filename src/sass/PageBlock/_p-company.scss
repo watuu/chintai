@@ -1,0 +1,554 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	...
+----------------------------------------------------*/
+.p-company {
+	padding-bottom: var(--padding-section);
+	--padding-aside: #{354/16+rem};
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.p-company__wrap {
+	position: relative;
+	padding: var(--padding-section) 0;
+	border-radius: 20/16+rem 20/16+rem 0 0;
+	background: #fff;
+	@include config.pc {}
+}
+.p-company__aside {
+	@include config.sp-tab {
+		display: none;
+	}
+	@include config.pc {
+		position: absolute;
+		padding-top: 46/16+rem;
+		z-index: 5;
+		left: calc(50% - #{600/16+rem});
+		top: var(--padding-section);
+		height: calc(100% - var(--padding-section) - var(--padding-section));
+		.cm-nav-aside {
+			position: sticky;
+			top: var(--header-height);
+		}
+	}
+}
+.p-company__content {
+	@include config.pc {}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.p-company-philosophy {
+	position: relative;
+	overflow: hidden;
+	@include config.pc {}
+}
+.p-company-philosophy__wrap {
+	@include config.pc {
+		padding: 0 0 0 var(--padding-aside);
+	}
+}
+.p-company-philosophy-figure {
+	position: relative;
+	margin: 40/16+rem 0 0 0;
+	@include config.pc {
+		margin: 40/16+rem 40/16+rem 0 56/16+rem;
+	}
+}
+.p-company-philosophy-figure__pic {
+	height: 214/16+rem;
+	svg {
+		max-width: none;
+		width: 540/16+rem;
+		height: auto;
+		//height: 200/16+rem;
+	}
+	svg:nth-child(2) {
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: 0;
+	}
+	svg:nth-child(3) {
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: 0;
+	}
+	@include config.pc {
+		height: 302/16+rem;
+		svg {
+			width: 760/16+rem;
+			height: auto;
+		}
+	}
+}
+.p-company-philosophy-figure__items {
+	margin-inline: 6/16+rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 198/16+rem;
+	position: absolute;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	@include config.pc {
+		margin-inline: 10/16+rem;
+		height: 280/16+rem;
+	}
+}
+.p-company-philosophy-figure-item {
+	flex-shrink: 0;
+	width: 180/16+rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	._en {
+		font-family: var(--Outfit);
+		font-size: 21/16+rem;
+		font-weight: 700;
+		line-height: 1.75;
+		letter-spacing: 0.06em;
+	}
+	._ja {
+		font-size: 10/16+rem;
+		line-height: 1.75;
+		letter-spacing: 0.06em;
+	}
+	@include config.pc {
+		width: 246/16+rem;
+		._en {
+			font-size: 25/16+rem;
+		}
+		._ja {
+			font-size: 13/16+rem;
+		}
+	}
+}
+.p-company-philosophy__items {
+	margin-top: 30/16+rem;
+	@include config.pc {
+		padding: 0 80/16+rem 0 90/16+rem;
+	}
+}
+.p-company-philosophy-item {
+	display: flex;
+	flex-direction: column;
+	gap: 15/16+rem;
+	ul,
+	ol {
+		font-size: 15/16+rem;
+		font-weight: 500;
+		letter-spacing: 0.06em;
+		display: flex;
+		flex-direction: column;
+		gap: 5/16+rem;
+	}
+	ul li {
+		position: relative;
+		padding-left: 16/16+rem;
+		&:before {
+			content: '';
+			width: 5/16+rem;
+			height: 5/16+rem;
+			border-radius: 100%;
+			position: absolute;
+			left: 0;
+			top: 0.65em;
+			pointer-events: none;
+			background: var(--title, #829CCC);
+		}
+	}
+	ol li {
+		position: relative;
+		padding-left: 38/16+rem;
+		span._no {
+			position: absolute;
+			left: 0;
+			color: var(--title, #829CCC);
+			font-family: var(--Urbanist);
+			font-weight: 600;
+			letter-spacing: 0.06em;
+			line-height: 1.75;
+		}
+	}
+	@include config.pc {
+		ul,
+		ol {
+			font-size: 18/16+rem;
+		}
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.p-company-message {
+	padding: var(--padding-section) 0;
+	@include config.pc {}
+}
+.p-company-message__wrap {
+	@include config.pc {
+		padding: 0 0 0 var(--padding-aside);
+	}
+}
+.p-company-message__block {
+	margin-top: 40/16+rem;
+	display: flex;
+	flex-direction: column;
+	gap: 39/16+rem;
+	@include config.pc {
+		flex-direction: row;
+		gap: 72/16+rem;
+	}
+}
+.p-company-message__pic {
+	width: 228/16+rem;
+	margin-inline: auto;
+	img {
+		border-radius: 10/16+rem;
+	}
+	figcaption {
+		margin-top: 15/16+rem;
+		display: flex;
+		flex-direction: column;
+		gap: 5/16+rem;
+
+		font-size: 10/16+rem;
+		font-weight: 500;
+		letter-spacing: 0.8/16+rem;
+		svg {
+		    width: 115/16+rem;
+		    height: auto;
+		}
+	}
+	@include config.pc {
+		width: 347/16+rem;
+		figcaption {
+			margin-top: 20/16+rem;
+			font-size: 13/16+rem;
+			svg {
+				margin-top: 2/16+rem;
+				width: 183/16+rem;
+			}
+		}
+	}
+}
+.p-company-message__content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20/16+rem;
+	@include config.pc {
+		margin-top: 174/16+rem;
+		gap: 50/16+rem;
+	}
+}
+.p-company-message__title {
+	position: relative;
+	padding-bottom: 10/16+rem;
+	font-size: 18/16+rem;
+	font-weight: 500;
+	line-height: 1.35;
+	letter-spacing: 0.06em;
+	&:after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		pointer-events: none;
+		border-top: var(--border);
+	}
+	@include config.pc {
+		margin-left: -87/16+rem;
+		position: relative;
+		padding-bottom: 15/16+rem;
+		font-size: 23/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.p-company-information {
+	padding: var(--padding-section) 0 150/16+rem;
+	border-radius: 20/16+rem;
+	background: #F6F7F9;
+	@include config.pc {
+		padding: var(--padding-section) 0 230/1440*100vw;
+	}
+}
+.p-company-information__wrap {
+	position: relative;
+	z-index: 2;
+	@include config.pc {
+		padding: 0 0 0 var(--padding-aside);
+	}
+}
+.p-company-information__outline {
+	@include config.pc {}
+}
+.p-company-information__outlineList {
+	margin-top: 20/16+rem;
+	@include config.pc {
+		margin-top: 40/16+rem;
+	}
+}
+.p-company-information__office {
+	margin-top: var(--padding-section-sm);
+	@include config.pc {}
+}
+.p-company-information__officeList {
+	margin-top: 20/16+rem;
+	@include config.pc {
+		margin-top: 40/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.p-company-history {
+	position: relative;
+
+	@include config.pc {}
+}
+.p-company-history__bg {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: -70/16+rem;
+	pointer-events: none;
+	overflow: hidden;
+	img {
+		position: absolute;
+		top: 0;
+		left: calc(50% - #{318/16+rem});
+		max-width: none;
+		width: 636/16+rem;
+		height: auto;
+	}
+	@include config.pc {
+		top: -240/1440*100vw;
+		img {
+			position: absolute;
+			top: 0;
+			left: calc(50% - 50vw - #{80/1440*100vw});
+			width: 1880/1440*100vw;
+			height: auto;
+		}
+	}
+}
+.p-company-history__wrap {
+	position: relative;
+	@include config.pc {
+		padding: 0 0 0 var(--padding-aside);
+	}
+}
+.p-company-history-timeline {
+	margin-top: var(--padding-section-sm);
+	position: relative;
+	@include config.pc {
+		width: 822/16+rem;
+	}
+}
+.p-company-history-timeline__line {
+	margin-top: 10/16+rem;
+	width: 26/16+rem;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: calc(100% - #{70/16+rem});
+	pointer-events: none;
+	i {
+		content: '';
+		display: block;
+		width: 2/16+rem;
+		height: 100%;
+		position: absolute;
+		left: 6/16+rem;
+		top: 0;
+		background: var(--gray, #AFAFB4);
+	}
+	.indicator {
+		background: var(--color);
+		height: 10%;
+	}
+	.nikukyu {
+		position: absolute;
+		top: 0;
+		z-index: 5;
+		left: -8/16+rem;
+		width: 26/16+rem;
+		height: auto;
+		margin-top: -10/16+rem;
+	}
+	@include config.pc {
+		margin-top: 20/16+rem;
+		width: 40/16+rem;
+		left: calc(50% - #{20/16+rem});
+		height: calc(100% - #{100/16+rem});
+		i {
+			left: 19/16+rem;
+		}
+		.nikukyu {
+			width: 40/16+rem;
+			left: 0;
+			margin-top: -20/16+rem;
+		}
+	}
+}
+.p-company-history-timeline__blocks {
+	@include config.pc {}
+}
+.p-company-history-timeline-block__list {
+	display: flex;
+	flex-direction: column;
+	gap: 7/16+rem;
+	&:not(:first-child) {
+		margin-top: 25/16+rem;
+	}
+	@include config.sp-tab {
+		text-align: right;
+		align-items: flex-end;
+		width: 255/16+rem;
+		margin-left: auto;
+	}
+	@include config.pc {
+		gap: 7/16+rem;
+	}
+}
+.p-company-history-timeline-block__year {
+	display: flex;
+	align-items: baseline;
+	color: var(--sky, #5BBFE1);
+	font-family: var(--Urbanist);
+	font-size: 30/16+rem;
+	font-weight: 600;
+	line-height: 1;
+	span {
+		font-size: 21/16+rem;
+	}
+	@include config.pc {
+		font-size: 60/16+rem;
+		span {
+			font-size: 40/16+rem;
+		}
+	}
+}
+.p-company-history-timeline-block__detail {
+	font-size: 12/16+rem;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		width: 385/16+rem;
+		font-size: 15/16+rem;
+	}
+}
+.p-company-history-timeline-block {
+	position: relative;
+	&:not(:first-child) {
+		margin-top: 40/16+rem;
+	}
+	&:before {
+		content: '';
+		display: block;
+		width: 11/16+rem;
+		height: 11/16+rem;
+		position: absolute;
+		left: 2/16+rem;
+		top: 10/16+rem;
+		pointer-events: none;
+		border-radius: 100%;
+		background: var(--color);
+	}
+	&:after {
+		content: '';
+		display: block;
+		width: 168/16+rem;
+		height: 0;
+		position: absolute;
+		left: 22/16+rem;
+		top: 14/16+rem;
+		pointer-events: none;
+		border-top: var(--border-dashed);
+	}
+	@include config.pc {
+		width: 419/16+rem;
+		&:not(:first-child) {
+			margin-top: 30/16+rem;
+		}
+		&:before {
+			width: 16/16+rem;
+			height: 16/16+rem;
+			left: 0;
+			top: 20/16+rem;
+		}
+		&:after {
+			left: 22/16+rem;
+			top: 26/16+rem;
+		}
+	}
+}
+
+.p-company-history-timeline-block__pic {
+	position: absolute;
+	width: 100/16+rem;
+	z-index: 2;
+	&.y1994 {
+		top: -10/16+rem;
+		left: 20/16+rem;
+	}
+	&.y2011 {
+		top: -10/16+rem;
+		left: 20/16+rem;
+	}
+	&.y2025 {
+		top: -10/16+rem;
+		left: 20/16+rem;
+	}
+	@include config.pc {
+		width: 150/16+rem;
+		&.y1994 {
+			top: -30/16+rem;
+			left: 40/16+rem;
+		}
+		&.y2011 {
+			top: 80/16+rem;
+			right: 40/16+rem;
+			left: auto;
+		}
+		&.y2025 {
+			top: -80/16+rem;
+			right: 40/16+rem;
+			left: auto;
+		}
+	}
+}
+.p-company-history-timeline-block:nth-child(odd) {
+	@include config.pc {
+		&:before {
+			left: auto;
+			right: 0;
+		}
+		&:after {
+			left: auto;
+			right: 22/16+rem;
+		}
+	}
+}
+.p-company-history-timeline-block:nth-child(even) {
+	.p-company-history-timeline-block__list {
+		@include config.pc {
+			text-align: right;
+			align-items: flex-end;
+			margin-left: auto;
+		}
+	}
+	@include config.pc {
+		margin-left: auto;
+		align-items: flex-end;
+		text-align: right;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

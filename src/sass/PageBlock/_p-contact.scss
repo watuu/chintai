@@ -1,0 +1,26 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	...
+----------------------------------------------------*/
+.p-contact {
+	padding-bottom: var(--padding-section);
+	@include config.pc {}
+}
+.p-contact__wrap {
+	position: relative;
+	background: var(--color-light);
+	border-radius: 20/16+rem 20/16+rem 0 0;
+	padding: var(--padding-section) 0 0;
+	@include config.pc {}
+}
+.p-contact__list {
+	display: grid;
+	gap: 15/16+rem;
+	@include config.pc {
+		gap: 30/16+rem;
+		grid-template-columns: 1fr 1fr;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

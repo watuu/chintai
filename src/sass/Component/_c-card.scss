@@ -1,0 +1,165 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	...
+----------------------------------------------------*/
+.c-card-news {
+	width: 100%;
+	@include config.pc {}
+}
+.c-card-news__wrap,
+ {
+	display: flex;
+	padding: 20/16+rem 0;
+	gap: 6/16+rem 24/16+rem;
+	border-bottom: var(--border-dashed);
+	//&:hover {
+	//	background: #fff;
+	//}
+	@include config.sp-tab {
+		flex-wrap: wrap;
+		align-items: center;
+	}
+	@include config.pc {
+		padding: 25/16+rem 0;
+		gap: 0;
+	}
+}
+.c-card-news__date {
+	font-family: var(--Urbanist);
+	font-size: 13/16+rem;
+	font-weight: 400;
+	@include config.pc {
+		width: 98/16+rem;
+		font-size: 16/16+rem;
+	}
+}
+.c-card-news__category {
+	align-self: flex-start;
+	display: inline-flex;
+	align-items: center;
+	gap: 5/16+rem;
+	font-size: 13/16+rem;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		width: 210/16+rem;
+		font-size: 16/16+rem;
+	}
+}
+.c-card-news__label {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 22/16+rem;
+	height: 22/16+rem;
+	position: relative;
+
+	border-radius: 100%;
+	border: var(--border);
+	background: var(--pink, #EF92AE);
+
+	color: #FFF;
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		pointer-events: none;
+		background: url(../img/ico-news-category.svg) center center /contain;
+	}
+	@include config.pc {
+		width: 24/16+rem;
+		height: 24/16+rem;
+	}
+}
+.c-card-news__title {
+	position: relative;
+	font-size: 14/16+rem;
+	font-weight: 500;
+	letter-spacing: 0.06em;
+	@include config.sp-tab {
+		width: 100%;
+	}
+	@include config.pc {
+		flex: 1;
+		font-size: 18/16+rem;
+	}
+}
+.c-card-news__link {
+	display: inline-flex;
+	text-align: left;
+	will-change: padding;
+	&:before {
+		content: '';
+		display: block;
+		width: 8/16+rem;
+		height: 8/16+rem;
+		position: absolute;
+		left: -0.6em;
+		top: 0.6em;
+		pointer-events: none;
+		border-radius: 100%;
+		background: #829CCC;
+		opacity: 0;
+		transition: var(--duration-s) var(--easeTheme);
+	}
+	&:hover {
+		padding-left: 1em;
+		&:before {
+			opacity: 1;
+			left: 0;
+			transition-delay: 0.13s;
+		}
+	}
+}
+.c-card-news__pdf {
+	margin-top: 10/16+rem;
+	font-family: var(--Outfit);
+	font-size: 12/16+rem;
+	font-weight: 500;
+	line-height: 150%; /* 18/16+rem */
+	letter-spacing: 0.06em;
+	a {
+		display: flex;
+		width: 60/16+rem;
+		padding: 1/16+rem 10/16+rem;
+		justify-content: center;
+		flex-shrink: 0;
+		align-items: center;
+		gap: 5/16+rem;
+		border-radius: 2/16+rem;
+		border: var(--border);
+		background: #FFF;
+		&:hover {
+			background: var(--color);
+			color: #fff;
+			svg {
+				stroke: #fff;
+				fill: #fff;
+			}
+		}
+	}
+	svg {
+	    width: 10/16+rem;
+	    height: auto;
+		stroke: var(--color);
+		fill: var(--color);
+		flex-shrink: 0;
+	}
+	@include config.pc {
+		margin-top: 15/16+rem;
+
+		font-size: 13/16+rem;
+		a {
+			width: 63/16+rem;
+		}
+		svg {
+			width: 11/16+rem;
+		}
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

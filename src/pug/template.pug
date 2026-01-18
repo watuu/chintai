@@ -1,0 +1,365 @@
+extends ./_default
+block vars
+    - var path = "./"
+    - var title = "テンプレート"
+    - var pageClass = "page-color"
+
+block content
+    - for (var x = 1; x <= 8; x++)
+    picture
+        source(srcset=img + "" media="(max-width: 1023px)")
+        img(src=img + "")
+    .l-container
+        .u-template
+            .u-gap
+                p.bold .c-btn-circle w42 w36
+                div(style="display: flex; gap: 10px;")
+                    button.c-btn-circle
+                        svg(width=42 height=42)
+                            use(href="#ico-circle")
+                        svg(width=42 height=42)._arrow
+                            use(href="#ico-arrow-right")
+                    button.c-btn-circle.c-btn-circle--prev
+                        svg(width=42 height=42)
+                            use(href="#ico-circle")
+                        svg(width=42 height=42)._arrow
+                            use(href="#ico-arrow-right")
+                    button.c-btn-circle.c-btn-circle--down
+                        svg(width=42 height=42)
+                            use(href="#ico-circle")
+                        svg(width=42 height=42)._arrow
+                            use(href="#ico-arrow-right")
+
+                    button.c-btn-circle.c-btn-circle--color
+                        svg(width=42 height=42)
+                            use(href="#ico-circle")
+                        svg(width=42 height=42)._arrow
+                            use(href="#ico-arrow-right")
+
+                    button.c-btn-circle
+                        svg(width=42 height=42)
+                            use(href="#ico-circle")
+                        svg(width=42 height=42)
+                            use(href="#ico-external")
+                p.bold .c-btn-status
+                button.c-btn-status
+                    svg(width=18 height=18).c-btn-status__status
+                        use(href="#ico-status")
+                    svg(width=42 height=42).c-btn-status__circle
+                        use(href="#ico-circle")
+                p.bold .c-btn-more
+                a(href="#").c-btn-more
+                    span.c-btn-more__txt 会社情報
+                    i.c-btn-more__ico
+                        svg(width=42 height=42)
+                            use(href="#ico-circle")
+                        svg(width=42 height=42)._arrow
+                            use(href="#ico-arrow-right")
+                p.bold .c-btn-square
+                div(style="display: flex; gap: 10px;")
+                    a(href="#").c-btn-square
+                        span.c-btn-square__txt
+                            | 各メディアサービスに
+                            br
+                            | 関するお問い合わせ
+                        i.c-btn-square__ico
+                            svg(width=42 height=42)
+                                use(href="#ico-circle")
+                            svg(width=42 height=42)
+                                use(href="#ico-external")
+                    a(href="#").c-btn-square
+                        span.c-btn-square__txt
+                            | 各メディアサービスに
+                            br
+                            | 関するお問い合わせ
+                        i.c-btn-square__arrow
+                            svg(width=42 height=42)
+                                use(href="#ico-circle")
+                            svg(width=42 height=42)._arrow
+                                use(href="#ico-arrow-right")
+                div(style="display: flex; gap: 10px;")
+                    a(href="#").c-btn-square.c-btn-square--media
+                        span.c-btn-square__txt
+                            | メディア活動
+                        i.c-btn-square__ico
+                            svg(width=42 height=42)
+                                use(href="#ico-circle")
+                            svg(width=42 height=42)
+                                use(href="#ico-external")
+                    a(href="#").c-btn-square.c-btn-square--initiative
+                        span.c-btn-square__txt
+                            | 社会貢献プロジェクト
+                        i.c-btn-square__arrow
+                            svg(width=42 height=42)
+                                use(href="#ico-circle")
+                            svg(width=42 height=42)._arrow
+                                use(href="#ico-arrow-right")
+
+                p.bold .c-btn-round
+                a(href="#").c-btn-round
+                    span.c-btn-round__txt 会社情報
+                    i.c-btn-round__arrow
+                        svg(width=42 height=42)
+                            use(href="#ico-circle")
+                        svg(width=42 height=42)._arrow
+                            use(href="#ico-arrow-right")
+                p.bold .c-btn-menu
+                button.c-btn-menu(aria-label="メニューを開く").is-nav-open
+                    span
+                    span
+
+                p.bold .c-link-text
+                a(href="#").c-link-text
+                    span.js-clone お知らせ一覧
+
+                p.bold .c-link-underline
+                a(href="#").c-link-underline
+                    | お知らせ一覧
+
+
+
+            hr
+            .u-gap
+                p.bold .c-heading-page
+                .c-heading-page
+                    h2.c-heading-page__title
+                        | お知らせ
+                    p.c-heading-page__en
+                        | News
+
+                p.bold .c-heading-section
+                .c-heading-section
+                    h2.c-heading-section__title
+                        | CHINTAIの取り組み
+                    p.c-heading-section__en
+                        | Initiatives
+                p.bold .c-heading-text fz32 fz20
+                h3.c-heading-text
+                    | 一人ひとりがもっと自分らしい
+                    br
+                    | 豊かな暮らしのできる世界へ。
+                p.bold .c-heading-text-sm fz26 fz19
+                h3.c-heading-text-sm
+                    | 気づく、であう、広がる。
+                    br
+                    | 自分らしい暮らしが叶う社会を創る。
+
+
+                p.bold .c-paragraph fz16 fz13
+                p.c-paragraph 補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。
+                p.bold .c-paragraph-md fz18 fz14
+                p.c-paragraph-md 補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。
+
+            hr
+            .u-gap
+                p.bold .c-list-data
+                div
+                    dl.c-list-data
+                        dt.c-list-data__title
+                            | xxx
+                        dd.c-list-data__data
+                            p.c-list-data__company
+                                span 株式会社CHINTAI
+                                span ／
+                                span CHINTAI Corporation（英語名表記）
+                    dl.c-list-data
+                        dt.c-list-data__title
+                            | 役員
+                        dd.c-list-data__data
+                            p.c-list-data__member
+                                span 代表取締役会長
+                                span 佐藤 茂
+                            p.c-list-data__member
+                                span 代表取締役社長
+                                span 奥田 倫也
+                            p.c-list-data__member
+                                span 取締役副社長
+                                span 山下 悠子
+                            p.c-list-data__member
+                                span 取締役
+                                span 小原 康二
+                            p.c-list-data__member
+                                span 監査役
+                                span 田村 守
+                            p.c-list-data__member
+                                span 監査役
+                                span 楠原 みのり
+                p.bold .c-list-office
+                div(style="width: 100%;")
+                    .c-list-office
+                        button.c-list-office__button.js-accordion(aria-label="アコーディオンを開く")
+                            span.c-list-office__name
+                                | 本社（東日本営業部）
+                            i.c-list-office__status
+                                svg(width=18 height=18)._status
+                                    use(href="#ico-status")
+                                svg(width=42 height=42)._circle
+                                    use(href="#ico-circle")
+                        .c-list-office__data
+                            p
+                                | 〒107-0051
+                                br
+                                | 東京都港区元赤坂1丁目2番7号 AKASAKA K-TOWER 10階
+                                br
+                                | 03-5771-4600
+                            p
+                                a(href="#" target="_blank")
+                                    span Google Maps
+                                    svg(width=13 height=13)
+                                        use(href="#ico-external-sm")
+
+
+
+
+            hr
+            .u-gap
+                p.bold .cm-nav-aside
+                .cm-nav-aside
+                    .cm-nav-aside__chitiger
+                        figure
+                            img(src=img+"chintiger-aside.svg")
+                        figure
+                            img(src=img+"chintiger-aside2.svg")
+                    h3.cm-nav-aside__title
+                        span Index
+                    ul.cm-nav-aside__list
+                        li
+                            a(href="#" data-scroll-anchor).cm-nav-aside-link.is-active
+                                i.cm-nav-aside-link__arrow
+                                    svg(width=42 height=42)
+                                        use(href="#ico-circle")
+                                    svg(width=42 height=42)._arrow
+                                        use(href="#ico-arrow-right")
+                                span.cm-nav-aside-link__text 企業理念
+                        li
+                            a(href="#" data-scroll-anchor).cm-nav-aside-link
+                                i.cm-nav-aside-link__arrow
+                                    svg(width=42 height=42)
+                                        use(href="#ico-circle")
+                                    svg(width=42 height=42)._arrow
+                                        use(href="#ico-arrow-right")
+                                span.cm-nav-aside-link__text 代表メッセージ
+                        li
+                            a(href="#" data-scroll-anchor).cm-nav-aside-link
+                                i.cm-nav-aside-link__arrow
+                                    svg(width=42 height=42)
+                                        use(href="#ico-circle")
+                                    svg(width=42 height=42)._arrow
+                                        use(href="#ico-arrow-right")
+                                span.cm-nav-aside-link__text 会社概要
+
+
+
+                p.bold .cm-nav-paginate
+                ul.cm-nav-paginate
+                    li.cm-nav-paginate__ctrl
+                        a(href="#").c-btn-circle.c-btn-circle--prev
+                            svg(width=42 height=42)
+                                use(href="#ico-circle")
+                            svg(width=42 height=42)._arrow
+                                use(href="#ico-arrow-right")
+                    li.cm-nav-paginate__page.is-current
+                        span 1
+                    li.cm-nav-paginate__page
+                        a(href="#") 2
+                    li.cm-nav-paginate__page
+                        a(href="#") 3
+                    li.cm-nav-paginate__page
+                        a(href="#") 4
+                    li.cm-nav-paginate__dot
+                        span …
+                    li.cm-nav-paginate__ctrl
+                        a(href="#").c-btn-circle
+                            svg(width=42 height=42)
+                                use(href="#ico-circle")
+                            svg(width=42 height=42)._arrow
+                                use(href="#ico-arrow-right")
+                p.bold .cm-nav-paginate-single
+                .cm-nav-paginate-single
+                    .cm-nav-paginate-single__ctrl
+                        a(href="")
+                            i.c-btn-circle.c-btn-circle--prev
+                                svg(width=42 height=42)
+                                    use(href="#ico-circle")
+                                svg(width=42 height=42)._arrow
+                                    use(href="#ico-arrow-right")
+                            span 前の記事
+                    .cm-nav-paginate-single__index
+                        a(href="")
+                            span お知らせ一覧
+                    .cm-nav-paginate-single__ctrl
+                        a(href="")
+                            span 次の記事
+                            i.c-btn-circle
+                                svg(width=42 height=42)
+                                    use(href="#ico-circle")
+                                svg(width=42 height=42)._arrow
+                                    use(href="#ico-arrow-right")
+            hr
+            .u-gap
+                p.bold .c-card-news
+                - for (var x = 1; x <= 8; x++)
+                .c-card-news
+                    a(href="#").c-card-news__link
+                        p.c-card-news__date 2025.05.17
+                        p.c-card-news__category
+                            span.c-card-news__label #
+                            span 暮らし調査
+                        h3.c-card-news__title
+                            | なにわ男子・大橋和也さんがミュージカル仕立てでお部屋探し！
+                .c-card-news
+                    a(href="#").c-card-news__link
+                        p.c-card-news__date 2025.04.17
+                        p.c-card-news__category
+                            span.c-card-news__label #
+                            span お知らせ
+                        h3.c-card-news__title
+                            | なにわ男子・大橋和也さんがミュージカル仕立てでお部屋探し！ 2行の場合2行の場合2行の場合2行の場合2行の場合2行の場合
+
+
+            hr
+            .u-gap
+                p.bold .cm-block-filter
+                .cm-block-filter
+                    .cm-block-filter__inputs
+                        .c-form-select
+                            select.c-form-select__input
+                                option(value="") 年代
+                                option(value="") 2025年
+                            svg(width=17 height=12).c-form-select__angle
+                                use(href="#ico-angle-down")
+                        .c-form-select
+                            select.c-form-select__input
+                                option(value="") カテゴリー
+                                option(value="お知らせ") お知らせ
+                                option(value="プレスリリース") プレスリリース
+                                option(value="暮らし調査") 暮らし調査
+                            svg(width=17 height=12).c-form-select__angle
+                                use(href="#ico-angle-down")
+                    .cm-block-filter__action
+                        button.c-form-btn
+                            span 絞り込む
+
+
+
+            hr
+            .u-gap
+                p.bold .cm-section-cta
+    include ./template/_cm-section-cta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+- var path = "./"
+- var sitename = "株式会社CHINTAI"
+- var pageClass = ""
+block vars
+- var img = path + "assets/img/"
+head
+    meta(charset="UTF-8")
+    if title
+        title #{title} | #{sitename}
+    else
+        title #{sitename}
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    //-
+        meta(name="description", content="")
+        meta(name="keywords", content="")
+    meta(name="format-detection", content="telephone=no")
+    = "\n"
+    = "\n"
+
+    <!-- css -->
+    link(href= path + "assets/css/style.css", rel="stylesheet")
+    = "\n"
+    = "\n"
+
+    if (pageClass == "page-front")
+        <!-- OGP -->
+        meta(property='og:locale' content='ja_JP')
+        meta(property='og:type' content='website')
+        meta(property='og:image' content=path + 'OGP.png')
+        meta(property='og:title' content='')
+        meta(property='og:description' content='')
+        meta(property='og:url' content='')
+        meta(property='og:site_name' content='')
+        meta(name='twitter:card' content='summary')
+        = "\n"
+
+    <!-- vendor -->
+    = "\n"
+    = "\n"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    //-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Outfit:wght@100..900&family=Urbanist:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Urbanist:wght@500&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    //-
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+body#body(class=pageClass)
+    = "\n"
+    a#top
+    .l-body-wrap
+        header.l-header
+            .l-header-logo
+                a(href=path + "")
+                    img(src=img + "logo.svg" alt=sitename)
+            .l-header-nav
+                nav.cm-nav-header
+                    ul.cm-nav-header__nav
+                        li
+                            a(href=path + "company/").cm-nav-header__link
+                                span.js-clone 会社情報
+                        li
+                            a(href=path + "service/").cm-nav-header__link
+                                span.js-clone サービス
+                        li
+                            a(href=path + "initiative/").cm-nav-header__link
+                                span.js-clone CHINTAIの取り組み
+                        li
+                            a(href=path + "news/").cm-nav-header__link
+                                span.js-clone お知らせ
+                        li
+                            a(href="https://www.chintai.jp/recruit/").cm-nav-header__link
+                                span.js-clone 採用情報
+                    a(href=path + "contact/").cm-nav-header__contact
+                        span.js-clone お問い合わせ
+            button.l-header-menu.c-btn-menu(aria-label="メニューを開く")
+                span
+                span
+            .l-header-drawer
+                .l-header-drawer__wrap
+                    .l-header-drawer__nav
+                        include ./template/_cm-nav-main
+                    ul.l-header-drawer__sns
+                        li
+                            a(href="" target="_blank")
+                                img(src=img + "ico-instagram.svg" alt="instagram")
+                        li
+                            a(href="" target="_blank")
+                                img(src=img + "ico-x.svg" alt="x")
+                        li
+                            a(href="" target="_blank")
+                                img(src=img + "ico-youtube.svg" alt="youtube")
+                        li
+                            a(href="" target="_blank")
+                                img(src=img + "ico-note.svg" alt="note")
+        main.l-main#main
+            block content
+        footer.l-footer.is-section-dark
+            .l-footer__chintiger
+                img(src=img+"chintiger-footer.svg")
+            .l-container
+                .l-footer__wrap
+                    .l-footer-logo
+                        a(href=path+"")
+                            img(src=img+"logo-wh.svg" alt=sitename)
+                    .l-footer-nav
+                        include ./template/_cm-nav-main
+                    ul.l-footer-sns
+                        li
+                            a(href="" target="_blank")
+                                img(src=img+"ico-instagram-wh.svg" alt="instagram")
+                        li
+                            a(href="" target="_blank")
+                                img(src=img+"ico-x-wh.svg" alt="x")
+                        li
+                            a(href="" target="_blank")
+                                img(src=img+"ico-youtube-wh.svg" alt="youtube")
+                        li
+                            a(href="" target="_blank")
+                                img(src=img+"ico-note-wh.svg" alt="note")
+
+                    .l-footer-info
+                        p
+                            | 〒107-0051
+                            br
+                            | 東京都港区元赤坂1丁目2番7号
+                            br
+                            | AKASAKA K-TOWER 10階
+                            br
+                            | TEL. 03-5771-4600
+                    .l-footer-group
+                        h3.l-footer-group__head Group Companies
+                        ul.l-footer-group__list
+                            li
+                                a(href="#" target="_blank")
+                                    img(src=img+"bana-able-partners.webp" alt="ABLE & PARTNERS")
+                            li
+                                a(href="#" target="_blank")
+                                    img(src=img+"bana-able.webp" alt="【エイブル】賃貸物件・不動産物件を検索！")
+
+                    ul.l-footer-other
+                        li
+                            a(href="https://www.able-partners.co.jp/company/management/social_media.html" target="_blank")
+                                span サイトポリシー
+                                svg(width=13 height=13)
+                                    use(href="#ico-external-sm")
+                        li
+                            a(href="https://www.chintai.net/site_info/privacy/" target="_blank")
+                                span 個人情報保護方針
+                                svg(width=13 height=13)
+                                    use(href="#ico-external-sm")
+                        li
+                            a(href="https://www.able-partners.co.jp/company/management/social_media.html" target="_blank")
+                                span ソーシャルメディアポリシー
+                                svg(width=13 height=13)
+                                    use(href="#ico-external-sm")
+
+
+
+                p.l-footer__copyright
+                    | &copy;CHINTAI Corporation All rights reserved.
+    script(src= path + "assets/js/app.js")
+    = "\n"
+    include ./_include/_symbol
+= "\n"
+</html>

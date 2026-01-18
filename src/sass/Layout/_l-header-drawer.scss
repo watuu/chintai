@@ -1,0 +1,36 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	l-header-drawer
+----------------------------------------------------*/
+.l-header-drawer {
+	width: 100%;
+	position: fixed;
+	inset: 0 0 0;
+	overflow: auto;
+	background: #FFF;
+	opacity: 0;
+	pointer-events: none;
+	.is-nav-open & {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+.l-header-drawer__wrap {
+	padding: 120/16+rem 24/16+rem 60/16+rem;
+	height: 100%;
+	overscroll-behavior: none;
+}
+.l-header-drawer__nav {
+
+}
+.l-header-drawer__sns {
+	margin-top: 40/16+rem;
+	display: flex;
+	gap: 25/16+rem;
+	img {
+		height: 18/16+rem;
+	}
+}
+

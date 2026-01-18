@@ -1,0 +1,350 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-link' as link;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	...
+----------------------------------------------------*/
+.cm-nav-main {
+	@include config.pc {}
+}
+.cm-nav-main__lv1 {
+	> li {
+		border-bottom: var(--border-dashed);
+		border-color: rgba(255, 255, 255, 0.40);
+		.l-header & {
+			border-color: rgba(12, 48, 150, 0.40);
+		}
+	}
+	@include config.pc {}
+}
+.cm-nav-main__link {
+	display: flex;
+	justify-content: space-between;
+	padding: 15/16+rem 0;
+	font-size: 15/16+rem;
+	font-weight: 500;
+	line-height: 1.75;
+	letter-spacing: 0.06em;
+	._ja {}
+	._en {
+		font-family: var(--Outfit);
+		font-size: 15/16+rem;
+		font-weight: 400;
+		text-transform: capitalize;
+		opacity: 0.6;
+	}
+	&:hover {
+		opacity: 0.6;
+	}
+	@include config.pc {
+		font-size: 17/16+rem;
+		._en {
+			font-size: 17/16+rem;
+		}
+	}
+}
+.cm-nav-main__lv2 {
+	margin-top: -5/16+rem;
+	padding-bottom: 15/16+rem;
+	display: flex;
+	flex-direction: column;
+	gap: 5/16+rem;
+	@include config.pc {}
+}
+.cm-nav-main__sub {
+	padding-left: 16/16+rem;
+	position: relative;
+	display: inline-flex;
+	gap: 5/16+rem;
+	align-items: center;
+	font-size: 13/16+rem;
+	line-height: 1.75;
+	letter-spacing: 0.06em;
+	&:before {
+		content: '';
+		display: block;
+		width: 8/16+rem;
+		height: 8/16+rem;
+		position: absolute;
+		left: 0;
+		pointer-events: none;
+		border-radius: 100%;
+		background: var(--color);
+	}
+	svg {
+		width: 13/16+rem;
+		height: auto;
+		fill: var(--color);
+		stroke: var(--color);
+	}
+	&:hover {
+		opacity: 0.6;
+	}
+	@include config.pc {
+		font-size: 15/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.cm-nav-header {
+	display: flex;
+	align-items: center;
+}
+.cm-nav-header__nav {
+	display: inline-flex;
+	padding: 11/16+rem 24/16+rem 12/16+rem 24/16+rem;
+	align-items: center;
+	gap: 30/16+rem;
+
+	border-radius: 100/16+rem;
+	border: var(--border);
+	background: rgba(255, 255, 255, 0.90);
+	backdrop-filter: blur(2/16+rem);
+}
+.cm-nav-header__link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15/16+rem;
+	font-weight: 500;
+	line-height: 175%; /* 26.25/16+rem */
+	letter-spacing: 0.06em;
+	@extend .c-link-text;
+}
+.cm-nav-header__contact {
+	display: inline-flex;
+	padding: 11/16+rem 24/16+rem 12/16+rem 24/16+rem;
+	justify-content: center;
+	align-items: center;
+	gap: 10/16+rem;
+	border-radius: 100/16+rem;
+	background: var(--corporate, #0C3096);
+
+	color: #FFF;
+	text-align: center;
+	font-size: 15/16+rem;
+	font-weight: 500;
+	line-height: 175%; /* 26.25/16+rem */
+	letter-spacing: 0.06em;
+	@extend .c-link-text;
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.cm-nav-aside {
+	position: relative;
+	width: 209/16+rem;
+}
+.cm-nav-aside__chitiger {
+	position: absolute;
+	z-index: 2;
+	right: -20/16+rem;
+	top: -54/16+rem;
+	pointer-events: none;
+	figure {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	figure:nth-child(1) {
+		width: 94/16+rem;
+	}
+	figure:nth-child(2) {
+		width: 70/16+rem;
+		top: 20/16+rem;
+		opacity: 0;
+	}
+	img {
+		width: 100%;
+	}
+	.index0 &,
+	.index1 &, {
+		figure:nth-child(1) {
+			opacity: 1;
+		}
+		figure:nth-child(2) {
+			opacity: 0;
+		}
+	}
+	.index2 &,
+	.index3 &, {
+		figure:nth-child(1) {
+			opacity: 0;
+		}
+		figure:nth-child(2) {
+			opacity: 1;
+		}
+	}
+
+}
+.cm-nav-aside__title {
+	position: absolute;
+	z-index: 2;
+	left: 15/16+rem;
+	top: -10/16+rem;
+	font-family: var(--Outfit);
+	font-size: 19/16+rem;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: 0.06em;
+	text-transform: capitalize;
+	span {
+		position: relative;
+		padding: 0 7/16+rem;
+	}
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 50%;
+		position: absolute;
+		left: 0;
+		top: 50%;
+		pointer-events: none;
+		background: #fff;
+	}
+}
+.cm-nav-aside__list {
+	display: flex;
+	padding: 30/16+rem 10/16+rem 25/16+rem 20/16+rem;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10/16+rem;
+
+	border-radius: 10/16+rem;
+	border: var(--border);
+	background: #FFF;
+	position: relative;
+	&:before {
+		content: '';
+		display: block;
+		width: 60/16+rem;
+		height: 50/16+rem;
+		position: absolute;
+		right: config.px(-1);
+		top: config.px(-1);
+		pointer-events: none;
+		border: config.px(1) solid #fff;
+	}
+}
+.cm-nav-aside-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 5/16+rem;
+	font-size: 14/16+rem;
+	letter-spacing: 0.06em;
+	li:not(.is-current) & {
+		&:not(:hover) {
+			color: #AFAFB4;
+			.cm-nav-aside-link__arrow {
+				svg:nth-child(1) {
+					stroke: #AFAFB4;
+				}
+				._arrow {
+					fill: #AFAFB4;
+				}
+			}
+		}
+	}
+}
+.cm-nav-aside-link__text {}
+.cm-nav-aside-link__arrow {
+	@extend .c-btn-circle;
+	width: 25/16+rem;
+	height: 25/16+rem;
+	transform: rotate(90deg);
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.cm-nav-paginate {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15/16+rem;
+}
+.cm-nav-paginate__ctrl {
+	a {
+		width: 30/16+rem;
+		height: 30/16+rem;
+	}
+	@include config.pc {
+		&:first-child {
+			margin-right: 10/16+rem;
+		}
+		&:last-child {
+			margin-left: 10/16+rem;
+		}
+	}
+}
+.cm-nav-paginate__page,
+.cm-nav-paginate__dot {
+	font-family: var(--Urbanist);
+	font-size: 19/16+rem;
+	font-weight: 600;
+	line-height: 1.75;
+	> a, > span {
+		display: inline-flex;
+		min-width: 16/16+rem;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		border-bottom: var(--border);
+		border-color: transparent;
+	}
+	a:hover,
+	&.is-current > span {
+		color: var(--title, #829CCC);
+		border-color: var(--color);
+
+	}
+	@include config.pc {
+		font-size: 26/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.cm-nav-paginate-single {
+	padding-top: 20/16+rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: var(--border-dashed);
+	@include config.pc {
+		padding-top: 25/16+rem;
+	}
+}
+.cm-nav-paginate-single__ctrl {
+	a {
+		display: inline-flex;
+		gap: 5/16+rem;
+		align-items: center;
+		font-size: 12/16+rem;
+		font-weight: 400;
+		letter-spacing: 0.06em;
+	}
+	i {
+		width: 28/16+rem;
+		height: 28/16+rem;
+	}
+	@include config.pc {
+		a {
+			font-size: 14/16+rem;
+		}
+		i {
+			width: 30/16+rem;
+			height: 30/16+rem;
+		}
+	}
+}
+.cm-nav-paginate-single__index {
+	a {
+		font-size: 12/16+rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		@extend .c-link-underline;
+	}
+	@include config.pc {
+		a {
+			font-size: 14/16+rem;
+		}
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

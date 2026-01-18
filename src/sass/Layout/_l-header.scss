@@ -1,0 +1,47 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	ヘッダー
+----------------------------------------------------*/
+.l-header {
+	position: fixed;
+	top: 15/16+rem;
+	left: 24/16+rem;
+	right: 24/16+rem;
+	z-index: 500;
+	display: flex;
+	align-items: center;
+	height: 55/16+rem;
+	@include config.pc {
+		position: absolute;
+		top: 58/16+rem;
+		left: 60/16+rem;
+		right: 60/16+rem;
+	}
+}
+.l-header-logo {
+	position: relative;
+	z-index: 5;
+	margin-right: auto;
+	img {
+		width: 95/16+rem;
+	}
+	@include config.pc {
+		img {
+			width: 140/16+rem;
+		}
+	}
+}
+.l-header-nav {
+	display: none;
+	@include config.pc {
+		display: block;
+	}
+}
+.l-header-menu {
+	z-index: 5;
+	@include config.pc {
+		display: none;
+	}
+}
