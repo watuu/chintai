@@ -40,17 +40,20 @@
 .p-company-philosophy {
 	position: relative;
 	overflow: hidden;
-	//height: 300vh;
+	height: 250vh;
 	@include config.pc {}
 }
 .p-company-philosophy__wrap {
+	min-height: 580/16+rem;
 	@include config.pc {
 		padding: 0 0 0 var(--padding-aside);
+		min-height: 652/16+rem;
 	}
 }
 .p-company-philosophy-figure {
 	position: relative;
 	margin: 40/16+rem 0 0 0;
+	transition: var(--duration-s) var(--easeTheme);
 	@include config.pc {
 		margin: 40/16+rem 40/16+rem 0 56/16+rem;
 	}
@@ -61,6 +64,7 @@
 		max-width: none;
 		width: 540/16+rem;
 		height: auto;
+		transition: var(--duration-s) var(--easeTheme);
 		//height: 200/16+rem;
 	}
 	svg:nth-child(2) {
@@ -84,7 +88,7 @@
 	}
 }
 .p-company-philosophy-figure__items {
-	margin-inline: 6/16+rem;
+	margin-inline: 16/16+rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -93,6 +97,7 @@
 	left: 0;
 	top: 0;
 	pointer-events: none;
+	@include config.sp {}
 	@include config.pc {
 		margin-inline: 10/16+rem;
 		height: 280/16+rem;
@@ -100,7 +105,7 @@
 }
 .p-company-philosophy-figure-item {
 	flex-shrink: 0;
-	width: 180/16+rem;
+	width: 170/16+rem;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -136,9 +141,7 @@
 	}
 }
 .p-company-philosophy-item {
-	display: flex;
-	flex-direction: column;
-	gap: 15/16+rem;
+	transition: var(--duration-s) var(--easeTheme);
 	ul,
 	ol {
 		font-size: 15/16+rem;
@@ -183,6 +186,119 @@
 		}
 	}
 }
+.p-company-philosophy-item__wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 15/16+rem;
+}
+.p-company-philosophy.is-step-1 {
+	.p-company-philosophy-figure__pic svg {
+		&:nth-child(1) {
+			opacity: 1;
+		}
+		&:nth-child(2) {
+			opacity: 0;
+		}
+		&:nth-child(3) {
+			opacity: 0;
+		}
+	}
+	.p-company-philosophy-figure-item {
+		&:nth-child(2) {
+			color: var(--gray, #AFAFB4);
+		}
+		&:nth-child(3) {
+			color: var(--gray, #AFAFB4);
+		}
+	}
+	.p-company-philosophy-item {
+		&:nth-child(1) {
+			display: flex;
+		}
+		&:nth-child(2) {
+			display: none;
+		}
+		&:nth-child(3) {
+			display: none;
+		}
+	}
+}
+.p-company-philosophy.is-step-2 {
+	.p-company-philosophy-figure__pic svg {
+		&:nth-child(1) {
+			opacity: 0;
+		}
+		&:nth-child(2) {
+			opacity: 1;
+		}
+		&:nth-child(3) {
+			opacity: 0;
+		}
+	}
+	.p-company-philosophy-figure-item {
+		&:nth-child(1) {
+			color: var(--gray, #AFAFB4);
+		}
+		&:nth-child(3) {
+			color: var(--gray, #AFAFB4);
+		}
+	}
+	.p-company-philosophy-item {
+		&:nth-child(1) {
+			display: none;
+		}
+		&:nth-child(2) {
+			display: flex;
+		}
+		&:nth-child(3) {
+			display: none;
+		}
+	}
+	@include config.sp {
+		.p-company-philosophy-figure {
+			transform: translateX(-33%);
+		}
+	}
+}
+.p-company-philosophy.is-step-3 {
+	.p-company-philosophy-figure__pic svg {
+		&:nth-child(1) {
+			opacity: 0;
+		}
+		&:nth-child(2) {
+			opacity: 0;
+		}
+		&:nth-child(3) {
+			opacity: 1;
+		}
+	}
+	.p-company-philosophy-figure-item {
+		&:nth-child(1) {
+			color: var(--gray, #AFAFB4);
+		}
+		&:nth-child(2) {
+			color: var(--gray, #AFAFB4);
+		}
+	}
+	.p-company-philosophy-item {
+		&:nth-child(1) {
+			display: none;
+		}
+		&:nth-child(2) {
+			display: none;
+		}
+		&:nth-child(3) {
+			display: flex;
+		}
+	}
+	@include config.sp {
+		.p-company-philosophy-figure {
+			transform: translateX(-66%);
+		}
+	}
+}
+
+
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .p-company-message {
 	padding: var(--padding-section) 0;

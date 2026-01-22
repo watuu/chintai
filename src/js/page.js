@@ -14,7 +14,7 @@ export default class Page {
         if (document.querySelector('.cm-xxx')) {
             //
         }
-        // this.pCompanyPhilosophy()
+        this.pCompanyPhilosophy()
         this.pCompanyHistory()
         this.pMedia()
     }
@@ -27,52 +27,58 @@ export default class Page {
             const svgs = gsap.utils.toArray('.p-company-philosophy-figure__pic svg');
             const items = gsap.utils.toArray('.p-company-philosophy-item');
 
-            svgs.forEach((svg, i) => {
-                gsap.set(svg, { opacity: i === 0 ? 1 : 0 });
-            });
-            items.forEach((item, i) => {
-                gsap.set(item, { display: i === 0 ? 'block' : 'none' });
-            });
+            // svgs.forEach((svg, i) => {
+            //     gsap.set(svg, { opacity: i === 0 ? 1 : 0 });
+            // });
+            // items.forEach((item, i) => {
+            //     gsap.set(item, { display: i === 0 ? 'block' : 'none' });
+            // });
 
+            /* ========== PIN留め ========= */
             ScrollTrigger.create({
                 trigger: section,
                 start: () => {
-                    // wrap の中央が viewport 中央に来たら
                     const wrapRect = wrap.getBoundingClientRect();
-                    console.log(111, wrapRect.top, wrapRect.height, (wrapRect.top + wrapRect.height / 2 - window.innerHeight / 2))
-                    // return `top+=${wrapRect.top + wrapRect.height / 2 - window.innerHeight / 2}`;
-                    return `top center`
+                    return `top+=${wrapRect.height / 2} center` ;
                 },
-                end: '+=200%',
+                end: () => {
+                    const wrapRect = wrap.getBoundingClientRect();
+                    return `bottom-=${wrapRect.height / 2} center` ;
+                },
                 pin: wrap,
                 scrub: true,
+                markers: false,
             });
 
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top top',
-                    end: '+=300%',
-                    scrub: true,
-                    markers: true,
+            /* ========== ブロック切り替え ========= */
+            const setStepClass = (step) => {
+                section.classList.remove('is-step-1', 'is-step-2', 'is-step-3');
+                section.classList.add(`is-step-${step}`);
+            };
+
+            setStepClass(1);
+
+            ScrollTrigger.create({
+                trigger: section,
+                start: () => 'top center',
+                end: () => {
+                    const wrapRect = wrap.getBoundingClientRect();
+                    return `bottom center`;
+                },
+                scrub: true,
+                markers: false,
+                onUpdate: self => {
+                    const p = self.progress;
+
+                    if (p < 1 / 3) {
+                        setStepClass(1);
+                    } else if (p < 2 / 3) {
+                        setStepClass(2);
+                    } else {
+                        setStepClass(3);
+                    }
                 }
             });
-
-            /* ========== 100vh ========= */
-            tl.to(svgs[0], { opacity: 0, duration: 0.3 }, 1)
-                .to(svgs[1], { opacity: 1, duration: 0.3 }, 1)
-                .add(() => {
-                    items.forEach(item => item.style.display = 'none');
-                    items[1].style.display = 'block';
-                }, 1);
-
-            /* ========== 200vh ========= */
-            tl.to(svgs[1], { opacity: 0, duration: 0.3 }, 2)
-                .to(svgs[2], { opacity: 1, duration: 0.3 }, 2)
-                .add(() => {
-                    items.forEach(item => item.style.display = 'none');
-                    items[2].style.display = 'block';
-                }, 2);
         }
     }
 

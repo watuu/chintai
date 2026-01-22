@@ -27473,7 +27473,7 @@
       _classCallCheck(this, Page);
       gsapWithCSS.registerPlugin(ScrollTrigger$1, ScrollToPlugin);
       if (document.querySelector('.cm-xxx')) ;
-      // this.pCompanyPhilosophy()
+      this.pCompanyPhilosophy();
       this.pCompanyHistory();
       this.pMedia();
     }
@@ -27483,68 +27483,60 @@
         if (document.querySelector('.p-company-philosophy')) {
           var section = document.querySelector('.p-company-philosophy');
           var wrap = document.querySelector('.p-company-philosophy__wrap');
-          var svgs = gsapWithCSS.utils.toArray('.p-company-philosophy-figure__pic svg');
-          var items = gsapWithCSS.utils.toArray('.p-company-philosophy-item');
-          svgs.forEach(function (svg, i) {
-            gsapWithCSS.set(svg, {
-              opacity: i === 0 ? 1 : 0
-            });
-          });
-          items.forEach(function (item, i) {
-            gsapWithCSS.set(item, {
-              display: i === 0 ? 'block' : 'none'
-            });
-          });
+          gsapWithCSS.utils.toArray('.p-company-philosophy-figure__pic svg');
+          gsapWithCSS.utils.toArray('.p-company-philosophy-item');
+
+          // svgs.forEach((svg, i) => {
+          //     gsap.set(svg, { opacity: i === 0 ? 1 : 0 });
+          // });
+          // items.forEach((item, i) => {
+          //     gsap.set(item, { display: i === 0 ? 'block' : 'none' });
+          // });
+
+          /* ========== PIN留め ========= */
           ScrollTrigger$1.create({
             trigger: section,
             start: function start() {
-              // wrap の中央が viewport 中央に来たら
               var wrapRect = wrap.getBoundingClientRect();
-              console.log(111, wrapRect.top, wrapRect.height, wrapRect.top + wrapRect.height / 2 - window.innerHeight / 2);
-              // return `top+=${wrapRect.top + wrapRect.height / 2 - window.innerHeight / 2}`;
-              return "top center";
+              return "top+=".concat(wrapRect.height / 2, " center");
             },
-            end: '+=200%',
+            end: function end() {
+              var wrapRect = wrap.getBoundingClientRect();
+              return "bottom-=".concat(wrapRect.height / 2, " center");
+            },
             pin: wrap,
-            scrub: true
+            scrub: true,
+            markers: false
           });
-          var tl = gsapWithCSS.timeline({
-            scrollTrigger: {
-              trigger: section,
-              start: 'top top',
-              end: '+=300%',
-              scrub: true,
-              markers: true
+
+          /* ========== ブロック切り替え ========= */
+          var setStepClass = function setStepClass(step) {
+            section.classList.remove('is-step-1', 'is-step-2', 'is-step-3');
+            section.classList.add("is-step-".concat(step));
+          };
+          setStepClass(1);
+          ScrollTrigger$1.create({
+            trigger: section,
+            start: function start() {
+              return 'top center';
+            },
+            end: function end() {
+              wrap.getBoundingClientRect();
+              return "bottom center";
+            },
+            scrub: true,
+            markers: false,
+            onUpdate: function onUpdate(self) {
+              var p = self.progress;
+              if (p < 1 / 3) {
+                setStepClass(1);
+              } else if (p < 2 / 3) {
+                setStepClass(2);
+              } else {
+                setStepClass(3);
+              }
             }
           });
-
-          /* ========== 100vh ========= */
-          tl.to(svgs[0], {
-            opacity: 0,
-            duration: 0.3
-          }, 1).to(svgs[1], {
-            opacity: 1,
-            duration: 0.3
-          }, 1).add(function () {
-            items.forEach(function (item) {
-              return item.style.display = 'none';
-            });
-            items[1].style.display = 'block';
-          }, 1);
-
-          /* ========== 200vh ========= */
-          tl.to(svgs[1], {
-            opacity: 0,
-            duration: 0.3
-          }, 2).to(svgs[2], {
-            opacity: 1,
-            duration: 0.3
-          }, 2).add(function () {
-            items.forEach(function (item) {
-              return item.style.display = 'none';
-            });
-            items[2].style.display = 'block';
-          }, 2);
         }
       }
     }, {
