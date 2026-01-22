@@ -4,5 +4,248 @@
 /*----------------------------------------------------
 	...
 ----------------------------------------------------*/
+.p-media-sports {
+	position: relative;
+	padding: 62/16+rem 24/16+rem 120/16+rem;
+	@include config.pc {
+		padding: 120/16+rem 84/16+rem 220/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.p-media-sports-ski {
+	@include config.pc {}
+}
+.p-media-sports-ski-lead {
+	margin-top: var(--padding-block-md);
+	display: flex;
+	flex-direction: column;
+	gap: 30/16+rem;
+	@include config.pc {
+		flex-direction: row;
+		align-items: flex-end;
+		gap: 86/16+rem;
+	}
+}
+.p-media-sports-ski-lead__pic {
+	img {
+		border-radius: 10/16+rem;
+	}
+	@include config.pc {
+		width: 670/16+rem;
+	}
+}
+.p-media-sports-ski-lead__content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 20/16+rem;
+	@include config.pc {
+		padding-bottom: 46/16+rem;
+	}
+}
+.p-media-sports-ski-lead__head {
+	position: relative;
+	@include config.pc {}
+}
+.p-media-sports-ski-lead__title {
+	color: var(--body, #0B2188);
+	text-align: justify;
+	font-size: 19/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 26/16+rem;
+	}
+}
+.p-media-sports-ski-lead__logo {
+	width: 60/16+rem;
+	position: absolute;
+	right: 0;
+	top: 0;
+	@include config.pc {
+		width: 106/16+rem;
+	}
+}
+.p-media-sports-ski-lead__dec {
+	@include config.pc {}
+}
+.p-media-sports-ski-lead__more {
+	display: flex;
+	align-items: center;
+	gap: 16/16+rem;
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0;
+		pointer-events: none;
+		border-top: var(--border-dashed);
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
+.p-media-sports-ski__members {
+	margin-top: var(--padding-section);
+	@include config.pc {
+		width: 1008/16+rem;
+		margin-inline: auto;
+	}
+}
+.p-media-sports-ski__membersTitle {
+	padding-bottom: 15/16+rem;
+	text-align: center;
+	font-family: var(--Outfit);
+	font-size: 28/16+rem;
+	font-weight: 600;
+	line-height: 1.00;
+	text-transform: capitalize;
+	@include config.pc {
+		padding: 0 0 20/16+rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 40/16+rem;
+	}
+}
+.p-media-sports-ski__membersList {
+	display: grid;
+	gap: 25/16+rem;
+	@include config.pc {
+		grid-template-columns: 1fr 1fr;
+		gap: 25/16+rem 25/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.p-media-sports-ski-member {
+	display: flex;
+	flex-direction: row;
+	gap: 15/16+rem;
+	padding-bottom: 25/16+rem;
+	border-bottom: var(--border-dashed);
+	@include config.pc {
+		gap: 30/16+rem;
+	}
+}
+.p-media-sports-ski-member__pic {
+	width: 90/16+rem;
+	img {
+		border-radius: 10/16+rem;
+	}
+	@include config.pc {
+		width: 155/16+rem;
+	}
+}
+.p-media-sports-ski-member__content {
+	flex: 1;
+	@include config.pc {}
+}
+.p-media-sports-ski-member__job {
+	font-family: var(--Outfit);
+	font-size: 10/16+rem;
+	font-weight: 500;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 13/16+rem;
+	}
+}
+.p-media-sports-ski-member__name {
+	font-size: 17/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	font-feature-settings: 'palt' on;
+	@include config.pc {
+		font-size: 23/16+rem;
+	}
+}
+.p-media-sports-ski-member__desc {
+	margin-top: 20/16+rem;
+	font-size: 11/16+rem;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 14/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.p-media-sports-club {
+	margin-top: var(--padding-section);
+	@include config.pc {
+		width: 1008/16+rem;
+		margin-inline: auto;
+	}
+}
+.p-media-sports-club__list {
+	margin-top: var(--padding-block-md);
+	display: flex;
+	flex-direction: column;
+	gap: var(--padding-block-lg);
+	@include config.pc {}
+}
+.p-media-sports-club-item {
+	display: flex;
+	flex-direction: column;
+	gap: 30/16+rem;
+	@include config.pc {
+		flex-direction: row;
+		align-items: center;
+		gap: 65/16+rem;
+	}
+}
+.p-media-sports-club-item__pic {
+	text-align: center;
+	img {
+		width: 220/16+rem;
+		border-radius: 10/16+rem;
+	}
+	@include config.pc {
+		width: 355/16+rem;
+		img {
+			width: 100%;
+		}
+	}
+}
+.p-media-sports-club-item__content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 15/16+rem;
+	@include config.pc {
+		gap: 20/16+rem;
+	}
+}
+.p-media-sports-club-item__head {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5/16+rem;
+}
+.p-media-sports-club-item__title {
+	font-size: 20/16+rem;
+	font-weight: 700;
+	line-height: 1.35;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 30/16+rem;
+	}
+}
+.p-media-sports-club-item__more {
+	display: flex;
+	align-items: center;
+	gap: 16/16+rem;
+	font-size: 13/16+rem;
+	font-weight: 700;
+	white-space: nowrap;
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0;
+		pointer-events: none;
+		border-top: var(--border-dashed);
+	}
+	@include config.pc {
+		font-size: 15/16+rem;
+	}
+}
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/

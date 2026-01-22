@@ -16,6 +16,8 @@ import Swiper, { Navigation, Pagination, Autoplay, Scrollbar, EffectFade } from 
 import 'swiper/css/bundle'
 Swiper.use([Navigation, Pagination, Autoplay, Scrollbar, EffectFade]);
 
+import MicroModal from 'micromodal'
+
 /*
  * common
  * 共通変数と関数
@@ -55,6 +57,19 @@ export default class common {
         // this.isSectionDark();
         this.isVisible();
         this.isVisibleType();
+
+        MicroModal.init({
+            // disableScroll: true,
+            onClose: modal => {
+                // モーダルを閉じた時に動画を停止（iframe削除）
+                const iframe = modal.querySelector('iframe');
+                if (iframe) {
+                    iframe.remove();
+                }
+            }
+        });
+        this.jsModalVideo()
+        this.jsPlayAudio()
     }
 
     reload() {
@@ -353,12 +368,12 @@ export default class common {
                                     display: "flex"
                                 })
                             }
-                        })
+                        }, 300)
                     } else {
-                        $(this).next().stop(0, 0).slideDown()
+                        $(this).next().stop(0, 0).slideDown(300)
                     }
                 } else {
-                    $(this).next().stop(0, 0).slideUp()
+                    $(this).next().stop(0, 0).slideUp(300)
                 }
             })
         }
@@ -491,6 +506,63 @@ export default class common {
         }
     }
 
+    jsModalVideo() {
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('modal-movie');
+            const iframeContainer = modal.querySelector('#modal-movie-iframe');
+            const triggers = document.querySelectorAll('.jsModalVideo');
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', function () {
+                    const youtubeId = this.getAttribute('data-video-id');
+                    const src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
+
+                    iframeContainer.innerHTML = `
+    <iframe width="560" height="315"
+      src="${src}"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  `;
+                });
+            });
+        });
+    }
+
+    jsPlayAudio() {
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('media-audio');
+            const btns = document.querySelectorAll('.jsPlayAudio');
+
+            btns.forEach(btn => {
+                let currentSrc = null;
+
+                btn.addEventListener('click', () => {
+                    const src = btn.dataset.audio;
+                    if (currentSrc !== src) {
+                        audio.src = src;
+                        currentSrc = src;
+                    }
+
+                    if (audio.paused) {
+                        audio.play();
+                        btn.classList.add('is-playing');
+                        btn.setAttribute('aria-label', '音声を停止する');
+                    } else {
+                        audio.pause();
+                        btn.classList.remove('is-playing');
+                        btn.setAttribute('aria-label', '音声を再生する');
+                    }
+                });
+            });
+
+            audio.addEventListener('ended', () => {
+                btns.forEach(btn => btn.classList.remove('is-playing'));
+            });
+        });
+    }
 
     /*globalMenu
      * setDeviceClassToBody

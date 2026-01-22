@@ -74,6 +74,7 @@
 		height: auto;
 		fill: var(--color);
 		stroke: var(--color);
+		flex-shrink: 0;
 	}
 	&:hover {
 		text-decoration: none;

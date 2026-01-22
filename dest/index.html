@@ -71,8 +71,16 @@
             <div class="p-top-mv__logo"><img src="./assets/img/p-top-mv-logo.svg"/></div>
             <div class="p-top-mv__video">
               <video preload="metadata" width="100%" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline">
-                <source src="./assets/movie/fv.mp4" type="video/mp4"/>
+                <source src="./assets/media/fv.mp4" type="video/mp4"/>
               </video>
+            </div>
+            <div class="p-top-mv__scroll">
+              <p class="js-split-text">であう</p><svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.53125 6.53027L0.53125 0.530273" stroke="#fff" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M8.53125 6.53027L14.5312 0.530273" stroke="#fff" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M6.53125 12.5303L0.53125 6.53027" stroke="#fff" stroke-width="1.5" stroke-miterlimit="10"/>
+<path d="M8.53125 12.5303L14.5312 6.53027" stroke="#fff" stroke-width="1.5" stroke-miterlimit="10"/>
+</svg>
             </div>
           </div>
         </section>
@@ -360,6 +368,19 @@
         <p class="l-footer__copyright">&copy;CHINTAI Corporation All rights reserved.</p>
       </div>
     </footer>
+  </div>
+  <audio id="media-audio" preload="none"></audio>
+  <div class="cm-modal cm-modal--movie" id="modal-movie" aria-hidden="true">
+    <div class="cm-modal__overlay" tabindex="-1" data-micromodal-close="">
+      <div class="cm-modal__wrap">
+        <button class="cm-modal__close" aria-label="Close modal" data-micromodal-close=""><span></span><span></span></button>
+        <div class="cm-modal__container" role="dialog" aria-modal="true">
+          <div class="cm-modal-movie">
+            <div class="cm-modal-movie__movie" id="modal-movie-iframe"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="./assets/js/app.js"></script>
 <svg display="none">

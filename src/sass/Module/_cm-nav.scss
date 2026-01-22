@@ -305,6 +305,7 @@
 	li:last-child &:after {
 		opacity: 0.4;
 	}
+	&.is-active,
 	&.is-current {
 		border-color: var(--color);
 	}
@@ -347,9 +348,11 @@
 	}
 	a:hover &,
 	button:hover &,
+	.is-active & ,
 	.is-current & {
 		color: var(--color);
 	}
+	.is-active & ,
 	.is-current & {
 		&:after {
 			opacity: 1;

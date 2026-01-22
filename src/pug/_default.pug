@@ -163,6 +163,16 @@ body#body(class=pageClass)
 
                 p.l-footer__copyright
                     | &copy;CHINTAI Corporation All rights reserved.
+    audio#media-audio(preload="none")
+    #modal-movie.cm-modal.cm-modal--movie(aria-hidden='true')
+        .cm-modal__overlay(tabindex='-1' data-micromodal-close='')
+            .cm-modal__wrap
+                button.cm-modal__close(aria-label='Close modal' data-micromodal-close='')
+                    span
+                    span
+                .cm-modal__container(role='dialog' aria-modal='true')
+                    .cm-modal-movie
+                        .cm-modal-movie__movie#modal-movie-iframe
     script(src= path + "assets/js/app.js")
     = "\n"
     include ./_include/_symbol

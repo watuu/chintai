@@ -11,7 +11,7 @@
 .p-media-nav {
 	padding-top: var(--padding-section);
 	position: relative;
-	border-radius: 20px 20px 0 0;
+	border-radius: 20/16+rem 20/16+rem 0 0;
 	background: #F6F7F9;
 	@include config.sp-tab {
 		overflow: hidden;
@@ -21,11 +21,11 @@
 .p-media-nav__wrap {
 	display: flex;
 	flex-direction: column;
-	gap: 14px;
+	gap: 14/16+rem;
 	@include config.pc {
 		flex-direction: row;
 		align-items: flex-end;
-		gap: 48px;
+		gap: 48/16+rem;
 	}
 }
 .p-media-nav__nav {
@@ -35,7 +35,7 @@
 		-webkit-overflow-scrolling: touch;
 		-ms-overflow-style: -ms-autohiding-scrollbar;
 		margin-inline: calc(50% - 50vw);
-		padding: 0 20px 16px 20px;
+		padding: 0 20/16+rem 16/16+rem 20/16+rem;
 		&::-webkit-scrollbar {
 		  display: none;
 		  -webkit-appearance: none;
@@ -52,20 +52,34 @@
 	align-items: center;
 	border-top: var(--border-dashed);
 	border-bottom: var(--border-dashed);
-	padding: 15px 0;
+	padding: 15/16+rem 0;
+	height: 70/16+rem;
 
-	font-size: 13px;
+	font-size: 13/16+rem;
 	font-weight: 500;
 	letter-spacing: 0.06em;
+	p {
+		display: none;
+	}
+	p.is-active {
+		display: block;
+	}
 	@include config.pc {
 		margin-top: 0;
-		width: 422px;
-		font-size: 16px;
+		width: 422/16+rem;
+		height: 80/16+rem;
+		font-size: 16/16+rem;
 	}
 }
 .p-media__wrap {
 	margin-top: var(--padding-block);
 	background: #fff;
+	> section {
+		display: none;
+	}
+	> section.is-active {
+		display: block;
+	}
 	@include config.pc {}
 }
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/

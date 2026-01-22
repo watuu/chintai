@@ -1,4 +1,4 @@
-section.p-media-advertising
+section.p-media-advertising.js-content-media(data-content="advertising")
     .p-media-advertising-block
         .p-media-advertising-block__head
             .c-heading-section.c-heading-section--sm.c-heading-section--center
@@ -11,7 +11,7 @@ section.p-media-advertising
                 figure.p-media-advertising-block-item__pic
                     img(src=img+"p-media-advertising-block-item-pic1.webp")
                     figcaption
-                        button(aria-label="動画を再生する").p-media-advertising-block-item__btn
+                        button(aria-label="動画を再生する" data-micromodal-trigger="modal-movie" data-video-id="cPP8aVpF7WI").jsModalVideo.p-media-advertising-block-item__btn
                             svg(width=44 height=44)
                                 use(href="#ico-media-play")
                 .p-media-advertising-block-item__content
@@ -23,7 +23,7 @@ section.p-media-advertising
                     h3.p-media-advertising-block-item__title
                         | 「CHINTAIにAI」篇
                     p.p-media-advertising-block-item__more
-                        a(href="#" target="_blank").c-link-external
+                        a(href="https://youtu.be/cPP8aVpF7WI?si=T-jbgmNwhBF0diGZ" target="_blank").c-link-external
                             span YouTubeで見る
                             svg(width=13 height=13)
                                 use(href="#ico-external-sm")
@@ -31,7 +31,7 @@ section.p-media-advertising
                 figure.p-media-advertising-block-item__pic
                     img(src=img+"p-media-advertising-block-item-pic2.webp")
                     figcaption
-                        button(aria-label="動画を再生する").p-media-advertising-block-item__btn
+                        button(aria-label="動画を再生する" data-micromodal-trigger="modal-movie" data-video-id="mn468TVX8YQ").jsModalVideo.p-media-advertising-block-item__btn
                             svg(width=44 height=44)
                                 use(href="#ico-media-play")
                 .p-media-advertising-block-item__content
@@ -43,16 +43,20 @@ section.p-media-advertising
                     h3.p-media-advertising-block-item__title
                         | 「メイキング」
                     p.p-media-advertising-block-item__more
-                        a(href="#" target="_blank").c-link-external
+                        a(href="https://youtu.be/mn468TVX8YQ?si=DebByE6Hp2S8rsr-" target="_blank").c-link-external
                             span YouTubeで見る
                             svg(width=13 height=13)
                                 use(href="#ico-external-sm")
             .p-media-advertising-block-item
                 figure.p-media-advertising-block-item__pic
                     figcaption
-                        button(aria-label="動画を再生する").p-media-advertising-block-item__btn
+                        button(aria-label="音声を再生する" data-audio=path+"assets/media/radio_rcm_251211_60s.mp3").jsPlayAudio.p-media-advertising-block-item__btn
                             svg(width=44 height=44)
                                 use(href="#ico-media-play")
+                            svg(width=44 height=44)
+                                use(href="#ico-media-pause")
+
+
                 .p-media-advertising-block-item__content
                     .p-media-advertising-block-item__meta
                         p.p-media-advertising-block-item__label

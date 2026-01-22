@@ -1,0 +1,153 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	...
+----------------------------------------------------*/
+.cm-modal[aria-hidden="true"] {
+	display: none !important;
+	pointer-events: none;
+}
+
+.cm-modal.is-open {
+	display: block;
+}
+.cm-modal {
+	//position: fixed;
+	//top: 0;
+	//left: 0;
+	//right: 0;
+	//bottom: 0;
+	//height: 100vh;
+	//display: flex;
+	//flex-direction: column;
+	//justify-content: center;
+	//align-items: center;
+	//z-index: 500;
+}
+
+.cm-modal__overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100vh;
+	background: rgba(#000, 0.8);
+	z-index: 500;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cm-modal__wrap {
+	@include config.pc {}
+}
+.cm-modal__container {
+	position: relative;
+	z-index: 20;
+	color: var(--color);
+	overflow-y: auto;
+	@include config.pc {}
+}
+
+.cm-modal__close {
+	position: absolute;
+	right: 0;
+	top: -40/16+rem;
+	z-index: 100;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+
+	width: 40/16+rem;
+	height: 40/16+rem;
+	//background: #fff;
+	span {
+		display: block;
+		position: absolute;
+		left: calc(50% - #{30%});
+		transition: top .35s var(--easeOutQuart), transform 0s var(--easeOutQuart);
+
+		width: 60%;
+		height: 2/16+rem;
+		background: #fff;
+		border-radius: 4/16+rem;
+	}
+	span:nth-child(1) {
+		top: calc(50%);
+		transform: scale(-1, -1) rotate(-45deg);
+	}
+	span:nth-child(2) {
+		top: calc(50%);
+		transform:  scale(-1, -1) rotate(45deg);
+	}
+	@include config.pc {
+		top: -48/16+rem;
+		width: 48/16+rem;
+		height: 48/16+rem;
+	}
+}
+/**************************\
+  Demo Animation Style
+\**************************/
+@keyframes mmfadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes mmfadeOut {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+@keyframes mmslideIn {
+	from { transform: translateY(15%);opacity: 0; }
+	to { transform: translateY(0); opacity: 1;}
+}
+
+@keyframes mmslideOut {
+	from { transform: translateY(0);opacity: 0; }
+	to { transform: translateY(-10%); opacity: 1;}
+}
+.cm-modal[aria-hidden="false"] .cm-modal__overlay {
+	opacity: 0;
+	animation: mmfadeIn .3s .2s cubic-bezier(0.0, 0.0, 0.2, 1) forwards;
+}
+
+.cm-modal[aria-hidden="false"] .cm-modal__container {
+	opacity: 0;
+	animation: mmslideIn .3s .2s cubic-bezier(0, 0, .2, 1) forwards;
+}
+
+.cm-modal[aria-hidden="true"] .cm-modal__overlay {
+	animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1) forwards;
+}
+
+.cm-modal[aria-hidden="true"] .cm-modal__container {
+	animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1) forwards;
+}
+
+.cm-modal .cm-modal__container,
+.cm-modal .cm-modal__overlay {
+	will-change: transform;
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.cm-modal__wrap {
+	position: relative;
+	max-width: 100%;
+}
+.cm-modal-movie {
+	width: 640/16+rem;
+	max-width: 100%;
+}
+.cm-modal-movie__movie {
+	iframe {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

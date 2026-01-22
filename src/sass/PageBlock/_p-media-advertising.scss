@@ -52,7 +52,6 @@
 	@include config.pc {}
 }
 .p-media-advertising-block-item__btn {
-	content: '';
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -61,10 +60,21 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-	pointer-events: none;
 	svg {
 	    width: 36/16+rem;
 	    height: auto;
+	}
+	svg:nth-child(2) {
+		position: absolute;
+		opacity: 0;
+	}
+	&.is-playing {
+		svg:nth-child(1) {
+			opacity: 0;
+		}
+		svg:nth-child(2) {
+			opacity: 1;
+		}
 	}
 	@include config.pc {
 		svg {

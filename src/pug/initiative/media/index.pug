@@ -31,58 +31,57 @@ block content
                     .p-media-nav__nav
                         ul.cm-nav-media
                             li
-                                button.cm-nav-media__btn(data-content="chintiger").is-current
+                                button.cm-nav-media__btn.js-btn-mediaTab(data-content="chintiger")
                                     i.cm-nav-media__status
                                         span._status
                                         svg(width=42 height=42)._circle
                                             use(href="#ico-circle")
                                     span.cm-nav-media__txt チンタイガー紹介
                             li
-                                button.cm-nav-media__btn(data-content="sports")
+                                button.cm-nav-media__btn.js-btn-mediaTab(data-content="sports")
                                     i.cm-nav-media__status
                                         span._status
                                         svg(width=42 height=42)._circle
                                             use(href="#ico-circle")
                                     span.cm-nav-media__txt スポーツ協賛
                             li
-                                button.cm-nav-media__btn(data-content="advertising")
+                                button.cm-nav-media__btn.js-btn-mediaTab(data-content="advertising")
                                     i.cm-nav-media__status
                                         span._status
                                         svg(width=42 height=42)._circle
                                             use(href="#ico-circle")
                                     span.cm-nav-media__txt 広告活動
                             li
-                                button.cm-nav-media__btn(data-content="program")
+                                button.cm-nav-media__btn.js-btn-mediaTab(data-content="program")
                                     i.cm-nav-media__status
                                         span._status
                                         svg(width=42 height=42)._circle
                                             use(href="#ico-circle")
                                     span.cm-nav-media__txt 番組提供
                     .p-media-nav__current
-                        p
+                        p.js-content-mediaLead.is-active
                             | CHINTAIの公式マスコットキャラクター
                             br
                             | 「チンタイガー」をご紹介します。
-                        p(style="display: none;")
+                        p.js-content-mediaLead
                             | CHINTAIは、スポーツに挑む
                             br
                             | アスリートやチームを応援しています。
-                        p(style="display: none;")
+                        p.js-content-mediaLead
                             | 最新のテレビCMからデジタル広告まで、
                             br
                             | 私たちが展開する広告活動をご紹介します。
-                        p(style="display: none;")
+                        p.js-content-mediaLead
                             | 毎日の暮らしに、楽しみと役立つ情報を。
                             br
                             | CHINTAIが提供するテレビ・ラジオ番組をご紹介します。
 
         .l-container.l-container--lg
             .p-media__wrap
-
                 include _media-chintiger
-                //include _media-sports
-                //include _media-advertising
-                //include _media-program
+                include _media-sports
+                include _media-advertising
+                include _media-program
             ul.p-media__more
                 li
                     a(href=path + "initiative/student/").c-btn-square.c-btn-square--student

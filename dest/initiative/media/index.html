@@ -89,25 +89,25 @@
               <div class="p-media-nav__nav">
                 <ul class="cm-nav-media">
                   <li>
-                    <button class="cm-nav-media__btn is-current" data-content="chintiger"><i class="cm-nav-media__status"><span class="_status"></span>
+                    <button class="cm-nav-media__btn js-btn-mediaTab" data-content="chintiger"><i class="cm-nav-media__status"><span class="_status"></span>
                         <svg class="_circle" width="42" height="42">
                           <use href="#ico-circle"></use>
                         </svg></i><span class="cm-nav-media__txt">チンタイガー紹介</span></button>
                   </li>
                   <li>
-                    <button class="cm-nav-media__btn" data-content="sports"><i class="cm-nav-media__status"><span class="_status"></span>
+                    <button class="cm-nav-media__btn js-btn-mediaTab" data-content="sports"><i class="cm-nav-media__status"><span class="_status"></span>
                         <svg class="_circle" width="42" height="42">
                           <use href="#ico-circle"></use>
                         </svg></i><span class="cm-nav-media__txt">スポーツ協賛</span></button>
                   </li>
                   <li>
-                    <button class="cm-nav-media__btn" data-content="advertising"><i class="cm-nav-media__status"><span class="_status"></span>
+                    <button class="cm-nav-media__btn js-btn-mediaTab" data-content="advertising"><i class="cm-nav-media__status"><span class="_status"></span>
                         <svg class="_circle" width="42" height="42">
                           <use href="#ico-circle"></use>
                         </svg></i><span class="cm-nav-media__txt">広告活動</span></button>
                   </li>
                   <li>
-                    <button class="cm-nav-media__btn" data-content="program"><i class="cm-nav-media__status"><span class="_status"></span>
+                    <button class="cm-nav-media__btn js-btn-mediaTab" data-content="program"><i class="cm-nav-media__status"><span class="_status"></span>
                         <svg class="_circle" width="42" height="42">
                           <use href="#ico-circle"></use>
                         </svg></i><span class="cm-nav-media__txt">番組提供</span></button>
@@ -115,17 +115,17 @@
                 </ul>
               </div>
               <div class="p-media-nav__current">
-                <p>CHINTAIの公式マスコットキャラクター<br/>「チンタイガー」をご紹介します。</p>
-                <p style="display: none;">CHINTAIは、スポーツに挑む<br/>アスリートやチームを応援しています。</p>
-                <p style="display: none;">最新のテレビCMからデジタル広告まで、<br/>私たちが展開する広告活動をご紹介します。</p>
-                <p style="display: none;">毎日の暮らしに、楽しみと役立つ情報を。<br/>CHINTAIが提供するテレビ・ラジオ番組をご紹介します。</p>
+                <p class="js-content-mediaLead is-active">CHINTAIの公式マスコットキャラクター<br/>「チンタイガー」をご紹介します。</p>
+                <p class="js-content-mediaLead">CHINTAIは、スポーツに挑む<br/>アスリートやチームを応援しています。</p>
+                <p class="js-content-mediaLead">最新のテレビCMからデジタル広告まで、<br/>私たちが展開する広告活動をご紹介します。</p>
+                <p class="js-content-mediaLead">毎日の暮らしに、楽しみと役立つ情報を。<br/>CHINTAIが提供するテレビ・ラジオ番組をご紹介します。</p>
               </div>
             </div>
           </div>
         </div>
         <div class="l-container l-container--lg">
           <div class="p-media__wrap">
-            <section class="p-media-chintiger">
+            <section class="p-media-chintiger js-content-media is-active" data-content="chintiger">
               <picture class="p-media-chintiger__bg">
                 <source srcset="../../assets/img/bg-ellipse-sp.webp" media="(max-width: 1023px)"/><img src="../../assets/img/bg-ellipse.webp"/>
               </picture>
@@ -277,9 +277,442 @@
                 </div>
               </div>
             </section>
-            <!--include _media-sports-->
-            <!--include _media-advertising-->
-            <!--include _media-program-->
+            <section class="p-media-sports js-content-media" data-content="sports">
+              <div class="p-media-sports-ski">
+                <div class="c-heading-section c-heading-section--sm c-heading-section--center">
+                  <h2 class="c-heading-section__title">CHINTAIが運営する</h2>
+                  <figure class="c-heading-section__ski"><img src="../../assets/img/p-media-sports-ski-logo.webp" alt=""/></figure>
+                </div>
+                <div class="p-media-sports-ski-lead">
+                  <figure class="p-media-sports-ski-lead__pic"><img src="../../assets/img/p-media-sports-ski-lead.webp" alt=""/></figure>
+                  <div class="p-media-sports-ski-lead__content">
+                    <div class="p-media-sports-ski-lead__head">
+                      <h3 class="p-media-sports-ski-lead__title">選手の夢とともに歩む、<br/>CHINTAIスキークラブ</h3>
+                      <figure class="p-media-sports-ski-lead__logo"><img src="../../assets/img/p-media-sports-ski-logo2.webp" alt=""/></figure>
+                    </div>
+                    <div class="p-media-sports-ski-lead__dec">
+                      <p class="c-paragraph">CHINTAIスキークラブは2013年に発足し、プロのスキージャンプ選手がそれぞれの夢に向かって競技に打ち込める環境づくりに取り組んできました。スキージャンプ界の発展に向け、選手と企業が一体となって活動しており、2017年4月より小林諭果選手が所属しています。今後も、競技支援を通じて選手の人生がさらに豊かになるよう、支援活動を継続してまいります。</p>
+                    </div>
+                    <div class="p-media-sports-ski-lead__more"><a class="c-btn-more c-btn-more--sm" href="https://chintaiski.jp/" target="_blank"><span class="c-btn-more__txt">公式サイトを見る</span><i class="c-btn-more__ico">
+                          <svg width="42" height="42">
+                            <use href="#ico-circle"></use>
+                          </svg>
+                          <svg class="_arrow" width="42" height="42">
+                            <use href="#ico-arrow-right"></use>
+                          </svg></i></a></div>
+                  </div>
+                </div>
+                <div class="p-media-sports-ski__members">
+                  <div class="p-media-sports-ski__membersList">
+                    <h3 class="p-media-sports-ski__membersTitle">Members</h3>
+                    <div class="p-media-sports-ski-member">
+                      <figure class="p-media-sports-ski-member__pic"><img src="../../assets/img/p-media-sports-ski-member1.webp" alt=""/></figure>
+                      <div class="p-media-sports-ski-member__content">
+                        <p class="p-media-sports-ski-member__job">PLAYER</p>
+                        <h3 class="p-media-sports-ski-member__name">小林 諭果</h3>
+                        <p class="p-media-sports-ski-member__desc">岩手県八幡平市出身。兄弟の背中を追い競技を始め早稲田大学を卒業後、2017年4月よりCHINTAI所属選手として迎えました。現在は札幌市を拠点に競技活動を行っており、国内女子最年長ジャンパーとして、その存在感を放っています。</p>
+                      </div>
+                    </div>
+                    <div class="p-media-sports-ski-member">
+                      <figure class="p-media-sports-ski-member__pic"><img src="../../assets/img/p-media-sports-ski-member2.webp" alt=""/></figure>
+                      <div class="p-media-sports-ski-member__content">
+                        <p class="p-media-sports-ski-member__job">PRINCIPAL</p>
+                        <h3 class="p-media-sports-ski-member__name">茂野 美咲</h3>
+                        <p class="p-media-sports-ski-member__desc">2025年4月よりCHINTAIスキークラブPrincipalに就任。新潟県南魚沼市出身、CHINTAIスキークラブ所属の元スキージャンプ選手で2022年3月に現役を引退。選手として培った豊富な経験と、勝利への情熱を胸に、新制チームを力強く牽引します。</p>
+                      </div>
+                    </div>
+                    <div class="p-media-sports-ski-member">
+                      <figure class="p-media-sports-ski-member__pic"><img src="../../assets/img/p-media-sports-ski-member3.webp" alt=""/></figure>
+                      <div class="p-media-sports-ski-member__content">
+                        <p class="p-media-sports-ski-member__job">COACH</p>
+                        <h3 class="p-media-sports-ski-member__name">ヤンネ・ヴァータイネン</h3>
+                        <p class="p-media-sports-ski-member__desc">2025年5月よりCHINTAIスキークラブ所属・小林諭果選手のコーチに就任。フィンランド、クオピオ出身の元スキージャンプ選手。フィンランド代表ヘッドコーチや日本代表コーチを歴任し、長年にわたり多くのトップアスリートを世界へ送り出してきたスペシャリストです。温かい人柄と的確な指導で、チームに新たな風を吹き込みます。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="p-media-sports-club">
+                <div class="c-heading-section c-heading-section--sm c-heading-section--center">
+                  <h2 class="c-heading-section__title">CHINTAIが応援する</h2>
+                  <p class="c-heading-section__en">Sports Club</p>
+                </div>
+                <div class="p-media-sports-club__list">
+                  <div class="p-media-sports-club-item">
+                    <figure class="p-media-sports-club-item__pic"><img src="../../assets/img/p-media-sports-club-item1.webp" alt=""/></figure>
+                    <div class="p-media-sports-club-item__content">
+                      <div class="p-media-sports-club-item__head">
+                        <p class="c-heading-label c-heading-label--sm" style="background: #5BBFE1;">01</p>
+                        <h3 class="p-media-sports-club-item__title">東京六大学野球</h3>
+                      </div>
+                      <p class="c-paragraph">東京大学・立教大学・早稲田大学・慶應義塾大学・明治大学・法政大学の6つの大学で構成された大学野球リーグで、2006年度よりサポートを行っています。毎年、春と秋に明治神宮野球場でリーグ戦が開催されています。2025年には連盟結成100年を迎えた歴史と伝統のあるリーグで、数多くのプロ野球選手の輩出してきたことから野球界のみならず幅広いメディアからも注目を浴びています。</p>
+                      <div class="p-media-sports-club-item__more"><a class="c-link-external" href="http://www.big6.gr.jp/index.php" target="_blank"><span>公式サイトを見る</span>
+                          <svg width="13" height="13">
+                            <use href="#ico-external-sm"></use>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                  <div class="p-media-sports-club-item">
+                    <figure class="p-media-sports-club-item__pic"><img src="../../assets/img/p-media-sports-club-item2.webp" alt=""/></figure>
+                    <div class="p-media-sports-club-item__content">
+                      <div class="p-media-sports-club-item__head">
+                        <p class="c-heading-label c-heading-label--sm" style="background: #EF92AE;">02</p>
+                        <h3 class="p-media-sports-club-item__title">関東学生<br class="sp">アメリカンフットボール</h3>
+                      </div>
+                      <p class="c-paragraph">「ひとつ青い空の下、最高のワンプレーを。」を掲げる関東学生アメリカンフットボール連盟様を2016年よりスポンサードしています。約90の大学が加盟する日本最大級のアメリカンフットボール連盟です。毎年9月～12月に行われるリーグ戦のサポートを行っており、注目試合日にはチンタイガーが現地へ応援に行くなど全面的に応援をしています。</p>
+                      <div class="p-media-sports-club-item__more"><a class="c-link-external" href="http://www.kcfa.jp/" target="_blank"><span>公式サイトを見る</span>
+                          <svg width="13" height="13">
+                            <use href="#ico-external-sm"></use>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                  <div class="p-media-sports-club-item">
+                    <figure class="p-media-sports-club-item__pic"><img src="../../assets/img/p-media-sports-club-item3.webp" alt=""/></figure>
+                    <div class="p-media-sports-club-item__content">
+                      <div class="p-media-sports-club-item__head">
+                        <p class="c-heading-label c-heading-label--sm" style="background: #7EBEAF;">03</p>
+                        <h3 class="p-media-sports-club-item__title">九十九里トライアスロン</h3>
+                      </div>
+                      <p class="c-paragraph">千葉県九十九里海岸で開催される日本最大規模のトライアスロンレースで、ボランティアスポンサーとして大会サポートを行っています。本大会は、“トライアスロンを楽しむ”をテーマに初心者でも気軽に参加できます。フィニッシュ会場ではイべント、ハマグリの網焼きや地元の特産物を楽しめます、競技以外の場面でも楽しむことができます。CHINTAI公式マスコットキャラクターのチンタイガーは、本大会で応援大使を務めます。</p>
+                      <div class="p-media-sports-club-item__more"><a class="c-link-external" href="http://www.99t.jp/" target="_blank"><span>公式サイトを見る</span>
+                          <svg width="13" height="13">
+                            <use href="#ico-external-sm"></use>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                  <div class="p-media-sports-club-item">
+                    <figure class="p-media-sports-club-item__pic"><img src="../../assets/img/p-media-sports-club-item4.webp" alt=""/></figure>
+                    <div class="p-media-sports-club-item__content">
+                      <div class="p-media-sports-club-item__head">
+                        <p class="c-heading-label c-heading-label--sm" style="background: #EBBA5F;">04</p>
+                        <h3 class="p-media-sports-club-item__title">全日本学生自動車連盟</h3>
+                      </div>
+                      <p class="c-paragraph">全国の「大学自動車部」が加盟する学生連盟です。毎年8月に行われる「全日本学生ダートトライアル選手権大会」「全日本学生ジムカーナ選手権大会」の大会サポートを行っています。</p>
+                      <div class="p-media-sports-club-item__more"><a class="c-link-external" href="https://www.ajsaa-alljapan.org/" target="_blank"><span>公式サイトを見る</span>
+                          <svg width="13" height="13">
+                            <use href="#ico-external-sm"></use>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="p-media-advertising js-content-media" data-content="advertising">
+              <div class="p-media-advertising-block">
+                <div class="p-media-advertising-block__head">
+                  <div class="c-heading-section c-heading-section--sm c-heading-section--center">
+                    <h2 class="c-heading-section__title">最新CM</h2>
+                    <p class="c-heading-section__en">CM Gallery</p>
+                  </div>
+                </div>
+                <div class="p-media-advertising-block__body">
+                  <div class="p-media-advertising-block-item">
+                    <figure class="p-media-advertising-block-item__pic"><img src="../../assets/img/p-media-advertising-block-item-pic1.webp"/>
+                      <figcaption>
+                        <button class="jsModalVideo p-media-advertising-block-item__btn" aria-label="動画を再生する" data-micromodal-trigger="modal-movie" data-video-id="cPP8aVpF7WI">
+                          <svg width="44" height="44">
+                            <use href="#ico-media-play"></use>
+                          </svg>
+                        </button>
+                      </figcaption>
+                    </figure>
+                    <div class="p-media-advertising-block-item__content">
+                      <div class="p-media-advertising-block-item__meta">
+                        <p class="p-media-advertising-block-item__label">TV-CM</p>
+                        <p class="p-media-advertising-block-item__season">2026 | 春</p>
+                      </div>
+                      <h3 class="p-media-advertising-block-item__title">「CHINTAIにAI」篇</h3>
+                      <p class="p-media-advertising-block-item__more"><a class="c-link-external" href="https://youtu.be/cPP8aVpF7WI?si=T-jbgmNwhBF0diGZ" target="_blank"><span>YouTubeで見る</span>
+                          <svg width="13" height="13">
+                            <use href="#ico-external-sm"></use>
+                          </svg></a></p>
+                    </div>
+                  </div>
+                  <div class="p-media-advertising-block-item">
+                    <figure class="p-media-advertising-block-item__pic"><img src="../../assets/img/p-media-advertising-block-item-pic2.webp"/>
+                      <figcaption>
+                        <button class="jsModalVideo p-media-advertising-block-item__btn" aria-label="動画を再生する" data-micromodal-trigger="modal-movie" data-video-id="mn468TVX8YQ">
+                          <svg width="44" height="44">
+                            <use href="#ico-media-play"></use>
+                          </svg>
+                        </button>
+                      </figcaption>
+                    </figure>
+                    <div class="p-media-advertising-block-item__content">
+                      <div class="p-media-advertising-block-item__meta">
+                        <p class="p-media-advertising-block-item__label">TV-CM</p>
+                        <p class="p-media-advertising-block-item__season">2026 | 春</p>
+                      </div>
+                      <h3 class="p-media-advertising-block-item__title">「メイキング」</h3>
+                      <p class="p-media-advertising-block-item__more"><a class="c-link-external" href="https://youtu.be/mn468TVX8YQ?si=DebByE6Hp2S8rsr-" target="_blank"><span>YouTubeで見る</span>
+                          <svg width="13" height="13">
+                            <use href="#ico-external-sm"></use>
+                          </svg></a></p>
+                    </div>
+                  </div>
+                  <div class="p-media-advertising-block-item">
+                    <figure class="p-media-advertising-block-item__pic">
+                      <figcaption>
+                        <button class="jsPlayAudio p-media-advertising-block-item__btn" aria-label="音声を再生する" data-audio="../../assets/media/radio_rcm_251211_60s.mp3">
+                          <svg width="44" height="44">
+                            <use href="#ico-media-play"></use>
+                          </svg>
+                          <svg width="44" height="44">
+                            <use href="#ico-media-pause"></use>
+                          </svg>
+                        </button>
+                      </figcaption>
+                    </figure>
+                    <div class="p-media-advertising-block-item__content">
+                      <div class="p-media-advertising-block-item__meta">
+                        <p class="p-media-advertising-block-item__label">Radio-CM</p>
+                        <p class="p-media-advertising-block-item__season">2026 | 春</p>
+                      </div>
+                      <h3 class="p-media-advertising-block-item__title">「CHINTAIにAI」篇</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="p-media-advertising-block p-media-advertising-block--ad">
+                <div class="p-media-advertising-block__head">
+                  <div class="c-heading-section c-heading-section--sm c-heading-section--center">
+                    <h2 class="c-heading-section__title">広告</h2>
+                    <p class="c-heading-section__en">Advertising</p>
+                  </div>
+                  <p class="c-paragraph">集客力の高いエリアにブランドロゴが<br class="sp">目立つ広告を掲出し、<br class="pc-tab">継続したブランディングを実施しています。<small>（※一部抜粋。交通広告は2026年2月実績）</small></p>
+                </div>
+                <div class="p-media-advertising-block__body">
+                  <div class="p-media-advertising-block-item">
+                    <figure class="p-media-advertising-block-item__pic"><img src="../../assets/img/p-media-advertising-block-ad1.webp"/></figure>
+                    <div class="p-media-advertising-block-item__content">
+                      <div class="p-media-advertising-block-item__meta">
+                        <p class="p-media-advertising-block-item__label">屋外広告</p>
+                      </div>
+                      <h3 class="p-media-advertising-block-item__title">CHINTAI六本木ビジョン</h3>
+                    </div>
+                  </div>
+                  <div class="p-media-advertising-block-item">
+                    <figure class="p-media-advertising-block-item__pic"><img src="../../assets/img/p-media-advertising-block-ad2.webp"/></figure>
+                    <div class="p-media-advertising-block-item__content">
+                      <div class="p-media-advertising-block-item__meta">
+                        <p class="p-media-advertising-block-item__label">屋外広告</p>
+                      </div>
+                      <h3 class="p-media-advertising-block-item__title">CHINTAI道頓堀ビジョン</h3>
+                    </div>
+                  </div>
+                  <div class="p-media-advertising-block-item">
+                    <figure class="p-media-advertising-block-item__pic"><img src="../../assets/img/p-media-advertising-block-ad3.webp"/></figure>
+                    <div class="p-media-advertising-block-item__content">
+                      <div class="p-media-advertising-block-item__meta">
+                        <p class="p-media-advertising-block-item__label">交通広告</p>
+                      </div>
+                      <h3 class="p-media-advertising-block-item__title">広島電鉄ラッピング電車</h3>
+                    </div>
+                  </div>
+                  <div class="p-media-advertising-block-item">
+                    <figure class="p-media-advertising-block-item__pic"><img src="../../assets/img/p-media-advertising-block-ad4.webp"/></figure>
+                    <div class="p-media-advertising-block-item__content">
+                      <div class="p-media-advertising-block-item__meta">
+                        <p class="p-media-advertising-block-item__label">交通広告</p>
+                      </div>
+                      <h3 class="p-media-advertising-block-item__title">東京</h3>
+                    </div>
+                  </div>
+                  <div class="p-media-advertising-block-item">
+                    <figure class="p-media-advertising-block-item__pic"><img src="../../assets/img/p-media-advertising-block-ad5.webp"/></figure>
+                    <div class="p-media-advertising-block-item__content">
+                      <div class="p-media-advertising-block-item__meta">
+                        <p class="p-media-advertising-block-item__label">交通広告</p>
+                      </div>
+                      <h3 class="p-media-advertising-block-item__title">大阪</h3>
+                    </div>
+                  </div>
+                  <div class="p-media-advertising-block-item">
+                    <figure class="p-media-advertising-block-item__pic"><img src="../../assets/img/p-media-advertising-block-ad6.webp"/></figure>
+                    <div class="p-media-advertising-block-item__content">
+                      <div class="p-media-advertising-block-item__meta">
+                        <p class="p-media-advertising-block-item__label">交通広告</p>
+                      </div>
+                      <h3 class="p-media-advertising-block-item__title">福岡</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="p-media-program js-content-media" data-content="program">
+              <div class="p-media-program-block">
+                <div class="c-heading-section c-heading-section--sm c-heading-section--center">
+                  <h2 class="c-heading-section__title">ラジオ番組</h2>
+                  <p class="c-heading-section__en">Radio</p>
+                </div>
+                <div class="p-media-program-block__list">
+                  <div class="p-media-program-block-item">
+                    <figure class="p-media-program-block-item__pic"><img src="../../assets/img/p-media-program-block-item-pic1.webp"/></figure>
+                    <div class="p-media-program-block-item__content">
+                      <div class="p-media-program-block-item__head">
+                        <div class="p-media-program-block-item__meta">
+                          <p class="c-heading-label c-heading-label--sm" style="background: #5BBFE1;">TOKYO FM</p>
+                          <p class="p-media-program-block-item__caption">CHINTAI presents</p>
+                        </div>
+                        <h3 class="p-media-program-block-item__title"><span>きゃりーぱみゅぱみゅ</span><span>Chapter#0</span></h3>
+                        <p class="p-media-program-block-item__sub">～Touch Your Heart～</p>
+                      </div>
+                      <div class="p-media-program-block-item__desc">
+                        <p class="c-paragraph">「日曜日は“気づき”がいっぱい、明日がもっと楽しくなる」をコンセプトに、きゃりーぱみゅぱみゅならではの視点・感性から生み出される新たな気づきや発見をリスナーと共有し未来のchapterを創り出す、そんな新たな一歩を踏み出すきっかけを見つけていく番組です。今日より明日がもっと楽しくなる、そんな心動く瞬間を、日曜日のお昼にお届けします。</p>
+                      </div>
+                      <div class="p-media-program-block-item__info">
+                        <dl>
+                          <dt>放送日</dt>
+                          <dd>毎週日曜日　12：30～12：55</dd>
+                        </dl>
+                        <dl>
+                          <dt>パーソナリティー</dt>
+                          <dd>きゃりーぱみゅぱみゅ</dd>
+                        </dl>
+                      </div>
+                      <ul class="p-media-program-block-item__more">
+                        <li><a class="c-link-external" href="https://www.tfm.co.jp/heart/" target="_blank"><span>番組公式サイトを見る</span>
+                            <svg width="13" height="13">
+                              <use href="#ico-external-sm"></use>
+                            </svg></a></li>
+                        <li><a class="c-link-external" href="https://radiko.jp/r_seasons/10016019" target="_blank"><span>最新回を見る</span>
+                            <svg width="13" height="13">
+                              <use href="#ico-external-sm"></use>
+                            </svg></a></li>
+                        <li><a class="c-link-external" href="https://audee.jp/station" target="_blank"><span>各エリアの放送局一覧</span>
+                            <svg width="13" height="13">
+                              <use href="#ico-external-sm"></use>
+                            </svg></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="p-media-program-block-item">
+                    <figure class="p-media-program-block-item__pic"><img src="../../assets/img/p-media-program-block-item-pic2.webp"/></figure>
+                    <div class="p-media-program-block-item__content">
+                      <div class="p-media-program-block-item__head">
+                        <div class="p-media-program-block-item__meta">
+                          <p class="c-heading-label c-heading-label--sm" style="background: #EF92AE;">J-WAVE</p>
+                        </div>
+                        <h3 class="p-media-program-block-item__title"><span>STEP ONE</span></h3>
+                        <p class="p-media-program-block-item__sub"><small>番組コーナー</small>「CHINTAI GLOBAL BEATS」</p>
+                      </div>
+                      <div class="p-media-program-block-item__desc">
+                        <p class="c-paragraph">「グローバル視点の最新ニューストピックス」と「新鮮な届いたばかりの楽曲をオンエア」する10分間のダブルコンテンツプログラム！新しい視点、多様な価値観を持つ、 2人のグローバルナビゲーターが読み解いた、世界で今、最も知っておくべきニュースと、初解禁から未発表音源まで、届いたばかりの新鮮な音楽をセットにしてランチタイムにお届けするコーナーです。</p>
+                      </div>
+                      <div class="p-media-program-block-item__info">
+                        <dl>
+                          <dt>放送日</dt>
+                          <dd>毎週月曜日～木曜日　12：05～12：15</dd>
+                        </dl>
+                        <dl>
+                          <dt>パーソナリティー</dt>
+                          <dd>サッシャ／ノイハウス 萌菜</dd>
+                        </dl>
+                      </div>
+                      <ul class="p-media-program-block-item__more">
+                        <li><a class="c-link-external" href="https://www.j-wave.co.jp/original/stepone/" target="_blank"><span>番組公式サイトを見る</span>
+                            <svg width="13" height="13">
+                              <use href="#ico-external-sm"></use>
+                            </svg></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="p-media-program-block-item">
+                    <figure class="p-media-program-block-item__pic"><img src="../../assets/img/p-media-program-block-item-pic3.webp"/></figure>
+                    <div class="p-media-program-block-item__content">
+                      <div class="p-media-program-block-item__head">
+                        <div class="p-media-program-block-item__meta">
+                          <p class="c-heading-label c-heading-label--sm" style="background: #7EBEAF;">FM802</p>
+                        </div>
+                        <h3 class="p-media-program-block-item__title">トラフィックインフォメーション</h3>
+                      </div>
+                      <div class="p-media-program-block-item__desc">
+                        <p class="c-paragraph">関西NO.1ラジオステーションFM802にて、毎週土曜日の最新交通情報をお届けしています。</p>
+                      </div>
+                      <div class="p-media-program-block-item__info">
+                        <dl>
+                          <dt>放送日</dt>
+                          <dd>毎週土曜日　7：18／7：55／9：57／10：55／12：16／15：45／16：45／17：54／18：55</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-media-program-block-item">
+                    <figure class="p-media-program-block-item__pic"><img src="../../assets/img/p-media-program-block-item-pic4.webp"/></figure>
+                    <div class="p-media-program-block-item__content">
+                      <div class="p-media-program-block-item__head">
+                        <div class="p-media-program-block-item__meta">
+                          <p class="c-heading-label c-heading-label--sm" style="background: #EBBA5F;">TOKYO FM (音声コンテンツAudee)</p>
+                          <p class="p-media-program-block-item__caption">CHINTAI presents</p>
+                        </div>
+                        <h3 class="p-media-program-block-item__title">サステナブルースカイ</h3>
+                      </div>
+                      <div class="p-media-program-block-item__desc">
+                        <p class="c-paragraph">「サステナブルマインドによる住みやすい社会づくり」をテーマに、「これからもずっと澄み切った青い空を見られますように」という願いを未来へ繋ぐため、暮らしの中のサステナブルを学び、探し、新たな気づきをシェアする番組です。<br/>ひとりひとりが暮らしの中で環境のためにできることを自分事として考えられる話題を、パーソナリティの3人が楽しくお届けします。</p>
+                      </div>
+                      <div class="p-media-program-block-item__info">
+                        <dl>
+                          <dt>放送日</dt>
+                          <dd>毎月第1・第3日曜日　13:00</dd>
+                        </dl>
+                        <dl>
+                          <dt>パーソナリティー</dt>
+                          <dd>浜崎美保／安納蒼衣／金澤亜美</dd>
+                        </dl>
+                      </div>
+                      <ul class="p-media-program-block-item__more">
+                        <li><a class="c-link-external" href="https://audee.jp/program/show/54447" target="_blank"><span>Audee</span>
+                            <svg width="13" height="13">
+                              <use href="#ico-external-sm"></use>
+                            </svg></a></li>
+                        <li><a class="c-link-external" href="https://radiko.jp/podcast/channels/a8c71d26-d02b-498a-b45d-1e6194cfa3b1" target="_blank"><span>radiko</span>
+                            <svg width="13" height="13">
+                              <use href="#ico-external-sm"></use>
+                            </svg></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="p-media-program-block">
+                <div class="c-heading-section c-heading-section--sm c-heading-section--center">
+                  <h2 class="c-heading-section__title">テレビ</h2>
+                  <p class="c-heading-section__en">TV</p>
+                </div>
+                <div class="p-media-program-block__list">
+                  <div class="p-media-program-block-item">
+                    <figure class="p-media-program-block-item__pic"><img src="../../assets/img/p-media-program-block-item-pic5.webp"/></figure>
+                    <div class="p-media-program-block-item__content">
+                      <div class="p-media-program-block-item__head">
+                        <div class="p-media-program-block-item__meta">
+                          <p class="c-heading-label c-heading-label--sm" style="background: #5BBFE1;">J:COM埼玉</p>
+                        </div>
+                        <h3 class="p-media-program-block-item__title">地域に超密着！街ドキ埼玉</h3>
+                      </div>
+                      <div class="p-media-program-block-item__desc">
+                        <p class="c-paragraph">誰もが一度は考える「この街に住んだら、暮らしはどうなるのかな？」「ここに住んでみたら？」をフックに『埼玉の街に隠された魅力・新たな発見・驚き』を発信し、視聴者の方々に番組を通して“埼玉での暮らしを感じてもらう”情報番組です。</p>
+                      </div>
+                      <div class="p-media-program-block-item__info">
+                        <dl>
+                          <dt>放送日</dt>
+                          <dd>毎週土曜日　17：45～18：00（その他リピート放送複数回あり）</dd>
+                        </dl>
+                        <dl>
+                          <dt>パーソナリティー</dt>
+                          <dd>Hi-Hi／高見奈央</dd>
+                        </dl>
+                      </div>
+                      <ul class="p-media-program-block-item__more">
+                        <li><a class="c-link-external" href="https://c.myjcom.jp/jch/p/machidoki-saitama/index.html" target="_blank"><span>番組公式サイトを見る</span>
+                            <svg width="13" height="13">
+                              <use href="#ico-external-sm"></use>
+                            </svg></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
           <ul class="p-media__more">
             <li><a class="c-btn-square c-btn-square--student" href="../../initiative/student/"><span class="c-btn-square__txt">学生応援活動</span><i class="c-btn-square__ico">
@@ -360,6 +793,19 @@
         <p class="l-footer__copyright">&copy;CHINTAI Corporation All rights reserved.</p>
       </div>
     </footer>
+  </div>
+  <audio id="media-audio" preload="none"></audio>
+  <div class="cm-modal cm-modal--movie" id="modal-movie" aria-hidden="true">
+    <div class="cm-modal__overlay" tabindex="-1" data-micromodal-close="">
+      <div class="cm-modal__wrap">
+        <button class="cm-modal__close" aria-label="Close modal" data-micromodal-close=""><span></span><span></span></button>
+        <div class="cm-modal__container" role="dialog" aria-modal="true">
+          <div class="cm-modal-movie">
+            <div class="cm-modal-movie__movie" id="modal-movie-iframe"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="../../assets/js/app.js"></script>
 <svg display="none">

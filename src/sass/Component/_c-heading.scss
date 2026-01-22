@@ -27,6 +27,16 @@
 		font-size: 80/16+rem;
 	}
 }
+.c-heading-section__ski {
+	img {
+		width: 231/16+rem;
+	}
+	@include config.pc {
+		img {
+			width: 460/16+rem;
+		}
+	}
+}
 .c-heading-page__single {
 	font-size: 32/16+rem;
 	font-weight: 700;
@@ -105,7 +115,7 @@
 		font-size: 18/16+rem;
 	}
 }
-.c-heading-label--program {
+.c-heading-label--sm {
 	padding: 3/16+rem 10/16+rem;
 	font-family: var(--Outfit);
 	font-size: 12/16+rem;
@@ -114,4 +124,5 @@
 		font-size: 13/16+rem;
 	}
 }
+
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/

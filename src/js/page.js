@@ -16,6 +16,7 @@ export default class Page {
         }
         // this.pCompanyPhilosophy()
         this.pCompanyHistory()
+        this.pMedia()
     }
 
     pCompanyPhilosophy() {
@@ -106,4 +107,29 @@ export default class Page {
         }
 
     }
+
+    pMedia() {
+        const tabs = document.querySelectorAll('.js-btn-mediaTab');
+        const contentsLead = document.querySelectorAll('.js-content-mediaLead');
+        const contents = document.querySelectorAll('.js-content-media');
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('is-active'));
+                contentsLead.forEach(c => c.classList.remove('is-active'));
+                contents.forEach(c => c.classList.remove('is-active'));
+
+                tab.classList.add('is-active');
+                contentsLead[index].classList.add('is-active');
+                contents[index].classList.add('is-active');
+            });
+        });
+
+        if (tabs.length > 0 && contents.length > 0) {
+            tabs[0].classList.add('is-active');
+            contentsLead[0].classList.add('is-active');
+            contents[0].classList.add('is-active');
+        }
+    }
 }
+

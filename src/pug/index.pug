@@ -16,8 +16,16 @@ block content
                     img(src=img+"p-top-mv-logo.svg")
                 .p-top-mv__video
                     video(controls=false, preload='metadata', width='100%' autoplay=true muted=true loop=true playsinline=true)
-                        source(src='./assets/movie/fv.mp4', type='video/mp4')
-
+                        source(src='./assets/media/fv.mp4', type='video/mp4')
+                .p-top-mv__scroll
+                    p.js-split-text
+                        | であう
+                    <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.53125 6.53027L0.53125 0.530273" stroke="#fff" stroke-width="1.5" stroke-miterlimit="10"/>
+                    <path d="M8.53125 6.53027L14.5312 0.530273" stroke="#fff" stroke-width="1.5" stroke-miterlimit="10"/>
+                    <path d="M6.53125 12.5303L0.53125 6.53027" stroke="#fff" stroke-width="1.5" stroke-miterlimit="10"/>
+                    <path d="M8.53125 12.5303L14.5312 6.53027" stroke="#fff" stroke-width="1.5" stroke-miterlimit="10"/>
+                    </svg>
         section.p-top-message
             .l-container
                 .p-top-message__wrap

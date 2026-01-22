@@ -638,6 +638,19 @@
       </div>
     </footer>
   </div>
+  <audio id="media-audio" preload="none"></audio>
+  <div class="cm-modal cm-modal--movie" id="modal-movie" aria-hidden="true">
+    <div class="cm-modal__overlay" tabindex="-1" data-micromodal-close="">
+      <div class="cm-modal__wrap">
+        <button class="cm-modal__close" aria-label="Close modal" data-micromodal-close=""><span></span><span></span></button>
+        <div class="cm-modal__container" role="dialog" aria-modal="true">
+          <div class="cm-modal-movie">
+            <div class="cm-modal-movie__movie" id="modal-movie-iframe"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="../assets/js/app.js"></script>
 <svg display="none">
 <defs>
