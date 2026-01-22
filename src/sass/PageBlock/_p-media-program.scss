@@ -1,0 +1,177 @@
+@use '../Base/config' as config;
+@use '../Component/c-btn' as btn;
+@use '../Component/c-paragraph' as paragraph;
+/*----------------------------------------------------
+	...
+----------------------------------------------------*/
+.p-media-program {
+	position: relative;
+	padding: 62/16+rem 24/16+rem 120/16+rem;
+	@include config.pc {
+		padding: 120/16+rem 130/16+rem 220/16+rem;
+	}
+}
+.p-media-program-block {
+	&:not(:first-child) {
+		margin-top: var(--padding-section);
+	}
+}
+.p-media-program-block__list {
+	margin-top: var(--padding-block-md);
+	display: flex;
+	flex-direction: column;
+	gap: var(--padding-block-lg);
+	@include config.pc {}
+}
+.p-media-program-block-item {
+	display: flex;
+	flex-direction: column;
+	gap: 30/16+rem;
+	@include config.pc {
+		flex-direction: row;
+		align-items: center;
+		gap: 65/16+rem;
+	}
+}
+.p-media-program-block-item__pic {
+	text-align: center;
+	img {
+		width: 220/16+rem;
+		border-radius: 10/16+rem;
+	}
+	@include config.pc {
+		width: 393/16+rem;
+		img {
+			width: 100%;
+		}
+	}
+}
+.p-media-program-block-item__content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 15/16+rem;
+	@include config.pc {
+		gap: 20/16+rem;
+	}
+}
+.p-media-program-block-item__meta {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 5/16+rem 10/16+rem;
+	@include config.pc {}
+}
+.p-media-program-block-item__caption {
+	font-family: var(--Outfit);
+	font-size: 12/16+rem;
+	font-weight: 600;
+	line-height: 135%; /* 16.2/16+rem */
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 15/16+rem;
+	}
+}
+.p-media-program-block-item__head {
+	@include config.pc {}
+}
+.p-media-program-block-item__title {
+	margin-top: 5/16+rem;
+	display: flex;
+	flex-wrap: wrap;
+	text-align: left;
+	font-size: 20/16+rem;
+	font-weight: 700;
+	line-height: 1.35;
+	letter-spacing: 0.04em;
+	font-family: var(--Outfit);
+	@include config.pc {
+		margin-top: 10/16+rem;
+		gap: 0 15/16+rem;
+		font-size: 30/16+rem;
+	}
+}
+.p-media-program-block-item__sub {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	font-family: var(--Outfit);
+	font-size: 16/16+rem;
+	font-weight: 700;
+	line-height: 1.35;
+	letter-spacing: 0.06em;
+	small {
+		color: #0C3096;
+		font-size: 10/16+rem;
+		font-weight: 700;
+	}
+	@include config.pc {
+		gap: 0 15/16+rem;
+		font-size: 23/16+rem;
+		small {
+			font-size: 13/16+rem;
+		}
+	}
+}
+.p-media-program-block-item__desc {
+	padding-bottom: 15/16+rem;
+	border-bottom: var(--border-dashed);
+	@include config.pc {
+		padding-bottom: 20/16+rem;
+	}
+}
+.p-media-program-block-item__info {
+	display: flex;
+	flex-direction: column;
+	gap: 12/16+rem;
+	flex-wrap: wrap;
+
+	color: var(--blue, #38A2EF);
+	font-size: 10/16+rem;
+	font-weight: 500;
+	letter-spacing: 0.06em;
+
+	dl {
+		position: relative;
+		padding-left: 12/16+rem;
+		&:before {
+			content: '';
+			display: block;
+			width: 18/16+rem;
+			height: 20/16+rem;
+			position: absolute;
+			left: 0;
+			top: 0.4em;
+			pointer-events: none;
+			background: url(../img/ico-ruled-line.svg) left center /contain no-repeat;
+		}
+	}
+	dd {
+		padding-left: 12/16+rem;
+	}
+	@include config.pc {
+		flex-direction: row;
+		gap: 40/16+rem;
+		font-size: 13/16+rem;
+		dl {
+			&:before {
+				width: 20/16+rem;
+				height: 26/16+rem;
+			}
+		}
+	}
+}
+.p-media-program-block-item__more {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10/16+rem 30/16+rem;
+
+	text-align: justify;
+	font-size: 13/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		font-size: 15/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

@@ -1,5 +1,6 @@
 @use '../Base/config' as config;
 @use '../Component/c-btn' as btn;
+@use '../Component/c-link' as link;
 @use '../Component/c-paragraph' as paragraph;
 /*----------------------------------------------------
 	...
@@ -109,19 +110,7 @@
 	font-weight: 500;
 	letter-spacing: 0.06em;
 	a {
-		display: inline-flex;
-		align-items: center;
-		gap: 5/16+rem;
-		text-decoration: underline;
-		svg {
-			width: 13/16+rem;
-			height: auto;
-			fill: var(--color);
-			stroke: var(--color);
-		}
-		&:hover {
-			text-decoration: none;
-		}
+		@extend .c-link-external;
 	}
 	@include config.pc {
 		margin: -58/16+rem 0 25/16+rem 270/16+rem;

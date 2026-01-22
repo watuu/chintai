@@ -1,0 +1,88 @@
+extends ../_default
+block vars
+    - var path = "../"
+    - var title = "お知らせ"
+    - var pageClass = "page-color"
+
+block content
+    .p-news-single
+        section.cm-section-header.cm-section-header--news
+            .l-container
+                .cm-section-header-news
+                    .cm-section-header-news__meta
+                        p.cm-section-header-news__date 2025.05.17
+                        p.cm-section-header-news__category
+                            span.cm-section-header-news__label(style="background: #EF92AE;")
+                            span 暮らし調査
+                    h1.cm-section-header-news__title
+                        | 不動産広告の「徒歩◯分」表示、約6割が誤解！ －不動産広告で使われる“距離・アクセス表現”の捉え方を調査－
+                //-.cm-section-header__wrap
+                    .c-heading-page
+                        h2.c-heading-page__title
+                            | お知らせ
+                        p.c-heading-page__en
+                            | News
+            ul.cm-section-header__bc
+                li
+                    a(href=path+"")
+                        | Top
+                li
+                    a(href=path+"news/")
+                        | News
+                li
+                    span
+                        | 不動産広告の…
+
+        .p-news-single__wrap
+            .l-container
+                .p-news-single__content.cm-post
+                    p
+                        |お部屋探しのリーディングカンパニー「株式会社CHINTAI」（本社／東京都港区、代表取締役社長 奥田倫也、以下 CHINTAI）は、全国の10代～40代の男女771名を対象に、「不動産の広告表示に関するアンケート」を実施しました。 本調査では、お部屋探しの際によく目にする「徒歩〇分」や「アクセス良好」といった不動産広告の文言に対するユーザーの認識や違和感、さらに広告の印象と実際の感覚にギャップがあることが明らかになりました。
+                    h2
+                        | 不動産広告表記とユーザーの感覚にギャップ h2
+                    p
+                        |不動産広告における「徒歩〇分」や「アクセス良好」などの表現は、物件の利便性や周辺環境の良さを直感的に伝える重要な情報として広く用いられています。 このうち「徒歩◯分」については、不動産広告の表示に関するルールとして「道路距離８０ｍ＝徒歩1分」で算出するという明確な基準がありますが、その認知度は一般ユーザーの間では十分に浸透していない可能性があります。実際に、本調査でもこうした表示ルールを正しく理解していない回答が多く見られ、広告表記と生活者の感覚とのあいだにズレが生じていることがうかがえます。 一方で、「アクセス良好」という表現は、不動産広告ルールで明確な基準が定められていないため、受け手によって解釈が分かれやすく、伝わり方にばらつきが出る表現であるとも考えられます。こうした背景を踏まえ、CHINTAIでは、不動産広告に使われる表現に対するユーザーの認識や実態を明らかにすることを目的に、本調査を実施しました。
+                    h2 調査結果サマリー h2
+                    h3 「徒歩◯分」の算出方法を誤って認識している人は約6割 (h3)
+                    ul
+                        li 不動産広告の「徒歩◯分」の算出方法を正しく理解している人は36.2％にとどまり、約6割（63.8％）が誤った認識を持っていることがわかりました。
+                        li 「すぐそば」「近い」「周辺に〇〇あり」などの距離表現では、いずれも5～10分圏内を想定する人が多数。ただし、駅やスーパーなど日常利用の施設ほど分数の感覚が短くなる傾向が見られました。
+                        li 「徒歩圏」の分数感覚には地域差があり、関東では10分以内が7割超と最多、四国では4割未満にとどまりました。
+                .p-news-single__paginate
+                    .cm-nav-paginate-single
+                        .cm-nav-paginate-single__ctrl
+                            a(href="")
+                                i.c-btn-circle.c-btn-circle--prev
+                                    svg(width=42 height=42)
+                                        use(href="#ico-circle")
+                                    svg(width=42 height=42)._arrow
+                                        use(href="#ico-arrow-right")
+                                span 前の記事
+                        .cm-nav-paginate-single__index
+                            a(href=path+ "news/")
+                                span お知らせ一覧
+                        .cm-nav-paginate-single__ctrl
+                            a(href="")
+                                span 次の記事
+                                i.c-btn-circle
+                                    svg(width=42 height=42)
+                                        use(href="#ico-circle")
+                                    svg(width=42 height=42)._arrow
+                                        use(href="#ico-arrow-right")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

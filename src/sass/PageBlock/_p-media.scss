@@ -4,5 +4,91 @@
 /*----------------------------------------------------
 	...
 ----------------------------------------------------*/
+.p-media {
+	padding-bottom: var(--padding-section);
+	@include config.pc {}
+}
+.p-media-nav {
+	padding-top: var(--padding-section);
+	position: relative;
+	border-radius: 20px 20px 0 0;
+	background: #F6F7F9;
+	@include config.sp-tab {
+		overflow: hidden;
+	}
+	@include config.pc {}
+}
+.p-media-nav__wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	@include config.pc {
+		flex-direction: row;
+		align-items: flex-end;
+		gap: 48px;
+	}
+}
+.p-media-nav__nav {
+	@include config.sp-tab {
+		white-space: nowrap;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		margin-inline: calc(50% - 50vw);
+		padding: 0 20px 16px 20px;
+		&::-webkit-scrollbar {
+		  display: none;
+		  -webkit-appearance: none;
+		}
+	}
+	@include config.pc {
+		flex: 1;
+	}
+}
+.p-media-nav__current {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-top: var(--border-dashed);
+	border-bottom: var(--border-dashed);
+	padding: 15px 0;
 
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		margin-top: 0;
+		width: 422px;
+		font-size: 16px;
+	}
+}
+.p-media__wrap {
+	margin-top: var(--padding-block);
+	background: #fff;
+	@include config.pc {}
+}
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.p-media__more {
+	margin-top: -46/16+rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	gap: 10/16+rem;
+	li {
+		width: 279/16+rem;
+	}
+	@include config.pc {
+		margin-top: -75/16+rem;
+		flex-direction: row;
+		justify-content: center;
+		gap: 24/16+rem;
+		li {
+			width: 564/16+rem;
+		}
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+

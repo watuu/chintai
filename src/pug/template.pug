@@ -43,8 +43,7 @@ block content
                             use(href="#ico-external")
                 p.bold .c-btn-status
                 button.c-btn-status
-                    svg(width=18 height=18).c-btn-status__status
-                        use(href="#ico-status")
+                    span.c-btn-status__status
                     svg(width=42 height=42).c-btn-status__circle
                         use(href="#ico-circle")
                 p.bold .c-btn-more
@@ -116,6 +115,14 @@ block content
                 a(href="#").c-link-underline
                     | お知らせ一覧
 
+                p.bold .c-link-external
+                a(href="#" target="_blank").c-link-external
+                    span お知らせ一覧
+                    svg(width=13 height=13)
+                        use(href="#ico-external-sm")
+
+
+
 
 
             hr
@@ -143,7 +150,7 @@ block content
                     | 気づく、であう、広がる。
                     br
                     | 自分らしい暮らしが叶う社会を創る。
-
+                h3.c-heading-label(style="background: #7EBEAF;") 生い立ち
 
                 p.bold .c-paragraph fz16 fz13
                 p.c-paragraph 補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。
@@ -213,6 +220,25 @@ block content
 
             hr
             .u-gap
+                p.bold .cm-nav-media
+                ul.cm-nav-media
+                    li
+                        button.cm-nav-media__btn.is-current
+                            i.cm-nav-media__status
+                                span._status
+                                svg(width=42 height=42)._circle
+                                    use(href="#ico-circle")
+                            span.cm-nav-media__txt チンタイガー紹介
+                    li
+                        button.cm-nav-media__btn
+                            i.cm-nav-media__status
+                                span._status
+                                svg(width=42 height=42)._circle
+                                    use(href="#ico-circle")
+                            span.cm-nav-media__txt チンタイガー紹介
+
+
+
                 p.bold .cm-nav-aside
                 .cm-nav-aside
                     .cm-nav-aside__chitiger

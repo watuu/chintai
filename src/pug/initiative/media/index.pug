@@ -1,0 +1,119 @@
+extends ../../_default
+block vars
+    - var path = "../../"
+    - var title = "メディア活動"
+    - var pageClass = "page-gray"
+
+block content
+    .p-media
+        section.cm-section-header.cm-section-header--hasBG
+            picture.cm-section-header__bg
+                source(srcset=img + "p-media-mv-sp.webp" media="(max-width: 1023px)")
+                img(src=img + "p-media-mv.webp")
+            .l-container
+                .cm-section-header__wrap
+                    .c-heading-page.c-heading-page--wh
+                        h2.c-heading-page__single
+                            | メディア活動
+            ul.cm-section-header__bc
+                li
+                    a(href=path+"")
+                        | Top
+                li
+                    a(href=path + "initiatives")
+                        | Initiatives
+                li
+                    span
+                        | media
+        .p-media-nav
+            .l-container.l-container--lg
+                .p-media-nav__wrap
+                    .p-media-nav__nav
+                        ul.cm-nav-media
+                            li
+                                button.cm-nav-media__btn(data-content="chintiger").is-current
+                                    i.cm-nav-media__status
+                                        span._status
+                                        svg(width=42 height=42)._circle
+                                            use(href="#ico-circle")
+                                    span.cm-nav-media__txt チンタイガー紹介
+                            li
+                                button.cm-nav-media__btn(data-content="sports")
+                                    i.cm-nav-media__status
+                                        span._status
+                                        svg(width=42 height=42)._circle
+                                            use(href="#ico-circle")
+                                    span.cm-nav-media__txt スポーツ協賛
+                            li
+                                button.cm-nav-media__btn(data-content="advertising")
+                                    i.cm-nav-media__status
+                                        span._status
+                                        svg(width=42 height=42)._circle
+                                            use(href="#ico-circle")
+                                    span.cm-nav-media__txt 広告活動
+                            li
+                                button.cm-nav-media__btn(data-content="program")
+                                    i.cm-nav-media__status
+                                        span._status
+                                        svg(width=42 height=42)._circle
+                                            use(href="#ico-circle")
+                                    span.cm-nav-media__txt 番組提供
+                    .p-media-nav__current
+                        p
+                            | CHINTAIの公式マスコットキャラクター
+                            br
+                            | 「チンタイガー」をご紹介します。
+                        p(style="display: none;")
+                            | CHINTAIは、スポーツに挑む
+                            br
+                            | アスリートやチームを応援しています。
+                        p(style="display: none;")
+                            | 最新のテレビCMからデジタル広告まで、
+                            br
+                            | 私たちが展開する広告活動をご紹介します。
+                        p(style="display: none;")
+                            | 毎日の暮らしに、楽しみと役立つ情報を。
+                            br
+                            | CHINTAIが提供するテレビ・ラジオ番組をご紹介します。
+
+        .l-container.l-container--lg
+            .p-media__wrap
+
+                include _media-chintiger
+                //include _media-sports
+                //include _media-advertising
+                //include _media-program
+            ul.p-media__more
+                li
+                    a(href=path + "initiative/student/").c-btn-square.c-btn-square--student
+                        span.c-btn-square__txt
+                            | 学生応援活動
+                        i.c-btn-square__ico
+                            svg(width=42 height=42)
+                                use(href="#ico-circle")
+                            svg(width=42 height=42)._arrow
+                                use(href="#ico-arrow-right")
+                li
+                    a(href="https://www.chintai.net/city-planning/" target="_blank").c-btn-square.c-btn-square--initiative
+                        span.c-btn-square__txt
+                            | 社会貢献プロジェクト
+                        i.c-btn-square__arrow
+                            svg(width=42 height=42)
+                                use(href="#ico-circle")
+                            svg(width=42 height=42)
+                                use(href="#ico-external")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

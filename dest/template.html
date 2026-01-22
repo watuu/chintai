@@ -115,10 +115,7 @@
               </button>
             </div>
             <p class="bold">.c-btn-status</p>
-            <button class="c-btn-status">
-              <svg class="c-btn-status__status" width="18" height="18">
-                <use href="#ico-status"></use>
-              </svg>
+            <button class="c-btn-status"><span class="c-btn-status__status"></span>
               <svg class="c-btn-status__circle" width="42" height="42">
                 <use href="#ico-circle"></use>
               </svg>
@@ -168,6 +165,10 @@
             <button class="c-btn-menu is-nav-open" aria-label="メニューを開く"><span></span><span></span></button>
             <p class="bold">.c-link-text</p><a class="c-link-text" href="#"><span class="js-clone">お知らせ一覧</span></a>
             <p class="bold">.c-link-underline</p><a class="c-link-underline" href="#">お知らせ一覧</a>
+            <p class="bold">.c-link-external</p><a class="c-link-external" href="#" target="_blank"><span>お知らせ一覧</span>
+              <svg width="13" height="13">
+                <use href="#ico-external-sm"></use>
+              </svg></a>
           </div>
           <hr/>
           <div class="u-gap">
@@ -185,6 +186,7 @@
             <h3 class="c-heading-text">一人ひとりがもっと自分らしい<br/>豊かな暮らしのできる世界へ。</h3>
             <p class="bold">.c-heading-text-sm fz26 fz19</p>
             <h3 class="c-heading-text-sm">気づく、であう、広がる。<br/>自分らしい暮らしが叶う社会を創る。</h3>
+            <h3 class="c-heading-label" style="background: #7EBEAF;">生い立ち</h3>
             <p class="bold">.c-paragraph fz16 fz13</p>
             <p class="c-paragraph">補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。補足テキストが入ります。</p>
             <p class="bold">.c-paragraph-md fz18 fz14</p>
@@ -234,6 +236,21 @@
           </div>
           <hr/>
           <div class="u-gap">
+            <p class="bold">.cm-nav-media</p>
+            <ul class="cm-nav-media">
+              <li>
+                <button class="cm-nav-media__btn is-current"><i class="cm-nav-media__status"><span class="_status"></span>
+                    <svg class="_circle" width="42" height="42">
+                      <use href="#ico-circle"></use>
+                    </svg></i><span class="cm-nav-media__txt">チンタイガー紹介</span></button>
+              </li>
+              <li>
+                <button class="cm-nav-media__btn"><i class="cm-nav-media__status"><span class="_status"></span>
+                    <svg class="_circle" width="42" height="42">
+                      <use href="#ico-circle"></use>
+                    </svg></i><span class="cm-nav-media__txt">チンタイガー紹介</span></button>
+              </li>
+            </ul>
             <p class="bold">.cm-nav-aside</p>
             <div class="cm-nav-aside">
               <div class="cm-nav-aside__chitiger">
@@ -439,10 +456,10 @@
             </div>
           </div>
           <ul class="l-footer-sns">
-            <li><a href="" target="_blank"><img src="./assets/img/ico-instagram-wh.svg" alt="instagram"/></a></li>
-            <li><a href="" target="_blank"><img src="./assets/img/ico-x-wh.svg" alt="x"/></a></li>
-            <li><a href="" target="_blank"><img src="./assets/img/ico-youtube-wh.svg" alt="youtube"/></a></li>
-            <li><a href="" target="_blank"><img src="./assets/img/ico-note-wh.svg" alt="note"/></a></li>
+            <li><a href="https://www.instagram.com/chintiger_chintai/" target="_blank"><img src="./assets/img/ico-instagram-wh.svg" alt="instagram"/></a></li>
+            <li><a href="https://x.com/CHINTiger" target="_blank"><img src="./assets/img/ico-x-wh.svg" alt="x"/></a></li>
+            <li><a href="https://www.youtube.com/@chintai" target="_blank"><img src="./assets/img/ico-youtube-wh.svg" alt="youtube"/></a></li>
+            <li><a href="https://note.chintai.jp/" target="_blank"><img src="./assets/img/ico-note-wh.svg" alt="note"/></a></li>
           </ul>
           <div class="l-footer-info">
             <p>〒107-0051<br/>東京都港区元赤坂1丁目2番7号<br/>AKASAKA K-TOWER 10階<br/>TEL. 03-5771-4600</p>
@@ -450,8 +467,8 @@
           <div class="l-footer-group">
             <h3 class="l-footer-group__head">Group Companies</h3>
             <ul class="l-footer-group__list">
-              <li><a href="#" target="_blank"><img src="./assets/img/bana-able-partners.webp" alt="ABLE &amp; PARTNERS"/></a></li>
-              <li><a href="#" target="_blank"><img src="./assets/img/bana-able.webp" alt="【エイブル】賃貸物件・不動産物件を検索！"/></a></li>
+              <li><a href="https://www.able-partners.co.jp/" target="_blank"><img src="./assets/img/bana-able-partners.webp" alt="ABLE &amp; PARTNERS"/></a></li>
+              <li><a href="https://www.able.co.jp/" target="_blank"><img src="./assets/img/bana-able.webp" alt="【エイブル】賃貸物件・不動産物件を検索！"/></a></li>
             </ul>
           </div>
           <ul class="l-footer-other">
@@ -499,6 +516,17 @@
 <symbol id="ico-external-sm" viewBox="0 0 13 13">
 <path d="M3.52344 9.40535L8.96844 3.96035L9.66594 4.65785L4.22094 10.1029L3.52344 9.40535ZM6.84594 2.66285L12.3884 1.29785L11.0309 6.84785L6.85344 2.67035L6.84594 2.66285Z" stroke="none"/>
 <path d="M7.32312 0.450195H1.20313C0.788912 0.450195 0.453125 0.785982 0.453125 1.2002V11.7002C0.453125 12.1144 0.788911 12.4502 1.20312 12.4502H11.7031C12.1173 12.4502 12.4531 12.1144 12.4531 11.7002V8.03353" fill="none" stroke-width="0.9" stroke-miterlimit="10"/>
+</symbol>
+<symbol id="ico-media-play" viewBox="0 0 44 44">
+<rect x="0.5" y="0.5" width="43" height="43" rx="21.5" fill="white"/>
+<rect x="0.5" y="0.5" width="43" height="43" rx="21.5" fill="none" stroke="#0B2188"/>
+<path d="M30.0939 21.1454C30.7347 21.5349 30.7347 22.4651 30.0939 22.8546L18.7693 29.7369C18.1029 30.1419 17.25 29.6622 17.25 28.8823L17.25 15.1177C17.25 14.3378 18.1029 13.8581 18.7694 14.2631L30.0939 21.1454Z" fill="#0C3096"/>
+</symbol>
+<symbol id="ico-media-pause" viewBox="0 0 44 44">
+<rect x="0.5" y="0.5" width="43" height="43" rx="21.5" fill="white"/>
+<rect x="0.5" y="0.5" width="43" height="43" rx="21.5" fill="none" stroke="#0B2188"/>
+<path d="M18.5 15.5V28.5" stroke="#0C3096" stroke-width="4" stroke-linecap="round"/>
+<path d="M25.5 15.5V28.5" stroke="#0C3096" stroke-width="4" stroke-linecap="round"/>
 </symbol>
 </defs>
 </svg>

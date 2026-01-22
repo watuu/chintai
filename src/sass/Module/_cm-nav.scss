@@ -149,7 +149,8 @@
 	}
 	figure:nth-child(2) {
 		width: 70/16+rem;
-		top: 20/16+rem;
+		top: 15/16+rem;
+		right: 5/16+rem;
 		opacity: 0;
 	}
 	img {
@@ -217,7 +218,7 @@
 		content: '';
 		display: block;
 		width: 60/16+rem;
-		height: 50/16+rem;
+		height: 60/16+rem;
 		position: absolute;
 		right: config.px(-1);
 		top: config.px(-1);
@@ -252,6 +253,111 @@
 	height: 25/16+rem;
 	transform: rotate(90deg);
 }
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.cm-nav-media {
+	display: flex;
+	@include config.sp-tab {
+		li {
+			flex-shrink: 0;
+		}
+	}
+	@include config.pc {
+		border-bottom: var(--border-dashed);
+		li {
+			flex: 1;
+		}
+	}
+}
+.cm-nav-media__btn {
+	display: flex;
+	width: 100%;
+	margin-bottom: -1/16+rem;
+	padding: 3/16+rem 16/16+rem 7/16+rem;
+	justify-content: center;
+	align-items: center;
+	gap: 5/16+rem;
+
+	color: var(--corporate, #0C3096);
+	font-size: 14/16+rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	position: relative;
+	border-bottom: 2/16+rem solid var(--color);
+	border-color: transparent;
+	&:before ,
+	&:after {
+		content: '';
+		display: block;
+		width: 0;
+		height: calc(100% - #{9/16+rem});
+		position: absolute;
+		left: 0;
+		top: 3/16+rem;
+		pointer-events: none;
+		border-left: var(--border);
+		opacity: 0.4;
+	}
+	&:after {
+		left: auto;
+		right: 0;
+		opacity: 0;
+	}
+	li:last-child &:after {
+		opacity: 0.4;
+	}
+	&.is-current {
+		border-color: var(--color);
+	}
+	@include config.pc {
+		padding: 3/16+rem 16/16+rem 18/16+rem;
+		font-size: 18/16+rem;
+		letter-spacing: 0.00em;
+		&:before ,
+		&:after {
+			height: calc(100% - #{20/16+rem});
+			top: 3/16+rem;
+		}
+	}
+}
+.cm-nav-media__status {
+	@extend .c-btn-status;
+	@extend .c-btn-status--media;
+	._status {
+		@extend .c-btn-status__status;
+	}
+	._circle {
+		@extend .c-btn-status__circle;
+	}
+	@include config.pc {}
+}
+.cm-nav-media__txt {
+	color: var(--title, #829CCC);
+	transition: var(--duration) var(--easeTheme);
+	&:after {
+		content: '';
+		display: block;
+		width: 16/16+rem;
+		height: 14/16+rem;
+		position: absolute;
+		left: calc(50% - #{8/16+rem});
+		top: 100%;
+		pointer-events: none;
+		background: url(../img/ico-triangle-down.svg) center top /contain no-repeat;
+		opacity: 0;
+	}
+	a:hover &,
+	button:hover &,
+	.is-current & {
+		color: var(--color);
+	}
+	.is-current & {
+		&:after {
+			opacity: 1;
+		}
+	}
+	@include config.pc {}
+}
+
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .cm-nav-paginate {

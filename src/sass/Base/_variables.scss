@@ -11,6 +11,7 @@
 	--Urbanist : "Urbanist", var(--sans);
 
 	--color: #0B2188;
+	--color-sky: #5BBFE1;
 	--color-light: #EEF7FB;
 	--color-inverse: #fff;
 	--color-accent: #f00;
@@ -23,18 +24,22 @@
 	// 余白
 	--gap: #{12/16+rem};
 	--padding-block: #{30/16+rem};
+	--padding-block-md: #{40/16+rem};
 	--padding-block-lg: #{50/16+rem};
-	--padding-section-sm: #{72/16+rem};
+	--padding-section-sm: #{62/16+rem};
 	--padding-section: #{88/16+rem};
 	@include config.pc {
 		--gap: #{16/16+rem};
 		--padding-block: #{40/16+rem};
+		--padding-block-md: #{60/16+rem};
 		--padding-block-lg: #{70/16+rem};
 		--padding-section-sm: #{90/16+rem};
 		--padding-section: #{140/16+rem};
 	}
 	// ボーダー
 	--border: 1px solid var(--color);
+	--border-sky: 1px solid #38A2EF;
+	--border-md: 1.5px solid var(--color);
 	--border-wh: 1px solid #fff;
 	//--border-dashed: linear-gradient(to right, rgba(12, 48, 150, 0.40), rgba(12, 48, 150, 0.40) 2px, transparent 2px, transparent 4px) left bottom / 6px 1px repeat-x;
 	--border-dashed: 1px dashed rgba(28, 32, 142, 0.40);

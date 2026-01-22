@@ -17,7 +17,6 @@ export default class Lottie {
         if (items.length > 0) {
 
             items.forEach( item => {
-            console.log(item.dataset.src)
                 const once = !!item.dataset.once
                 const animation = lottie.loadAnimation({
                     container: item,
@@ -26,17 +25,16 @@ export default class Lottie {
                     autoplay: !once,
                     path: item.dataset.src
                 });
-                animation.goToAndPlay(0, true);
-                // if (once) {
-                //     ScrollTrigger.create({
-                //         trigger: item,
-                //         start: "top 70%",
-                //         once: true,
-                //         onEnter: () => {
-                //             animation.goToAndPlay(0, true);
-                //         }
-                //     });
-                // }
+                if (once) {
+                    ScrollTrigger.create({
+                        trigger: item,
+                        start: "top 70%",
+                        once: true,
+                        onEnter: () => {
+                            animation.goToAndPlay(0, true);
+                        }
+                    });
+                }
             })
         }
     }

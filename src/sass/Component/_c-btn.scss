@@ -118,16 +118,53 @@
 .c-btn-status__status {
 	position: absolute;
 	width: 46%;
-	height: auto;
+	height: 46%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	transition: var(--duration-s) var(--easeTheme);
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0;
+		position: absolute;
+		pointer-events: none;
+		border-top: var(--border-md);
+		transition: var(--duration-s) var(--easeTheme);
+	}
+	&:after {
+		transform: rotate(90deg);
+	}
 	.is-open & {
-		transform: rotate(45deg);
+		transform: rotate(90deg);
+		&:before {
+			width: 0;
+		}
+	}
+	.is-current & {
+		transform: rotate(90deg);
+		&:before {
+			width: 0;
+		}
+		&:before,
+		&:after {
+			border-color: #fff;
+		}
 	}
 }
 .c-btn-status__circle {
 	width: 100%;
 	stroke: var(--color);
 	fill: #fff;
+	.is-current & {
+		fill: var(--color);
+	}
+}
+.c-btn-status--media {
+	width: 25/16+rem;
+	height: 25/16+rem;
 }
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .c-btn-more {
@@ -213,6 +250,14 @@
 	color: #fff;
 	font-weight: 700;
 	background: linear-gradient(94deg, rgba(238, 97, 139, 0.00) 3.11%, rgba(238, 97, 139, 0.30) 38.33%), #EF92AE;
+	@include config.pc {
+		font-size: 23/16+rem;
+	}
+}
+.c-btn-square--student {
+	color: #fff;
+	font-weight: 700;
+	background: linear-gradient(94deg, rgba(91, 191, 225, 0.00) 15.85%, rgba(79, 186, 222, 0.30) 94.66%), #5BBFE1;
 	@include config.pc {
 		font-size: 23/16+rem;
 	}

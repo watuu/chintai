@@ -40,3 +40,25 @@
 	}
 }
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.p-news-single {
+	padding-bottom: var(--padding-section);
+	@include config.pc {}
+}
+.p-news-single__wrap {
+	position: relative;
+	background: var(--color-light);
+	border-radius: 20/16+rem 20/16+rem 0 0;
+	padding: var(--padding-section) 0 0;
+	@include config.pc {}
+}
+.p-news-single__content {
+	@include config.pc {
+		width: 864px;
+		margin-inline: auto;
+	}
+}
+.p-news-single__paginate {
+	margin-top: var(--padding-section-sm);
+	@include config.pc {}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/

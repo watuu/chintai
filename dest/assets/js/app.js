@@ -27411,9 +27411,80 @@
       _classCallCheck(this, Page);
       gsapWithCSS.registerPlugin(ScrollTrigger$1, ScrollToPlugin);
       if (document.querySelector('.cm-xxx')) ;
+      // this.pCompanyPhilosophy()
       this.pCompanyHistory();
     }
     return _createClass$1(Page, [{
+      key: "pCompanyPhilosophy",
+      value: function pCompanyPhilosophy() {
+        if (document.querySelector('.p-company-philosophy')) {
+          var section = document.querySelector('.p-company-philosophy');
+          var wrap = document.querySelector('.p-company-philosophy__wrap');
+          var svgs = gsapWithCSS.utils.toArray('.p-company-philosophy-figure__pic svg');
+          var items = gsapWithCSS.utils.toArray('.p-company-philosophy-item');
+          svgs.forEach(function (svg, i) {
+            gsapWithCSS.set(svg, {
+              opacity: i === 0 ? 1 : 0
+            });
+          });
+          items.forEach(function (item, i) {
+            gsapWithCSS.set(item, {
+              display: i === 0 ? 'block' : 'none'
+            });
+          });
+          ScrollTrigger$1.create({
+            trigger: section,
+            start: function start() {
+              // wrap の中央が viewport 中央に来たら
+              var wrapRect = wrap.getBoundingClientRect();
+              console.log(111, wrapRect.top, wrapRect.height, wrapRect.top + wrapRect.height / 2 - window.innerHeight / 2);
+              // return `top+=${wrapRect.top + wrapRect.height / 2 - window.innerHeight / 2}`;
+              return "top center";
+            },
+            end: '+=200%',
+            pin: wrap,
+            scrub: true
+          });
+          var tl = gsapWithCSS.timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: 'top top',
+              end: '+=300%',
+              scrub: true,
+              markers: true
+            }
+          });
+
+          /* ========== 100vh ========= */
+          tl.to(svgs[0], {
+            opacity: 0,
+            duration: 0.3
+          }, 1).to(svgs[1], {
+            opacity: 1,
+            duration: 0.3
+          }, 1).add(function () {
+            items.forEach(function (item) {
+              return item.style.display = 'none';
+            });
+            items[1].style.display = 'block';
+          }, 1);
+
+          /* ========== 200vh ========= */
+          tl.to(svgs[1], {
+            opacity: 0,
+            duration: 0.3
+          }, 2).to(svgs[2], {
+            opacity: 1,
+            duration: 0.3
+          }, 2).add(function () {
+            items.forEach(function (item) {
+              return item.style.display = 'none';
+            });
+            items[2].style.display = 'block';
+          }, 2);
+        }
+      }
+    }, {
       key: "pCompanyHistory",
       value: function pCompanyHistory() {
         if (document.querySelector('.p-company-history-timeline')) {
@@ -44466,7 +44537,6 @@
         var items = document.querySelectorAll('.js-lottie');
         if (items.length > 0) {
           items.forEach(function (item) {
-            console.log(item.dataset.src);
             var once = !!item.dataset.once;
             var animation = lottie.loadAnimation({
               container: item,
@@ -44476,17 +44546,16 @@
               autoplay: !once,
               path: item.dataset.src
             });
-            animation.goToAndPlay(0, true);
-            // if (once) {
-            //     ScrollTrigger.create({
-            //         trigger: item,
-            //         start: "top 70%",
-            //         once: true,
-            //         onEnter: () => {
-            //             animation.goToAndPlay(0, true);
-            //         }
-            //     });
-            // }
+            if (once) {
+              ScrollTrigger$1.create({
+                trigger: item,
+                start: "top 70%",
+                once: true,
+                onEnter: function onEnter() {
+                  animation.goToAndPlay(0, true);
+                }
+              });
+            }
           });
         }
       }

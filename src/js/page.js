@@ -14,7 +14,65 @@ export default class Page {
         if (document.querySelector('.cm-xxx')) {
             //
         }
+        // this.pCompanyPhilosophy()
         this.pCompanyHistory()
+    }
+
+    pCompanyPhilosophy() {
+        if (document.querySelector('.p-company-philosophy')) {
+
+            const section = document.querySelector('.p-company-philosophy');
+            const wrap = document.querySelector('.p-company-philosophy__wrap');
+            const svgs = gsap.utils.toArray('.p-company-philosophy-figure__pic svg');
+            const items = gsap.utils.toArray('.p-company-philosophy-item');
+
+            svgs.forEach((svg, i) => {
+                gsap.set(svg, { opacity: i === 0 ? 1 : 0 });
+            });
+            items.forEach((item, i) => {
+                gsap.set(item, { display: i === 0 ? 'block' : 'none' });
+            });
+
+            ScrollTrigger.create({
+                trigger: section,
+                start: () => {
+                    // wrap の中央が viewport 中央に来たら
+                    const wrapRect = wrap.getBoundingClientRect();
+                    console.log(111, wrapRect.top, wrapRect.height, (wrapRect.top + wrapRect.height / 2 - window.innerHeight / 2))
+                    // return `top+=${wrapRect.top + wrapRect.height / 2 - window.innerHeight / 2}`;
+                    return `top center`
+                },
+                end: '+=200%',
+                pin: wrap,
+                scrub: true,
+            });
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top top',
+                    end: '+=300%',
+                    scrub: true,
+                    markers: true,
+                }
+            });
+
+            /* ========== 100vh ========= */
+            tl.to(svgs[0], { opacity: 0, duration: 0.3 }, 1)
+                .to(svgs[1], { opacity: 1, duration: 0.3 }, 1)
+                .add(() => {
+                    items.forEach(item => item.style.display = 'none');
+                    items[1].style.display = 'block';
+                }, 1);
+
+            /* ========== 200vh ========= */
+            tl.to(svgs[1], { opacity: 0, duration: 0.3 }, 2)
+                .to(svgs[2], { opacity: 1, duration: 0.3 }, 2)
+                .add(() => {
+                    items.forEach(item => item.style.display = 'none');
+                    items[2].style.display = 'block';
+                }, 2);
+        }
     }
 
     pCompanyHistory() {

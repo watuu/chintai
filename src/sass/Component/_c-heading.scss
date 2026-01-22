@@ -32,7 +32,7 @@
 	font-weight: 700;
 	letter-spacing: 0.08em;
 	@include config.pc {
-		font-size: 53px;
+		font-size: 53/16+rem;
 	}
 }
 .c-heading-page {}
@@ -84,6 +84,34 @@
 	letter-spacing: 0.06em;
 	@include config.pc {
 		font-size: 26/16+rem;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.c-heading-label {
+	display: inline-flex;
+	padding: 3/16+rem 12/16+rem 4/16+rem 12/16+rem;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 100/16+rem;
+	border: var(--border);
+
+	color: #FFF;
+	font-size: 14/16+rem;
+	font-weight: 500;
+	letter-spacing: 0.06em;
+	@include config.pc {
+		padding: 4/16+rem 20/16+rem 5/16+rem 20/16+rem;
+		font-size: 18/16+rem;
+	}
+}
+.c-heading-label--program {
+	padding: 3/16+rem 10/16+rem;
+	font-family: var(--Outfit);
+	font-size: 12/16+rem;
+	@include config.pc {
+		padding: 3/16+rem 15/16+rem 4/16+rem 15/16+rem;
+		font-size: 13/16+rem;
 	}
 }
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/

@@ -31,6 +31,9 @@ body {
 	:lang(ja) & {
 		text-align: justify;
 		font-feature-settings: 'palt' on;
+		button {
+			font-feature-settings: 'palt' on;
+		}
 	}
 }
 .serif {

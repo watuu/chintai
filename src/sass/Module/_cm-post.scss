@@ -8,41 +8,76 @@ body figure {
 	margin-bottom: 0;
 }
 .cm-post {
+	--gap-post: #{40/16+rem};
+
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
+	gap: var(--gap-post);
 
-	font-size: 16/16+rem;
-	line-height: 2;
+	font-size: 13/16+rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.85;
+	letter-spacing: 0.06em;
 	word-break: break-all;
 
 	@include config.pc {
-		gap: 36px;
+		font-size: 16/16+rem;
+		line-height: 2;
 	}
-	h1 {
-		font-size: 2em;
-		margin-top: 0.67em;
-		font-weight: bold;
+	> h1,
+	> h2 {
+		position: relative;
+		padding-left: 16/16+rem;
+		font-size: 20/16+rem;
+		font-weight: 700;
+		line-height: 1.5;
+		letter-spacing: 0.06em;
+		&:before {
+			content: '';
+			display: block;
+			width: 4/16+rem;
+			height: calc(100% - 0.2em);
+			position: absolute;
+			left: 0;
+			top: 0.1em;
+			pointer-events: none;
+			border-radius: 81.474/16+rem;
+			border: var(--border);
+			background: var(--sky, #5BBFE1);
+		}
+		&:not(:first-child) {
+			margin-top: 60/16+rem;
+		}
+		@include config.pc {
+			padding-left: 20/16+rem;
+			font-size: 30/16+rem;
+			&:before {
+				width: 5/16+rem;
+				height: 100%;
+				top: 0;
+			}
+		}
+		& + h3,
+		& + h4, {
+			&:not(:first-child) {
+				margin-top: 0;
+			}
+		}
 	}
-	h2 {
-		font-size: 1.5em;
-		margin-top: 0.83em;
-		font-weight: bold;
-	}
-	h3 {
-		display: block;
-		font-size: 1.17em;
-		margin-top: 1em;
-		font-weight: bold;
-	}
-	h4 {
-		font-size: 1em;
-		margin-top: 1.33em;
-		font-weight: bold;
+	> h3,
+	> h4 {
+		font-size: 16/16+rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		&:not(:first-child) {
+			margin-top: 40/16+rem;
+		}
+		@include config.pc {
+			font-size: 23/16+rem;
+		}
 	}
 	h5 {
-		font-size: 0.83em;
-		margin-top: 1.67em;
 		font-weight: bold;
 	}
 	strong {
@@ -66,10 +101,10 @@ body figure {
 	table th,
 	table td {
 		padding: .5em .5em;
-		border: 1px solid #ccc;
+		border: var(--border);
 	}
 	a {
-		color: var(--color-accent);
+		color: var(--color-sky);
 		text-decoration: underline;
 		&:hover {
 			text-decoration: none;

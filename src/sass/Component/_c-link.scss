@@ -64,3 +64,19 @@
 	}
 }
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.c-link-external {
+	display: inline-flex;
+	align-items: center;
+	gap: 5/16+rem;
+	text-decoration: underline;
+	svg {
+		width: 13/16+rem;
+		height: auto;
+		fill: var(--color);
+		stroke: var(--color);
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+/*::::::::::::::::::::::::::::::::::::::::::::::::::*/
