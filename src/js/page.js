@@ -17,6 +17,7 @@ export default class Page {
         this.pCompanyPhilosophy()
         this.pCompanyHistory()
         this.pMedia()
+        this.pMediaChintiger()
     }
 
     pCompanyPhilosophy() {
@@ -135,6 +136,51 @@ export default class Page {
             tabs[0].classList.add('is-active');
             contentsLead[0].classList.add('is-active');
             contents[0].classList.add('is-active');
+        }
+    }
+
+    pMediaChintiger() {
+        if (document.querySelector('.p-media-chintiger-profile__block2Text .swiper')) {
+            const swiper = new Swiper('.p-media-chintiger-profile__block2Text .swiper', {
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 0,
+                speed: 0,
+                // effect: 'fade',
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                on: {
+                    slideChangeTransitionStart(swiper) {
+                        // キャプション
+                        const captions = document.querySelectorAll(
+                            '.p-media-chintiger-profile__block2Pic figcaption p'
+                        );
+                        captions.forEach(p => {
+                            p.style.display = 'none';
+                        });
+                        const index = swiper.realIndex;
+                        if (captions[index]) {
+                            captions[index].style.display = 'block';
+                        }
+
+                        // 文字
+                        document.querySelectorAll('.p-media-chintiger-profile__block2Text .swiper-slide span span').forEach(s => {
+                            s.style.display = 'none';
+                        });
+
+                        const activeSlide = swiper.slides[swiper.activeIndex];
+                        const chars = activeSlide.querySelectorAll('span span');
+
+                        chars.forEach((char, i) => {
+                            setTimeout(() => {
+                                char.style.display = 'inline-block';
+                            }, i * 50);
+                        });
+                    }
+                }
+            });
         }
     }
 }

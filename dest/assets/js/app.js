@@ -27476,6 +27476,7 @@
       this.pCompanyPhilosophy();
       this.pCompanyHistory();
       this.pMedia();
+      this.pMediaChintiger();
     }
     return _createClass$1(Page, [{
       key: "pCompanyPhilosophy",
@@ -27596,6 +27597,48 @@
           tabs[0].classList.add('is-active');
           contentsLead[0].classList.add('is-active');
           contents[0].classList.add('is-active');
+        }
+      }
+    }, {
+      key: "pMediaChintiger",
+      value: function pMediaChintiger() {
+        if (document.querySelector('.p-media-chintiger-profile__block2Text .swiper')) {
+          new Swiper('.p-media-chintiger-profile__block2Text .swiper', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            speed: 0,
+            // effect: 'fade',
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false
+            },
+            on: {
+              slideChangeTransitionStart: function slideChangeTransitionStart(swiper) {
+                // キャプション
+                var captions = document.querySelectorAll('.p-media-chintiger-profile__block2Pic figcaption p');
+                captions.forEach(function (p) {
+                  p.style.display = 'none';
+                });
+                var index = swiper.realIndex;
+                if (captions[index]) {
+                  captions[index].style.display = 'block';
+                }
+
+                // 文字
+                document.querySelectorAll('.p-media-chintiger-profile__block2Text .swiper-slide span span').forEach(function (s) {
+                  s.style.display = 'none';
+                });
+                var activeSlide = swiper.slides[swiper.activeIndex];
+                var chars = activeSlide.querySelectorAll('span span');
+                chars.forEach(function (_char, i) {
+                  setTimeout(function () {
+                    _char.style.display = 'inline-block';
+                  }, i * 50);
+                });
+              }
+            }
+          });
         }
       }
     }]);

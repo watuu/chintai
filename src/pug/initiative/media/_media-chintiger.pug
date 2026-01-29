@@ -68,17 +68,22 @@ section.p-media-chintiger.js-content-media(data-content="chintiger").is-active
                 .p-media-chintiger-profile__block2Wrap
                     figure.p-media-chintiger-profile__block2Pic
                         img(src=img + "p-media-chintiger-profile-chintiger3.svg")
-                        figcaption マイペース
-                        figcaption(style="display: none;") 寂しがり屋
-                        figcaption(style="display: none;") 気分屋
+                        figcaption
+                            p マイペース
+                            p(style="display: none;") 寂しがり屋
+                            p(style="display: none;") 気分屋
                     .p-media-chintiger-profile__block2Text
-                        p
-                            span マイペースでのほほんとした性格
-                        p(style="display: none;")
-                            span ジャングルで育児放棄をされた経験
-                            span から、人一倍なつっこくて寂しがり屋
-                        p(style="display: none;")
-                            span 頑張る時と頑張らない時の落差が激しい
+                        .swiper
+                            .swiper-wrapper
+                                .swiper-slide
+                                    p
+                                        span.js-split-text マイペースでのほほんとした性格
+                                .swiper-slide
+                                    p
+                                        span.js-split-text ジャングルで育児放棄をされた経験<br class="pc">から、人一倍なつっこくて寂しがり屋
+                                .swiper-slide
+                                    p
+                                        span.js-split-text 頑張る時と頑張らない時の落差が激しい
 
             .p-media-chintiger-profile__block3
                 h3.c-heading-label(style="background: #EF92AE;") 特徴

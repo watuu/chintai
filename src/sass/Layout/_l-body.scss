@@ -16,6 +16,12 @@ body {
 	}
 	@include config.sp-tab {
 	}
+	&.page-front {
+		overflow: hidden;
+		&.loadedLower {
+			overflow: initial;
+		}
+	}
 	&.page-color {
 		background: var(--color-light);
 	}

@@ -208,7 +208,7 @@
 	@include config.pc {
 		position: absolute;
 		bottom: -70/16+rem;
-		width: 427/16+rem;
+		width: 500/16+rem;
 		left: 166/16+rem;
 		border-bottom: none;
 		gap: 20/16+rem;
@@ -225,6 +225,7 @@
 	position: relative;
 	margin-left: 25/16+rem;
 	width: 122.001/16+rem;
+	flex-shrink: 0;
 	figcaption {
 		position: absolute;
 		top: 56/16+rem;
@@ -232,6 +233,7 @@
 		height: 67.757/16+rem;
 		padding-left: 10/16+rem;
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
@@ -251,26 +253,38 @@
 }
 .p-media-chintiger-profile__block2Text {
 	flex: 1;
+	width: 140/16+rem;
 	padding-top: 30/16+rem;
+	flex-shrink: 0;
+	.swiper {
+		width: 100%;
+	}
+	.swiper-slide {
+		//display: flex;
+		//flex-direction: column;
+		//align-items: flex-start;
+		//gap: 5/16+rem;
+	}
 	p {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 5/16+rem;
-		span {
+		font-size: 12/16+rem;
+		font-weight: 400;
+		letter-spacing: 0.06em;
+		//background: #fff;
+		//line-height: ;
+		//background: linear-gradient( transparent 20%, #fff 20%, #fff 80%, transparent 80% );
+		> span {
 			padding: 0 5/16+rem;
-			font-size: 12/16+rem;
-			font-weight: 400;
-			letter-spacing: 0.06em;
-			background: #fff;
+			line-height: 2;
+			background: linear-gradient(transparent 0%, #fff 0%, #fff 100%, transparent 100%);
+			box-decoration-break: clone;
+			-webkit-box-decoration-break: clone;
 		}
 	}
 	@include config.pc {
 		padding-top: 40/16+rem;
+		width: 334/16+rem;
 		p {
-			span {
-				font-size: 16/16+rem;
-			}
+			font-size: 16/16+rem;
 		}
 	}
 }

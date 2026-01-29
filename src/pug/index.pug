@@ -2,7 +2,7 @@ extends ./_default
 block vars
     - var path = "./"
     - var title = ""
-    - var pageClass = ""
+    - var pageClass = "page-front"
 
 block content
 
@@ -11,6 +11,12 @@ block content
             .p-top-video
                 video(controls=false, preload='metadata', width='100%' autoplay=true muted=true loop=true playsinline=true)
         section.p-top-mv
+            //-
+                <svg viewBox="0 0 800 600" width="0" height="0">
+                <clipPath id="clip_branding" clipPathUnits="objectBoundingBox">
+                <path transform="scale(0.00125,0.00166)" data-name="パス 1309" d=""></path>
+                </clipPath>
+                </svg>
             .p-top-mv__wrap
                 .p-top-mv__logo
                     img(src=img+"p-top-mv-logo.svg")

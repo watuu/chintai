@@ -9,6 +9,7 @@
 }
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .p-top-mv {
+
 	@include config.pc {}
 }
 .p-top-mv__wrap {
@@ -20,20 +21,6 @@
 	min-height: 600/16+rem;
 	height: 100vh;
 	@include config.pc {}
-}
-.p-top-mv__logo {
-	z-index: 5;
-	img,
-	svg {
-	    width: 200/16+rem;
-	    height: auto;
-	}
-	@include config.pc {
-		img,
-		svg {
-			width: 416/16+rem;
-		}
-	}
 }
 .p-top-mv__video {
 	position: fixed;
@@ -48,8 +35,34 @@
 		object-fit: cover;
 		background: #000;
 	}
+	clip-path: inset(50% round #{10/16+rem});
+	.loadedLower & {
+		will-change: clipPath;
+		transition: 1.6s var(--easeOutQuart);
+		clip-path: inset(0% round #{10/16+rem});
+	}
 	@include config.pc {
 		inset: 20/16+rem 20/16+rem 20/16+rem;
+	}
+}
+.p-top-mv__logo {
+	z-index: 5;
+	img,
+	svg {
+		width: 200/16+rem;
+		height: auto;
+	}
+	opacity: 0;
+	.loadedLower & {
+		opacity: 1;
+		transition: 0.6s var(--easeTheme);
+		transition-delay: 1.0s;
+	}
+	@include config.pc {
+		img,
+		svg {
+			width: 416/16+rem;
+		}
 	}
 }
 .p-top-mv__scroll {
@@ -65,6 +78,12 @@
 	font-size: 17/16+rem;
 	font-weight: 500;
 	letter-spacing: 0.06em;
+	opacity: 0;
+	.loadedLower & {
+		opacity: 1;
+		transition: 0.6s var(--easeTheme);
+		transition-delay: 1.0s;
+	}
 	p {
 		display: inline-flex;
 		span {
