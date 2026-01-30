@@ -1525,6 +1525,12 @@ body.page-gray {
           flex-direction: column;
   gap: 2.5rem;
 }
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .p-top-service__items {
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+}
 @media screen and (min-width: 1024px) {
   .p-top-service__items {
     padding: 0;
@@ -1722,6 +1728,12 @@ body.page-gray {
           flex-direction: column;
   gap: 2.5rem;
 }
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .p-top-initiatives__items {
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+}
 @media screen and (min-width: 1024px) {
   .p-top-initiatives__items {
     margin-top: 0;
@@ -1877,6 +1889,15 @@ body.page-gray {
   }
 }
 
+@media screen and (min-width: 1024px) {
+  .p-top-initiatives-item--media .p-top-initiatives-item__pic {
+    margin: -4.6875rem 0 -5.3125rem 0;
+  }
+  .p-top-initiatives-item--media .p-top-initiatives-item__pic img {
+    height: 20rem;
+  }
+}
+
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .p-top-news {
   position: relative;
@@ -1996,6 +2017,12 @@ body.page-gray {
   -webkit-transition: var(--duration-s) var(--easeTheme);
   transition: var(--duration-s) var(--easeTheme);
 }
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .p-company-philosophy-figure {
+    max-width: 36.25rem;
+    margin-inline: auto;
+  }
+}
 @media screen and (min-width: 1024px) {
   .p-company-philosophy-figure {
     margin: 2.5rem 2.5rem 0 3.5rem;
@@ -2104,6 +2131,12 @@ body.page-gray {
 
 .p-company-philosophy__items {
   margin-top: 1.875rem;
+}
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .p-company-philosophy__items {
+    max-width: 36.25rem;
+    margin-inline: auto;
+  }
 }
 @media screen and (min-width: 1024px) {
   .p-company-philosophy__items {
@@ -2414,6 +2447,12 @@ body.page-gray {
 .p-company-information__outlineList {
   margin-top: 1.25rem;
 }
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .p-company-information__outlineList {
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+}
 @media screen and (min-width: 1024px) {
   .p-company-information__outlineList {
     margin-top: 2.5rem;
@@ -2425,6 +2464,12 @@ body.page-gray {
 }
 .p-company-information__officeList {
   margin-top: 1.25rem;
+}
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .p-company-information__officeList {
+    max-width: 30rem;
+    margin-inline: auto;
+  }
 }
 @media screen and (min-width: 1024px) {
   .p-company-information__officeList {
@@ -2480,6 +2525,12 @@ body.page-gray {
 .p-company-history-timeline {
   margin-top: var(--padding-section-sm);
   position: relative;
+}
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .p-company-history-timeline {
+    max-width: 30rem;
+    margin-inline: auto;
+  }
 }
 @media screen and (min-width: 1024px) {
   .p-company-history-timeline {
@@ -2557,6 +2608,11 @@ body.page-gray {
             align-items: flex-end;
     width: 15.9375rem;
     margin-left: auto;
+  }
+}
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .p-company-history-timeline-block__list {
+    width: 17.5rem;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -2772,6 +2828,12 @@ body.page-gray {
 
 .p-service-business__figure {
   margin: 1.25rem -4.0625rem 0;
+}
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .p-service-business__figure {
+    max-width: 36.25rem;
+    margin-inline: auto;
+  }
 }
 @media screen and (min-width: 1024px) {
   .p-service-business__figure {
@@ -3305,6 +3367,12 @@ body.page-gray {
 .p-initiative-project-item__pic img {
   border-radius: 0.625rem;
 }
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .p-initiative-project-item__pic {
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+}
 @media screen and (min-width: 1024px) {
   .p-initiative-project-item__pic {
     width: 38.25rem;
@@ -3566,6 +3634,9 @@ body.page-gray {
   left: 0;
   top: 38.75rem;
   pointer-events: none;
+}
+.p-media-chintiger__bg img {
+  width: 100%;
 }
 @media screen and (min-width: 1024px) {
   .p-media-chintiger__bg {
@@ -4656,6 +4727,12 @@ body.page-gray {
   background: linear-gradient(123deg, rgba(12, 106, 224, 0) 48.89%, rgba(9, 94, 213, 0.2) 65.46%), #38A2EF;
   aspect-ratio: 172/97;
 }
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .p-media-advertising-block-item__pic {
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+}
 .p-media-advertising-block-item__btn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5070,7 +5147,7 @@ body.page-gray {
 }
 @media screen and (min-width: 1024px) {
   .p-student-message__title {
-    font-size: 1.625rem;
+    font-size: 2rem;
   }
 }
 
@@ -5108,6 +5185,9 @@ body.page-gray {
   left: 0;
   top: 21.875rem;
   pointer-events: none;
+}
+.p-student-project__bg img {
+  width: 100%;
 }
 @media screen and (min-width: 1024px) {
   .p-student-project__bg {
@@ -5290,6 +5370,7 @@ body.page-gray {
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .p-student-project-list {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5584,6 +5665,12 @@ body.page-gray {
 }
 .cm-block-student__pic img {
   border-radius: 0.625rem;
+}
+@media screen and (min-width: 641px) and (max-width: 1023px) {
+  .cm-block-student__pic {
+    max-width: 30rem;
+    margin-inline: auto;
+  }
 }
 @media screen and (min-width: 1024px) {
   .cm-block-student__pic {
@@ -5936,6 +6023,32 @@ a:hover .c-link-text span:nth-child(2), a:hover .cm-nav-header__link span:nth-ch
   font-weight: 500;
   line-height: 175%; /* 26.25/16+rem */
   letter-spacing: 0.06em;
+}
+.cm-nav-header__link:after {
+  content: "";
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  position: absolute;
+  left: calc(50% - 0.375rem);
+  top: calc(100% + 0.25rem);
+  pointer-events: none;
+  background: #0C3096;
+  border-radius: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  opacity: 0;
+}
+.dir-company .cm-nav-header__link[data-dir=company]:after {
+  opacity: 1;
+}
+.dir-service .cm-nav-header__link[data-dir=service]:after {
+  opacity: 1;
+}
+.dir-initiative .cm-nav-header__link[data-dir=initiative]:after {
+  opacity: 1;
+}
+.dir-news .cm-nav-header__link[data-dir=news]:after {
+  opacity: 1;
 }
 
 .cm-nav-header__contact {

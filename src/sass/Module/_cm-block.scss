@@ -99,6 +99,10 @@
 	img {
 		border-radius: 10/16+rem;
 	}
+	@include config.tab {
+		max-width: 480/16+rem;
+		margin-inline: auto;
+	}
 	@include config.pc {
 		margin-top: 0;
 		grid-area: pic;

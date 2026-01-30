@@ -21,6 +21,9 @@
 	left: 0;
 	top: 620/16+rem;
 	pointer-events: none;
+	img {
+		width: 100%;
+	}
 	@include config.pc {
 		top: 500/16+rem;
 	}

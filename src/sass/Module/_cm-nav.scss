@@ -109,6 +109,41 @@
 	font-weight: 500;
 	line-height: 175%; /* 26.25/16+rem */
 	letter-spacing: 0.06em;
+	&:after {
+		content: '';
+		display: block;
+		width: 12/16+rem;
+		height: 12/16+rem;
+		position: absolute;
+		left: calc(50% - #{6/16+rem});
+		top: calc(100% + #{4/16+rem});
+		pointer-events: none;
+		background: #0C3096;
+		border-radius: 100%;
+		clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%) ;
+		opacity: 0;
+	}
+	.dir-company &[data-dir="company"] {
+		&:after {
+			opacity: 1;
+		}
+	}
+	.dir-service &[data-dir="service"] {
+		&:after {
+			opacity: 1;
+		}
+	}
+	.dir-initiative &[data-dir="initiative"] {
+		&:after {
+			opacity: 1;
+		}
+	}
+	.dir-news &[data-dir="news"] {
+		&:after {
+			opacity: 1;
+		}
+	}
+
 	@extend .c-link-text;
 }
 .cm-nav-header__contact {

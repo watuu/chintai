@@ -31,7 +31,7 @@
 	line-height: 1.75;
 	letter-spacing: 0.06em;
 	@include config.pc {
-		font-size: 26/16+rem;
+		font-size: 32/16+rem;
 	}
 }
 .p-student-message__txt {
@@ -66,6 +66,9 @@
 	left: 0;
 	top: 350/16+rem;
 	pointer-events: none;
+	img {
+		width: 100%;
+	}
 	@include config.pc {
 		top: 795/16+rem;
 	}
@@ -210,6 +213,7 @@
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .p-student-project-list {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	gap: 130/16+rem;

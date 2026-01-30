@@ -54,6 +54,10 @@
 	position: relative;
 	margin: 40/16+rem 0 0 0;
 	transition: var(--duration-s) var(--easeTheme);
+	@include config.tab {
+		max-width: 580/16+rem;
+		margin-inline: auto;
+	}
 	@include config.pc {
 		margin: 40/16+rem 40/16+rem 0 56/16+rem;
 	}
@@ -136,6 +140,10 @@
 }
 .p-company-philosophy__items {
 	margin-top: 30/16+rem;
+	@include config.tab {
+		max-width: 580/16+rem;
+		margin-inline: auto;
+	}
 	@include config.pc {
 		padding: 0 80/16+rem 0 90/16+rem;
 	}
@@ -408,6 +416,10 @@
 }
 .p-company-information__outlineList {
 	margin-top: 20/16+rem;
+	@include config.tab {
+		max-width: 480/16+rem;
+		margin-inline: auto;
+	}
 	@include config.pc {
 		margin-top: 40/16+rem;
 	}
@@ -418,6 +430,10 @@
 }
 .p-company-information__officeList {
 	margin-top: 20/16+rem;
+	@include config.tab {
+		max-width: 480/16+rem;
+		margin-inline: auto;
+	}
 	@include config.pc {
 		margin-top: 40/16+rem;
 	}
@@ -466,6 +482,10 @@
 .p-company-history-timeline {
 	margin-top: var(--padding-section-sm);
 	position: relative;
+	@include config.tab {
+		max-width: 480/16+rem;
+		margin-inline: auto;
+	}
 	@include config.pc {
 		width: 822/16+rem;
 	}
@@ -531,6 +551,9 @@
 		align-items: flex-end;
 		width: 255/16+rem;
 		margin-left: auto;
+	}
+	@include config.tab {
+		width: 280/16+rem;
 	}
 	@include config.pc {
 		gap: 7/16+rem;

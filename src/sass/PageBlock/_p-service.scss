@@ -38,6 +38,10 @@
 }
 .p-service-business__figure {
 	margin: 20/16+rem -65/16+rem 0;
+	@include config.tab {
+		max-width: 580/16+rem;
+		margin-inline: auto;
+	}
 	@include config.pc {
 		margin: -80/16+rem -20/16+rem 0 0;
 		width: 910/16+rem;

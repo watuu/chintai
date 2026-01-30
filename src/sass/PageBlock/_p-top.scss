@@ -173,6 +173,10 @@
 	display: flex;
 	flex-direction: column;
 	gap: 40/16+rem;
+	@include config.tab {
+		max-width: 480/16+rem;
+		margin-inline: auto;
+	}
 	@include config.pc {
 		padding: 0;
 		flex-direction: row;
@@ -358,6 +362,10 @@
 	display: flex;
 	flex-direction: column;
 	gap: 40/16+rem;
+	@include config.tab {
+		max-width: 480/16+rem;
+		margin-inline: auto;
+	}
 	@include config.pc {
 		margin-top: 0;
 		padding: 0;
@@ -494,7 +502,12 @@
 .p-top-initiatives-item--media {
 	.p-top-initiatives-item__pic {
 		//width: 208/16+rem;
-		@include config.pc {}
+		@include config.pc {
+			margin: -75/16+rem 0 -85/16+rem 0;
+			img {
+				height: 320/16+rem;
+			}
+		}
 	}
 }
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
