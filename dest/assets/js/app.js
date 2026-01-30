@@ -26680,6 +26680,7 @@
         this.jsClone();
         this.jsStickySection();
         this.jsAccordion();
+        this.isSectionDark();
         this.jsTab();
         this.jsSwiper();
         // this.isSectionDark();
@@ -27052,8 +27053,8 @@
     }, {
       key: "isSectionDark",
       value: function isSectionDark() {
-        var shift = Utility.isPC() ? 100 / 1440 * window.innerWidth / 2 : 75 / 390 * window.innerWidth / 2;
-        document.querySelectorAll('.is-section-dark').forEach(function (section) {
+        var shift = Utility.isPC() ? 114 / 1440 * window.innerWidth / 2 : 70 / 375 * window.innerWidth / 2;
+        document.querySelectorAll('.is-section-dark, .cm-section-header--hasBG').forEach(function (section) {
           ScrollTrigger$1.create({
             trigger: section,
             start: "top-=".concat(shift, " top"),

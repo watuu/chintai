@@ -68,7 +68,7 @@
 .p-service-list__aside {
 	.cm-nav-aside {
 		position: sticky;
-		top: var(--header-height);
+		top: calc(var(--header-height) + #{60/16+rem});
 	}
 	@include config.sp-tab {
 		display: none;

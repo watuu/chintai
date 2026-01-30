@@ -490,7 +490,12 @@
 .p-top-initiatives-item--society {
 	.p-top-initiatives-item__pic {
 		//width: 249/16+rem;
-		@include config.pc {}
+		@include config.pc {
+			margin: -65/16+rem 0 -75/16+rem 0;
+			img {
+				height: 300/16+rem;
+			}
+		}
 	}
 }
 .p-top-initiatives-item--student {

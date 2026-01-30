@@ -14,10 +14,14 @@
 	align-items: center;
 	height: 55/16+rem;
 	@include config.pc {
-		position: absolute;
 		top: 58/16+rem;
 		left: 60/16+rem;
 		right: 60/16+rem;
+		transition: .3s var(--easeTheme);
+		transform: translateY(0);
+		.is-scrolled.scrollDown & {
+			transform: translateY(calc(-1 * var(--header-height)));
+		}
 	}
 }
 .l-header-logo {
@@ -26,6 +30,21 @@
 	margin-right: auto;
 	img {
 		width: 95/16+rem;
+	}
+	img:nth-child(2) {
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		pointer-events: none;
+	}
+	.is-header-dark & {
+		img:nth-child(1) {
+			opacity: 0;
+		}
+		img:nth-child(2) {
+			opacity: 1;
+		}
 	}
 	@include config.pc {
 		img {

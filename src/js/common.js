@@ -52,6 +52,7 @@ export default class common {
         this.jsClone();
         this.jsStickySection();
         this.jsAccordion();
+        this.isSectionDark();
         this.jsTab();
         this.jsSwiper();
         // this.isSectionDark();
@@ -447,10 +448,10 @@ export default class common {
 
     isSectionDark() {
         const shift = Utility.isPC()?
-            100/1440*window.innerWidth/2:
-            75/390*window.innerWidth/2
+            114/1440*window.innerWidth/2:
+            70/375*window.innerWidth/2
 
-        document.querySelectorAll('.is-section-dark').forEach(section => {
+        document.querySelectorAll('.is-section-dark, .cm-section-header--hasBG').forEach(section => {
             ScrollTrigger.create({
                 trigger: section,
                 start: `top-=${shift} top`,
