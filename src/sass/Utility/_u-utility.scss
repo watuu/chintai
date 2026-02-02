@@ -60,6 +60,9 @@
 .u-underline-dash {
 	position: relative;
 	display: inline-block;
+	span {
+		display: inline-block;
+	}
 	&:before,
 	&:after {
 		content: '';
@@ -76,6 +79,21 @@
 		top: 95%;
 	}
 }
+.u-underline-dash.js-underline-text {
+	opacity: 0;
+	&:before,
+	&:after {
+		width: 0;
+	}
+	&.is-visible {
+		opacity: 1;
+		&:before,
+		&:after {
+			width: 100%;
+			transition: var(--duration) var(--easeTheme);
+		}
+	}
+}
 .u-text-circle {
 	display: inline-flex;
 	align-items: center;
@@ -85,6 +103,7 @@
 		position: absolute;
 	    width: 100%;
 	    height: auto;
+		transform: rotate(180deg);
 	}
 	@include config.pc {
 		svg {
@@ -111,6 +130,15 @@
 		pointer-events: none;
 		border-radius: 2.2em;
 		border: var(--border);
+	}
+	svg {
+		opacity: 0;
+		transform: scale(0.7);
+	}
+	.is-visible + svg {
+		opacity: 1;
+		transform: scale(1);
+		transition: var(--duration-l) var(--easeOutBack);
 	}
 	@include config.pc {
 		&:before {
@@ -166,4 +194,7 @@
 	to {
 		transform: translate3d(0, 0, 0);
 	}
+}
+.u-fade-mask {
+
 }

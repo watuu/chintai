@@ -40,7 +40,7 @@
 .p-company-philosophy {
 	position: relative;
 	overflow: hidden;
-	height: 250vh;
+	height: 300vh;
 	@include config.pc {}
 }
 .p-company-philosophy__wrap {
@@ -222,6 +222,7 @@
 	.p-company-philosophy-item {
 		&:nth-child(1) {
 			display: flex;
+			animation: philosophyItemShow var(--duration-l) var(--easeTheme);
 		}
 		&:nth-child(2) {
 			display: none;
@@ -257,6 +258,7 @@
 		}
 		&:nth-child(2) {
 			display: flex;
+			animation: philosophyItemShow var(--duration-l) var(--easeTheme);
 		}
 		&:nth-child(3) {
 			display: none;
@@ -297,6 +299,7 @@
 		}
 		&:nth-child(3) {
 			display: flex;
+			animation: philosophyItemShow var(--duration-l) var(--easeTheme);
 		}
 	}
 	@include config.sp {
@@ -305,7 +308,14 @@
 		}
 	}
 }
-
+@keyframes philosophyItemShow {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .p-company-message {

@@ -2036,7 +2036,7 @@ a:hover .p-top-service-item__link, .p-top-service-item__link:hover {
 .p-company-philosophy {
   position: relative;
   overflow: hidden;
-  height: 250vh;
+  height: 300vh;
 }
 .p-company-philosophy__wrap {
   min-height: 36.25rem;
@@ -2264,6 +2264,8 @@ a:hover .p-top-service-item__link, .p-top-service-item__link:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-animation: philosophyItemShow var(--duration-l) var(--easeTheme);
+          animation: philosophyItemShow var(--duration-l) var(--easeTheme);
 }
 .p-company-philosophy.is-step-1 .p-company-philosophy-item:nth-child(2) {
   display: none;
@@ -2294,6 +2296,8 @@ a:hover .p-top-service-item__link, .p-top-service-item__link:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-animation: philosophyItemShow var(--duration-l) var(--easeTheme);
+          animation: philosophyItemShow var(--duration-l) var(--easeTheme);
 }
 .p-company-philosophy.is-step-2 .p-company-philosophy-item:nth-child(3) {
   display: none;
@@ -2330,6 +2334,8 @@ a:hover .p-top-service-item__link, .p-top-service-item__link:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-animation: philosophyItemShow var(--duration-l) var(--easeTheme);
+          animation: philosophyItemShow var(--duration-l) var(--easeTheme);
 }
 @media screen and (max-width: 640px) {
   .p-company-philosophy.is-step-3 .p-company-philosophy-figure {
@@ -2338,6 +2344,23 @@ a:hover .p-top-service-item__link, .p-top-service-item__link:hover {
   }
 }
 
+@-webkit-keyframes philosophyItemShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes philosophyItemShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .p-company-message {
   padding: var(--padding-section) 0;
@@ -8087,6 +8110,9 @@ button:hover .c-list-office__name:before, .c-list-office__name:hover:before {
   position: relative;
   display: inline-block;
 }
+.u-underline-dash span {
+  display: inline-block;
+}
 .u-underline-dash:before, .u-underline-dash:after {
   content: "";
   display: block;
@@ -8100,6 +8126,21 @@ button:hover .c-list-office__name:before, .c-list-office__name:hover:before {
 }
 .u-underline-dash:after {
   top: 95%;
+}
+
+.u-underline-dash.js-underline-text {
+  opacity: 0;
+}
+.u-underline-dash.js-underline-text:before, .u-underline-dash.js-underline-text:after {
+  width: 0;
+}
+.u-underline-dash.js-underline-text.is-visible {
+  opacity: 1;
+}
+.u-underline-dash.js-underline-text.is-visible:before, .u-underline-dash.js-underline-text.is-visible:after {
+  width: 100%;
+  -webkit-transition: var(--duration) var(--easeTheme);
+  transition: var(--duration) var(--easeTheme);
 }
 
 .u-text-circle {
@@ -8118,6 +8159,8 @@ button:hover .c-list-office__name:before, .c-list-office__name:hover:before {
   position: absolute;
   width: 100%;
   height: auto;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 @media screen and (min-width: 1024px) {
   .u-text-circle svg {
@@ -8151,6 +8194,18 @@ button:hover .c-list-office__name:before, .c-list-office__name:hover:before {
   pointer-events: none;
   border-radius: 2.2em;
   border: var(--border);
+}
+.u-text-search svg {
+  opacity: 0;
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+.u-text-search .is-visible + svg {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: var(--duration-l) var(--easeOutBack);
+  transition: var(--duration-l) var(--easeOutBack);
 }
 @media screen and (min-width: 1024px) {
   .u-text-search:before {
