@@ -85,6 +85,32 @@
 	font-size: 13/16+rem;
 	font-weight: 700;
 	letter-spacing: 0.06em;
+	transition: var(--duration-s) var(--easeTheme);
+	will-change: padding;
+	position: relative;
+	&:before {
+		content: '';
+		display: block;
+		width: 8/16+rem;
+		height: 8/16+rem;
+		position: absolute;
+		left: -0.6em;
+		top: 0.6em;
+		pointer-events: none;
+		border-radius: 100%;
+		background: #829CCC;
+		opacity: 0;
+		transition: var(--duration-s) var(--easeTheme);
+	}
+	button:hover &,
+	&:hover {
+		padding-left: 1em;
+		&:before {
+			opacity: 1;
+			left: 0;
+			transition-delay: 0.13s;
+		}
+	}
 	@include config.pc {
 		font-size: 16/16+rem;
 	}

@@ -220,6 +220,12 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	transition: var(--duration-l) var(--easeOutQuart);
+	will-change: transform;
+	a:hover &,
+	&:hover {
+		transform: scale(0.95);
+	}
 	@include config.pc {}
 }
 .p-top-service-item__pic {

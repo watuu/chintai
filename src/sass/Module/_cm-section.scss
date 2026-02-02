@@ -119,11 +119,23 @@
 }
 .cm-section-header-service__bg {
 	margin-right: calc(50% - 50vw);
+	border-radius: 10px 0 0 10px;
+	height: 212px;
+	overflow: hidden;
+	img {
+	//	width: 130%;
+		height: 130%;
+	//	min-height: 100vh;
+		object-fit: cover;
+		max-width: none;
+	}
 	@include config.sp-tab {
 		margin-left: 50/16+rem;
 	}
 	@include config.pc {
+		height: 830px;
 		flex: 1;
+		border-radius: 0 0 0 10px;
 	}
 }
 .cm-section-header-service__bc {
@@ -256,6 +268,12 @@
 	flex-direction: column;
 	gap: 10/16+rem;
 	padding: 16/16+rem 24/16+rem;
+	transition: var(--duration-l) var(--easeOutQuart);
+	will-change: transform;
+	a:hover &,
+	&:hover {
+		transform: scale(0.93);
+	}
 	@include config.pc {
 		padding: 48/16+rem 57/16+rem 32/16+rem;
 		gap: 35/16+rem;
@@ -293,6 +311,12 @@
 		width: auto;
 		height: 100%;
 	}
+	transition: var(--duration-l) var(--easeOutQuart);
+	will-change: transform;
+	a:hover &,
+	&:hover {
+		transform: scale(1.05);
+	}
 	@include config.pc {
 		width: 327/16+rem;
 	}
@@ -317,6 +341,12 @@
 	position: relative;
 	z-index: 2;
 	color: #fff;
+	transition: var(--duration-l) var(--easeOutQuart);
+	will-change: transform;
+	a:hover &,
+	&:hover {
+		transform: scale(0.97);
+	}
 	@include config.sp-tab {
 		.c-btn-circle {
 			position: absolute;
@@ -389,6 +419,12 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+	transition: var(--duration-l) var(--easeOutQuart);
+	will-change: transform;
+	a:hover &,
+	&:hover {
+		transform: scale(1.01);
 	}
 	@include config.pc {}
 }

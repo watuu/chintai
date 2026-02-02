@@ -195,6 +195,7 @@ article, main, aside, details, figcaption, figure, footer, header, hgroup, menu,
   --easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   --duration: .35s;
   --duration-s: .25s;
+  --duration-l: .45s;
   --easeTheme: var(--easeOutSine);
 }
 
@@ -1601,6 +1602,13 @@ body.page-gray {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-transition: var(--duration-l) var(--easeOutQuart);
+  transition: var(--duration-l) var(--easeOutQuart);
+  will-change: transform;
+}
+a:hover .p-top-service-item__link, .p-top-service-item__link:hover {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 .p-top-service-item__pic img {
   border-radius: 0.625rem;
@@ -6765,6 +6773,15 @@ body figure {
 
 .cm-section-header-service__bg {
   margin-right: calc(50% - 50vw);
+  border-radius: 10px 0 0 10px;
+  height: 212px;
+  overflow: hidden;
+}
+.cm-section-header-service__bg img {
+  height: 130%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: none;
 }
 @media screen and (max-width: 1023px) {
   .cm-section-header-service__bg {
@@ -6773,9 +6790,11 @@ body figure {
 }
 @media screen and (min-width: 1024px) {
   .cm-section-header-service__bg {
+    height: 830px;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+    border-radius: 0 0 0 10px;
   }
 }
 
@@ -6964,6 +6983,13 @@ body figure {
           flex-direction: column;
   gap: 0.625rem;
   padding: 1rem 1.5rem;
+  -webkit-transition: var(--duration-l) var(--easeOutQuart);
+  transition: var(--duration-l) var(--easeOutQuart);
+  will-change: transform;
+}
+a:hover .cm-section-cta-item__wrap, .cm-section-cta-item__wrap:hover {
+  -webkit-transform: scale(0.93);
+          transform: scale(0.93);
 }
 @media screen and (min-width: 1024px) {
   .cm-section-cta-item__wrap {
@@ -7007,6 +7033,15 @@ body figure {
   width: auto;
   height: 100%;
 }
+.cm-section-cta-item__pic {
+  -webkit-transition: var(--duration-l) var(--easeOutQuart);
+  transition: var(--duration-l) var(--easeOutQuart);
+  will-change: transform;
+}
+a:hover .cm-section-cta-item__pic, .cm-section-cta-item__pic:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
 @media screen and (min-width: 1024px) {
   .cm-section-cta-item__pic {
     width: 20.4375rem;
@@ -7038,6 +7073,13 @@ body figure {
   position: relative;
   z-index: 2;
   color: #fff;
+  -webkit-transition: var(--duration-l) var(--easeOutQuart);
+  transition: var(--duration-l) var(--easeOutQuart);
+  will-change: transform;
+}
+a:hover .cm-section-cta-recruit__wrap, .cm-section-cta-recruit__wrap:hover {
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
 }
 @media screen and (max-width: 1023px) {
   .cm-section-cta-recruit__wrap .c-btn-circle {
@@ -7124,6 +7166,15 @@ body figure {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.cm-section-cta-recruit__pic {
+  -webkit-transition: var(--duration-l) var(--easeOutQuart);
+  transition: var(--duration-l) var(--easeOutQuart);
+  will-change: transform;
+}
+a:hover .cm-section-cta-recruit__pic, .cm-section-cta-recruit__pic:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
 }
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 /*----------------------------------------------------
@@ -7810,6 +7861,34 @@ body figure {
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.06em;
+  -webkit-transition: var(--duration-s) var(--easeTheme);
+  transition: var(--duration-s) var(--easeTheme);
+  will-change: padding;
+  position: relative;
+}
+.c-list-office__name:before {
+  content: "";
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  position: absolute;
+  left: -0.6em;
+  top: 0.6em;
+  pointer-events: none;
+  border-radius: 100%;
+  background: #829CCC;
+  opacity: 0;
+  -webkit-transition: var(--duration-s) var(--easeTheme);
+  transition: var(--duration-s) var(--easeTheme);
+}
+button:hover .c-list-office__name, .c-list-office__name:hover {
+  padding-left: 1em;
+}
+button:hover .c-list-office__name:before, .c-list-office__name:hover:before {
+  opacity: 1;
+  left: 0;
+  -webkit-transition-delay: 0.13s;
+          transition-delay: 0.13s;
 }
 @media screen and (min-width: 1024px) {
   .c-list-office__name {

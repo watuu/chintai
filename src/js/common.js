@@ -55,6 +55,7 @@ export default class common {
         this.isSectionDark();
         this.jsTab();
         this.jsSwiper();
+        this.jsParallax();
         // this.isSectionDark();
         this.isVisible();
         this.isVisibleType();
@@ -444,6 +445,34 @@ export default class common {
                     : false,
             });
         })
+    }
+
+    jsParallax() {
+        gsap.utils.toArray('.js-parallax').forEach(el => {
+            const parent = el.parentElement;
+            const baseY = Number(el.dataset.y) || -10;
+            const rate = Utility.isPC() ? 1 : 0.75;
+            const moveY = baseY * rate;
+
+            const half = moveY / 2;
+
+            gsap.fromTo(el,
+                { y: `${-half}vh` },
+                {
+                    y: `${half}vh`,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: parent,
+                        start: 'top bottom',
+                        // end: () => `top+=${Math.max(window.innerHeight, el.offsetHeight)} top`,
+                        end: () => `bottom top`,
+                        scrub: 1.5,
+                        invalidateOnRefresh: true,
+                        markers: false,
+                    }
+                }
+            );
+        });
     }
 
     isSectionDark() {

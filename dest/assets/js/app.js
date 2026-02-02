@@ -26683,6 +26683,7 @@
         this.isSectionDark();
         this.jsTab();
         this.jsSwiper();
+        this.jsParallax();
         // this.isSectionDark();
         this.isVisible();
         this.isVisibleType();
@@ -27047,6 +27048,34 @@
               prevEl: prevEl,
               nextEl: nextEl
             } : false
+          });
+        });
+      }
+    }, {
+      key: "jsParallax",
+      value: function jsParallax() {
+        gsapWithCSS.utils.toArray('.js-parallax').forEach(function (el) {
+          var parent = el.parentElement;
+          var baseY = Number(el.dataset.y) || -10;
+          var rate = Utility.isPC() ? 1 : 0.75;
+          var moveY = baseY * rate;
+          var half = moveY / 2;
+          gsapWithCSS.fromTo(el, {
+            y: "".concat(-half, "vh")
+          }, {
+            y: "".concat(half, "vh"),
+            ease: 'none',
+            scrollTrigger: {
+              trigger: parent,
+              start: 'top bottom',
+              // end: () => `top+=${Math.max(window.innerHeight, el.offsetHeight)} top`,
+              end: function end() {
+                return "bottom top";
+              },
+              scrub: 1.5,
+              invalidateOnRefresh: true,
+              markers: false
+            }
           });
         });
       }
