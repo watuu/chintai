@@ -26987,7 +26987,6 @@
         this.setDeviceClassToBody();
         this.globalMenu();
         this.smoothScroll();
-        // this.cMouseStalker();
         this.jsSplitText();
         this.jsClone();
         this.jsStickySection();
@@ -27013,6 +27012,9 @@
         });
         this.jsModalVideo();
         this.jsPlayAudio();
+        window.addEventListener('resize', function () {
+          ScrollTrigger$1.refresh();
+        });
       }
     }, {
       key: "reload",
@@ -27114,10 +27116,10 @@
         });
         var headerLinks = header.querySelectorAll('a');
         headerLinks.forEach(function (link) {
-          link.addEventListener('click', function () {
-            headerMenu.classList.remove(classNameNavOpen);
-            navClose();
-          });
+          // link.addEventListener('click', () => {
+          //     headerMenu.classList.remove(classNameNavOpen);
+          //     navClose();
+          // });
         });
 
         // ナビゲーションを閉じる処理
@@ -27175,38 +27177,6 @@
             }, duration);
           });
         });
-      }
-    }, {
-      key: "cMouseStalker",
-      value: function cMouseStalker() {
-        var btn = document.querySelector('.c-btn-stalker');
-        var circle = document.querySelector('.c-btn-stalker__circle');
-        var ico = document.querySelector('.c-btn-stalker__ico');
-        var stalkerTriggers = document.querySelectorAll('.js-stalker-show');
-        if (btn && ScrollTrigger$1.isTouch !== 1) {
-          document.addEventListener('mousemove', function (e) {
-            var shift = btn.offsetWidth / 2;
-            gsapWithCSS.to(circle, {
-              x: e.clientX - shift,
-              y: e.clientY - shift,
-              ease: 'power1.out'
-            });
-            gsapWithCSS.to(ico, {
-              x: e.clientX - shift,
-              y: e.clientY - shift,
-              ease: 'power1.out',
-              delay: 0.005
-            });
-          });
-          stalkerTriggers.forEach(function (trigger) {
-            trigger.addEventListener('mouseover', function () {
-              btn.classList.add('on-stalker-show');
-            });
-            trigger.addEventListener('mouseout', function () {
-              btn.classList.remove('on-stalker-show');
-            });
-          });
-        }
       }
     }, {
       key: "jsClone",
@@ -27934,12 +27904,31 @@
       _classCallCheck(this, Page);
       gsapWithCSS.registerPlugin(ScrollTrigger$1, ScrollToPlugin);
       if (document.querySelector('.cm-xxx')) ;
+      this.pTopMv();
       this.pCompanyPhilosophy();
       this.pCompanyHistory();
       this.pMedia();
       this.pMediaChintiger();
     }
     return _createClass$1(Page, [{
+      key: "pTopMv",
+      value: function pTopMv() {
+        if (document.querySelector('.p-top-mv')) {
+          ScrollTrigger$1.create({
+            trigger: '.p-top-mv',
+            start: 'top-=10 top',
+            end: 'bottom top',
+            onToggle: function onToggle(self) {
+              gsapWithCSS.to('.l-header-logo', {
+                opacity: self.isActive ? 0 : 1,
+                duration: 0.5,
+                ease: 'power3.out'
+              });
+            }
+          });
+        }
+      }
+    }, {
       key: "pCompanyPhilosophy",
       value: function pCompanyPhilosophy() {
         if (document.querySelector('.p-company-philosophy')) {
@@ -28076,6 +28065,7 @@
             tab.classList.add('is-active');
             contentsLead[index].classList.add('is-active');
             contents[index].classList.add('is-active');
+            ScrollTrigger$1.refresh();
           });
         });
         if (tabs.length > 0 && contents.length > 0) {
@@ -45149,13 +45139,14 @@
         if (items.length > 0) {
           items.forEach(function (item) {
             var once = !!item.dataset.once;
+            var src = !Utility.isPC() && item.dataset.spSrc ? item.dataset.spSrc : item.dataset.src;
             var animation = lottie.loadAnimation({
               container: item,
               renderer: 'svg',
               // or 'canvas' / 'html'
               loop: !once,
               autoplay: !once,
-              path: item.dataset.src
+              path: src
             });
             if (once) {
               ScrollTrigger$1.create({

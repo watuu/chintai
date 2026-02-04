@@ -22,8 +22,10 @@
 	border: var(--border);
 	appearance: none;
 	background: #FFF;
+	font-size: 12/16+rem;
 	@include config.pc {
 		height: 40/16+rem;
+		font-size: 14/16+rem;
 	}
 }
 .c-form-select__angle {

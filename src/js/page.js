@@ -14,10 +14,29 @@ export default class Page {
         if (document.querySelector('.cm-xxx')) {
             //
         }
+        this.pTopMv()
         this.pCompanyPhilosophy()
         this.pCompanyHistory()
         this.pMedia()
         this.pMediaChintiger()
+    }
+
+    pTopMv() {
+        if (document.querySelector('.p-top-mv')) {
+            ScrollTrigger.create({
+                trigger: '.p-top-mv',
+                start: 'top-=10 top',
+                end: 'bottom top',
+
+                onToggle: self => {
+                    gsap.to('.l-header-logo', {
+                        opacity: self.isActive ? 0 : 1,
+                        duration: 0.5,
+                        ease: 'power3.out',
+                    });
+                }
+            });
+        }
     }
 
     pCompanyPhilosophy() {
@@ -153,6 +172,7 @@ export default class Page {
                 tab.classList.add('is-active');
                 contentsLead[index].classList.add('is-active');
                 contents[index].classList.add('is-active');
+                ScrollTrigger.refresh();
             });
         });
 

@@ -3,6 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 
 import lottie from 'lottie-web'
+import Utility from "./utility";
 
 export default class Lottie {
     constructor() {
@@ -18,12 +19,17 @@ export default class Lottie {
 
             items.forEach( item => {
                 const once = !!item.dataset.once
+
+                const src = !Utility.isPC() && item.dataset.spSrc
+                    ? item.dataset.spSrc
+                    : item.dataset.src
+
                 const animation = lottie.loadAnimation({
                     container: item,
                     renderer: 'svg', // or 'canvas' / 'html'
                     loop: !once,
                     autoplay: !once,
-                    path: item.dataset.src
+                    path: src
                 });
                 if (once) {
                     ScrollTrigger.create({

@@ -51,6 +51,9 @@
 			opacity: 1;
 		}
 	}
+	.page-front & {
+		opacity: 0;
+	}
 	@include config.pc {
 		img {
 			width: 140/16+rem;
