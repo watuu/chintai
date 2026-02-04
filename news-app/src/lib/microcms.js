@@ -117,6 +117,18 @@ export async function getNextNews(publishedAt) {
 }
 
 /**
+ * 全件取得（SSG 時のクライアント側フィルタ用）。
+ * @see https://help.microcms.io/ja/knowledge/fetch-big-data
+ */
+export async function getAllNews() {
+  const client = getSdkClient();
+  if (!client) return [];
+  const res = await client.getAllContents({ endpoint: 'news' });
+  const contents = Array.isArray(res) ? res : (res?.contents ?? []);
+  return contents.sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''));
+}
+
+/**
  * 一覧から年代の選択肢を取得（フィルタ用）。
  * SDK の getAllContents で全件取得してユニークな年を返す（limit 100 制限を超えても取得可能）。
  * @see https://help.microcms.io/ja/knowledge/fetch-big-data

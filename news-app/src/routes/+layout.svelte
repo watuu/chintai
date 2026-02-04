@@ -1,6 +1,16 @@
 <script>
-  const path = '/';
-  const img = '/assets/img/';
+  import { dev } from '$app/environment';
+  import { env } from '$env/dynamic/public';
+
+  /** dest 配下の共通アセット（CSS・画像）のオリジン。ビルド時は本番URLを優先 */
+  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.manic-design.com';
+  const siteOrigin =
+    env.PUBLIC_SITE_ORIGIN != null && (dev || !env.PUBLIC_SITE_ORIGIN.includes('localhost'))
+      ? env.PUBLIC_SITE_ORIGIN
+      : defaultOrigin;
+  /** メインサイト（dest）のルート。絶対URLにして base チェックを回避 */
+  const path = siteOrigin.replace(/\/$/, '') + '/';
+  const img = `${siteOrigin}/assets/img/`;
   const sitename = '株式会社CHINTAI';
 </script>
 
@@ -11,7 +21,7 @@
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Urbanist:wght@500&family=Roboto:wght@400&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href={siteOrigin + '/assets/css/style.css'} />
 </svelte:head>
 
 <header class="l-header">
@@ -125,6 +135,9 @@
     </symbol>
     <symbol id="ico-circle" viewBox="0 0 42 42">
       <rect x="1" y="1" width="40" height="40" rx="20" stroke-width="2"/>
+    </symbol>
+    <symbol id="ico-angle-down" viewBox="0 0 17 12">
+      <path d="M16.1805 0.646484L8.47502 9.74347L0.761719 0.646484" fill="none" stroke-width="2" stroke-miterlimit="10"/>
     </symbol>
   </defs>
 </svg>

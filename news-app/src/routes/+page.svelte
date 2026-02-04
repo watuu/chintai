@@ -1,14 +1,45 @@
 <script>
+  import { page } from '$app/stores';
+  import { browser, dev } from '$app/environment';
+  import { base } from '$app/paths';
+  import { env } from '$env/dynamic/public';
+
   /** @type {import('./$types').PageData} */
   let { data } = $props();
 
+  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.manic-design.com';
+  const siteOrigin =
+    env.PUBLIC_SITE_ORIGIN != null && (dev || !env.PUBLIC_SITE_ORIGIN.includes('localhost'))
+      ? env.PUBLIC_SITE_ORIGIN
+      : defaultOrigin;
+
+  const limit = 10;
+  const urlYear = $derived(browser ? ($page.url.searchParams.get('year') ?? '') : '');
+  const urlCategory = $derived(browser ? ($page.url.searchParams.get('category') ?? '') : '');
+  const offset = $derived(
+    browser ? Math.max(0, Number($page.url.searchParams.get('offset')) || 0) : 0
+  );
+
+  const filteredList = $derived(
+    (data.allList ?? []).filter((item) => {
+      if (urlYear && item.publishedAt?.slice(0, 4) !== urlYear) return false;
+      if (urlCategory) {
+        const catId = typeof item.category === 'object' ? item.category?.id : item.category;
+        if (catId !== urlCategory) return false;
+      }
+      return true;
+    })
+  );
+  const totalCount = $derived(filteredList.length);
+  const displayList = $derived(filteredList.slice(offset, offset + limit));
+
   /** ページャー用のクエリ文字列（year, category を保持） */
-  function paginateHref(offset, limit = data.limit) {
+  function paginateHref(newOffset, lim = limit) {
     const params = new URLSearchParams();
-    params.set('offset', String(offset));
-    params.set('limit', String(limit));
-    if (data.year) params.set('year', data.year);
-    if (data.categoryId) params.set('category', data.categoryId);
+    params.set('offset', String(newOffset));
+    params.set('limit', String(lim));
+    if (urlYear) params.set('year', urlYear);
+    if (urlCategory) params.set('category', urlCategory);
     return '?' + params.toString();
   }
 </script>
@@ -28,7 +59,7 @@
       </div>
     </div>
     <ul class="cm-section-header__bc">
-      <li><a href="/">Top</a></li>
+      <li><a href={siteOrigin + '/'}>Top</a></li>
       <li><span>News</span></li>
     </ul>
   </section>
@@ -36,23 +67,29 @@
   <div class="p-news__wrap">
     <div class="l-container">
       <div class="p-news__nav">
-        <form class="cm-block-filter" method="get" action="/news">
-          <div class="cm-block-filter__inputs">
+        <form class="cm-block-filter" method="get" action={base + '/'}>
+          <div class="c-block-filter__inputs">
             <div class="c-form-select">
               <select name="year" class="c-form-select__input">
                 <option value="">年代</option>
                 {#each data.years ?? [] as y}
-                  <option value={y} selected={data.year === y}>{y}年</option>
+                  <option value={y} selected={urlYear === y}>{y}年</option>
                 {/each}
               </select>
+              <svg class="c-form-select__angle" width="17" height="12">
+                <use href="#ico-angle-down"></use>
+              </svg>
             </div>
             <div class="c-form-select">
               <select name="category" class="c-form-select__input">
                 <option value="">カテゴリー</option>
                 {#each data.categories ?? [] as cat}
-                  <option value={cat.id} selected={data.categoryId === cat.id}>{cat.name}</option>
+                  <option value={cat.id} selected={urlCategory === cat.id}>{cat.name}</option>
                 {/each}
               </select>
+              <svg class="c-form-select__angle" width="17" height="12">
+                <use href="#ico-angle-down"></use>
+              </svg>
             </div>
           </div>
           <div class="cm-block-filter__action">
@@ -63,10 +100,10 @@
 
 
       <div class="p-news__list">
-        {#if data.totalCount === 0}
+        {#if totalCount === 0}
           <p class="p-news__empty">該当する記事はありません。</p>
         {:else}
-        {#each data.list as item}
+        {#each displayList as item}
           {@const pdfUrl = item.pdf?.url ?? item.pdfurl}
           <div class="c-card-news">
             <div class="c-card-news__wrap">
@@ -80,7 +117,7 @@
                 </p>
               {/if}
               <h3 class="c-card-news__title">
-                <a href="/news/{item.slug ?? item.id}" class="c-card-news__link">{item.title}</a>
+                <a href={base + '/' + (item.slug ?? item.id)} class="c-card-news__link">{item.title}</a>
                 {#if pdfUrl}
                 <div class="c-card-news__pdf">
                   <a href={pdfUrl} target="_blank" rel="noopener">PDF</a>
@@ -95,16 +132,16 @@
         {/if}
       </div>
 
-      {#if data.totalCount > data.limit}
-        {@const totalPages = Math.ceil(data.totalCount / data.limit)}
-        {@const currentPage = (data.offset / data.limit) + 1}
+      {#if totalCount > limit}
+        {@const totalPages = Math.ceil(totalCount / limit)}
+        {@const currentPage = (offset / limit) + 1}
         {@const showDot = totalPages > 4}
         {@const showCurrentInMiddle = showDot && currentPage > 4 && currentPage < totalPages}
         <div class="p-news__paginate">
           <ul class="cm-nav-paginate">
             <li class="cm-nav-paginate__ctrl">
-              {#if data.offset > 0}
-                <a class="c-btn-circle c-btn-circle--prev" href={paginateHref(data.offset - data.limit)}>
+              {#if offset > 0}
+                <a class="c-btn-circle c-btn-circle--prev" href={paginateHref(offset - limit)}>
                   <svg width="42" height="42">
                     <use href="#ico-circle"></use>
                   </svg>
@@ -128,7 +165,7 @@
                 {#if pageNum === currentPage}
                   <span>{pageNum}</span>
                 {:else}
-                  <a href={paginateHref((pageNum - 1) * data.limit)}>{pageNum}</a>
+                  <a href={paginateHref((pageNum - 1) * limit)}>{pageNum}</a>
                 {/if}
               </li>
             {/each}
@@ -146,13 +183,13 @@
                 {#if currentPage === totalPages}
                   <span>{totalPages}</span>
                 {:else}
-                  <a href={paginateHref((totalPages - 1) * data.limit)}>{totalPages}</a>
+                  <a href={paginateHref((totalPages - 1) * limit)}>{totalPages}</a>
                 {/if}
               </li>
             {/if}
             <li class="cm-nav-paginate__ctrl">
-              {#if data.offset + data.limit < data.totalCount}
-                <a class="c-btn-circle" href={paginateHref(data.offset + data.limit)}>
+              {#if offset + limit < totalCount}
+                <a class="c-btn-circle" href={paginateHref(offset + limit)}>
                   <svg width="42" height="42">
                     <use href="#ico-circle"></use>
                   </svg>

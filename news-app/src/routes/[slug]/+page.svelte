@@ -1,6 +1,16 @@
 <script>
+  import { dev } from '$app/environment';
+  import { base } from '$app/paths';
+  import { env } from '$env/dynamic/public';
+
   /** @type {import('./$types').PageData} */
   let { data } = $props();
+
+  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.manic-design.com';
+  const siteOrigin =
+    env.PUBLIC_SITE_ORIGIN != null && (dev || !env.PUBLIC_SITE_ORIGIN.includes('localhost'))
+      ? env.PUBLIC_SITE_ORIGIN
+      : defaultOrigin;
 
   const item = $derived(data.item);
   const published = $derived(
@@ -10,7 +20,7 @@
   );
 </script>
 <svelte:head>
-  <title>{itme.title} | お知らせ | 株式会社CHINTAI</title> 
+  <title>{item.title} | お知らせ | 株式会社CHINTAI</title> 
 </svelte:head>    
 
 
@@ -30,8 +40,8 @@
       </div>
     </div>
     <ul class="cm-section-header__bc">
-      <li><a href="/">Top</a></li>
-      <li><a href="/news/">News</a></li>
+      <li><a href={siteOrigin + '/'}>Top</a></li>
+      <li><a href={base + '/'}>News</a></li>
       <li><span>{item.title}</span></li>
     </ul>
   </section>
@@ -47,7 +57,7 @@
             class="cm-nav-paginate-single__ctrl"
             style="opacity: {data.prev ? 1 : 0}; pointer-events: {data.prev ? 'auto' : 'none'};"
           >
-            <a href={data.prev ? `/news/${data.prev.id}` : '#'} aria-hidden={!data.prev}>
+            <a href={data.prev ? base + '/' + data.prev.id : '#'} aria-hidden={!data.prev}>
               <i class="c-btn-circle c-btn-circle--prev">
                 <svg width="42" height="42">
                   <use href="#ico-circle"></use>
@@ -60,13 +70,13 @@
             </a>
           </div>
           <div class="cm-nav-paginate-single__index">
-            <a href="/news/"><span>お知らせ一覧</span></a>
+            <a href={base + '/'}><span>お知らせ一覧</span></a>
           </div>
           <div
             class="cm-nav-paginate-single__ctrl"
             style="opacity: {data.next ? 1 : 0}; pointer-events: {data.next ? 'auto' : 'none'};"
           >
-            <a href={data.next ? `/news/${data.next.id}` : '#'} aria-hidden={!data.next}>
+            <a href={data.next ? base + '/' + data.next.id : '#'} aria-hidden={!data.next}>
               <span>次の記事</span>
               <i class="c-btn-circle">
                 <svg width="42" height="42">
