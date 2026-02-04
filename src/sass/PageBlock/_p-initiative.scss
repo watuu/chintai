@@ -59,7 +59,7 @@
 }
 .p-initiative-message-block1__pic {
 	width: 186/16+rem;
-	margin: -40/16+rem 0 0 auto;
+	margin: 40/16+rem 0 0 auto;
 	img {
 		border-radius: 10/16+rem;
 	}
@@ -105,18 +105,18 @@
 		position: absolute;
 	}
 	figure:nth-child(1) {
-		left: -24/16+rem;
+		left: 0;
 		top: 0;
-		width: 84/16+rem;
+		width: 101/16+rem;
 	}
 	figure:nth-child(2) {
-		left: 175/16+rem;
-		top: 95/16+rem;
-		width: 152/16+rem;
+		left: 154/16+rem;
+		top: 68/16+rem;
+		width: 172/16+rem;
 	}
 	figure:nth-child(3) {
-		left: 70/16+rem;
-		top: 210/16+rem;
+		left: 48/16+rem;
+		top: 216/16+rem;
 		width: 116.813/16+rem;
 	}
 	@include config.pc {

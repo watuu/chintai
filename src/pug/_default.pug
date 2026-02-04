@@ -15,6 +15,7 @@ head
     //-
         meta(name="description", content="")
         meta(name="keywords", content="")
+    link(rel='icon' href= path + 'favicon.ico')
     meta(name="format-detection", content="telephone=no")
     = "\n"
     = "\n"
@@ -28,7 +29,7 @@ head
         <!-- OGP -->
         meta(property='og:locale' content='ja_JP')
         meta(property='og:type' content='website')
-        meta(property='og:image' content=path + 'OGP.png')
+        meta(property='og:image' content='https://www.chintai.jp/assets/OGP.jpg')
         meta(property='og:title' content='')
         meta(property='og:description' content='')
         meta(property='og:url' content='')
@@ -39,6 +40,7 @@ head
     <!-- vendor -->
     = "\n"
     = "\n"
+    //-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     //-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Outfit:wght@100..900&family=Urbanist:wght@500&display=swap" rel="stylesheet">
@@ -57,7 +59,7 @@ body#body(class=pageClass)
             .l-header-logo
                 a(href=path + "")
                     img(src=img + "logo.svg" alt=sitename)
-                    img(src=img + "logo-wh.svg")
+                    img(src=img + "logo-wh.svg" alt="")
             .l-header-nav
                 nav.cm-nav-header
                     ul.cm-nav-header__nav
@@ -102,7 +104,7 @@ body#body(class=pageClass)
             block content
         footer.l-footer.is-section-dark
             .l-footer__chintiger
-                img(src=img+"chintiger-footer.svg")
+                img(src=img+"chintiger-footer.svg" alt="チンタイガーの画像")
             .l-container
                 .l-footer__wrap
                     .l-footer-logo
@@ -145,19 +147,19 @@ body#body(class=pageClass)
 
                     ul.l-footer-other
                         li
-                            a(href="https://www.able-partners.co.jp/company/management/social_media.html" target="_blank")
+                            a(href="https://www.chintai.net/site_info/policy/" target="_blank")
                                 span サイトポリシー
-                                svg(width=13 height=13)
+                                svg(width=13 height=13 aria-hidden="true")
                                     use(href="#ico-external-sm")
                         li
                             a(href="https://www.chintai.net/site_info/privacy/" target="_blank")
                                 span 個人情報保護方針
-                                svg(width=13 height=13)
+                                svg(width=13 height=13 aria-hidden="true")
                                     use(href="#ico-external-sm")
                         li
                             a(href="https://www.able-partners.co.jp/company/management/social_media.html" target="_blank")
                                 span ソーシャルメディアポリシー
-                                svg(width=13 height=13)
+                                svg(width=13 height=13 aria-hidden="true")
                                     use(href="#ico-external-sm")
 
 

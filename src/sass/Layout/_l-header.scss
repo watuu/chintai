@@ -13,6 +13,11 @@
 	display: flex;
 	align-items: center;
 	height: 55/16+rem;
+	transition: .1s var(--easeTheme);
+	.is-footer-view & {
+		opacity: 0;
+		pointer-events: none;
+	}
 	@include config.pc {
 		top: 58/16+rem;
 		left: 60/16+rem;

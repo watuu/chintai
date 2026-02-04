@@ -27078,14 +27078,15 @@
         // footerクラスの存在チェックとScrollTrigger
         var footer = document.querySelector('.l-footer');
         if (footer) {
+          var shift = Utility.isPC() ? 114 / 1440 * window.innerWidth : 70 / 375 * window.innerWidth;
           ScrollTrigger$1.create({
             trigger: footer,
-            start: 'top bottom',
+            start: "top-=".concat(shift, " top"),
             onEnter: function onEnter() {
-              return document.body.classList.add('is-footer-show');
+              return document.body.classList.add('is-footer-view');
             },
             onLeaveBack: function onLeaveBack() {
-              return document.body.classList.remove('is-footer-show');
+              return document.body.classList.remove('is-footer-view');
             }
           });
         }
@@ -27996,12 +27997,23 @@
                 setStepClass(step);
                 var targetSvg = svgs[step - 1];
                 var lines = targetSvg.querySelectorAll('.line');
+                var lines_reverse = targetSvg.querySelectorAll('.line-reverse');
                 gsapWithCSS.killTweensOf(lines);
+                gsapWithCSS.killTweensOf(lines_reverse);
                 gsapWithCSS.set(lines, {
                   drawSVG: "0% 0%"
                 });
                 gsapWithCSS.to(lines, {
                   drawSVG: "0% 100%",
+                  duration: 1.5,
+                  ease: "power3.out",
+                  stagger: 0.03
+                });
+                gsapWithCSS.set(lines_reverse, {
+                  drawSVG: "100% 100%"
+                });
+                gsapWithCSS.to(lines_reverse, {
+                  drawSVG: "100% 0%",
                   duration: 1.5,
                   ease: "power3.out",
                   stagger: 0.03
@@ -28030,8 +28042,8 @@
           gsapWithCSS.timeline({
             scrollTrigger: {
               trigger: timeline,
-              start: 'top 60%',
-              end: 'bottom 60%',
+              start: 'top 50%',
+              end: 'bottom 50%',
               scrub: true
               // markers: true,
             }

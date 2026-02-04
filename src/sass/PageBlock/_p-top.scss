@@ -9,7 +9,6 @@
 }
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .p-top-mv {
-
 	@include config.pc {}
 }
 .p-top-mv__wrap {
@@ -152,11 +151,23 @@
 .p-top-service {
 	position: relative;
 	padding: var(--padding-section) 0;
-	border-radius: 20/16+rem;
-	background: #EEF7FB;
+	background: #fff;
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		pointer-events: none;
+		background: #EEF7FB;
+		border-radius: 20/16+rem;
+	}
 	@include config.pc {}
 }
 .p-top-service__wrap {
+	position: relative;
 	@include config.pc {}
 }
 .p-top-service__head {
@@ -250,7 +261,7 @@
 			fill: var(--color);
 		}
 		path:nth-child(2) {
-			fill: #fff;
+			fill: var(--color);
 		}
 	}
 	@include config.pc {}
@@ -291,14 +302,7 @@
 }
 .p-top-service-item:nth-child(2) {
 	.p-top-service-item__label {
-		@include config.sp-tab {
-			svg {
-				path:nth-child(1) {
-					fill: #fff;
-				}
-			}
-
-		}
+		@include config.sp-tab {}
 	}
 	.p-top-service-item__head {
 		right: -28/16+rem;
@@ -323,12 +327,6 @@
 .p-top-service-item:nth-child(4) {
 	.p-top-service-item__label {
 		@include config.sp-tab {
-			svg {
-				path:nth-child(1) {
-					fill: #fff;
-				}
-			}
-
 		}
 	}
 	.p-top-service-item__head {
@@ -514,9 +512,9 @@
 	.p-top-initiatives-item__pic {
 		//width: 208/16+rem;
 		@include config.pc {
-			margin: -75/16+rem 0 -85/16+rem 0;
+			margin: -90/16+rem -20/16+rem -100/16+rem 0;
 			img {
-				height: 320/16+rem;
+				height: 350/16+rem;
 			}
 		}
 	}
@@ -526,11 +524,23 @@
 .p-top-news {
 	position: relative;
 	padding: var(--padding-section) 0;
-	border-radius: 20/16+rem;
-	background: #EEF7FB;
+	background: #fff;
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		pointer-events: none;
+		background: #EEF7FB;
+		border-radius: 20/16+rem;
+	}
 	@include config.pc {}
 }
 .p-top-news__wrap {
+	position: relative;
 	display: grid;
 	gap: 20/16+rem;
 	@include config.pc {

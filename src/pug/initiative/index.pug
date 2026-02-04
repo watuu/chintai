@@ -9,7 +9,7 @@ block content
         section.cm-section-header.cm-section-header--hasBG
             picture.cm-section-header__bg
                 source(srcset=img + "p-initiative-mv-sp.webp" media="(max-width: 1023px)")
-                img(src=img + "p-initiative-mv.webp")
+                img(src=img + "p-initiative-mv.webp" alt="CHINTAIの取り組みイメージ画像")
             .l-container
                 .cm-section-header__wrap
                     .c-heading-page.c-heading-page--wh
@@ -50,7 +50,7 @@ block content
                             span.u-underline-dash.js-underline-text 可能性が広がっていく
                             | <br class="sp-tab">時間となるよう、<br class="pc"> CHINTAIは住まいと暮らしの<br class="sp-tab">未来をひらく役割を担っています。
                     figure.p-initiative-message-block1__pic.js-visible.u-fade-mask
-                        img(src=img + "p-initiative-message-pic1.webp" data-y="-6").js-parallax
+                        img(src=img + "p-initiative-message-pic1.webp" alt="街の画像" data-y="-6").js-parallax
                 .p-initiative-message-block2
                     .p-initiative-message-block2__content
                         p.p-initiative-message-block2__txt
@@ -74,11 +74,11 @@ block content
                             | 取り組み<br class="sp-tab">を続けていきます。
                     .p-initiative-message-block2__pic
                         figure
-                            img(src=img + "p-initiative-message-pic2.webp" data-y="-10").js-parallax
+                            img(src=img + "p-initiative-message-pic2.webp" alt="トラの画像" data-y="-10").js-parallax
                         figure
-                            img(src=img + "p-initiative-message-pic3.webp" data-y="-14").js-parallax
+                            img(src=img + "p-initiative-message-pic3.webp" alt="家族の画像" data-y="-14").js-parallax
                         figure
-                            img(src=img + "p-initiative-message-pic4.webp" data-y="-10").js-parallax
+                            img(src=img + "p-initiative-message-pic4.webp" alt="学生の画像" data-y="-10").js-parallax
         section.p-initiative-project
             .p-initiative-project__bg
                 <svg width="1440" height="792" viewBox="0 0 1440 792" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -91,11 +91,11 @@ block content
                             h2.c-heading-section__title
                                 | プロジェクト一覧
                             p.c-heading-section__en
-                                | Project
+                                | Projects
                     .p-initiative-project__list
                         .p-initiative-project-item
                             figure.p-initiative-project-item__pic
-                                img(src=img + "p-initiative-project-item-pic1.webp" alt="")
+                                img(src=img + "p-initiative-project-item-pic1.webp" alt="社会貢献プロジェクト")
                             .p-initiative-project-item__content
                                 .p-initiative-project-item__head
                                     p.p-initiative-project-item__no
@@ -109,13 +109,13 @@ block content
                                     a(href="https://www.chintai.net/city-planning/" target="_blank").c-btn-more.c-btn-more--sm
                                         span.c-btn-more__txt 詳しく見る
                                         i.c-btn-more__ico
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-circle")
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-external")
                         .p-initiative-project-item
                             figure.p-initiative-project-item__pic
-                                img(src=img + "p-initiative-project-item-pic2.webp" alt="")
+                                img(src=img + "p-initiative-project-item-pic2.webp" alt="学生応援活動")
                             .p-initiative-project-item__content
                                 .p-initiative-project-item__head
                                     p.p-initiative-project-item__no
@@ -129,13 +129,13 @@ block content
                                     a(href=path + "initiative/student/").c-btn-more.c-btn-more--sm
                                         span.c-btn-more__txt 詳しく見る
                                         i.c-btn-more__ico
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-circle")
-                                            svg(width=42 height=42)._arrow
+                                            svg(width=42 height=42 aria-hidden="true")._arrow
                                                 use(href="#ico-arrow-right")
                         .p-initiative-project-item
                             figure.p-initiative-project-item__pic
-                                img(src=img + "p-initiative-project-item-pic3.webp" alt="")
+                                img(src=img + "p-initiative-project-item-pic3.webp" alt="メディア活動")
                             .p-initiative-project-item__content
                                 .p-initiative-project-item__head
                                     p.p-initiative-project-item__no
@@ -149,9 +149,9 @@ block content
                                     a(href=path + "initiative/media/").c-btn-more.c-btn-more--sm
                                         span.c-btn-more__txt 詳しく見る
                                         i.c-btn-more__ico
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-circle")
-                                            svg(width=42 height=42)._arrow
+                                            svg(width=42 height=42 aria-hidden="true")._arrow
                                                 use(href="#ico-arrow-right")
 
 

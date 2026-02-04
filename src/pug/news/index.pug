@@ -31,15 +31,16 @@ block content
                                 select.c-form-select__input
                                     option(value="") 年代
                                     option(value="") 2025年
-                                svg(width=17 height=12).c-form-select__angle
+                                svg(width=17 height=12 aria-hidden="true").c-form-select__angle
                                     use(href="#ico-angle-down")
                             .c-form-select
                                 select.c-form-select__input
                                     option(value="") カテゴリー
-                                    option(value="お知らせ") お知らせ
+                                    option(value="ニュース") ニュース
                                     option(value="プレスリリース") プレスリリース
-                                    option(value="暮らし調査") 暮らし調査
-                                svg(width=17 height=12).c-form-select__angle
+                                    //-
+                                        option(value="暮らし調査") 暮らし調査
+                                svg(width=17 height=12 aria-hidden="true").c-form-select__angle
                                     use(href="#ico-angle-down")
                         .cm-block-filter__action
                             button.c-form-btn
@@ -52,7 +53,7 @@ block content
                                 p.c-card-news__category
                                     span.c-card-news__label(style="background: #EF92AE;")
                                     span 暮らし調査
-                                h3.c-card-news__title
+                                p.c-card-news__title
                                     a(href=path + "single-news/").c-card-news__link
                                         | なにわ男子・大橋和也さんがミュージカル仕立てでお部屋探し！
                         .c-card-news
@@ -61,7 +62,7 @@ block content
                                 p.c-card-news__category
                                     span.c-card-news__label(style="background: #7EBEAF;")
                                     span お知らせ
-                                h3.c-card-news__title
+                                p.c-card-news__title
                                     a(href=path + "single-news/").c-card-news__link
                                         | なにわ男子・大橋和也さんがミュージカル仕立てでお部屋探し！ 2行の場合2行の場合2行の場合2行の場合2行の場合2行の場合
                         .c-card-news
@@ -70,13 +71,13 @@ block content
                                 p.c-card-news__category
                                     span.c-card-news__label(style="background: #EBBA5F;")
                                     span プレスリリース
-                                h3.c-card-news__title
+                                p.c-card-news__title
                                     a(href=path + "single-news/").c-card-news__link
                                         | サービス開始50周年！日本記念日協会が登録認定11月1日を「CHINTAIの日」に制定
                                     .c-card-news__pdf
                                         a(href="" target="_blank")
                                             span PDF
-                                            svg(width=13 height=13)
+                                            svg(width=13 height=13 aria-hidden="true")
                                                 use(href="#ico-external-sm")
 
 
@@ -84,9 +85,9 @@ block content
                     ul.cm-nav-paginate
                         li.cm-nav-paginate__ctrl
                             a(href="#").c-btn-circle.c-btn-circle--prev
-                                svg(width=42 height=42)
+                                svg(width=42 height=42 aria-hidden="true")
                                     use(href="#ico-circle")
-                                svg(width=42 height=42)._arrow
+                                svg(width=42 height=42 aria-hidden="true")._arrow
                                     use(href="#ico-arrow-right")
                         li.cm-nav-paginate__page.is-current
                             span 1
@@ -100,9 +101,9 @@ block content
                             span …
                         li.cm-nav-paginate__ctrl
                             a(href="#").c-btn-circle
-                                svg(width=42 height=42)
+                                svg(width=42 height=42 aria-hidden="true")
                                     use(href="#ico-circle")
-                                svg(width=42 height=42)._arrow
+                                svg(width=42 height=42 aria-hidden="true")._arrow
                                     use(href="#ico-arrow-right")
 
 

@@ -1,7 +1,7 @@
 section.p-media-chintiger.js-content-media(data-content="chintiger").is-active
     picture.p-media-chintiger__bg
         source(srcset=img + "bg-ellipse-sp.webp" media="(max-width: 1023px)")
-        img(src=img + "bg-ellipse.webp")
+        img(src=img + "bg-ellipse.webp" alt="")
     h2.p-media-chintiger__title
         <svg width="400" height="67" viewBox="0 0 400 67" fill="none" xmlns="http://www.w3.org/2000/svg">
         <title>チンタイガー</title>
@@ -18,7 +18,7 @@ section.p-media-chintiger.js-content-media(data-content="chintiger").is-active
     .p-media-chintiger-profile
         figure.p-media-chintiger-profile__pic
             .p-media-chintiger-profile__picMain
-                img(src=img+"p-media-chintiger-profile-chintiger1.svg")
+                img(src=img+"p-media-chintiger-profile-chintiger1.svg" alt="チンタイガーの画像")
             .p-media-chintiger-profile__picFukidashi
                 <svg class="" width="177" height="68" viewBox="0 0 177 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M170.216 1H6.78445C3.58671 1 1 3.78564 1 7.22931V42.4118C1 45.8554 3.58671 48.6411 6.78445 48.6411H124.205L140.397 66.0788C141.538 67.3071 143.391 67.3071 144.532 66.0788C145.672 64.8504 145.672 62.8544 144.532 61.6261L132.474 48.6411H170.216C173.413 48.6411 176 45.8554 176 42.4118V7.22931C176 3.78564 173.413 1 170.216 1Z" fill="white" stroke="#0B2188" stroke-width="2" stroke-linejoin="round"/>
@@ -57,7 +57,7 @@ section.p-media-chintiger.js-content-media(data-content="chintiger").is-active
                     span 出身地
                 dd フィリピンのジャングル
             figure.p-media-chintiger-profile__dataPic
-                img(src=img + "p-media-chintiger-profile-chintiger2.svg")
+                img(src=img + "p-media-chintiger-profile-chintiger2.svg" alt="チンタイガーの画像")
         .p-media-chintiger-profile__blocks
             .p-media-chintiger-profile__block1
                 h3.c-heading-label(style="background: #7EBEAF;") 生い立ち
@@ -67,7 +67,7 @@ section.p-media-chintiger.js-content-media(data-content="chintiger").is-active
                 h3.c-heading-label(style="background: #5BBFE1;") 性格
                 .p-media-chintiger-profile__block2Wrap
                     figure.p-media-chintiger-profile__block2Pic
-                        img(src=img + "p-media-chintiger-profile-chintiger3.svg")
+                        img(src=img + "p-media-chintiger-profile-chintiger3.svg" alt="チンタイガーの画像")
                         figcaption
                             p マイペース
                             p(style="display: none;") 寂しがり屋
@@ -99,7 +99,9 @@ section.p-media-chintiger.js-content-media(data-content="chintiger").is-active
                 </svg>
                 h3.p-media-chintiger-detail-block__title
                     span 所属部署は
-                    span 「みんなを応援したい課～」
+                    span 「みんなを応援したい課
+                        span.u-han ゛
+                        | ～」
                 <svg width="11" height="81" viewBox="0 0 11 81" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="4" height="80" rx="2" transform="matrix(-1 0 0 1 10.5 0.5)" fill="white" stroke="#0B2188"/>
                 <rect width="4" height="10" rx="2" transform="matrix(-1.19249e-08 -1 -1 1.19249e-08 10.5 4.5)" fill="white" stroke="#0B2188"/>
@@ -150,24 +152,24 @@ section.p-media-chintiger.js-content-media(data-content="chintiger").is-active
             .p-media-chintiger-sns-line
                 a(href="https://store.line.me/stickershop/product/30010271/ja" target="_blank")
                     span LINEスタンプ
-                    svg(width=13 height=13)
+                    svg(width=13 height=13 aria-hidden="true")
                         use(href="#ico-external-sm")
-                img(src=img + "p-media-chintiger-sns-chintiger1.svg")._chintiger
+                img(src=img + "p-media-chintiger-sns-chintiger1.webp" alt="チンタイガーの画像")._chintiger
             .p-media-chintiger-sns-story
                 ul
                     li
                         a(href="https://www.instagram.com/chintiger_chintai/" target="_blank")
                             span Instagram
-                            svg(width=13 height=13)
+                            svg(width=13 height=13 aria-hidden="true")
                                 use(href="#ico-external-sm")
                     li
                         a(href="https://twitter.com/CHINTiger" target="_blank")
                             span X
-                            svg(width=13 height=13)
+                            svg(width=13 height=13 aria-hidden="true")
                                 use(href="#ico-external-sm")
                     li
                         a(href="https://www.tiktok.com/@chintiger_chintai?lang=ja-JP" target="_blank")
                             span TikTok
-                            svg(width=13 height=13)
+                            svg(width=13 height=13 aria-hidden="true")
                                 use(href="#ico-external-sm")
-                img(src=img + "p-media-chintiger-sns-chintiger2.svg")._chintiger
+                img(src=img + "p-media-chintiger-sns-chintiger2.svg" alt="チンタイガーの画像")._chintiger

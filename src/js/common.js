@@ -142,11 +142,14 @@ export default class common {
         // footerクラスの存在チェックとScrollTrigger
         const footer = document.querySelector('.l-footer');
         if (footer) {
+            const shift = Utility.isPC()?
+                114/1440*window.innerWidth:
+                70/375*window.innerWidth
             ScrollTrigger.create({
                 trigger: footer,
-                start: 'top bottom',
-                onEnter: () => document.body.classList.add('is-footer-show'),
-                onLeaveBack: () => document.body.classList.remove('is-footer-show'),
+                start: `top-=${shift} top`,
+                onEnter: () => document.body.classList.add('is-footer-view'),
+                onLeaveBack: () => document.body.classList.remove('is-footer-view'),
             });
         }
     }

@@ -171,7 +171,7 @@
 .cm-nav-aside__chitiger {
 	position: absolute;
 	z-index: 2;
-	right: -20/16+rem;
+	right: -24/16+rem;
 	top: -54/16+rem;
 	pointer-events: none;
 	figure {
@@ -252,13 +252,14 @@
 	&:before {
 		content: '';
 		display: block;
-		width: 60/16+rem;
+		width: 55/16+rem;
 		height: 60/16+rem;
 		position: absolute;
 		right: config.px(-1);
 		top: config.px(-1);
 		pointer-events: none;
 		border: config.px(1) solid #fff;
+		border-radius: 0 10/16+rem 0 0;
 	}
 }
 .cm-nav-aside-link {

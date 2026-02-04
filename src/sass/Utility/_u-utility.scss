@@ -78,6 +78,11 @@
 	&:after {
 		top: 95%;
 	}
+	@include config.sp {
+		&:before {
+			display: none;
+		}
+	}
 }
 .u-underline-dash.js-underline-text {
 	opacity: 0;
@@ -155,7 +160,9 @@
 	word-break: keep-all;
 	overflow-wrap: anywhere;
 }
-
+.u-han {
+	letter-spacing: -0.5em;
+}
 @for $i from 1 through 30 {
 	[data-delay="#{$i * 0.1}"] {
 		transition-delay: #{$i * 0.1}s;

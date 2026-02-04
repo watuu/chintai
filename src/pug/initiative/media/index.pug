@@ -9,7 +9,7 @@ block content
         section.cm-section-header.cm-section-header--hasBG
             picture.cm-section-header__bg
                 source(srcset=img + "p-media-mv-sp.webp" media="(max-width: 1023px)")
-                img(src=img + "p-media-mv.webp")
+                img(src=img + "p-media-mv.webp" alt="メディア活動イメージ画像")
             .l-container
                 .cm-section-header__wrap
                     .c-heading-page.c-heading-page--wh
@@ -20,7 +20,7 @@ block content
                     a(href=path+"")
                         | Top
                 li
-                    a(href=path + "initiatives")
+                    a(href=path + "initiative/")
                         | Initiatives
                 li
                     span
@@ -34,28 +34,28 @@ block content
                                 button.cm-nav-media__btn.js-btn-mediaTab(data-content="chintiger")
                                     i.cm-nav-media__status
                                         span._status
-                                        svg(width=42 height=42)._circle
+                                        svg(width=42 height=42 aria-hidden="true")._circle
                                             use(href="#ico-circle")
                                     span.cm-nav-media__txt チンタイガー紹介
                             li
                                 button.cm-nav-media__btn.js-btn-mediaTab(data-content="sports")
                                     i.cm-nav-media__status
                                         span._status
-                                        svg(width=42 height=42)._circle
+                                        svg(width=42 height=42 aria-hidden="true")._circle
                                             use(href="#ico-circle")
                                     span.cm-nav-media__txt スポーツ協賛
                             li
                                 button.cm-nav-media__btn.js-btn-mediaTab(data-content="advertising")
                                     i.cm-nav-media__status
                                         span._status
-                                        svg(width=42 height=42)._circle
+                                        svg(width=42 height=42 aria-hidden="true")._circle
                                             use(href="#ico-circle")
                                     span.cm-nav-media__txt 広告活動
                             li
                                 button.cm-nav-media__btn.js-btn-mediaTab(data-content="program")
                                     i.cm-nav-media__status
                                         span._status
-                                        svg(width=42 height=42)._circle
+                                        svg(width=42 height=42 aria-hidden="true")._circle
                                             use(href="#ico-circle")
                                     span.cm-nav-media__txt 番組提供
                     .p-media-nav__current
@@ -88,18 +88,18 @@ block content
                         span.c-btn-square__txt
                             | 学生応援活動
                         i.c-btn-square__ico
-                            svg(width=42 height=42)
+                            svg(width=42 height=42 aria-hidden="true")
                                 use(href="#ico-circle")
-                            svg(width=42 height=42)._arrow
+                            svg(width=42 height=42 aria-hidden="true")._arrow
                                 use(href="#ico-arrow-right")
                 li
                     a(href="https://www.chintai.net/city-planning/" target="_blank").c-btn-square.c-btn-square--initiative
                         span.c-btn-square__txt
                             | 社会貢献プロジェクト
                         i.c-btn-square__arrow
-                            svg(width=42 height=42)
+                            svg(width=42 height=42 aria-hidden="true")
                                 use(href="#ico-circle")
-                            svg(width=42 height=42)
+                            svg(width=42 height=42 aria-hidden="true")
                                 use(href="#ico-external")
 
 
