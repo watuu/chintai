@@ -9,6 +9,9 @@
     "preview": "vite preview",
     "prerender:entries": "node scripts/fetch-prerender-entries.js"
   },
+  "dependencies": {
+    "microcms-js-sdk": "^2.0.0"
+  },
   "devDependencies": {
     "dotenv": "^16.4.5",
     "@sveltejs/adapter-static": "^3.0.1",

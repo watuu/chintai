@@ -1,14 +1,29 @@
 /**
  * microCMS API client (server-side only).
- * Set MICROCMS_SERVICE_DOMAIN and MICROCMS_API_KEY in env.
+ * .env に MICROCMS_SERVICE_DOMAIN と MICROCMS_API_KEY を設定。
+ * 開発時は $env/dynamic/private で .env が読み込まれる。
+ * 101件以上の取得には microcms-js-sdk の getAllContents を使用。
+ * @see https://help.microcms.io/ja/knowledge/fetch-big-data
  */
+import { env } from '$env/dynamic/private';
+import { createClient } from 'microcms-js-sdk';
 
 const getConfig = () => {
-  const domain = process.env.MICROCMS_SERVICE_DOMAIN;
-  const key = process.env.MICROCMS_API_KEY;
+  const domain = env.MICROCMS_SERVICE_DOMAIN;
+  const key = env.MICROCMS_API_KEY;
   if (!domain || !key) return null;
   return { domain, key };
 };
+
+/** SDK クライアント（全件取得用） */
+function getSdkClient() {
+  const config = getConfig();
+  if (!config) return null;
+  return createClient({
+    serviceDomain: config.domain,
+    apiKey: config.key
+  });
+}
 
 const baseUrl = (domain) => `https://${domain}.microcms.io/api/v1`;
 
@@ -40,23 +55,29 @@ export async function fetchFromMicroCMS(endpoint, params = {}) {
  */
 export async function getNewsList({ limit = 10, offset = 0, year, categoryId } = {}) {
   const filters = [];
-  if (year) filters.push(`publishedAt[contains]${year}-`);
+  if (year) filters.push(`publishedAt[begins_with]${year}-`);
   if (categoryId) filters.push(`category[equals]${categoryId}`);
   const params = { limit, offset };
-  if (filters.length) params.filters = filters.join('][');
+  if (filters.length) params.filters = filters.join('[and]');
   params.orders = '-publishedAt';
   const data = await fetchFromMicroCMS('news', params);
   return data;
 }
 
 /**
- * Fetch single news by slug.
- * Expects microCMS API "news" with slug field and getBySlug or filter by slug.
+ * Fetch single news by ID.
+ * microCMS の単一取得 API: GET /api/v1/news/{contentId} を使用（slug がなく id のみの場合も対応）
  */
-export async function getNewsBySlug(slug) {
-  const data = await fetchFromMicroCMS('news', { filters: `slug[equals]${slug}`, limit: 1 });
-  const contents = data.contents ?? [];
-  return contents[0] ?? null;
+export async function getNewsById(id) {
+  const config = getConfig();
+  if (!config) return null;
+  const { domain, key } = config;
+  const url = `${baseUrl(domain)}/news/${encodeURIComponent(id)}`;
+  const res = await fetch(url, {
+    headers: { 'X-MICROCMS-API-KEY': key }
+  });
+  if (!res.ok) return null;
+  return res.json();
 }
 
 /**
@@ -65,4 +86,34 @@ export async function getNewsBySlug(slug) {
 export async function getLatestNews(limit = 6) {
   const data = await fetchFromMicroCMS('news', { limit, orders: '-publishedAt' });
   return data.contents ?? [];
+}
+
+/**
+ * 一覧から年代の選択肢を取得（フィルタ用）。
+ * SDK の getAllContents で全件取得してユニークな年を返す（limit 100 制限を超えても取得可能）。
+ * @see https://help.microcms.io/ja/knowledge/fetch-big-data
+ */
+export async function getNewsYears() {
+  const client = getSdkClient();
+  if (!client) return [];
+  const res = await client.getAllContents({ endpoint: 'news' });
+  const contents = Array.isArray(res) ? res : (res?.contents ?? []);
+  const years = [];
+  for (const item of contents) {
+    if (item.publishedAt) {
+      const y = item.publishedAt.slice(0, 4);
+      if (y && !years.includes(y)) years.push(y);
+    }
+  }
+  years.sort((a, b) => Number(b) - Number(a));
+  return years;
+}
+
+/**
+ * カテゴリ一覧を取得（GET /api/v1/categories）。
+ */
+export async function getCategories() {
+  const data = await fetchFromMicroCMS('categories', {});
+  const contents = data.contents ?? [];
+  return contents.map((c) => ({ id: c.id, name: c.name ?? c.id }));
 }

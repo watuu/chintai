@@ -5,6 +5,12 @@
 </script>
 
 <svelte:head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Urbanist:wght@500&family=Roboto:wght@400&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="/assets/css/style.css" />
 </svelte:head>
 
@@ -110,3 +116,15 @@
     <p class="l-footer__copyright">&copy;CHINTAI Corporation All rights reserved.</p>
   </div>
 </footer>
+
+<!-- ページャー等で使用する SVG シンボル（メインサイトの _symbol.pug と同一） -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;">
+  <defs>
+    <symbol id="ico-arrow-right" viewBox="0 0 42 42">
+      <path d="M13.4375 20.0676H23.6841V21.3936H13.4375V20.0676ZM22.9013 16.7998L29.3975 20.778L22.9013 24.7798V16.8116V16.7998Z" stroke="none"/>
+    </symbol>
+    <symbol id="ico-circle" viewBox="0 0 42 42">
+      <rect x="1" y="1" width="40" height="40" rx="20" stroke-width="2"/>
+    </symbol>
+  </defs>
+</svg>

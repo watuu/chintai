@@ -1,4 +1,4 @@
-import { getNewsList } from '$lib/microcms.js';
+import { getNewsList, getNewsYears, getCategories } from '$lib/microcms.js';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ url }) {
@@ -14,14 +14,22 @@ export async function load({ url }) {
     // prerender 時など url.searchParams にアクセスできない場合
   }
 
-  const data = await getNewsList({ limit, offset, year, categoryId });
-  const contents = data.contents ?? [];
-  const totalCount = data.totalCount ?? 0;
+  const [listResult, years, categories] = await Promise.all([
+    getNewsList({ limit, offset, year, categoryId }),
+    getNewsYears(),
+    getCategories()
+  ]);
+  const contents = listResult.contents ?? [];
+  const totalCount = listResult.totalCount ?? 0;
 
   return {
     list: contents,
     totalCount,
     limit,
-    offset
+    offset,
+    year,
+    categoryId,
+    years,
+    categories
   };
 }

@@ -20,7 +20,18 @@ npm install
 
 ## 開発
 
+画像・CSS は親プロジェクトの `dest/assets` を参照しています。**開発時に画像が表示されない場合**は、以下で `static/assets` を `dest/assets` へシンボリックリンクしてください（プロジェクトルートで実行）:
+
 ```bash
+# 親で dest をビルド済みであること（npm run pug && npm run sass など）
+mkdir -p news-app/static
+ln -sf ../../dest/assets news-app/static/assets
+```
+
+その後:
+
+```bash
+cd news-app
 npm run dev
 ```
 
