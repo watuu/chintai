@@ -2,6 +2,7 @@
 import $ from "jQuery";
 import Utility from './utility';
 import { gsap } from 'gsap';
+import { DrawSVGPlugin } from "gsap/DrawSVGPlugin"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import 'overlayscrollbars/overlayscrollbars.css';
@@ -25,7 +26,7 @@ import MicroModal from 'micromodal'
 export default class common {
 
     constructor() {
-        gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
         // barba.hooks.beforeOnce((data) => {
         //     console.log('once')
         //     this.load();
@@ -56,6 +57,8 @@ export default class common {
         this.jsTab();
         this.jsSwiper();
         this.jsParallax();
+        this.jsUnderlineText();
+        this.jsCircleText();
         // this.isSectionDark();
         this.isVisible();
         this.isVisibleType();
@@ -139,11 +142,14 @@ export default class common {
         // footerクラスの存在チェックとScrollTrigger
         const footer = document.querySelector('.l-footer');
         if (footer) {
+            const shift = Utility.isPC()?
+                114/1440*window.innerWidth:
+                70/375*window.innerWidth
             ScrollTrigger.create({
                 trigger: footer,
-                start: 'top bottom',
-                onEnter: () => document.body.classList.add('is-footer-show'),
-                onLeaveBack: () => document.body.classList.remove('is-footer-show'),
+                start: `top-=${shift} top`,
+                onEnter: () => document.body.classList.add('is-footer-view'),
+                onLeaveBack: () => document.body.classList.remove('is-footer-view'),
             });
         }
     }
@@ -475,6 +481,137 @@ export default class common {
         });
     }
 
+    jsUnderlineText() {
+        const domList = document.querySelectorAll('.js-underline-text');
+
+        if (domList.length) {
+
+            domList.forEach(el => {
+                Utility.convertSpiltSpan(el);
+                const spans = el.querySelectorAll('span');
+                const elRect = el.getBoundingClientRect();
+                const centerX = elRect.left + elRect.width / 2;
+                const centerY = elRect.top + elRect.height / 2;
+
+                // 初期状態
+
+                spans.forEach((span) => {
+                    const rect = span.getBoundingClientRect();
+
+                    const px = rect.left + rect.width / 2;
+                    const py = rect.top + rect.height / 2;
+
+                    const dx = px - centerX;
+                    const dy = py - centerY;
+                    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+
+                    const nx = dx / dist;
+                    const ny = dy / dist;
+
+                    // 初期状態
+                    gsap.set(span, {
+                        // x: nx * 40,
+                        // y: ny * 40 || (Math.random() * 80 - 40),
+                        // rotate: -90,
+                        opacity: 0,
+                        transformOrigin: '50% 50%',
+                    });
+
+                    // アニメーション
+                    gsap.to(span, {
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 80%',
+                            once: true,
+                        },
+                        x: 0,
+                        y: 0,
+                        // rotate: 0,
+                        opacity: 1,
+                        duration: 1.2,
+                        delay: Math.random() * 0.6,
+                        ease: 'power3.out',
+                        onStart: () => {
+                            el.classList.add('is-visible');
+                        }
+                    });
+                });
+            });
+        }
+    }
+
+    jsCircleText() {
+        const domList = document.querySelectorAll('.js-circle-text');
+
+        if (domList.length) {
+
+            domList.forEach(el => {
+                const spanWrap = el.querySelector('span');
+                Utility.convertSpiltSpan(spanWrap);
+                const spans = spanWrap.querySelectorAll('span');
+                const elRect = el.getBoundingClientRect();
+                const centerX = elRect.left + elRect.width / 2;
+                const centerY = elRect.top + elRect.height / 2;
+
+                // 初期状態
+                gsap.fromTo(el.querySelector('svg path'), {
+                    drawSVG:"0% 0%"
+                },{
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 80%',
+                        once: true,
+                    },
+                    duration: 1,
+                    drawSVG:"0 100%",
+                    ease: 'power3.out',
+                    onStart: () => {
+                        el.classList.add('is-visible');
+                    }
+                })
+
+                spans.forEach((span) => {
+                    const rect = span.getBoundingClientRect();
+
+                    const px = rect.left + rect.width / 2;
+                    const py = rect.top + rect.height / 2;
+
+                    const dx = px - centerX;
+                    const dy = py - centerY;
+                    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+
+                    const nx = dx / dist;
+                    const ny = dy / dist;
+
+                    // 初期状態
+                    gsap.set(span, {
+                        // x: nx * 40,
+                        // y: ny * 40 || (Math.random() * 80 - 40),
+                        // rotate: -90,
+                        opacity: 0,
+                        transformOrigin: '50% 50%',
+                    });
+
+                    // アニメーション
+                    gsap.to(span, {
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 80%',
+                            once: true,
+                        },
+                        x: 0,
+                        y: 0,
+                        // rotate: 0,
+                        opacity: 1,
+                        duration: 1.2,
+                        delay: Math.random() * 0.6,
+                        ease: 'power3.out'
+                    });
+                });
+            });
+        }
+    }
+
     isSectionDark() {
         const shift = Utility.isPC()?
             114/1440*window.innerWidth/2:
@@ -512,25 +649,29 @@ export default class common {
         const domList = document.querySelectorAll('.js-visible-type');
 
         if (domList.length) {
+
             domList.forEach(el => {
                 Utility.convertSpiltSpan(el);
-            });
-
-            domList.forEach(el => {
                 const spans = el.querySelectorAll('span');
 
-                gsap.set(spans, { opacity: 0, y: '20%' });
-
+                gsap.set(spans, { opacity: 0 });
                 gsap.to(spans, {
                     scrollTrigger: {
                         trigger: el,
-                        start: 'top bottom-=20%',
+                        start: 'top 80%',
+                        once: true,
                     },
-                    delay: 0.5,
                     opacity: 1,
-                    y: '0%',
-                    stagger: 0.03,
-                    ease: 'power3.out', // 修正：typoだった 'poser3.out' → 'power3.out'
+                    duration: 1.2,
+                    delay: Math.random() * 0.6,
+                    ease: 'power3.out',
+                    stagger: {
+                        each: 0.03,
+                        from: "random"
+                    },
+                    onStart: () => {
+                        el.classList.add('is-visible');
+                    }
                 });
             });
         }

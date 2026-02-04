@@ -9,7 +9,7 @@ block content
         section.cm-section-header.cm-section-header--hasBG
             picture.cm-section-header__bg
                 source(srcset=img + "p-initiative-mv-sp.webp" media="(max-width: 1023px)")
-                img(src=img + "p-initiative-mv.webp")
+                img(src=img + "p-initiative-mv.webp" alt="CHINTAIの取り組みイメージ画像")
             .l-container
                 .cm-section-header__wrap
                     .c-heading-page.c-heading-page--wh
@@ -35,9 +35,9 @@ block content
                             | 暮らしのために
                         p.p-initiative-message-block1__txt
                             | CHINTAIは、「気づく、であう、広がる。<br class="sp-tab">自分らしい暮らしが叶う<br class="pc">社会を創る。」という<br class="sp-tab">ビジョンのもと、
-                            span.u-underline-dash 一人ひとりが自分らしい
+                            span.u-underline-dash.js-underline-text 一人ひとりが自分らしい
                             br
-                            span.u-underline-dash 暮らしへ踏み出せる
+                            span.u-underline-dash.js-underline-text 暮らしへ踏み出せる
                             | 社会の実現を目指しています。
                             br
                             |
@@ -45,12 +45,12 @@ block content
                             | 人生の中で何度もない「お部屋探し」という体験が、
                             br
                             | 新しい街や価値観との出会いを生み、<br class="sp-tab">
-                            span.u-underline-dash 自分らしい暮らしの
+                            span.u-underline-dash.js-underline-text 自分らしい暮らしの
                             br.pc
-                            span.u-underline-dash 可能性が広がっていく
+                            span.u-underline-dash.js-underline-text 可能性が広がっていく
                             | <br class="sp-tab">時間となるよう、<br class="pc"> CHINTAIは住まいと暮らしの<br class="sp-tab">未来をひらく役割を担っています。
-                    figure.p-initiative-message-block1__pic
-                        img(src=img + "p-initiative-message-pic1.webp" data-y="-6").js-parallax
+                    figure.p-initiative-message-block1__pic.js-visible.u-fade-mask
+                        img(src=img + "p-initiative-message-pic1.webp" alt="街の画像" data-y="-6").js-parallax
                 .p-initiative-message-block2
                     .p-initiative-message-block2__content
                         p.p-initiative-message-block2__txt
@@ -62,22 +62,23 @@ block content
                             br
                             | CHINTAIは、住まいを起点に暮らしの<br class="sp-tab">あらゆる場面に寄り添い、
                             br
-                            span.u-underline-dash 新しい価値と気づき
+                            span.u-underline-dash.js-underline-text 新しい価値と気づき
                             | を生み出しながら、
                             br
                             | 人と地域、そして
-                            span.u-text-circle 未来へとつながる
+                            span.u-text-circle.js-circle-text
+                                span 未来へとつながる
                                 <svg width="155" height="57" viewBox="0 0 155 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M77.5 0.5C98.8577 0.5 118.172 3.68412 132.128 8.81641C139.108 11.3833 144.723 14.4286 148.582 17.7842C152.442 21.1407 154.5 24.7634 154.5 28.5C154.5 32.2366 152.442 35.8593 148.582 39.2158C144.723 42.5714 139.108 45.6167 132.128 48.1836C118.172 53.3159 98.8577 56.5 77.5 56.5C56.1423 56.5 36.8285 53.3159 22.8721 48.1836C15.8919 45.6167 10.2774 42.5714 6.41797 39.2158C2.55754 35.8593 0.5 32.2366 0.5 28.5C0.5 24.7634 2.55754 21.1407 6.41797 17.7842C10.2774 14.4286 15.8919 11.3833 22.8721 8.81641C36.8285 3.68412 56.1423 0.5 77.5 0.5Z" stroke="#3C51B8"/>
                                 </svg>
                             | 取り組み<br class="sp-tab">を続けていきます。
                     .p-initiative-message-block2__pic
                         figure
-                            img(src=img + "p-initiative-message-pic2.webp" data-y="-10").js-parallax
+                            img(src=img + "p-initiative-message-pic2.webp" alt="トラの画像" data-y="-10").js-parallax
                         figure
-                            img(src=img + "p-initiative-message-pic3.webp" data-y="-14").js-parallax
+                            img(src=img + "p-initiative-message-pic3.webp" alt="家族の画像" data-y="-14").js-parallax
                         figure
-                            img(src=img + "p-initiative-message-pic4.webp" data-y="-10").js-parallax
+                            img(src=img + "p-initiative-message-pic4.webp" alt="学生の画像" data-y="-10").js-parallax
         section.p-initiative-project
             .p-initiative-project__bg
                 <svg width="1440" height="792" viewBox="0 0 1440 792" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,11 +91,11 @@ block content
                             h2.c-heading-section__title
                                 | プロジェクト一覧
                             p.c-heading-section__en
-                                | Project
+                                | Projects
                     .p-initiative-project__list
                         .p-initiative-project-item
                             figure.p-initiative-project-item__pic
-                                img(src=img + "p-initiative-project-item-pic1.webp" alt="")
+                                img(src=img + "p-initiative-project-item-pic1.webp" alt="社会貢献プロジェクト")
                             .p-initiative-project-item__content
                                 .p-initiative-project-item__head
                                     p.p-initiative-project-item__no
@@ -108,13 +109,13 @@ block content
                                     a(href="https://www.chintai.net/city-planning/" target="_blank").c-btn-more.c-btn-more--sm
                                         span.c-btn-more__txt 詳しく見る
                                         i.c-btn-more__ico
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-circle")
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-external")
                         .p-initiative-project-item
                             figure.p-initiative-project-item__pic
-                                img(src=img + "p-initiative-project-item-pic2.webp" alt="")
+                                img(src=img + "p-initiative-project-item-pic2.webp" alt="学生応援活動")
                             .p-initiative-project-item__content
                                 .p-initiative-project-item__head
                                     p.p-initiative-project-item__no
@@ -128,13 +129,13 @@ block content
                                     a(href=path + "initiative/student/").c-btn-more.c-btn-more--sm
                                         span.c-btn-more__txt 詳しく見る
                                         i.c-btn-more__ico
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-circle")
-                                            svg(width=42 height=42)._arrow
+                                            svg(width=42 height=42 aria-hidden="true")._arrow
                                                 use(href="#ico-arrow-right")
                         .p-initiative-project-item
                             figure.p-initiative-project-item__pic
-                                img(src=img + "p-initiative-project-item-pic3.webp" alt="")
+                                img(src=img + "p-initiative-project-item-pic3.webp" alt="メディア活動")
                             .p-initiative-project-item__content
                                 .p-initiative-project-item__head
                                     p.p-initiative-project-item__no
@@ -148,9 +149,9 @@ block content
                                     a(href=path + "initiative/media/").c-btn-more.c-btn-more--sm
                                         span.c-btn-more__txt 詳しく見る
                                         i.c-btn-more__ico
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-circle")
-                                            svg(width=42 height=42)._arrow
+                                            svg(width=42 height=42 aria-hidden="true")._arrow
                                                 use(href="#ico-arrow-right")
 
 

@@ -18,8 +18,8 @@ block content
                 </clipPath>
                 </svg>
             .p-top-mv__wrap
-                .p-top-mv__logo
-                    img(src=img+"p-top-mv-logo.svg")
+                h1.p-top-mv__logo
+                    img(src=img+"p-top-mv-logo.svg" alt=sitename + " 自分らしい暮らしが叶う社会を創る。")
                 .p-top-mv__video
                     video(controls=false, preload='metadata', width='100%' autoplay=true muted=true loop=true playsinline=true)
                         source(src='./assets/media/fv.mp4', type='video/mp4')
@@ -37,7 +37,7 @@ block content
                 .p-top-message__wrap
                     .p-top-message__text
                         span.u-text-search
-                            span お部屋探し
+                            span.js-visible-type お部屋探し
                             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8.98306 17.3643C13.612 17.3643 17.3646 13.6114 17.3646 8.98196C17.3646 4.35251 13.612 0.599609 8.98306 0.599609C4.35409 0.599609 0.601562 4.35251 0.601562 8.98196C0.601562 13.6114 4.35409 17.3643 8.98306 17.3643Z" stroke="#3C51B8" stroke-width="1.2" stroke-miterlimit="10"/>
                             <path d="M16.1914 16.1875L20.6027 20.5993" stroke="#3C51B8" stroke-width="1.2" stroke-miterlimit="10"/>
@@ -46,7 +46,7 @@ block content
                         br
                         |
                         br
-                        | だからこそCHINTAIは、その体験が、<br class="sp"><span class="u-underline-dash">新しい気づき</span>や<span class="u-underline-dash">まだ知らない街との</span><br class="sp"><span class="u-underline-dash"></span>出会い</span>を生み、<br class="pc-tab">そして<span class="u-underline-dash">自分らしい暮らしの</span><br class="sp"><span class="u-underline-dash">可能性</span>が広がっていく時間となるよう、
+                        | だからこそCHINTAIは、その体験が<br class="sp"><span class="u-underline-dash js-underline-text">新しい気づき</span>や、<span class="u-underline-dash js-underline-text">まだ知らない街との</span><br class="sp"><span class="u-underline-dash js-underline-text"></span>出会い</span>を生み、<br class="pc-tab">そして<span class="u-underline-dash js-underline-text">自分らしい暮らしの</span><br class="sp"><span class="u-underline-dash js-underline-text">可能性</span>が広がっていく時間となるよう、
                         br
                         | 住まいと暮らしの未来を<br class="sp">ひらく役割を担っています。
                         br
@@ -55,7 +55,8 @@ block content
                         | CHINTAIは、暮らしの可能性に<br class="sp">出会える体験をひろげ、
                         br
                         | 一人ひとりが思い描く未来へ<br class="sp">踏み出せるよう寄り添いながら、
-                        span.u-text-circle 自分らしい暮らし
+                        span.u-text-circle.js-circle-text
+                            span 自分らしい暮らし
                             <svg width="199" height="70" viewBox="0 0 199 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M99.5 0.5C126.935 0.5 151.752 4.41216 169.691 10.7227C178.664 13.8787 185.889 17.6254 190.861 21.7607C195.837 25.8985 198.5 30.3749 198.5 35C198.5 39.6251 195.837 44.1015 190.861 48.2393C185.889 52.3746 178.664 56.1213 169.691 59.2773C151.752 65.5878 126.935 69.5 99.5 69.5C72.0649 69.5 47.2484 65.5878 29.3086 59.2773C20.3364 56.1213 13.1111 52.3746 8.13867 48.2393C3.16332 44.1015 0.5 39.6251 0.5 35C0.5 30.3749 3.16332 25.8985 8.13867 21.7607C13.1111 17.6254 20.3364 13.8787 29.3086 10.7227C47.2484 4.41216 72.0649 0.5 99.5 0.5Z" stroke="#3C51B8"/>
                             </svg>
@@ -64,9 +65,9 @@ block content
                         a(href=path + "company/").c-btn-round
                             span.c-btn-round__txt 会社情報
                             i.c-btn-round__arrow
-                                svg(width=42 height=42)
+                                svg(width=42 height=42 aria-hidden="true")
                                     use(href="#ico-circle")
-                                svg(width=42 height=42)._arrow
+                                svg(width=42 height=42 aria-hidden="true")._arrow
                                     use(href="#ico-arrow-right")
         // サービス
         section.p-top-service
@@ -85,7 +86,7 @@ block content
                             a(href=path+"service/#s1").p-top-service-item__link
                                 picture.p-top-service-item__pic
                                     source(srcset=img + "p-top-service-item-pic1-sp.webp" media="(max-width: 1023px)")
-                                    img(src=img+"p-top-service-item-pic1.webp" alt="")
+                                    img(src=img+"p-top-service-item-pic1.webp" alt="お部屋にであう")
                                 .p-top-service-item__head
                                     span.p-top-service-item__label
                                         <svg width="52" height="23" viewBox="0 0 52 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -98,7 +99,7 @@ block content
                             a(href=path+"service/#s2").p-top-service-item__link
                                 picture.p-top-service-item__pic
                                     source(srcset=img + "p-top-service-item-pic2-sp.webp" media="(max-width: 1023px)")
-                                    img(src=img+"p-top-service-item-pic2.webp" alt="")
+                                    img(src=img+"p-top-service-item-pic2.webp" alt="安心して暮らす")
                                 .p-top-service-item__head
                                     span.p-top-service-item__label
                                         <svg width="52" height="23" viewBox="0 0 52 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -111,7 +112,7 @@ block content
                             a(href=path+"service/#s3").p-top-service-item__link
                                 picture.p-top-service-item__pic
                                     source(srcset=img + "p-top-service-item-pic3-sp.webp" media="(max-width: 1023px)")
-                                    img(src=img+"p-top-service-item-pic3.webp" alt="")
+                                    img(src=img+"p-top-service-item-pic3.webp" alt="暮らしを楽しむ")
                                 .p-top-service-item__head
                                     span.p-top-service-item__label
                                         <svg width="52" height="23" viewBox="0 0 52 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,7 +125,7 @@ block content
                             a(href=path+"service/#s4").p-top-service-item__link
                                 picture.p-top-service-item__pic
                                     source(srcset=img + "p-top-service-item-pic4-sp.webp" media="(max-width: 1023px)")
-                                    img(src=img+"p-top-service-item-pic4.webp" alt="")
+                                    img(src=img+"p-top-service-item-pic4.webp" alt="賃貸ビジネスを支える")
                                 .p-top-service-item__head
                                     span.p-top-service-item__label
                                         <svg width="52" height="23" viewBox="0 0 52 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,9 +139,9 @@ block content
                         a(href=path + "service/").c-btn-round
                             span.c-btn-round__txt サービス一覧
                             i.c-btn-round__arrow
-                                svg(width=42 height=42)
+                                svg(width=42 height=42 aria-hidden="true")
                                     use(href="#ico-circle")
-                                svg(width=42 height=42)._arrow
+                                svg(width=42 height=42 aria-hidden="true")._arrow
                                     use(href="#ico-arrow-right")
         // CHINTAIの取り組み
         section.p-top-initiatives
@@ -160,7 +161,7 @@ block content
                         .p-top-initiatives-item.p-top-initiatives-item--society
                             a(href="https://www.chintai.net/city-planning/" target="_blank").p-top-initiatives-item__link
                                 figure.p-top-initiatives-item__pic
-                                    img(src=img+"p-top-initiatives-item-society.webp" alt="")
+                                    img(src=img+"p-top-initiatives-item-society.webp" alt="社会貢献プロジェクト")
                                 .p-top-initiatives-item__wrap
                                     .p-top-initiatives-item__head
                                         span.p-top-initiatives-item__label
@@ -168,18 +169,16 @@ block content
                                         h3.p-top-initiatives-item__title(style="background: #EF92AE;")
                                             | 社会貢献プロジェクト
                                         i.p-top-initiatives-item__ico
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-circle")
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-external")
                                     p.p-top-initiatives-item__desc
-                                        | 地域と次世代の未来を支える、
-                                        br
-                                        | 5つの取り組み
+                                        | 子どもたちの学び、まちの安心、自然との共生まで。CHINTAIは地域や次世代のために、5つの視点から社会課題の解決に取り組んでいます。
                         .p-top-initiatives-item.p-top-initiatives-item--student
                             a(href=path + "initiative/student/").p-top-initiatives-item__link
                                 figure.p-top-initiatives-item__pic
-                                    img(src=img+"p-top-initiatives-item-student.webp" alt="")
+                                    img(src=img+"p-top-initiatives-item-student.webp" alt="学生応援活動")
                                 .p-top-initiatives-item__wrap
                                     .p-top-initiatives-item__head
                                         span.p-top-initiatives-item__label
@@ -187,18 +186,16 @@ block content
                                         h3.p-top-initiatives-item__title(style="background: #5BBFE1;")
                                             | 学生応援活動
                                         i.p-top-initiatives-item__ico
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-circle")
-                                            svg(width=42 height=42)._arrow
+                                            svg(width=42 height=42 aria-hidden="true")._arrow
                                                 use(href="#ico-arrow-right")
                                     p.p-top-initiatives-item__desc
-                                        | 学生のお部屋探しから
-                                        br
-                                        | 新生活を総合的にサポート
+                                        | 学生が「自分らしい理想の新生活」を安心して始められるよう、お部屋探しから新生活までを総合的にサポートするサービスやコンテンツを提供しています。
                         .p-top-initiatives-item.p-top-initiatives-item--media
                             a(href=path + "initiative/media/").p-top-initiatives-item__link
                                 figure.p-top-initiatives-item__pic
-                                    img(src=img+"p-top-initiatives-item-media.webp" alt="")
+                                    img(src=img+"p-top-initiatives-item-media.webp" alt="メディア活動")
                                 .p-top-initiatives-item__wrap
                                     .p-top-initiatives-item__head
                                         span.p-top-initiatives-item__label
@@ -206,22 +203,20 @@ block content
                                         h3.p-top-initiatives-item__title(style="background: #7EBEAF;")
                                             | メディア活動
                                         i.p-top-initiatives-item__ico
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-circle")
-                                            svg(width=42 height=42)._arrow
+                                            svg(width=42 height=42 aria-hidden="true")._arrow
                                                 use(href="#ico-arrow-right")
                                     p.p-top-initiatives-item__desc
-                                        | CHINTAIのブランド認知と
-                                        br
-                                        | 企業イメージを高める取り組み
+                                        | CHINTAIをもっと身近に感じていただけるよう、CMやスポーツ協賛をはじめとする多様なメディア活動を通じて、ブランド認知と企業イメージの向上に取り組んでいます。
 
                     .p-top-initiatives__more
                         a(href=path + "initiative/").c-btn-round
                             span.c-btn-round__txt 取り組み一覧
                             i.c-btn-round__arrow
-                                svg(width=42 height=42)
+                                svg(width=42 height=42 aria-hidden="true")
                                     use(href="#ico-circle")
-                                svg(width=42 height=42)._arrow
+                                svg(width=42 height=42 aria-hidden="true")._arrow
                                     use(href="#ico-arrow-right")
         // お知らせ
         section.p-top-news
@@ -240,7 +235,7 @@ block content
                                 p.c-card-news__category
                                     span.c-card-news__label(style="background: #EF92AE;")
                                     span 暮らし調査
-                                h3.c-card-news__title
+                                p.c-card-news__title
                                     a(href=path + "single-news/").c-card-news__link
                                         | なにわ男子・大橋和也さんがミュージカル仕立てでお部屋探し！
                         .c-card-news
@@ -249,7 +244,7 @@ block content
                                 p.c-card-news__category
                                     span.c-card-news__label(style="background: #7EBEAF;")
                                     span お知らせ
-                                h3.c-card-news__title
+                                p.c-card-news__title
                                     a(href=path + "single-news/").c-card-news__link
                                         | なにわ男子・大橋和也さんがミュージカル仕立てでお部屋探し！ 2行の場合2行の場合2行の場合2行の場合2行の場合2行の場合
                         .c-card-news
@@ -258,21 +253,21 @@ block content
                                 p.c-card-news__category
                                     span.c-card-news__label(style="background: #EBBA5F;")
                                     span プレスリリース
-                                h3.c-card-news__title
+                                p.c-card-news__title
                                     a(href=path + "single-news/").c-card-news__link
                                         | サービス開始50周年！日本記念日協会が登録認定11月1日を「CHINTAIの日」に制定
                                     .c-card-news__pdf
                                         a(href="" target="_blank")
                                             span PDF
-                                            svg(width=13 height=13)
+                                            svg(width=13 height=13 aria-hidden="true")
                                                 use(href="#ico-external-sm")
                     .p-top-news__more
                         a(href=path+"news/").c-btn-more
                             span.c-btn-more__txt 一覧を見る
                             i.c-btn-more__ico
-                                svg(width=42 height=42)
+                                svg(width=42 height=42 aria-hidden="true")
                                     use(href="#ico-circle")
-                                svg(width=42 height=42)._arrow
+                                svg(width=42 height=42 aria-hidden="true")._arrow
                                     use(href="#ico-arrow-right")
 
         .p-top-cta

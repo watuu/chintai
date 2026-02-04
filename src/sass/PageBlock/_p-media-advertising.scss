@@ -49,6 +49,7 @@
 	border-radius: 10/16+rem;
 	background: linear-gradient(123deg, rgba(12, 106, 224, 0.00) 48.89%, rgba(9, 94, 213, 0.20) 65.46%), #38A2EF;
 	aspect-ratio: 172/97;
+	width: 100%;
 	@include config.tab {
 		max-width: 480/16+rem;
 		margin-inline: auto;

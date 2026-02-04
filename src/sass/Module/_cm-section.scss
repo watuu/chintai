@@ -119,8 +119,8 @@
 }
 .cm-section-header-service__bg {
 	margin-right: calc(50% - 50vw);
-	border-radius: 10px 0 0 10px;
-	height: 212px;
+	border-radius: 10/16+rem 0 0 10/16+rem;
+	height: 212/16+rem;
 	overflow: hidden;
 	img {
 	//	width: 130%;
@@ -133,9 +133,9 @@
 		margin-left: 50/16+rem;
 	}
 	@include config.pc {
-		height: 830px;
+		height: 830/16+rem;
 		flex: 1;
-		border-radius: 0 0 0 10px;
+		border-radius: 0 0 0 10/16+rem;
 	}
 }
 .cm-section-header-service__bc {

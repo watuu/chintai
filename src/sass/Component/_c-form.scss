@@ -13,7 +13,7 @@
 .c-form-select__input {
 	display: flex;
 	width: 100%;
-	padding: 0 20/16+rem;
+	padding: 0 40/16+rem 0 20/16+rem;
 	height: 35/16+rem;
 	justify-content: space-between;
 	align-items: center;
@@ -28,6 +28,7 @@
 }
 .c-form-select__angle {
 	position: absolute;
+	margin-top: 2/16+rem;
 	right: 20/16+rem;
 	width: 12/16+rem;
 	height: auto;
