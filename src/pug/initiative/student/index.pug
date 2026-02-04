@@ -9,7 +9,7 @@ block content
         section.cm-section-header.cm-section-header--hasBG
             picture.cm-section-header__bg
                 source(srcset=img + "p-student-mv-sp.webp" media="(max-width: 1023px)")
-                img(src=img + "p-student-mv.webp")
+                img(src=img + "p-student-mv.webp" alt="学生応援活動イメージ画像")
             .l-container
                 .cm-section-header__wrap
                     .c-heading-page.c-heading-page--wh
@@ -20,7 +20,7 @@ block content
                     a(href=path+"")
                         | Top
                 li
-                    a(href=path + "initiatives")
+                    a(href=path + "initiative/")
                         | Initiatives
                 li
                     span
@@ -40,20 +40,20 @@ block content
                         br
                         |
                         br
-                        | そこでCHINTAIでは、学生が<span class="u-underline-dash">「自分らしい理想の</span><br class="sp"><span class="u-underline-dash">新生活」</span>
+                        | そこでCHINTAIでは、学生が<span class="u-underline-dash js-underline-text">「自分らしい理想の</span><br class="sp"><span class="u-underline-dash js-underline-text">新生活」</span>
                         | を安心して始められるよう、お部屋探しから新生活までを総合的にサポート。新たな一歩を踏み出す学生の背中をそっと押し、未来につながる支援を強化しています。
                         br
                         |
                         br
                         | 私たちはこれからも、物件情報の提供にとどまらない支援の幅を広げ、
-                        | <span class="u-underline-dash"> “独りじゃない”一人暮らしの</span><br class="sp"><span class="u-underline-dash">実現</span>
+                        | <span class="u-underline-dash js-underline-text"> “独りじゃない”一人暮らしの</span><br class="sp"><span class="u-underline-dash js-underline-text">実現</span>
                         | を目指します。
         .p-student-project
             .l-container.l-container--lg
                 .p-student-project__wrap
                     picture.p-student-project__bg
                         source(srcset=img + "bg-ellipse-sp.webp" media="(max-width: 1023px)")
-                        img(src=img + "bg-ellipse.webp")
+                        img(src=img + "bg-ellipse.webp" alt="")
                     .c-heading-section.c-heading-section--sm.c-heading-section--center
                         h2.c-heading-section__title
                             | 取り組み紹介
@@ -61,7 +61,7 @@ block content
                             | Project
                     section.p-student-project-gakusapo
                         figure.p-student-project-gakusapo__pic
-                            img(src=img+"p-student-project-gakusapo.webp" alt="")
+                            img(src=img+"p-student-project-gakusapo.webp" alt="ガクサポ")
                         .p-student-project-gakusapo__content
                             .cm-block-student.cm-block-student--gakusapo#student01
                                 .cm-block-student__head
@@ -69,6 +69,7 @@ block content
                                         span.cm-block-student__label(style="background: #5BBFE1;")
                                             | 01
                                         <svg width="170" height="69" viewBox="0 0 170 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <title>ガクサポ</title>
                                         <path d="M114.835 1.19286H108.188V11.0837H100.159V1.09937H93.512V11.0837H85.3125V17.4954H93.512V28.9446H100.159V17.4954H108.169C107.993 25.5985 106.59 29.5481 99.3429 37.9288L98.3258 39.1046L103.389 43.4678L104.403 42.2807C112.393 32.9111 114.631 27.6725 114.824 17.4954H123.318V11.0837H114.838V1.19286H114.835Z" fill="#1E1E8C"/>
                                         <path d="M63.4836 2.70009V1.07947H56.6525V2.70009C56.6525 8.65842 56.6525 12.2567 46.0277 19.8384L44.7188 20.7706L48.7448 26.0234L49.9632 25.1678C55.7459 21.1077 58.7038 18.266 60.792 14.6876H69.5836C69.1813 18.0053 67.725 21.0511 65.0759 24.1592C61.8516 27.9415 56.7687 31.9563 49.0848 36.7926L47.705 37.6596L51.53 43.1391L52.7794 42.36C69.8669 31.7154 76.5252 23.4565 76.5252 12.9026V8.18244H63.1521C63.3702 6.85081 63.4807 5.25568 63.4807 2.70009H63.4836Z" fill="#1E1E8C"/>
                                         <path d="M31.7405 0H25.0625V6.67798H31.7405V0Z" fill="#1E1E8C"/>
@@ -100,9 +101,9 @@ block content
                                         a(href="https://gakusapo.chintai.net/" target="_blank").c-btn-more.c-btn-more--sm
                                             span.c-btn-more__txt ウェブサイトを見る
                                             i.c-btn-more__ico
-                                                svg(width=42 height=42)
+                                                svg(width=42 height=42 aria-hidden="true")
                                                     use(href="#ico-circle")
-                                                svg(width=42 height=42)
+                                                svg(width=42 height=42 aria-hidden="true")
                                                     use(href="#ico-external")
 
                     section.p-student-project-service
@@ -111,7 +112,7 @@ block content
                         .p-student-project-service__items
                             .p-student-project-service-item
                                 figure.p-student-project-service-item__pic
-                                    img(src=img+"p-student-project-service-pic1.webp")
+                                    img(src=img+"p-student-project-service-pic1.webp" alt="引越しお祝いBOX")
                                     figcaption.p-student-project-service-item__caption
                                         .sp-tab
                                             <svg width="110" height="49" viewBox="0 0 110 49" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -130,7 +131,7 @@ block content
                                         | 「新生活を始める学生を応援したい」という想いに賛同いただいた企業と連携し、引越し初日から役立つアイテムを厳選してお届けしています。
                             .p-student-project-service-item
                                 figure.p-student-project-service-item__pic
-                                    img(src=img+"p-student-project-service-pic2.webp")
+                                    img(src=img+"p-student-project-service-pic2.webp" alt="くらしサポート")
                                     figcaption.p-student-project-service-item__caption
                                         .sp-tab
                                             <svg width="118" height="49" viewBox="0 0 118 49" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +165,7 @@ block content
                                     br
                                     | 一人暮らしガイド
                             figure.cm-block-student__pic
-                                img(src=img+"p-student-project-list-pic1.webp")
+                                img(src=img+"p-student-project-list-pic1.webp" alt="お部屋探し&一人暮らしガイド")
                             .cm-block-student__body
                                 p.c-paragraph
                                     | 進学や就職を控えた高校生が、お部屋選びや賃貸契約、引越し準備の基礎を実践的に学べる家庭科向け副教材です。卒業後すぐに一人暮らしを始める高校生が、安心してスムーズに自立できるようサポートすることを目的としています。現在、全国1,000校以上の高等学校で活用されています。
@@ -178,10 +179,10 @@ block content
                                     br
                                     | 事業連携
                             figure.cm-block-student__pic
-                                img(src=img+"p-student-project-list-pic2.webp")
+                                img(src=img+"p-student-project-list-pic2.webp" alt="HR高等学院との事業連携")
                             .cm-block-student__body
                                 p.c-paragraph
-                                    | 未来ある若者を支援するため、HR高等学院を運営する株式会社RePlayceと事業提携しています。その活動の一環として、HR高等学院の学生に向け、住まいや暮らしに関する教育コンテンツを提供するとともに、安心して新生活を始められるようお部屋探しをサポート。さらに、学生がより自分らしい暮らしを実現できるよう、HR高等学院と共同で授業コンテンツを開発・提供しています。
+                                    | 未来ある若者を支援するため、HR高等学院を運営する株式会社RePlayceと事業提携しています。その活動の一環として、HR高等学院の学生に向け、住まいや暮らしに関する教育コンテンツを提供するとともに、安心して新生活を始められるようお部屋探しをサポートしています。さらに、学生がより自分らしい暮らしを実現できるよう、HR高等学院と共同で授業コンテンツを開発・提供しています。
 
                         .cm-block-student
                             .cm-block-student__head
@@ -192,17 +193,17 @@ block content
                                     br
                                     | 学生応援TV
                             figure.cm-block-student__pic
-                                img(src=img+"p-student-project-list-pic3.webp")
+                                img(src=img+"p-student-project-list-pic3.webp" alt="CHINTAI学生応援TV")
                             .cm-block-student__body
                                 p.c-paragraph
-                                    | CHINTAIは、夢に向かって頑張る学生を応援するYouTubeチャンネル「CHINTAI 学生応援TV」を開設しています。このチャンネルでは、学問、スポーツ、芸術、起業、芸能など、さまざまな分野で挑戦する学生に密着し、その努力や新生活の様子を紹介しています。
+                                    | CHINTAIは、夢に向かって頑張る学生を応援するYouTubeチャンネル『CHINTAI 学生応援TV』を開設しています。このチャンネルでは、学問、スポーツ、芸術、起業、芸能など、さまざまな分野で挑戦する学生に密着し、その努力や新生活の様子を紹介しています。
                                 .cm-block-student__more
                                     a(href="https://www.youtube.com/@student-supportiveTV" target="_blank").c-btn-more.c-btn-more--sm
                                         span.c-btn-more__txt YouTubeを見る
                                         i.c-btn-more__ico
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-circle")
-                                            svg(width=42 height=42)
+                                            svg(width=42 height=42 aria-hidden="true")
                                                 use(href="#ico-external")
 
 
@@ -213,18 +214,18 @@ block content
                             span.c-btn-square__txt
                                 | メディア活動
                             i.c-btn-square__ico
-                                svg(width=42 height=42)
+                                svg(width=42 height=42 aria-hidden="true")
                                     use(href="#ico-circle")
-                                svg(width=42 height=42)._arrow
+                                svg(width=42 height=42 aria-hidden="true")._arrow
                                     use(href="#ico-arrow-right")
                     li
                         a(href="https://www.chintai.net/city-planning/" target="_blank").c-btn-square.c-btn-square--initiative
                             span.c-btn-square__txt
                                 | 社会貢献プロジェクト
                             i.c-btn-square__arrow
-                                svg(width=42 height=42)
+                                svg(width=42 height=42 aria-hidden="true")
                                     use(href="#ico-circle")
-                                svg(width=42 height=42)
+                                svg(width=42 height=42 aria-hidden="true")
                                     use(href="#ico-external")
 
 

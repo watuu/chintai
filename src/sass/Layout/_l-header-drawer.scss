@@ -19,7 +19,7 @@
 }
 .l-header-drawer__wrap {
 	padding: 120/16+rem 24/16+rem 60/16+rem;
-	height: 100%;
+	height: calc(100% + #{4px});
 	overscroll-behavior: none;
 }
 .l-header-drawer__nav {

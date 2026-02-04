@@ -40,7 +40,7 @@
 .p-company-philosophy {
 	position: relative;
 	overflow: hidden;
-	height: 250vh;
+	height: 300vh;
 	@include config.pc {}
 }
 .p-company-philosophy__wrap {
@@ -103,7 +103,7 @@
 	pointer-events: none;
 	@include config.sp {}
 	@include config.pc {
-		margin-inline: 10/16+rem;
+		margin-inline: 16/16+rem;
 		height: 280/16+rem;
 	}
 }
@@ -129,7 +129,7 @@
 		letter-spacing: 0.06em;
 	}
 	@include config.pc {
-		width: 246/16+rem;
+		width: 240/16+rem;
 		._en {
 			font-size: 25/16+rem;
 		}
@@ -222,6 +222,7 @@
 	.p-company-philosophy-item {
 		&:nth-child(1) {
 			display: flex;
+			animation: philosophyItemShow var(--duration-l) var(--easeTheme);
 		}
 		&:nth-child(2) {
 			display: none;
@@ -257,6 +258,7 @@
 		}
 		&:nth-child(2) {
 			display: flex;
+			animation: philosophyItemShow var(--duration-l) var(--easeTheme);
 		}
 		&:nth-child(3) {
 			display: none;
@@ -297,6 +299,7 @@
 		}
 		&:nth-child(3) {
 			display: flex;
+			animation: philosophyItemShow var(--duration-l) var(--easeTheme);
 		}
 	}
 	@include config.sp {
@@ -305,7 +308,14 @@
 		}
 	}
 }
-
+@keyframes philosophyItemShow {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
 
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .p-company-message {
@@ -366,7 +376,8 @@
 	align-items: flex-start;
 	gap: 20/16+rem;
 	@include config.pc {
-		margin-top: 174/16+rem;
+		padding-bottom: 0.5em;
+		align-self: flex-end;
 		gap: 50/16+rem;
 	}
 }
@@ -389,7 +400,6 @@
 		border-top: var(--border);
 	}
 	@include config.pc {
-		margin-left: -87/16+rem;
 		position: relative;
 		padding-bottom: 15/16+rem;
 		font-size: 23/16+rem;
@@ -549,7 +559,7 @@
 	@include config.sp-tab {
 		text-align: right;
 		align-items: flex-end;
-		width: 255/16+rem;
+		width: 268/16+rem;
 		margin-left: auto;
 	}
 	@include config.tab {

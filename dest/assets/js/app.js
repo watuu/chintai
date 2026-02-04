@@ -10885,14 +10885,14 @@
     delay: 0
   },
       _suppressOverwrites$1,
-      _reverting$1,
+      _reverting$2,
       _context$2,
       _bigNum$1 = 1e8,
       _tinyNum = 1 / _bigNum$1,
       _2PI = Math.PI * 2,
       _HALF_PI = _2PI / 4,
       _gsID = 0,
-      _sqrt = Math.sqrt,
+      _sqrt$1 = Math.sqrt,
       _cos = Math.cos,
       _sin = Math.sin,
       _isString$2 = function _isString(value) {
@@ -10913,7 +10913,7 @@
       _isNotFalse = function _isNotFalse(value) {
     return value !== false;
   },
-      _windowExists$3 = function _windowExists() {
+      _windowExists$4 = function _windowExists() {
     return typeof window !== "undefined";
   },
       _isFuncOrString = function _isFuncOrString(value) {
@@ -10926,7 +10926,7 @@
       _commaDelimExp = /,\s*/g,
       _strictNumExp = /(?:-?\.?\d|\.)+/gi,
       //only numbers (including negatives and decimals) but NOT relative values.
-  _numExp = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g,
+  _numExp$1 = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g,
       //finds any numbers, including ones that start with += or -=, negative numbers, and ones in scientific notation like 1e-8.
   _numWithUnitExp = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g,
       _complexStringNumExp = /[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi,
@@ -10936,19 +10936,19 @@
       // previously /[#\-+.]*\b[a-z\d\-=+%.]+/gi but didn't catch special characters.
   _unitExp = /^[+\-=e\s\d]*\d+[.\d]*([a-z]*|%)\s*$/i,
       _globalTimeline,
-      _win$3,
-      _coreInitted$3,
+      _win$4,
+      _coreInitted$4,
       _doc$3,
       _globals = {},
       _installScope = {},
       _coreReady,
       _install = function _install(scope) {
-    return (_installScope = _merge(scope, _globals)) && gsap$3;
+    return (_installScope = _merge(scope, _globals)) && gsap$4;
   },
       _missingPlugin = function _missingPlugin(property, value) {
     return console.warn("Invalid property", property, "set to", value, "Missing plugin? gsap.registerPlugin()");
   },
-      _warn = function _warn(message, suppress) {
+      _warn$1 = function _warn(message, suppress) {
     return !suppress && console.warn(message);
   },
       _addGlobal = function _addGlobal(name, obj) {
@@ -11011,7 +11011,7 @@
     return (names = names.split(",")).forEach(func) || names;
   },
       //split a comma-delimited list of names into an array, then run a forEach() function and return the split array (this is just a way to consolidate/shorten some code).
-  _round$1 = function _round(value) {
+  _round$2 = function _round(value) {
     return Math.round(value * 100000) / 100000 || 0;
   },
       _roundPrecise = function _roundPrecise(value) {
@@ -11051,9 +11051,9 @@
     return !!(animation._initted || animation._startAt || animation.add);
   },
       _lazySafeRender = function _lazySafeRender(animation, time, suppressEvents, force) {
-    _lazyTweens.length && !_reverting$1 && _lazyRender();
-    animation.render(time, suppressEvents, force || !!(_reverting$1 && time < 0 && _isRevertWorthy(animation)));
-    _lazyTweens.length && !_reverting$1 && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when someone calls seek() or time() or progress(), they expect an immediate render.
+    _lazyTweens.length && !_reverting$2 && _lazyRender();
+    animation.render(time, suppressEvents, force || !!(_reverting$2 && time < 0 && _isRevertWorthy(animation)));
+    _lazyTweens.length && !_reverting$2 && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when someone calls seek() or time() or progress(), they expect an immediate render.
   },
       _numericIfPossible = function _numericIfPossible(value) {
     var n = parseFloat(value);
@@ -11215,7 +11215,7 @@
     return animation;
   },
       _rewindStartAt = function _rewindStartAt(tween, totalTime, suppressEvents, force) {
-    return tween._startAt && (_reverting$1 ? tween._startAt.revert(_revertConfigNoKill) : tween.vars.immediateRender && !tween.vars.autoRevert || tween._startAt.render(totalTime, true, force));
+    return tween._startAt && (_reverting$2 ? tween._startAt.revert(_revertConfigNoKill) : tween.vars.immediateRender && !tween.vars.autoRevert || tween._startAt.render(totalTime, true, force));
   },
       _hasNoPausedAncestors = function _hasNoPausedAncestors(animation) {
     return !animation || animation._ts && _hasNoPausedAncestors(animation.parent);
@@ -11310,7 +11310,7 @@
       return 1;
     }
 
-    if (!force && tween._pt && !_reverting$1 && (tween._dur && tween.vars.lazy !== false || !tween._dur && tween.vars.lazy) && _lastRenderedFrame !== _ticker.frame) {
+    if (!force && tween._pt && !_reverting$2 && (tween._dur && tween.vars.lazy !== false || !tween._dur && tween.vars.lazy) && _lastRenderedFrame !== _ticker.frame) {
       _lazyTweens.push(tween);
 
       tween._lazy = [tTime, suppressEvents];
@@ -11349,7 +11349,7 @@
       }
     }
 
-    if (ratio !== prevRatio || _reverting$1 || force || tween._zTime === _tinyNum || !totalTime && tween._zTime) {
+    if (ratio !== prevRatio || _reverting$2 || force || tween._zTime === _tinyNum || !totalTime && tween._zTime) {
       if (!tween._initted && _attemptInitTween(tween, totalTime, force, suppressEvents, tTime)) {
         // if we render the very beginning (time == 0) of a fromTo(), we must force the render (normal tweens wouldn't need to render at a time of 0 when the prevTime was also 0). This is also mandatory to make sure overwriting kicks in immediately.
         return;
@@ -11378,7 +11378,7 @@
       if ((totalTime >= tween._tDur || totalTime < 0) && tween.ratio === ratio) {
         ratio && _removeFromParent(tween, 1);
 
-        if (!suppressEvents && !_reverting$1) {
+        if (!suppressEvents && !_reverting$2) {
           _callback$1(tween, ratio ? "onComplete" : "onReverseComplete", true);
 
           tween._prom && tween._prom();
@@ -11512,7 +11512,7 @@
   },
       _slice = [].slice,
       _isArrayLike = function _isArrayLike(value, nonEmpty) {
-    return value && _isObject$1(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject$1(value[0])) && !value.nodeType && value !== _win$3;
+    return value && _isObject$1(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject$1(value[0])) && !value.nodeType && value !== _win$4;
   },
       _flatten = function _flatten(ar, leaveStrings, accumulator) {
     if (accumulator === void 0) {
@@ -11527,13 +11527,13 @@
   },
       // takes any value and returns an Array. If it's a string (and leaveStrings isn't true), it'll use document.querySelectorAll() and convert that to an array. It'll also accept iterables like jQuery objects.
   toArray = function toArray(value, scope, leaveStrings) {
-    return _context$2 && !scope && _context$2.selector ? _context$2.selector(value) : _isString$2(value) && !leaveStrings && (_coreInitted$3 || !_wake()) ? _slice.call((scope || _doc$3).querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
+    return _context$2 && !scope && _context$2.selector ? _context$2.selector(value) : _isString$2(value) && !leaveStrings && (_coreInitted$4 || !_wake()) ? _slice.call((scope || _doc$3).querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
   },
       selector = function selector(value) {
-    value = toArray(value)[0] || _warn("Invalid scope") || {};
+    value = toArray(value)[0] || _warn$1("Invalid scope") || {};
     return function (v) {
       var el = value.current || value.nativeElement || value;
-      return toArray(v, el.querySelectorAll ? el : el === value ? _warn("Invalid scope") || _doc$3.createElement("div") : value);
+      return toArray(v, el.querySelectorAll ? el : el === value ? _warn$1("Invalid scope") || _doc$3.createElement("div") : value);
     };
   },
       shuffle = function shuffle(a) {
@@ -11606,7 +11606,7 @@
         for (j = 0; j < l; j++) {
           x = j % wrapAt - originX;
           y = originY - (j / wrapAt | 0);
-          distances[j] = d = !axis ? _sqrt(x * x + y * y) : Math.abs(axis === "y" ? y : x);
+          distances[j] = d = !axis ? _sqrt$1(x * x + y * y) : Math.abs(axis === "y" ? y : x);
           d > max && (max = d);
           d < min && (min = d);
         }
@@ -11846,7 +11846,7 @@
       _interrupt = function _interrupt(animation) {
     _removeFromParent(animation);
 
-    animation.scrollTrigger && animation.scrollTrigger.kill(!!_reverting$1);
+    animation.scrollTrigger && animation.scrollTrigger.kill(!!_reverting$2);
     animation.progress() < 1 && _callback$1(animation, "onInterrupt");
     return animation;
   },
@@ -11856,7 +11856,7 @@
     if (!config) return;
     config = !config.name && config["default"] || config; // UMD packaging wraps things oddly, so for example MotionPathHelper becomes {MotionPathHelper:MotionPathHelper, default:MotionPathHelper}.
 
-    if (_windowExists$3() || config.headless) {
+    if (_windowExists$4() || config.headless) {
       // edge case: some build tools may pass in a null/undefined value
       var name = config.name,
           isFunc = _isFunction$2(config),
@@ -11906,7 +11906,7 @@
 
       _addGlobal(name, Plugin);
 
-      config.register && config.register(gsap$3, Plugin, PropTween);
+      config.register && config.register(gsap$4, Plugin, PropTween);
     } else {
       _registerPluginQueue.push(config);
     }
@@ -12000,7 +12000,7 @@
           a[2] = _hue(h - 1 / 3, r, g);
         } else if (~v.indexOf("=")) {
           //if relative values are found, just return the raw strings with the relative prefixes in place.
-          a = v.match(_numExp);
+          a = v.match(_numExp$1);
           forceAlpha && a.length < 4 && (a[3] = 1);
           return a;
         }
@@ -12181,13 +12181,13 @@
       },
       wake: function wake() {
         if (_coreReady) {
-          if (!_coreInitted$3 && _windowExists$3()) {
-            _win$3 = _coreInitted$3 = window;
-            _doc$3 = _win$3.document || {};
-            _globals.gsap = gsap$3;
-            (_win$3.gsapVersions || (_win$3.gsapVersions = [])).push(gsap$3.version);
+          if (!_coreInitted$4 && _windowExists$4()) {
+            _win$4 = _coreInitted$4 = window;
+            _doc$3 = _win$4.document || {};
+            _globals.gsap = gsap$4;
+            (_win$4.gsapVersions || (_win$4.gsapVersions = [])).push(gsap$4.version);
 
-            _install(_installScope || _win$3.GreenSockGlobals || !_win$3.gsap && _win$3 || {});
+            _install(_installScope || _win$4.GreenSockGlobals || !_win$4.gsap && _win$4 || {});
 
             _registerPluginQueue.forEach(_createPlugin);
           }
@@ -12441,7 +12441,7 @@
 
 
   _insertEase("Circ", function (p) {
-    return -(_sqrt(1 - p * p) - 1);
+    return -(_sqrt$1(1 - p * p) - 1);
   });
 
   _insertEase("Sine", function (p) {
@@ -12690,8 +12690,8 @@
         config = _revertConfig;
       }
 
-      var prevIsReverting = _reverting$1;
-      _reverting$1 = config;
+      var prevIsReverting = _reverting$2;
+      _reverting$2 = config;
 
       if (_isRevertWorthy(this)) {
         this.timeline && this.timeline.revert(config);
@@ -12699,7 +12699,7 @@
       }
 
       this.data !== "nested" && config.kill !== false && this.kill();
-      _reverting$1 = prevIsReverting;
+      _reverting$2 = prevIsReverting;
       return this;
     };
 
@@ -13146,7 +13146,7 @@
                 return this.render(totalTime, suppressEvents, force);
               }
 
-              child.render(child._ts > 0 ? (adjustedTime - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (adjustedTime - child._start) * child._ts, suppressEvents, force || _reverting$1 && _isRevertWorthy(child)); // if reverting, we should always force renders of initted tweens (but remember that .fromTo() or .from() may have a _startAt but not _initted yet). If, for example, a .fromTo() tween with a stagger (which creates an internal timeline) gets reverted BEFORE some of its child tweens render for the first time, it may not properly trigger them to revert.
+              child.render(child._ts > 0 ? (adjustedTime - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (adjustedTime - child._start) * child._ts, suppressEvents, force || _reverting$2 && _isRevertWorthy(child)); // if reverting, we should always force renders of initted tweens (but remember that .fromTo() or .from() may have a _startAt but not _initted yet). If, for example, a .fromTo() tween with a stagger (which creates an internal timeline) gets reverted BEFORE some of its child tweens render for the first time, it may not properly trigger them to revert.
 
               if (time !== this._time || !this._ts && !prevPaused) {
                 //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
@@ -13810,7 +13810,7 @@
 
         tween._startAt._sat = tween; // used in globalTime(). _sat stands for _startAtTween
 
-        time < 0 && (_reverting$1 || !immediateRender && !autoRevert) && tween._startAt.revert(_revertConfigNoKill); // rare edge case, like if a render is forced in the negative direction of a non-initted tween.
+        time < 0 && (_reverting$2 || !immediateRender && !autoRevert) && tween._startAt.revert(_revertConfigNoKill); // rare edge case, like if a render is forced in the negative direction of a non-initted tween.
 
         if (immediateRender) {
           if (dur && time <= 0 && tTime <= 0) {
@@ -13843,7 +13843,7 @@
 
           tween._startAt._sat = tween; // used in globalTime()
 
-          time < 0 && (_reverting$1 ? tween._startAt.revert(_revertConfigNoKill) : tween._startAt.render(-1, true));
+          time < 0 && (_reverting$2 ? tween._startAt.revert(_revertConfigNoKill) : tween._startAt.render(-1, true));
           tween._zTime = time;
 
           if (!immediateRender) {
@@ -13945,7 +13945,7 @@
           _initTween(tween, time);
 
           _forceAllPropTweens = 0;
-          return skipRecursion ? _warn(property + " not eligible for reset") : 1; // if someone tries to do a quickTo() on a special property like borderRadius which must get split into 4 different properties, that's not eligible for .resetTo().
+          return skipRecursion ? _warn$1(property + " not eligible for reset") : 1; // if someone tries to do a quickTo() on a special property like borderRadius which must get split into 4 different properties, that's not eligible for .resetTo().
         }
 
         ptCache.push(pt);
@@ -13960,7 +13960,7 @@
 
       pt.s = (start || start === 0) && !startIsRelative ? start : pt.s + (start || 0) + ratio * pt.c;
       pt.c = value - pt.s;
-      rootPT.e && (rootPT.e = _round$1(value) + getUnit(rootPT.e)); // mainly for CSSPlugin (end value)
+      rootPT.e && (rootPT.e = _round$2(value) + getUnit(rootPT.e)); // mainly for CSSPlugin (end value)
 
       rootPT.b && (rootPT.b = pt.s + getUnit(rootPT.b)); // (beginning value)
     }
@@ -14068,7 +14068,7 @@
           curTarget,
           staggerFunc,
           staggerVarsToMerge;
-      _this3._targets = parsedTargets.length ? _harness(parsedTargets) : _warn("GSAP target " + targets + " not found. https://gsap.com", !_config$1.nullTargetWarn) || [];
+      _this3._targets = parsedTargets.length ? _harness(parsedTargets) : _warn$1("GSAP target " + targets + " not found. https://gsap.com", !_config$1.nullTargetWarn) || [];
       _this3._ptLookup = []; //PropTween lookup. An array containing an object for each target, having keys for each tweening property
 
       _this3._overwrite = overwrite;
@@ -14398,7 +14398,7 @@
 
       if (!targets && (!vars || vars === "all")) {
         this._lazy = this._pt = 0;
-        this.parent ? _interrupt(this) : this.scrollTrigger && this.scrollTrigger.kill(!!_reverting$1);
+        this.parent ? _interrupt(this) : this.scrollTrigger && this.scrollTrigger.kill(!!_reverting$2);
         return this;
       }
 
@@ -14744,7 +14744,7 @@
             toggled;
 
         for (p in queries) {
-          match = _win$3.matchMedia(queries[p]).matches; // Firefox doesn't update the "matches" property of the MediaQueryList object correctly - it only does so as it calls its change handler - so we must re-create a media query here to ensure it's accurate.
+          match = _win$4.matchMedia(queries[p]).matches; // Firefox doesn't update the "matches" property of the MediaQueryList object correctly - it only does so as it calls its change handler - so we must re-create a media query here to ensure it's accurate.
 
           match && (anyMatch = 1);
 
@@ -14952,7 +14952,7 @@
         if (p === "all") {
           active = 1;
         } else {
-          mq = _win$3.matchMedia(conditions[p]);
+          mq = _win$4.matchMedia(conditions[p]);
 
           if (mq) {
             _media.indexOf(context) < 0 && _media.push(context);
@@ -15028,7 +15028,7 @@
 
       if (target.length > 1) {
         var setters = target.map(function (t) {
-          return gsap$3.quickSetter(t, property, unit);
+          return gsap$4.quickSetter(t, property, unit);
         }),
             l = setters.length;
         return function (value) {
@@ -15061,7 +15061,7 @@
     quickTo: function quickTo(target, property, vars) {
       var _setDefaults2;
 
-      var tween = gsap$3.to(target, _setDefaults$1((_setDefaults2 = {}, _setDefaults2[property] = "+=0.1", _setDefaults2.paused = true, _setDefaults2.stagger = 0, _setDefaults2), vars || {})),
+      var tween = gsap$4.to(target, _setDefaults$1((_setDefaults2 = {}, _setDefaults2[property] = "+=0.1", _setDefaults2.paused = true, _setDefaults2.stagger = 0, _setDefaults2), vars || {})),
           func = function func(value, start, startIsRelative) {
         return tween.resetTo(property, value, start, startIsRelative);
       };
@@ -15086,7 +15086,7 @@
           defaults = _ref3.defaults,
           extendTimeline = _ref3.extendTimeline;
       (plugins || "").split(",").forEach(function (pluginName) {
-        return pluginName && !_plugins[pluginName] && !_globals[pluginName] && _warn(name + " effect requires " + pluginName + " plugin.");
+        return pluginName && !_plugins[pluginName] && !_globals[pluginName] && _warn$1(name + " effect requires " + pluginName + " plugin.");
       });
 
       _effects[name] = function (targets, vars, tl) {
@@ -15203,7 +15203,7 @@
       getCache: _getCache,
       _removeLinkedListItem: _removeLinkedListItem,
       reverting: function reverting() {
-        return _reverting$1;
+        return _reverting$2;
       },
       context: function context(toAdd) {
         if (toAdd && _context$2) {
@@ -15300,7 +15300,7 @@
   }; //register core plugins
 
 
-  var gsap$3 = _gsap.registerPlugin({
+  var gsap$4 = _gsap.registerPlugin({
     name: "attr",
     init: function init(target, vars, tween, index, targets) {
       var p, pt, v;
@@ -15319,7 +15319,7 @@
       var pt = data._pt;
 
       while (pt) {
-        _reverting$1 ? pt.set(pt.t, pt.p, pt.b, pt) : pt.r(ratio, pt.d); // if reverting, go back to the original (pt.b)
+        _reverting$2 ? pt.set(pt.t, pt.p, pt.b, pt) : pt.r(ratio, pt.d); // if reverting, go back to the original (pt.b)
 
         pt = pt._next;
       }
@@ -15336,9 +15336,9 @@
     }
   }, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap; //to prevent the core plugins from being dropped via aggressive tree shaking, we must include them in the variable declaration in this way.
 
-  Tween.version = Timeline.version = gsap$3.version = "3.14.2";
+  Tween.version = Timeline.version = gsap$4.version = "3.14.2";
   _coreReady = 1;
-  _windowExists$3() && _wake();
+  _windowExists$4() && _wake();
   _easeMap.Power0;
       _easeMap.Power1;
       _easeMap.Power2;
@@ -15368,14 +15368,14 @@
   */
 
 
-  var _win$2,
+  var _win$3,
       _doc$2,
       _docElement,
       _pluginInitted,
       _tempDiv,
       _recentSetterPlugin,
-      _reverting,
-      _windowExists$2 = function _windowExists() {
+      _reverting$1,
+      _windowExists$3 = function _windowExists() {
     return typeof window !== "undefined";
   },
       _transformProps = {},
@@ -15514,7 +15514,7 @@
         target.setAttribute("data-svg-origin", this.svgo || "");
       }
 
-      i = _reverting();
+      i = _reverting$1();
 
       if ((!i || !i.isStart) && !style[_transformProp$1]) {
         _removeIndependentTransforms(style);
@@ -15530,14 +15530,14 @@
       }
     }
   },
-      _getStyleSaver = function _getStyleSaver(target, properties) {
+      _getStyleSaver$1 = function _getStyleSaver(target, properties) {
     var saver = {
       target: target,
       props: [],
       revert: _revertStyle,
       save: _saveStyle
     };
-    target._gsap || gsap$3.core.getCache(target); // just make sure there's a _gsap cache defined because we read from it in _saveStyle() and it's more efficient to just check it here once.
+    target._gsap || gsap$4.core.getCache(target); // just make sure there's a _gsap cache defined because we read from it in _saveStyle() and it's more efficient to just check it here once.
 
     properties && target.style && target.nodeType && properties.split(",").forEach(function (p) {
       return saver.save(p);
@@ -15571,10 +15571,10 @@
 
     return i < 0 ? null : (i === 3 ? "ms" : i >= 0 ? _prefixes[i] : "") + property;
   },
-      _initCore$2 = function _initCore() {
-    if (_windowExists$2() && window.document) {
-      _win$2 = window;
-      _doc$2 = _win$2.document;
+      _initCore$3 = function _initCore() {
+    if (_windowExists$3() && window.document) {
+      _win$3 = window;
+      _doc$2 = _win$3.document;
       _docElement = _doc$2.documentElement;
       _tempDiv = _createElement("div") || {
         style: {}
@@ -15585,7 +15585,7 @@
       _tempDiv.style.cssText = "border-width:0;line-height:0;position:absolute;padding:0"; //make sure to override certain properties that may contaminate measurements, in case the user has overreaching style sheets.
 
       _supports3D = !!_checkPropPrefix("perspective");
-      _reverting = gsap$3.core.reverting;
+      _reverting$1 = gsap$4.core.reverting;
       _pluginInitted = 1;
     }
   },
@@ -15712,7 +15712,7 @@
 
     if ((toPercent || curUnit === "%") && (_transformProps[property] || ~property.indexOf("adius"))) {
       px = isSVG ? target.getBBox()[horizontal ? "width" : "height"] : target[measureProperty];
-      return _round$1(toPercent ? curValue / px * amount : curValue / 100 * px);
+      return _round$2(toPercent ? curValue / px * amount : curValue / 100 * px);
     }
 
     style[horizontal ? "width" : "height"] = amount + (toPixels ? curUnit : unit);
@@ -15729,7 +15729,7 @@
     cache = parent._gsap;
 
     if (cache && toPercent && cache.width && horizontal && cache.time === _ticker.time && !cache.uncache) {
-      return _round$1(curValue / cache.width * amount);
+      return _round$2(curValue / cache.width * amount);
     } else {
       if (toPercent && (property === "height" || property === "width")) {
         // if we're dealing with width/height that's inside a container with padding and/or it's a flexbox/grid container, we must apply it to the target itself rather than the _tempDiv in order to ensure complete accuracy, factoring in the parent's padding.
@@ -15754,11 +15754,11 @@
       }
     }
 
-    return _round$1(toPixels ? px * curValue / amount : px && curValue ? amount / px * curValue : 0);
+    return _round$2(toPixels ? px * curValue / amount : px && curValue ? amount / px * curValue : 0);
   },
       _get = function _get(target, property, unit, uncache) {
     var value;
-    _pluginInitted || _initCore$2();
+    _pluginInitted || _initCore$3();
 
     if (property in _propertyAliases && property !== "transform") {
       property = _propertyAliases[property];
@@ -16056,7 +16056,7 @@
       _getComputedTransformMatrixAsArray = function _getComputedTransformMatrixAsArray(target) {
     var matrixString = _getComputedProperty(target, _transformProp$1);
 
-    return _isNullTransform(matrixString) ? _identity2DMatrix : matrixString.substr(7).match(_numExp).map(_round$1);
+    return _isNullTransform(matrixString) ? _identity2DMatrix : matrixString.substr(7).match(_numExp$1).map(_round$2);
   },
       _getMatrix = function _getMatrix(target, force2D) {
     var cache = target._gsap || _getCache(target),
@@ -16329,8 +16329,8 @@
           rotationY = 180 - rotationY;
         }
 
-        scaleX = _round$1(Math.sqrt(a * a + b * b + c * c));
-        scaleY = _round$1(Math.sqrt(a22 * a22 + a32 * a32));
+        scaleX = _round$2(Math.sqrt(a * a + b * b + c * c));
+        scaleY = _round$2(Math.sqrt(a22 * a22 + a32 * a32));
         angle = _atan2(a12, a22);
         skewX = Math.abs(angle) > 0.0002 ? angle * _RAD2DEG : 0;
         perspective = a43 ? 1 / (a43 < 0 ? -a43 : a43) : 0;
@@ -16359,11 +16359,11 @@
     cache.x = x - ((cache.xPercent = x && (!uncache && cache.xPercent || (Math.round(target.offsetWidth / 2) === Math.round(-x) ? -50 : 0))) ? target.offsetWidth * cache.xPercent / 100 : 0) + px;
     cache.y = y - ((cache.yPercent = y && (!uncache && cache.yPercent || (Math.round(target.offsetHeight / 2) === Math.round(-y) ? -50 : 0))) ? target.offsetHeight * cache.yPercent / 100 : 0) + px;
     cache.z = z + px;
-    cache.scaleX = _round$1(scaleX);
-    cache.scaleY = _round$1(scaleY);
-    cache.rotation = _round$1(rotation) + deg;
-    cache.rotationX = _round$1(rotationX) + deg;
-    cache.rotationY = _round$1(rotationY) + deg;
+    cache.scaleX = _round$2(scaleX);
+    cache.scaleY = _round$2(scaleY);
+    cache.rotation = _round$2(rotation) + deg;
+    cache.rotationX = _round$2(rotationX) + deg;
+    cache.rotationY = _round$2(rotationY) + deg;
     cache.skewX = skewX + deg;
     cache.skewY = skewY + deg;
     cache.transformPerspective = perspective + px;
@@ -16384,7 +16384,7 @@
       //for handling transformOrigin values, stripping out the 3rd dimension
   _addPxTranslate = function _addPxTranslate(target, start, value) {
     var unit = getUnit(start);
-    return _round$1(parseFloat(start) + parseFloat(_convertToUnit(target, "x", value + "px", unit))) + unit;
+    return _round$2(parseFloat(start) + parseFloat(_convertToUnit(target, "x", value + "px", unit))) + unit;
   },
       _renderNon3DTransforms = function _renderNon3DTransforms(ratio, cache) {
     cache.z = "0px";
@@ -16524,10 +16524,10 @@
         }
       }
 
-      a11 = _round$1(a11);
-      a21 = _round$1(a21);
-      a12 = _round$1(a12);
-      a22 = _round$1(a22);
+      a11 = _round$2(a11);
+      a21 = _round$2(a21);
+      a12 = _round$2(a12);
+      a22 = _round$2(a22);
     } else {
       a11 = scaleX;
       a22 = scaleY;
@@ -16540,15 +16540,15 @@
     }
 
     if (xOrigin || yOrigin || xOffset || yOffset) {
-      tx = _round$1(tx + xOrigin - (xOrigin * a11 + yOrigin * a12) + xOffset);
-      ty = _round$1(ty + yOrigin - (xOrigin * a21 + yOrigin * a22) + yOffset);
+      tx = _round$2(tx + xOrigin - (xOrigin * a11 + yOrigin * a12) + xOffset);
+      ty = _round$2(ty + yOrigin - (xOrigin * a21 + yOrigin * a22) + yOffset);
     }
 
     if (xPercent || yPercent) {
       //The SVG spec doesn't support percentage-based translation in the "transform" attribute, so we merge it into the translation to simulate it.
       temp = target.getBBox();
-      tx = _round$1(tx + xPercent / 100 * temp.width);
-      ty = _round$1(ty + yPercent / 100 * temp.height);
+      tx = _round$2(tx + xPercent / 100 * temp.width);
+      ty = _round$2(ty + yPercent / 100 * temp.height);
     }
 
     temp = "matrix(" + a11 + "," + a21 + "," + a12 + "," + a22 + "," + tx + "," + ty + ")";
@@ -16681,7 +16681,7 @@
 
   var CSSPlugin = {
     name: "css",
-    register: _initCore$2,
+    register: _initCore$3,
     targetTest: function targetTest(target) {
       return target.style && target.nodeType;
     },
@@ -16706,9 +16706,9 @@
           hasPriority,
           inlineProps,
           finalTransformValue;
-      _pluginInitted || _initCore$2(); // we may call init() multiple times on the same plugin instance, like when adding special properties, so make sure we don't overwrite the revert data or inlineProps
+      _pluginInitted || _initCore$3(); // we may call init() multiple times on the same plugin instance, like when adding special properties, so make sure we don't overwrite the revert data or inlineProps
 
-      this.styles = this.styles || _getStyleSaver(target);
+      this.styles = this.styles || _getStyleSaver$1(target);
       inlineProps = this.styles.props;
       this.tween = tween;
 
@@ -16902,7 +16902,7 @@
       hasPriority && _sortPropTweensByPriority(this);
     },
     render: function render(ratio, data) {
-      if (data.tween._time || !_reverting()) {
+      if (data.tween._time || !_reverting$1()) {
         var pt = data._pt;
 
         while (pt) {
@@ -16926,8 +16926,8 @@
       _getMatrix: _getMatrix
     }
   };
-  gsap$3.utils.checkPrefix = _checkPropPrefix;
-  gsap$3.core.getStyleSaver = _getStyleSaver;
+  gsap$4.utils.checkPrefix = _checkPropPrefix;
+  gsap$4.core.getStyleSaver = _getStyleSaver$1;
 
   (function (positionAndScale, rotation, others, aliases) {
     var all = _forEachName(positionAndScale + "," + rotation + "," + others, function (name) {
@@ -16951,11 +16951,323 @@
     _config$1.units[name] = "px";
   });
 
-  gsap$3.registerPlugin(CSSPlugin);
+  gsap$4.registerPlugin(CSSPlugin);
 
-  var gsapWithCSS = gsap$3.registerPlugin(CSSPlugin) || gsap$3;
+  var gsapWithCSS = gsap$4.registerPlugin(CSSPlugin) || gsap$4;
       // to protect from tree shaking
   gsapWithCSS.core.Tween;
+
+  /*!
+   * DrawSVGPlugin 3.14.2
+   * https://gsap.com
+   *
+   * @license Copyright 2008-2025, GreenSock. All rights reserved.
+   * Subject to the terms at https://gsap.com/standard-license
+   * @author: Jack Doyle, jack@greensock.com
+  */
+
+  /* eslint-disable */
+  var gsap$3,
+      _toArray$2,
+      _win$2,
+      _isEdge,
+      _coreInitted$3,
+      _warned,
+      _getStyleSaver,
+      _reverting,
+      _windowExists$2 = function _windowExists() {
+    return typeof window !== "undefined";
+  },
+      _getGSAP$3 = function _getGSAP() {
+    return gsap$3 || _windowExists$2() && (gsap$3 = window.gsap) && gsap$3.registerPlugin && gsap$3;
+  },
+      _numExp = /[-+=\.]*\d+[\.e\-\+]*\d*[e\-\+]*\d*/gi,
+      //finds any numbers, including ones that start with += or -=, negative numbers, and ones in scientific notation like 1e-8.
+  _types = {
+    rect: ["width", "height"],
+    circle: ["r", "r"],
+    ellipse: ["rx", "ry"],
+    line: ["x2", "y2"]
+  },
+      _round$1 = function _round(value) {
+    return Math.round(value * 10000) / 10000;
+  },
+      _parseNum = function _parseNum(value) {
+    return parseFloat(value) || 0;
+  },
+      _parseSingleVal = function _parseSingleVal(value, length) {
+    var num = _parseNum(value);
+
+    return ~value.indexOf("%") ? num / 100 * length : num;
+  },
+      _getAttributeAsNumber = function _getAttributeAsNumber(target, attr) {
+    return _parseNum(target.getAttribute(attr));
+  },
+      _sqrt = Math.sqrt,
+      _getDistance = function _getDistance(x1, y1, x2, y2, scaleX, scaleY) {
+    return _sqrt(Math.pow((_parseNum(x2) - _parseNum(x1)) * scaleX, 2) + Math.pow((_parseNum(y2) - _parseNum(y1)) * scaleY, 2));
+  },
+      _warn = function _warn(message) {
+    return console.warn(message);
+  },
+      _hasNonScalingStroke = function _hasNonScalingStroke(target) {
+    return target.getAttribute("vector-effect") === "non-scaling-stroke";
+  },
+      _bonusValidated = 1,
+      //<name>DrawSVGPlugin</name>
+  //accepts values like "100%" or "20% 80%" or "20 50" and parses it into an absolute start and end position on the line/stroke based on its length. Returns an an array with the start and end values, like [0, 243]
+  _parse = function _parse(value, length, defaultStart) {
+    var i = value.indexOf(" "),
+        s,
+        e;
+
+    if (i < 0) {
+      s = defaultStart !== undefined ? defaultStart + "" : value;
+      e = value;
+    } else {
+      s = value.substr(0, i);
+      e = value.substr(i + 1);
+    }
+
+    s = _parseSingleVal(s, length);
+    e = _parseSingleVal(e, length);
+    return s > e ? [e, s] : [s, e];
+  },
+      _getLength = function _getLength(target) {
+    target = _toArray$2(target)[0];
+
+    if (!target) {
+      return 0;
+    }
+
+    var type = target.tagName.toLowerCase(),
+        style = target.style,
+        scaleX = 1,
+        scaleY = 1,
+        length,
+        bbox,
+        points,
+        prevPoint,
+        i,
+        rx,
+        ry;
+
+    if (_hasNonScalingStroke(target)) {
+      //non-scaling-stroke basically scales the shape and then strokes it at the screen-level (after transforms), thus we need to adjust the length accordingly.
+      scaleY = target.getScreenCTM();
+      scaleX = _sqrt(scaleY.a * scaleY.a + scaleY.b * scaleY.b);
+      scaleY = _sqrt(scaleY.d * scaleY.d + scaleY.c * scaleY.c);
+    }
+
+    try {
+      //IE bug: calling <path>.getTotalLength() locks the repaint area of the stroke to whatever its current dimensions are on that frame/tick. To work around that, we must call getBBox() to force IE to recalculate things.
+      bbox = target.getBBox(); //solely for fixing bug in IE - we don't actually use the bbox.
+    } catch (e) {
+      //firefox has a bug that throws an error if the element isn't visible.
+      _warn("Some browsers won't measure invisible elements (like display:none or masks inside defs).");
+    }
+
+    var _ref = bbox || {
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0
+    },
+        x = _ref.x,
+        y = _ref.y,
+        width = _ref.width,
+        height = _ref.height;
+
+    if ((!bbox || !width && !height) && _types[type]) {
+      //if the element isn't visible, try to discern width/height using its attributes.
+      width = _getAttributeAsNumber(target, _types[type][0]);
+      height = _getAttributeAsNumber(target, _types[type][1]);
+
+      if (type !== "rect" && type !== "line") {
+        //double the radius for circles and ellipses
+        width *= 2;
+        height *= 2;
+      }
+
+      if (type === "line") {
+        x = _getAttributeAsNumber(target, "x1");
+        y = _getAttributeAsNumber(target, "y1");
+        width = Math.abs(width - x);
+        height = Math.abs(height - y);
+      }
+    }
+
+    if (type === "path") {
+      prevPoint = style.strokeDasharray;
+      style.strokeDasharray = "none";
+      length = target.getTotalLength() || 0;
+      _round$1(scaleX) !== _round$1(scaleY) && !_warned && (_warned = 1) && _warn("Warning: <path> length cannot be measured when vector-effect is non-scaling-stroke and the element isn't proportionally scaled.");
+      length *= (scaleX + scaleY) / 2;
+      style.strokeDasharray = prevPoint;
+    } else if (type === "rect") {
+      length = width * 2 * scaleX + height * 2 * scaleY;
+    } else if (type === "line") {
+      length = _getDistance(x, y, x + width, y + height, scaleX, scaleY);
+    } else if (type === "polyline" || type === "polygon") {
+      points = target.getAttribute("points").match(_numExp) || [];
+      type === "polygon" && points.push(points[0], points[1]);
+      length = 0;
+
+      for (i = 2; i < points.length; i += 2) {
+        length += _getDistance(points[i - 2], points[i - 1], points[i], points[i + 1], scaleX, scaleY) || 0;
+      }
+    } else if (type === "circle" || type === "ellipse") {
+      rx = width / 2 * scaleX;
+      ry = height / 2 * scaleY;
+      length = Math.PI * (3 * (rx + ry) - _sqrt((3 * rx + ry) * (rx + 3 * ry)));
+    }
+
+    return length || 0;
+  },
+      _getPosition = function _getPosition(target, length) {
+    target = _toArray$2(target)[0];
+
+    if (!target) {
+      return [0, 0];
+    }
+
+    length || (length = _getLength(target) + 1);
+
+    var cs = _win$2.getComputedStyle(target),
+        dash = cs.strokeDasharray || "",
+        offset = _parseNum(cs.strokeDashoffset),
+        i = dash.indexOf(",");
+
+    i < 0 && (i = dash.indexOf(" "));
+    dash = i < 0 ? length : _parseNum(dash.substr(0, i));
+    dash > length && (dash = length);
+    return [-offset || 0, dash - offset || 0];
+  },
+      _initCore$2 = function _initCore() {
+    if (_windowExists$2()) {
+      _win$2 = window;
+      _coreInitted$3 = gsap$3 = _getGSAP$3();
+      _toArray$2 = gsap$3.utils.toArray;
+      _getStyleSaver = gsap$3.core.getStyleSaver;
+
+      _reverting = gsap$3.core.reverting || function () {};
+
+      _isEdge = ((_win$2.navigator || {}).userAgent || "").indexOf("Edge") !== -1; //Microsoft Edge has a bug that causes it not to redraw the path correctly if the stroke-linecap is anything other than "butt" (like "round") and it doesn't match the stroke-linejoin. A way to trigger it is to change the stroke-miterlimit, so we'll only do that if/when we have to (to maximize performance)
+    }
+  };
+
+  var DrawSVGPlugin = {
+    version: "3.14.2",
+    name: "drawSVG",
+    register: function register(core) {
+      gsap$3 = core;
+
+      _initCore$2();
+    },
+    init: function init(target, value, tween, index, targets) {
+      if (!target.getBBox) {
+        return false;
+      }
+
+      _coreInitted$3 || _initCore$2();
+
+      var length = _getLength(target),
+          start,
+          end,
+          cs;
+
+      this.styles = _getStyleSaver && _getStyleSaver(target, "strokeDashoffset,strokeDasharray,strokeMiterlimit");
+      this.tween = tween;
+      this._style = target.style;
+      this._target = target;
+
+      if (value + "" === "true") {
+        value = "0 100%";
+      } else if (!value) {
+        value = "0 0";
+      } else if ((value + "").indexOf(" ") === -1) {
+        value = "0 " + value;
+      }
+
+      start = _getPosition(target, length);
+      end = _parse(value, length, start[0]);
+      this._length = _round$1(length);
+      this._dash = _round$1(start[1] - start[0]); //some browsers render artifacts if dash is 0, so we use a very small number in that case.
+
+      this._offset = _round$1(-start[0]);
+      this._dashPT = this.add(this, "_dash", this._dash, _round$1(end[1] - end[0]), 0, 0, 0, 0, 0, 1);
+      this._offsetPT = this.add(this, "_offset", this._offset, _round$1(-end[0]), 0, 0, 0, 0, 0, 1);
+
+      if (_isEdge) {
+        //to work around a bug in Microsoft Edge, animate the stroke-miterlimit by 0.0001 just to trigger the repaint (unnecessary if it's "round" and stroke-linejoin is also "round"). Imperceptible, relatively high-performance, and effective. Another option was to set the "d" <path> attribute to its current value on every tick, but that seems like it'd be much less performant.
+        cs = _win$2.getComputedStyle(target);
+
+        if (cs.strokeLinecap !== cs.strokeLinejoin) {
+          end = _parseNum(cs.strokeMiterlimit);
+          this.add(target.style, "strokeMiterlimit", end, end + 0.01);
+        }
+      }
+
+      this._live = _hasNonScalingStroke(target) || ~(value + "").indexOf("live");
+      this._nowrap = ~(value + "").indexOf("nowrap");
+
+      this._props.push("drawSVG");
+
+      return _bonusValidated;
+    },
+    render: function render(ratio, data) {
+      if (data.tween._time || !_reverting()) {
+        var pt = data._pt,
+            style = data._style,
+            length,
+            lengthRatio,
+            dash,
+            offset;
+
+        if (pt) {
+          //when the element has vector-effect="non-scaling-stroke" and the SVG is resized (like on a window resize), it actually changes the length of the stroke! So we must sense that and make the proper adjustments.
+          if (data._live) {
+            length = _getLength(data._target);
+
+            if (length !== data._length) {
+              lengthRatio = length / data._length;
+              data._length = length;
+
+              if (data._offsetPT) {
+                data._offsetPT.s *= lengthRatio;
+                data._offsetPT.c *= lengthRatio;
+              }
+
+              if (data._dashPT) {
+                data._dashPT.s *= lengthRatio;
+                data._dashPT.c *= lengthRatio;
+              } else {
+                data._dash *= lengthRatio;
+              }
+            }
+          }
+
+          while (pt) {
+            pt.r(ratio, pt.d);
+            pt = pt._next;
+          }
+
+          dash = data._dash || ratio && ratio !== 1 && 0.0001 || 0; // only let it be zero if it's at the start or end of the tween.
+
+          length = data._length - dash + 0.1;
+          offset = data._offset;
+          dash && offset && dash + Math.abs(offset % data._length) > data._length - 0.05 && (offset += offset < 0 ? 0.005 : -0.005) && (length += 0.005);
+          style.strokeDashoffset = dash ? offset : offset + 0.001;
+          style.strokeDasharray = length < 0.1 ? "none" : dash ? dash + "px," + (data._nowrap ? 999999 : length) + "px" : "0px, 999999px";
+        }
+      } else {
+        data.styles.revert();
+      }
+    },
+    getLength: _getLength,
+    getPosition: _getPosition
+  };
+  _getGSAP$3() && gsap$3.registerPlugin(DrawSVGPlugin);
 
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
@@ -26652,7 +26964,7 @@
   var common = /*#__PURE__*/function () {
     function common() {
       _classCallCheck(this, common);
-      gsapWithCSS.registerPlugin(ScrollTrigger$1);
+      gsapWithCSS.registerPlugin(ScrollTrigger$1, DrawSVGPlugin);
       // barba.hooks.beforeOnce((data) => {
       //     console.log('once')
       //     this.load();
@@ -26684,6 +26996,8 @@
         this.jsTab();
         this.jsSwiper();
         this.jsParallax();
+        this.jsUnderlineText();
+        this.jsCircleText();
         // this.isSectionDark();
         this.isVisible();
         this.isVisibleType();
@@ -26764,14 +27078,15 @@
         // footerクラスの存在チェックとScrollTrigger
         var footer = document.querySelector('.l-footer');
         if (footer) {
+          var shift = Utility.isPC() ? 114 / 1440 * window.innerWidth : 70 / 375 * window.innerWidth;
           ScrollTrigger$1.create({
             trigger: footer,
-            start: 'top bottom',
+            start: "top-=".concat(shift, " top"),
             onEnter: function onEnter() {
-              return document.body.classList.add('is-footer-show');
+              return document.body.classList.add('is-footer-view');
             },
             onLeaveBack: function onLeaveBack() {
-              return document.body.classList.remove('is-footer-show');
+              return document.body.classList.remove('is-footer-view');
             }
           });
         }
@@ -27080,6 +27395,118 @@
         });
       }
     }, {
+      key: "jsUnderlineText",
+      value: function jsUnderlineText() {
+        var domList = document.querySelectorAll('.js-underline-text');
+        if (domList.length) {
+          domList.forEach(function (el) {
+            Utility.convertSpiltSpan(el);
+            var spans = el.querySelectorAll('span');
+            var elRect = el.getBoundingClientRect();
+            elRect.left + elRect.width / 2;
+            elRect.top + elRect.height / 2;
+
+            // 初期状態
+
+            spans.forEach(function (span) {
+              var rect = span.getBoundingClientRect();
+              rect.left + rect.width / 2;
+              rect.top + rect.height / 2;
+
+              // 初期状態
+              gsapWithCSS.set(span, {
+                // x: nx * 40,
+                // y: ny * 40 || (Math.random() * 80 - 40),
+                // rotate: -90,
+                opacity: 0,
+                transformOrigin: '50% 50%'
+              });
+
+              // アニメーション
+              gsapWithCSS.to(span, {
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 80%',
+                  once: true
+                },
+                x: 0,
+                y: 0,
+                // rotate: 0,
+                opacity: 1,
+                duration: 1.2,
+                delay: Math.random() * 0.6,
+                ease: 'power3.out',
+                onStart: function onStart() {
+                  el.classList.add('is-visible');
+                }
+              });
+            });
+          });
+        }
+      }
+    }, {
+      key: "jsCircleText",
+      value: function jsCircleText() {
+        var domList = document.querySelectorAll('.js-circle-text');
+        if (domList.length) {
+          domList.forEach(function (el) {
+            var spanWrap = el.querySelector('span');
+            Utility.convertSpiltSpan(spanWrap);
+            var spans = spanWrap.querySelectorAll('span');
+            var elRect = el.getBoundingClientRect();
+            elRect.left + elRect.width / 2;
+            elRect.top + elRect.height / 2;
+
+            // 初期状態
+            gsapWithCSS.fromTo(el.querySelector('svg path'), {
+              drawSVG: "0% 0%"
+            }, {
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 80%',
+                once: true
+              },
+              duration: 1,
+              drawSVG: "0 100%",
+              ease: 'power3.out',
+              onStart: function onStart() {
+                el.classList.add('is-visible');
+              }
+            });
+            spans.forEach(function (span) {
+              var rect = span.getBoundingClientRect();
+              rect.left + rect.width / 2;
+              rect.top + rect.height / 2;
+
+              // 初期状態
+              gsapWithCSS.set(span, {
+                // x: nx * 40,
+                // y: ny * 40 || (Math.random() * 80 - 40),
+                // rotate: -90,
+                opacity: 0,
+                transformOrigin: '50% 50%'
+              });
+
+              // アニメーション
+              gsapWithCSS.to(span, {
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 80%',
+                  once: true
+                },
+                x: 0,
+                y: 0,
+                // rotate: 0,
+                opacity: 1,
+                duration: 1.2,
+                delay: Math.random() * 0.6,
+                ease: 'power3.out'
+              });
+            });
+          });
+        }
+      }
+    }, {
       key: "isSectionDark",
       value: function isSectionDark() {
         var shift = Utility.isPC() ? 114 / 1440 * window.innerWidth / 2 : 70 / 375 * window.innerWidth / 2;
@@ -27124,23 +27551,27 @@
         if (domList.length) {
           domList.forEach(function (el) {
             Utility.convertSpiltSpan(el);
-          });
-          domList.forEach(function (el) {
             var spans = el.querySelectorAll('span');
             gsapWithCSS.set(spans, {
-              opacity: 0,
-              y: '20%'
+              opacity: 0
             });
             gsapWithCSS.to(spans, {
               scrollTrigger: {
                 trigger: el,
-                start: 'top bottom-=20%'
+                start: 'top 80%',
+                once: true
               },
-              delay: 0.5,
               opacity: 1,
-              y: '0%',
-              stagger: 0.03,
-              ease: 'power3.out' // 修正：typoだった 'poser3.out' → 'power3.out'
+              duration: 1.2,
+              delay: Math.random() * 0.6,
+              ease: 'power3.out',
+              stagger: {
+                each: 0.03,
+                from: "random"
+              },
+              onStart: function onStart() {
+                el.classList.add('is-visible');
+              }
             });
           });
         }
@@ -27514,7 +27945,7 @@
         if (document.querySelector('.p-company-philosophy')) {
           var section = document.querySelector('.p-company-philosophy');
           var wrap = document.querySelector('.p-company-philosophy__wrap');
-          gsapWithCSS.utils.toArray('.p-company-philosophy-figure__pic svg');
+          var svgs = gsapWithCSS.utils.toArray('.p-company-philosophy-figure__pic svg');
           gsapWithCSS.utils.toArray('.p-company-philosophy-item');
 
           // svgs.forEach((svg, i) => {
@@ -27546,6 +27977,7 @@
             section.classList.add("is-step-".concat(step));
           };
           setStepClass(1);
+          var prevStep = 1;
           ScrollTrigger$1.create({
             trigger: section,
             start: function start() {
@@ -27559,12 +27991,35 @@
             markers: false,
             onUpdate: function onUpdate(self) {
               var p = self.progress;
-              if (p < 1 / 3) {
-                setStepClass(1);
-              } else if (p < 2 / 3) {
-                setStepClass(2);
+              var step = p < 1 / 3 ? 1 : p < 2 / 3 ? 2 : 3;
+              if (step !== prevStep) {
+                prevStep = step;
+                setStepClass(step);
+                var targetSvg = svgs[step - 1];
+                var lines = targetSvg.querySelectorAll('.line');
+                var lines_reverse = targetSvg.querySelectorAll('.line-reverse');
+                gsapWithCSS.killTweensOf(lines);
+                gsapWithCSS.killTweensOf(lines_reverse);
+                gsapWithCSS.set(lines, {
+                  drawSVG: "0% 0%"
+                });
+                gsapWithCSS.to(lines, {
+                  drawSVG: "0% 100%",
+                  duration: 1.5,
+                  ease: "power3.out",
+                  stagger: 0.03
+                });
+                gsapWithCSS.set(lines_reverse, {
+                  drawSVG: "100% 100%"
+                });
+                gsapWithCSS.to(lines_reverse, {
+                  drawSVG: "100% 0%",
+                  duration: 1.5,
+                  ease: "power3.out",
+                  stagger: 0.03
+                });
               } else {
-                setStepClass(3);
+                setStepClass(step);
               }
             }
           });
@@ -27587,8 +28042,8 @@
           gsapWithCSS.timeline({
             scrollTrigger: {
               trigger: timeline,
-              start: 'top 60%',
-              end: 'bottom 60%',
+              start: 'top 50%',
+              end: 'bottom 50%',
               scrub: true
               // markers: true,
             }

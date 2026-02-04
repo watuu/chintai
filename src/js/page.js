@@ -59,6 +59,7 @@ export default class Page {
 
             setStepClass(1);
 
+            let prevStep = 1;
             ScrollTrigger.create({
                 trigger: section,
                 start: () => 'top center',
@@ -71,12 +72,35 @@ export default class Page {
                 onUpdate: self => {
                     const p = self.progress;
 
-                    if (p < 1 / 3) {
-                        setStepClass(1);
-                    } else if (p < 2 / 3) {
-                        setStepClass(2);
+                    const step = (p < 1/3) ? 1 : (p < 2/3) ? 2 : 3;
+
+                    if (step !== prevStep) {
+                        prevStep = step;
+                        setStepClass(step);
+
+                        const targetSvg = svgs[step - 1];
+                        const lines = targetSvg.querySelectorAll('.line');
+                        const lines_reverse = targetSvg.querySelectorAll('.line-reverse');
+
+                        gsap.killTweensOf(lines);
+                        gsap.killTweensOf(lines_reverse);
+
+                        gsap.set(lines, { drawSVG: "0% 0%" });
+                        gsap.to(lines, {
+                            drawSVG: "0% 100%",
+                            duration: 1.5,
+                            ease: "power3.out",
+                            stagger: 0.03
+                        });
+                        gsap.set(lines_reverse, { drawSVG: "100% 100%" });
+                        gsap.to(lines_reverse, {
+                            drawSVG: "100% 0%",
+                            duration: 1.5,
+                            ease: "power3.out",
+                            stagger: 0.03
+                        });
                     } else {
-                        setStepClass(3);
+                        setStepClass(step);
                     }
                 }
             });
@@ -96,8 +120,8 @@ export default class Page {
             gsap.timeline({
                 scrollTrigger: {
                     trigger: timeline,
-                    start: 'top 60%',
-                    end: 'bottom 60%',
+                    start: 'top 50%',
+                    end: 'bottom 50%',
                     scrub: true,
                     // markers: true,
                 }

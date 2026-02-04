@@ -115,7 +115,7 @@
 	margin-top: 46/16+rem;
 	display: flex;
 	flex-direction: column;
-	gap: 60/16+rem;
+	gap: 80/16+rem;
 	@include config.pc {
 		gap: 65/16+rem;
 	}
@@ -132,7 +132,7 @@
 	}
 }
 .p-service-list-item__pic {
-	margin-bottom: -20/16+rem;
+	margin-bottom: 20/16+rem;
 	text-align: center;
 	img {
 		width: 187/16+rem;
@@ -162,9 +162,15 @@
 	grid-area: title;
 
 	font-family: var(--Outfit);
-	font-size: 22/16+rem;
+	font-size: 20/16+rem;
 	font-weight: 700;
 	letter-spacing: 0.06em;
+	text-align: left;
+	@include config.sp {
+		.p-service-list-item--student & {
+			font-size: 18/16+rem;
+		}
+	}
 	@include config.pc {
 		font-size: 28/16+rem;
 	}

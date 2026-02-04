@@ -63,7 +63,8 @@
 	right: 0;
 	top: 0;
 	@include config.pc {
-		width: 106/16+rem;
+		width: 90/16+rem;
+		top: -8/16+rem;
 	}
 }
 .p-media-sports-ski-lead__dec {
@@ -236,6 +237,9 @@
 	font-size: 13/16+rem;
 	font-weight: 700;
 	white-space: nowrap;
+	a {
+		flex-shrink: 0;
+	}
 	&:before {
 		content: '';
 		display: block;
