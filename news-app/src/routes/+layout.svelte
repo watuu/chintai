@@ -23,11 +23,11 @@
   </div>
   <nav class="l-header-nav cm-nav-header">
     <ul class="cm-nav-header__nav">
-      <li><a href={path + 'company/'} class="cm-nav-header__link" data-dir="company"><span class="js-clone">会社情報</span></a></li>
-      <li><a href={path + 'service/'} class="cm-nav-header__link" data-dir="service"><span class="js-clone">サービス</span></a></li>
-      <li><a href={path + 'initiative/'} class="cm-nav-header__link" data-dir="initiative"><span class="js-clone">CHINTAIの取り組み</span></a></li>
-      <li><a href={path + 'news/'} class="cm-nav-header__link" data-dir="news"><span class="js-clone">お知らせ</span></a></li>
-      <li><a href="https://www.chintai.jp/recruit/" class="cm-nav-header__link"><span class="js-clone">採用情報</span></a></li>
+      <li><a href={path + 'company/'} data-sveltekit-reload class="cm-nav-header__link" data-dir="company"><span class="js-clone">会社情報</span></a></li>
+      <li><a href={path + 'service/'} data-sveltekit-reload class="cm-nav-header__link" data-dir="service"><span class="js-clone">サービス</span></a></li>
+      <li><a href={path + 'initiative/'} data-sveltekit-reload class="cm-nav-header__link" data-dir="initiative"><span class="js-clone">CHINTAIの取り組み</span></a></li>
+      <li><a href={path + 'news/'} data-sveltekit-reload class="cm-nav-header__link" data-dir="news"><span class="js-clone">お知らせ</span></a></li>
+      <li><a href="https://www.chintai.jp/recruit/" data-sveltekit-reload class="cm-nav-header__link"><span class="js-clone">採用情報</span></a></li>
     </ul>
     <a href={path + 'contact/'} class="cm-nav-header__contact"><span class="js-clone">お問い合わせ</span></a>
   </nav>
@@ -37,18 +37,18 @@
       <div class="l-header-drawer__nav">
         <div class="cm-nav-main">
           <ul class="cm-nav-main__lv1">
-            <li><a href={path + 'company/'} class="cm-nav-main__link"><span class="_ja">会社情報</span><span class="_en">Company</span></a></li>
-            <li><a href={path + 'service/'} class="cm-nav-main__link"><span class="_ja">サービス</span><span class="_en">Service</span></a></li>
-            <li><a href={path + 'initiative/'} class="cm-nav-main__link"><span class="_ja">CHINTAIの取り組み</span><span class="_en">Initiative</span></a>
+            <li><a href={path + 'company/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">会社情報</span><span class="_en">Company</span></a></li>
+            <li><a href={path + 'service/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">サービス</span><span class="_en">Service</span></a></li>
+            <li><a href={path + 'initiative/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">CHINTAIの取り組み</span><span class="_en">Initiative</span></a>
               <ul class="cm-nav-main__lv2">
                 <li><a href="https://www.chintai.net/city-planning/" target="_blank" rel="noopener" class="cm-nav-main__sub"><span>社会貢献プロジェクト</span></a></li>
-                <li><a href={path + 'initiative/student/'} class="cm-nav-main__sub"><span>学生応援活動</span></a></li>
-                <li><a href={path + 'initiative/media/'} class="cm-nav-main__sub"><span>メディア活動</span></a></li>
+                <li><a href={path + 'initiative/student/'} data-sveltekit-reload class="cm-nav-main__sub"><span>学生応援活動</span></a></li>
+                <li><a href={path + 'initiative/media/'} data-sveltekit-reload class="cm-nav-main__sub"><span>メディア活動</span></a></li>
               </ul>
             </li>
-            <li><a href={path + 'news/'} class="cm-nav-main__link"><span class="_ja">お知らせ</span><span class="_en">News</span></a></li>
+            <li><a href={path + 'news/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">お知らせ</span><span class="_en">News</span></a></li>
             <li><a href="https://www.chintai.jp/recruit/" class="cm-nav-main__link"><span class="_ja">採用情報</span><span class="_en">Recruit</span></a></li>
-            <li><a href={path + 'contact/'} class="cm-nav-main__link"><span class="_ja">お問い合わせ</span><span class="_en">Contact</span></a></li>
+            <li><a href={path + 'contact/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">お問い合わせ</span><span class="_en">Contact</span></a></li>
           </ul>
         </div>
       </div>
@@ -76,18 +76,18 @@
       <div class="l-footer-nav">
         <div class="cm-nav-main">
           <ul class="cm-nav-main__lv1">
-            <li><a href={path + 'company/'} class="cm-nav-main__link"><span class="_ja">会社情報</span><span class="_en">Company</span></a></li>
-            <li><a href={path + 'service/'} class="cm-nav-main__link"><span class="_ja">サービス</span><span class="_en">Service</span></a></li>
-            <li><a href={path + 'initiative/'} class="cm-nav-main__link"><span class="_ja">CHINTAIの取り組み</span><span class="_en">Initiative</span></a>
+            <li><a href={path + 'company/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">会社情報</span><span class="_en">Company</span></a></li>
+            <li><a href={path + 'service/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">サービス</span><span class="_en">Service</span></a></li>
+            <li><a href={path + 'initiative/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">CHINTAIの取り組み</span><span class="_en">Initiative</span></a>
               <ul class="cm-nav-main__lv2">
                 <li><a href="https://www.chintai.net/city-planning/" target="_blank" rel="noopener" class="cm-nav-main__sub"><span>社会貢献プロジェクト</span></a></li>
-                <li><a href={path + 'initiative/student/'} class="cm-nav-main__sub"><span>学生応援活動</span></a></li>
-                <li><a href={path + 'initiative/media/'} class="cm-nav-main__sub"><span>メディア活動</span></a></li>
+                <li><a href={path + 'initiative/student/'} data-sveltekit-reload class="cm-nav-main__sub"><span>学生応援活動</span></a></li>
+                <li><a href={path + 'initiative/media/'} data-sveltekit-reload class="cm-nav-main__sub"><span>メディア活動</span></a></li>
               </ul>
             </li>
-            <li><a href={path + 'news/'} class="cm-nav-main__link"><span class="_ja">お知らせ</span><span class="_en">News</span></a></li>
+            <li><a href={path + 'news/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">お知らせ</span><span class="_en">News</span></a></li>
             <li><a href="https://www.chintai.jp/recruit/" class="cm-nav-main__link"><span class="_ja">採用情報</span><span class="_en">Recruit</span></a></li>
-            <li><a href={path + 'contact/'} class="cm-nav-main__link"><span class="_ja">お問い合わせ</span><span class="_en">Contact</span></a></li>
+            <li><a href={path + 'contact/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">お問い合わせ</span><span class="_en">Contact</span></a></li>
           </ul>
         </div>
       </div>
