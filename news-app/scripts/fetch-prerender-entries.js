@@ -28,12 +28,15 @@ async function fetchAllSlugs() {
   let offset = 0;
   const limit = 100;
   while (true) {
-    const url = `${base}/news?limit=${limit}&offset=${offset}&fields=id,slug`;
+    const url = `${base}/news?limit=${limit}&offset=${offset}&fields=id,slug,pdfurl,content`;
     const res = await fetch(url, { headers: { 'X-MICROCMS-API-KEY': key } });
     if (!res.ok) break;
     const data = await res.json();
     const contents = data.contents ?? [];
-    for (const c of contents) slugs.push('/news/' + (c.slug || c.id));
+    for (const c of contents) {
+      const hasContent = c.content && typeof c.content === 'object';
+      if (!c.pdfurl && hasContent) slugs.push('/news/' + (c.slug || c.id));
+    }
     if (contents.length < limit) break;
     offset += limit;
   }

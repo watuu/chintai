@@ -61,10 +61,13 @@
         </form>
       </div>
 
-      <p class="p-news__total">全{data.totalCount}件</p>
 
       <div class="p-news__list">
+        {#if data.totalCount === 0}
+          <p class="p-news__empty">該当する記事はありません。</p>
+        {:else}
         {#each data.list as item}
+          {@const pdfUrl = item.pdf?.url ?? item.pdfurl}
           <div class="c-card-news">
             <div class="c-card-news__wrap">
               <p class="c-card-news__date">
@@ -78,9 +81,9 @@
               {/if}
               <h3 class="c-card-news__title">
                 <a href="/news/{item.slug ?? item.id}" class="c-card-news__link">{item.title}</a>
-                {#if item.pdf?.url ?? item.pdfurl}
+                {#if pdfUrl}
                 <div class="c-card-news__pdf">
-                  <a href={item.pdf?.url ?? item.pdfurl} target="_blank" rel="noopener">PDF</a>
+                  <a href={pdfUrl} target="_blank" rel="noopener">PDF</a>
                 </div>
               {/if}                
               </h3>
@@ -89,6 +92,7 @@
           </div>
                   
         {/each}
+        {/if}
       </div>
 
       {#if data.totalCount > data.limit}

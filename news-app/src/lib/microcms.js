@@ -89,6 +89,34 @@ export async function getLatestNews(limit = 6) {
 }
 
 /**
+ * 指定日時より前の記事を1件取得（前の記事用）。
+ */
+export async function getPrevNews(publishedAt) {
+  if (!publishedAt) return null;
+  const data = await fetchFromMicroCMS('news', {
+    filters: `publishedAt[less_than]${publishedAt}`,
+    limit: 1,
+    orders: '-publishedAt'
+  });
+  const contents = data.contents ?? [];
+  return contents[0] ?? null;
+}
+
+/**
+ * 指定日時より後の記事を1件取得（次の記事用）。
+ */
+export async function getNextNews(publishedAt) {
+  if (!publishedAt) return null;
+  const data = await fetchFromMicroCMS('news', {
+    filters: `publishedAt[greater_than]${publishedAt}`,
+    limit: 1,
+    orders: 'publishedAt'
+  });
+  const contents = data.contents ?? [];
+  return contents[0] ?? null;
+}
+
+/**
  * 一覧から年代の選択肢を取得（フィルタ用）。
  * SDK の getAllContents で全件取得してユニークな年を返す（limit 100 制限を超えても取得可能）。
  * @see https://help.microcms.io/ja/knowledge/fetch-big-data
