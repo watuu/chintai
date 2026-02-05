@@ -1,7 +1,8 @@
 extends ./_default
 block vars
     - var path = "./"
-    - var title = ""
+    - var title = "トップページ｜株式会社CHINTAI"
+    - var description = "「自分らしい暮らしが叶う社会を創る。」を掲げる株式会社CHINTAIのトップページです。「住まい」「暮らし」「賃貸ビジネス」「暮らしの楽しみ」など、さまざまな観点から自分らしい暮らしをサポートしています。社会課題を解決する取り組みについてもご紹介。"
     - var pageClass = "page-front"
 
 block content
@@ -46,7 +47,7 @@ block content
                         br
                         |
                         br
-                        | だからこそCHINTAIは、その体験が<br class="sp"><span class="u-underline-dash js-underline-text">新しい気づき</span>や、<span class="u-underline-dash js-underline-text">まだ知らない街との</span><br class="sp"><span class="u-underline-dash js-underline-text"></span>出会い</span>を生み、<br class="pc-tab">そして<span class="u-underline-dash js-underline-text">自分らしい暮らしの</span><br class="sp"><span class="u-underline-dash js-underline-text">可能性</span>が広がっていく時間となるよう、
+                        | だからこそCHINTAIは、その体験が<br class="sp"><span class="u-underline-dash js-underline-text">新しい気づき</span>や、<span class="u-underline-dash js-underline-text">まだ知らない街との</span><br class="sp"><span class="u-underline-dash js-underline-text">出会い</span></span>を生み、<br class="pc-tab">そして<span class="u-underline-dash js-underline-text">自分らしい暮らしの</span><br class="sp"><span class="u-underline-dash js-underline-text">可能性</span>が広がっていく時間となるよう、
                         br
                         | 住まいと暮らしの未来を<br class="sp">ひらく役割を担っています。
                         br
@@ -176,7 +177,7 @@ block content
                                     p.p-top-initiatives-item__desc
                                         | 子どもたちの学び、まちの安心、自然との共生まで。CHINTAIは地域や次世代のために、5つの視点から社会課題の解決に取り組んでいます。
                         .p-top-initiatives-item.p-top-initiatives-item--student
-                            a(href=path + "initiative/student/").p-top-initiatives-item__link
+                            a(href=path + "initiatives/student/").p-top-initiatives-item__link
                                 figure.p-top-initiatives-item__pic
                                     img(src=img+"p-top-initiatives-item-student.webp" alt="学生応援活動")
                                 .p-top-initiatives-item__wrap
@@ -193,7 +194,7 @@ block content
                                     p.p-top-initiatives-item__desc
                                         | 学生が「自分らしい理想の新生活」を安心して始められるよう、お部屋探しから新生活までを総合的にサポートするサービスやコンテンツを提供しています。
                         .p-top-initiatives-item.p-top-initiatives-item--media
-                            a(href=path + "initiative/media/").p-top-initiatives-item__link
+                            a(href=path + "initiatives/media/").p-top-initiatives-item__link
                                 figure.p-top-initiatives-item__pic
                                     img(src=img+"p-top-initiatives-item-media.webp" alt="メディア活動")
                                 .p-top-initiatives-item__wrap
@@ -211,7 +212,7 @@ block content
                                         | CHINTAIをもっと身近に感じていただけるよう、CMやスポーツ協賛をはじめとする多様なメディア活動を通じて、ブランド認知と企業イメージの向上に取り組んでいます。
 
                     .p-top-initiatives__more
-                        a(href=path + "initiative/").c-btn-round
+                        a(href=path + "initiatives/").c-btn-round
                             span.c-btn-round__txt 取り組み一覧
                             i.c-btn-round__arrow
                                 svg(width=42 height=42 aria-hidden="true")
@@ -228,6 +229,39 @@ block content
                                 | お知らせ
                             p.c-heading-section__en
                                 | News
+                    //-.p-top-news__list
+                        .c-card-news
+                            .c-card-news__wrap
+                                p.c-card-news__date 2025.05.17
+                                p.c-card-news__category
+                                    span.c-card-news__label(style="background: #EF92AE;")
+                                    span 暮らし調査
+                                .c-card-news__title
+                                    a(href=path + "single-news/").c-card-news__link
+                                        | なにわ男子・大橋和也さんがミュージカル仕立てでお部屋探し！
+                        .c-card-news
+                            .c-card-news__wrap
+                                p.c-card-news__date 2025.04.17
+                                p.c-card-news__category
+                                    span.c-card-news__label(style="background: #7EBEAF;")
+                                    span お知らせ
+                                .c-card-news__title
+                                    a(href=path + "single-news/").c-card-news__link
+                                        | なにわ男子・大橋和也さんがミュージカル仕立てでお部屋探し！ 2行の場合2行の場合2行の場合2行の場合2行の場合2行の場合
+                        .c-card-news
+                            .c-card-news__wrap
+                                p.c-card-news__date 2025.04.17
+                                p.c-card-news__category
+                                    span.c-card-news__label(style="background: #EBBA5F;")
+                                    span プレスリリース
+                                .c-card-news__title
+                                    a(href=path + "single-news/").c-card-news__link
+                                        | サービス開始50周年！日本記念日協会が登録認定11月1日を「CHINTAIの日」に制定
+                                    .c-card-news__pdf
+                                        a(href="" target="_blank")
+                                            span PDF
+                                            svg(width=13 height=13 aria-hidden="true")
+                                                use(href="#ico-external-sm")
                     .p-top-news__list#news-list(data-api-url="/news/api/news/latest.json", data-news-path=path + "news/")
                         //- CSR: src/js/top-news.js が #news-list に .c-card-news を挿入
                     .p-top-news__more

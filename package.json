@@ -23,23 +23,24 @@
     "@rollup/plugin-alias": "^4.0.2",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.5",
     "@rollup/plugin-terser": "^0.4.4",
+    "concurrently": "^9.1.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "rollup": "^3.29.4",
     "rollup-plugin-import-css": "^3.5.0",
     "rollup-plugin-vue": "^6.0.0",
-    "sass": "^1.86.0",
-    "concurrently": "^9.1.0"
+    "sass": "^1.86.0"
   },
   "dependencies": {
     "budoux": "^0.7.0",
-    "microcms-js-sdk": "^2.0.0",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
     "lottie-web": "^5.13.0",
+    "microcms-js-sdk": "^2.0.0",
     "micromodal": "^0.4.10",
     "overlayscrollbars": "^2.11.1",
     "swiper": "^8.4.7"

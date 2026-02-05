@@ -48,7 +48,6 @@ export default class common {
         this.setDeviceClassToBody();
         this.globalMenu();
         this.smoothScroll();
-        // this.cMouseStalker();
         this.jsSplitText();
         this.jsClone();
         this.jsStickySection();
@@ -75,6 +74,9 @@ export default class common {
         });
         this.jsModalVideo()
         this.jsPlayAudio()
+        window.addEventListener('resize', ()=>{
+            ScrollTrigger.refresh()
+        })
     }
 
     reload() {
@@ -179,10 +181,10 @@ export default class common {
 
         const headerLinks = header.querySelectorAll('a');
         headerLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                headerMenu.classList.remove(classNameNavOpen);
-                navClose();
-            });
+            // link.addEventListener('click', () => {
+            //     headerMenu.classList.remove(classNameNavOpen);
+            //     navClose();
+            // });
         });
 
         function setNavHeight() {
@@ -249,41 +251,6 @@ export default class common {
                 }, duration);
             });
         });
-    }
-
-    cMouseStalker() {
-        const btn = document.querySelector('.c-btn-stalker');
-        const circle = document.querySelector('.c-btn-stalker__circle');
-        const ico = document.querySelector('.c-btn-stalker__ico');
-        const stalkerTriggers = document.querySelectorAll('.js-stalker-show');
-
-        if (btn && ScrollTrigger.isTouch !== 1) {
-            document.addEventListener('mousemove', (e) => {
-                const shift = btn.offsetWidth / 2;
-
-                gsap.to(circle, {
-                    x: e.clientX - shift,
-                    y: e.clientY - shift,
-                    ease: 'power1.out',
-                });
-
-                gsap.to(ico, {
-                    x: e.clientX - shift,
-                    y: e.clientY - shift,
-                    ease: 'power1.out',
-                    delay: 0.005,
-                });
-            });
-
-            stalkerTriggers.forEach(trigger => {
-                trigger.addEventListener('mouseover', () => {
-                    btn.classList.add('on-stalker-show');
-                });
-                trigger.addEventListener('mouseout', () => {
-                    btn.classList.remove('on-stalker-show');
-                });
-            });
-        }
     }
 
 

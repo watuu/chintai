@@ -63,7 +63,7 @@
 	span {
 		display: inline-block;
 	}
-	&:before,
+	//&:before,
 	&:after {
 		content: '';
 		display: block;
@@ -79,9 +79,9 @@
 		top: 95%;
 	}
 	@include config.sp {
-		&:before {
-			display: none;
-		}
+		//&:before {
+		//	display: none;
+		//}
 	}
 }
 .u-underline-dash.js-underline-text {
@@ -101,6 +101,8 @@
 }
 .u-text-circle {
 	display: inline-flex;
+	padding: 0 0.05em;
+	margin-inline: 0 0.3em;
 	align-items: center;
 	justify-content: center;
 	position: relative;

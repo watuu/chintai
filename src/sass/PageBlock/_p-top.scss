@@ -464,6 +464,7 @@
 	@include config.pc {
 		margin-top: 25/16+rem;
 		font-size: 16/16+rem;
+		letter-spacing: 0.12em;
 	}
 }
 .p-top-initiatives__more {
@@ -472,7 +473,7 @@
 	@include config.pc {}
 }
 .p-top-initiatives-item__pic {
-	margin: 0 -40/16+rem -50/16+rem auto;
+	margin: 0 auto -50/16+rem auto;
 	text-align: center;
 	img {
 		height: 220/16+rem;
@@ -494,6 +495,10 @@
 .p-top-initiatives-item--society {
 	.p-top-initiatives-item__pic {
 		//width: 249/16+rem;
+		margin-top: -40/16+rem;
+		img {
+			height: 250/16+rem;
+		}
 		@include config.pc {
 			margin: -65/16+rem 0 -75/16+rem 0;
 			img {
@@ -505,6 +510,10 @@
 .p-top-initiatives-item--student {
 	.p-top-initiatives-item__pic {
 		//width: 228/16+rem;
+		@include config.sp-tab {
+			margin-left: 30/16+rem;
+			margin-top: -10/16+rem;
+		}
 		@include config.pc {}
 	}
 }
