@@ -53,7 +53,7 @@ npm run dev
 |------|------|
 | `MICROCMS_SERVICE_DOMAIN` | microCMS のサービス ID |
 | `MICROCMS_API_KEY` | microCMS API キー（サーバー専用） |
-| `PUBLIC_SITE_ORIGIN` | dest 配下の共通アセット（CSS・画像）を読むオリジン。未設定時は開発で `http://localhost:5173`、本番ビルドで `https://chintai.manic-design.com` を使用 |
+| `PUBLIC_SITE_ORIGIN` | dest 配下の共通アセット（CSS・画像）を読むオリジン。未設定時は開発で `http://localhost:5173`、本番ビルドで `https://chintai.arutega.jp` を使用 |
 ## microCMS API 想定
 
 - **エンドポイント**: `news`

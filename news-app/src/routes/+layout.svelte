@@ -4,7 +4,7 @@
   import { base } from '$app/paths';
 
   /** dest 配下の共通アセット（CSS・画像）のオリジン。ビルド時は本番URLを優先 */
-  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.manic-design.com';
+  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.arutega.jp';
   const siteOrigin =
     env.PUBLIC_SITE_ORIGIN != null && (dev || !env.PUBLIC_SITE_ORIGIN.includes('localhost'))
       ? env.PUBLIC_SITE_ORIGIN

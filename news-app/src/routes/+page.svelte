@@ -7,7 +7,7 @@
   /** @type {import('./$types').PageData} */
   let { data } = $props();
 
-  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.manic-design.com';
+  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.arutega.jp';
   const siteOrigin =
     env.PUBLIC_SITE_ORIGIN != null && (dev || !env.PUBLIC_SITE_ORIGIN.includes('localhost'))
       ? env.PUBLIC_SITE_ORIGIN
