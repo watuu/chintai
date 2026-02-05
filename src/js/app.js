@@ -20,4 +20,13 @@ class APP {
     }
 }
 
-new APP()
+function boot() {
+    new APP();
+}
+
+// スクリプトが head で読み込まれた場合も DOM 準備後に実行する（news-app など）
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+} else {
+    boot();
+}
