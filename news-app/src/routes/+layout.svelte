@@ -1,6 +1,7 @@
 <script>
   import { dev } from '$app/environment';
   import { env } from '$env/dynamic/public';
+  import { base } from '$app/paths';
 
   /** dest 配下の共通アセット（CSS・画像）のオリジン。ビルド時は本番URLを優先 */
   const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.manic-design.com';
@@ -8,7 +9,7 @@
     env.PUBLIC_SITE_ORIGIN != null && (dev || !env.PUBLIC_SITE_ORIGIN.includes('localhost'))
       ? env.PUBLIC_SITE_ORIGIN
       : defaultOrigin;
-  /** メインサイト（dest）のルート。絶対URLにして base チェックを回避 */
+  /** メインサイト（dest）のルート。絶対URLにして base チェックを回避・プリレンダーで相対リンクが /news/company に解釈されるのを防ぐ */
   const path = siteOrigin.replace(/\/$/, '') + '/';
   const img = `${siteOrigin}/assets/img/`;
   const sitename = '株式会社CHINTAI';
@@ -26,16 +27,16 @@
 </svelte:head>
 
 <header class="l-header">
-  <div class="l-header-logo"><a href="../"><img src="../assets/img/logo.svg" alt="株式会社CHINTAI"/><img src="../assets/img/logo-wh.svg" alt=""/></a></div>
+  <div class="l-header-logo"><a href={path}><img src={img + 'logo.svg'} alt="株式会社CHINTAI"/><img src={img + 'logo-wh.svg'} alt=""/></a></div>
   <div class="l-header-nav">
     <nav class="cm-nav-header">
       <ul class="cm-nav-header__nav">
-        <li><a class="cm-nav-header__link" href="../company/" data-dir="company"><span class="js-clone">会社情報</span></a></li>
-        <li><a class="cm-nav-header__link" href="../service/" data-dir="service"><span class="js-clone">サービス</span></a></li>
-        <li><a class="cm-nav-header__link" href="../initiative/" data-dir="initiative"><span class="js-clone">CHINTAIの取り組み</span></a></li>
-        <li><a class="cm-nav-header__link" href="../news/" data-dir="news"><span class="js-clone">お知らせ</span></a></li>
+        <li><a class="cm-nav-header__link" href={path + 'company/'} data-dir="company"><span class="js-clone">会社情報</span></a></li>
+        <li><a class="cm-nav-header__link" href={path + 'service/'} data-dir="service"><span class="js-clone">サービス</span></a></li>
+        <li><a class="cm-nav-header__link" href={path + 'initiatives/'} data-dir="initiatives"><span class="js-clone">CHINTAIの取り組み</span></a></li>
+        <li><a class="cm-nav-header__link" href={base + '/'} data-dir="news"><span class="js-clone">お知らせ</span></a></li>
         <li><a class="cm-nav-header__link" href="https://www.chintai.jp/recruit/"><span class="js-clone">採用情報</span></a></li>
-      </ul><a class="cm-nav-header__contact" href="../contact/"><span class="js-clone">お問い合わせ</span></a>
+      </ul><a class="cm-nav-header__contact" href={path + 'contact/'}><span class="js-clone">お問い合わせ</span></a>
     </nav>
   </div>
   <button class="l-header-menu c-btn-menu" aria-label="メニューを開く"><span></span><span></span></button>
@@ -44,29 +45,29 @@
       <div class="l-header-drawer__nav">
         <div class="cm-nav-main">
           <ul class="cm-nav-main__lv1">
-            <li><a class="cm-nav-main__link" href="../company/"><span class="_ja">会社情報</span><span class="_en">Company</span></a></li>
-            <li><a class="cm-nav-main__link" href="../service/"><span class="_ja">サービス</span><span class="_en">Service</span></a></li>
-            <li><a class="cm-nav-main__link" href="../initiative/"><span class="_ja">CHINTAIの取り組み</span><span class="_en">Initiatives</span></a>
+            <li><a class="cm-nav-main__link" href={path + 'company/'}><span class="_ja">会社情報</span><span class="_en">Company</span></a></li>
+            <li><a class="cm-nav-main__link" href={path + 'service/'}><span class="_ja">サービス</span><span class="_en">Service</span></a></li>
+            <li><a class="cm-nav-main__link" href={path + 'initiatives/'}><span class="_ja">CHINTAIの取り組み</span><span class="_en">Initiatives</span></a>
               <ul class="cm-nav-main__lv2">
                 <li><a class="cm-nav-main__sub" href="https://www.chintai.net/city-planning/" target="_blank"><span>社会貢献プロジェクト</span>
                     <svg width="13" height="13" aria-hidden="true">
                       <use href="#ico-external-sm"></use>
                     </svg></a></li>
-                <li><a class="cm-nav-main__sub" href="../initiative/student/"><span>学生応援活動</span></a></li>
-                <li><a class="cm-nav-main__sub" href="../initiative/media/"><span>メディア活動</span></a></li>
+                <li><a class="cm-nav-main__sub" href={path + 'initiatives/student/'}><span>学生応援活動</span></a></li>
+                <li><a class="cm-nav-main__sub" href={path + 'initiatives/media/'}><span>メディア活動</span></a></li>
               </ul>
             </li>
-            <li><a class="cm-nav-main__link" href="../news/"><span class="_ja">お知らせ</span><span class="_en">News</span></a></li>
+            <li><a class="cm-nav-main__link" href={base + '/'}><span class="_ja">お知らせ</span><span class="_en">News</span></a></li>
             <li><a class="cm-nav-main__link" href="https://www.chintai.jp/recruit/"><span class="_ja">採用情報</span><span class="_en">Recruit</span></a></li>
-            <li><a class="cm-nav-main__link" href="../contact/"><span class="_ja">お問い合わせ</span><span class="_en">Contact</span></a></li>
+            <li><a class="cm-nav-main__link" href={path + 'contact/'}><span class="_ja">お問い合わせ</span><span class="_en">Contact</span></a></li>
           </ul>
         </div>
       </div>
       <ul class="l-header-drawer__sns">
-        <li><a href="" target="_blank"><img src="../assets/img/ico-instagram.svg" alt="instagram"/></a></li>
-        <li><a href="" target="_blank"><img src="../assets/img/ico-x.svg" alt="x"/></a></li>
-        <li><a href="" target="_blank"><img src="../assets/img/ico-youtube.svg" alt="youtube"/></a></li>
-        <li><a href="" target="_blank"><img src="../assets/img/ico-note.svg" alt="note"/></a></li>
+        <li><a href="" target="_blank"><img src={img + 'ico-instagram.svg'} alt="instagram"/></a></li>
+        <li><a href="" target="_blank"><img src={img + 'ico-x.svg'} alt="x"/></a></li>
+        <li><a href="" target="_blank"><img src={img + 'ico-youtube.svg'} alt="youtube"/></a></li>
+        <li><a href="" target="_blank"><img src={img + 'ico-note.svg'} alt="note"/></a></li>
       </ul>
     </div>
   </div>
@@ -137,6 +138,10 @@
     </symbol>
     <symbol id="ico-angle-down" viewBox="0 0 17 12">
       <path d="M16.1805 0.646484L8.47502 9.74347L0.761719 0.646484" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+    </symbol>
+    <symbol id="ico-external-sm" viewBox="0 0 13 13">
+      <path d="M3.52344 9.40535L8.96844 3.96035L9.66594 4.65785L4.22094 10.1029L3.52344 9.40535ZM6.84594 2.66285L12.3884 1.29785L11.0309 6.84785L6.85344 2.67035L6.84594 2.66285Z" stroke="none"/>
+      <path d="M7.32312 0.450195H1.20313C0.788912 0.450195 0.453125 0.785982 0.453125 1.2002V11.7002C0.453125 12.1144 0.788911 12.4502 1.20312 12.4502H11.7031C12.1173 12.4502 12.4531 12.1144 12.4531 11.7002V8.03353" fill="none" stroke-width="0.9" stroke-miterlimit="10"/>
     </symbol>
   </defs>
 </svg>
