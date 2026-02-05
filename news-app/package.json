@@ -1,0 +1,23 @@
+{
+  "name": "chintai-news-app",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prerender:entries": "node scripts/fetch-prerender-entries.js"
+  },
+  "dependencies": {
+    "microcms-js-sdk": "^2.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "@sveltejs/adapter-static": "^3.0.1",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "svelte": "^5.0.0",
+    "vite": "^5.4.0"
+  }
+}

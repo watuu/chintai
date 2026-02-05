@@ -9,9 +9,13 @@
   },
   "scripts": {
     "sass": "sass --no-source-map src/sass/style.scss dest/assets/css/style.css --style expanded",
+    "sass:watch": "sass --no-source-map src/sass/style.scss dest/assets/css/style.css --style expanded --watch",
     "pug": "pug src/pug/ --hierarchy -o dest -P '\t' -E html",
+    "pug:watch": "pug src/pug/ --hierarchy -o dest -P '\t' -E html --watch",
     "js:build": "NODE_ENV=production rollup -c rollup-config.js",
-    "js:watch": "NODE_ENV=development rollup -c rollup-config.js --watch"
+    "js:watch": "NODE_ENV=development rollup -c rollup-config.js --watch",
+    "dev": "npx concurrently \"npm run pug:watch\" \"npm run sass:watch\" \"npm run js:watch\"",
+    "serve": "npx serve dest -l 3000"
   },
   "devDependencies": {
     "@babel/core": "^7.24.5",
@@ -27,10 +31,12 @@
     "rollup": "^3.29.4",
     "rollup-plugin-import-css": "^3.5.0",
     "rollup-plugin-vue": "^6.0.0",
-    "sass": "^1.86.0"
+    "sass": "^1.86.0",
+    "concurrently": "^9.1.0"
   },
   "dependencies": {
     "budoux": "^0.7.0",
+    "microcms-js-sdk": "^2.0.0",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
     "lottie-web": "^5.13.0",
