@@ -6,6 +6,7 @@ import {default as Common} from './common';
 import Page from './page';
 import Lottie from "./lottie";
 import BudouX from './budoux';
+import initTopNews from './top-news';
 
 class APP {
     constructor() {
@@ -15,6 +16,7 @@ class APP {
         new Page();
         new Lottie();
         new BudouX();
+        initTopNews();
     }
 }
 

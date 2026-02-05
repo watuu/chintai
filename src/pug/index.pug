@@ -229,7 +229,7 @@ block content
                                 | お知らせ
                             p.c-heading-section__en
                                 | News
-                    .p-top-news__list
+                    //-.p-top-news__list
                         .c-card-news
                             .c-card-news__wrap
                                 p.c-card-news__date 2025.05.17
@@ -262,6 +262,8 @@ block content
                                             span PDF
                                             svg(width=13 height=13 aria-hidden="true")
                                                 use(href="#ico-external-sm")
+                    .p-top-news__list#news-list(data-api-url="/news/api/news/latest.json", data-news-path=path + "news/")
+                        //- CSR: src/js/top-news.js が #news-list に .c-card-news を挿入
                     .p-top-news__more
                         a(href=path+"news/").c-btn-more
                             span.c-btn-more__txt 一覧を見る

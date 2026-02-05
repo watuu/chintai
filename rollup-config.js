@@ -26,7 +26,10 @@ export default {
     css({
       inject: true,
     }),
-    nodeResolve(),
+    nodeResolve({
+      browser: true,
+      preferBuiltins: false,
+    }),
     commonjs(),
     alias({
       entries: []

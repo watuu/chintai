@@ -9,9 +9,13 @@
   },
   "scripts": {
     "sass": "sass --no-source-map src/sass/style.scss dest/assets/css/style.css --style expanded",
+    "sass:watch": "sass --no-source-map src/sass/style.scss dest/assets/css/style.css --style expanded --watch",
     "pug": "pug src/pug/ --hierarchy -o dest -P '\t' -E html",
+    "pug:watch": "pug src/pug/ --hierarchy -o dest -P '\t' -E html --watch",
     "js:build": "NODE_ENV=production rollup -c rollup-config.js",
-    "js:watch": "NODE_ENV=development rollup -c rollup-config.js --watch"
+    "js:watch": "NODE_ENV=development rollup -c rollup-config.js --watch",
+    "dev": "npx concurrently \"npm run pug:watch\" \"npm run sass:watch\" \"npm run js:watch\"",
+    "serve": "npx serve dest -l 3000"
   },
   "devDependencies": {
     "@babel/core": "^7.24.5",
@@ -19,9 +23,11 @@
     "@rollup/plugin-alias": "^4.0.2",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-replace": "^5.0.5",
     "@rollup/plugin-terser": "^0.4.4",
+    "concurrently": "^9.1.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "rollup": "^3.29.4",
@@ -34,6 +40,7 @@
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",
     "lottie-web": "^5.13.0",
+    "microcms-js-sdk": "^2.0.0",
     "micromodal": "^0.4.10",
     "overlayscrollbars": "^2.11.1",
     "swiper": "^8.4.7"
