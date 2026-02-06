@@ -37,7 +37,37 @@ function renderCards(listEl, contents, newsPath) {
     const catColor =
       cat && typeof cat === 'object' && cat.color ? cat.color : '#7EBEAF';
     const detailUrl = newsPath + (item.slug || item.id);
-    const pdfUrl = (item.pdf && item.pdf.url) || item.pdfurl || '';
+    const externalLink =
+      (item.pdf && item.pdf.url) || item.pdfurl || item.externalLink || '';
+    const externalLinkIsPdf =
+      externalLink && /\.pdf$/i.test(externalLink);
+    const hasContent = !!item.content;
+    const showTitleAsLink =
+      hasContent || (externalLink && !externalLinkIsPdf);
+    const linkUrl = hasContent
+      ? detailUrl
+      : (externalLink || detailUrl);
+    const isExternalLink = showTitleAsLink && !hasContent && !!externalLink;
+
+    const titleHtml = showTitleAsLink
+      ? '<a href="' +
+        escapeHtml(linkUrl) +
+        '" class="c-card-news__link"' +
+        (isExternalLink ? ' target="_blank" rel="noopener"' : '') +
+        '>' +
+        escapeHtml(item.title || '') +
+        '</a>'
+      : '<span class="c-card-news__title-text">' +
+        escapeHtml(item.title || '') +
+        '</span>';
+
+    const pdfBlockHtml =
+      externalLinkIsPdf
+        ? '<div class="c-card-news__pdf"><a href="' +
+          escapeHtml(externalLink) +
+          '" target="_blank" rel="noopener"><span>PDF</span><svg width="13" height="13" aria-hidden="true"><use href="#ico-external-sm"></use></svg></a></div>'
+        : '';
+
     const card = document.createElement('div');
     card.className = 'c-card-news';
     card.innerHTML =
@@ -51,16 +81,8 @@ function renderCards(listEl, contents, newsPath) {
           '</span></p>'
         : '') +
       '<div class="c-card-news__title">' +
-      '<a href="' +
-      detailUrl +
-      '" class="c-card-news__link">' +
-      escapeHtml(item.title || '') +
-      '</a>' +
-      (pdfUrl
-        ? '<div class="c-card-news__pdf"><a href="' +
-          pdfUrl +
-          '" target="_blank" rel="noopener"><span>PDF</span><svg width="13" height="13" aria-hidden="true"><use href="#ico-external-sm"></use></svg></a></div>'
-        : '') +
+      titleHtml +
+      pdfBlockHtml +
       '</div></div>';
     listEl.appendChild(card);
   });
@@ -80,7 +102,7 @@ function renderNewsList() {
   client
     .getList({
       endpoint: 'news',
-      queries: { limit: 6, orders: '-publishedAt' },
+      queries: { limit: 4, orders: '-publishedAt' },
     })
     .then((res) => {
       const contents = res.contents || [];
