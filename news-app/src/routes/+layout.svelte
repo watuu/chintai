@@ -98,7 +98,11 @@
             <li><a href={path + 'service/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">サービス</span><span class="_en">Service</span></a></li>
             <li><a href={path + 'initiatives/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">CHINTAIの取り組み</span><span class="_en">Initiatives</span></a>
               <ul class="cm-nav-main__lv2">
-                <li><a href="https://www.chintai.net/city-planning/" target="_blank" rel="noopener" class="cm-nav-main__sub"><span>社会貢献プロジェクト</span></a></li>
+                <li><a href="https://www.chintai.net/city-planning/" target="_blank" rel="noopener" class="cm-nav-main__sub"><span>社会貢献プロジェクト</span>
+                  <svg width="13" height="13" aria-hidden="true">
+                    <use href="#ico-external-sm"></use>
+                  </svg>
+                </a></li>
                 <li><a href={path + 'initiatives/student/'} data-sveltekit-reload class="cm-nav-main__sub"><span>学生応援活動</span></a></li>
                 <li><a href={path + 'initiatives/media/'} data-sveltekit-reload class="cm-nav-main__sub"><span>メディア活動</span></a></li>
               </ul>
@@ -119,16 +123,25 @@
         <p>〒107-0051<br />東京都港区元赤坂1丁目2番7号<br />AKASAKA K-TOWER 10階<br />TEL. 03-5771-4600</p>
       </div>
       <div class="l-footer-group">
-        <h3 class="l-footer-group__head">Group Companies</h3>
+        <p class="l-footer-group__head">Group Companies</p>
         <ul class="l-footer-group__list">
           <li><a href="https://www.able-partners.co.jp/" target="_blank" rel="noopener"><img src={img + 'bana-able-partners.webp'} alt="ABLE &amp; PARTNERS" /></a></li>
           <li><a href="https://www.able.co.jp/" target="_blank" rel="noopener"><img src={img + 'bana-able.webp'} alt="【エイブル】賃貸物件・不動産物件を検索！" /></a></li>
         </ul>
       </div>
       <ul class="l-footer-other">
-        <li><a href="https://www.chintai.net/site_info/policy/" target="_blank" rel="noopener"><span>サイトポリシー</span></a></li>
-        <li><a href="https://www.chintai.net/site_info/privacy/" target="_blank" rel="noopener"><span>個人情報保護方針</span></a></li>
-        <li><a href="https://www.able-partners.co.jp/company/management/social_media.html" target="_blank" rel="noopener"><span>ソーシャルメディアポリシー</span></a></li>
+        <li><a href="https://www.chintai.net/site_info/policy/" target="_blank"><span>サイトポリシー</span>
+          <svg width="13" height="13" aria-hidden="true">
+            <use href="#ico-external-sm"></use>
+          </svg></a></li>
+        <li><a href="https://www.chintai.net/site_info/privacy/" target="_blank"><span>個人情報保護方針</span>
+          <svg width="13" height="13" aria-hidden="true">
+            <use href="#ico-external-sm"></use>
+          </svg></a></li>
+        <li><a href="https://www.able-partners.co.jp/company/management/social_media.html" target="_blank"><span>ソーシャルメディアポリシー</span>
+          <svg width="13" height="13" aria-hidden="true">
+            <use href="#ico-external-sm"></use>
+          </svg></a></li>
       </ul>
     </div>
     <p class="l-footer__copyright">&copy;CHINTAI Corporation All rights reserved.</p>
@@ -141,15 +154,37 @@
     <symbol id="ico-arrow-right" viewBox="0 0 42 42">
       <path d="M13.4375 20.0676H23.6841V21.3936H13.4375V20.0676ZM22.9013 16.7998L29.3975 20.778L22.9013 24.7798V16.8116V16.7998Z" stroke="none"/>
     </symbol>
-    <symbol id="ico-circle" viewBox="0 0 42 42">
+    <symbol id="ico-arrow-left" viewBox="0 0 42 42">
+      <path d="M28.5625 21.9324L18.3159 21.9324L18.3159 20.6064L28.5625 20.6064L28.5625 21.9324ZM19.0987 25.2002L12.6025 21.222L19.0987 17.2202L19.0987 25.1884L19.0987 25.2002Z" stroke="none"/>
+    </symbol>
+    <symbol id="ico-circle" viewBox="-1 -1 44 44">
       <rect x="1" y="1" width="40" height="40" rx="20" stroke-width="2"/>
+    </symbol>
+    <symbol id="ico-status" viewBox="0 0 18 18">
+      <path d="M0.75 8.74512H16.75" stroke="#0C3096" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M8.75391 0.75L8.75391 16.75" stroke="#0C3096" stroke-width="1.5" stroke-linecap="round"/>
     </symbol>
     <symbol id="ico-angle-down" viewBox="0 0 17 12">
       <path d="M16.1805 0.646484L8.47502 9.74347L0.761719 0.646484" fill="none" stroke-width="2" stroke-miterlimit="10"/>
     </symbol>
+    <symbol id="ico-external" viewBox="0 0 42 42">
+      <path d="M17.0938 24.9399L24.3538 17.6799L25.2837 18.6099L18.0237 25.8699L17.0938 24.9399ZM21.5238 15.9499L28.9137 14.1299L27.1038 21.5299L21.5337 15.9599L21.5238 15.9499Z" stroke="none"/>
+      <path d="M22.16 13H14C13.4477 13 13 13.4477 13 14V28C13 28.5523 13.4477 29 14 29H28C28.5523 29 29 28.5523 29 28V23.1111" fill="none" stroke-width="1.2" stroke-miterlimit="10"/>
+    </symbol>
     <symbol id="ico-external-sm" viewBox="0 0 13 13">
       <path d="M3.52344 9.40535L8.96844 3.96035L9.66594 4.65785L4.22094 10.1029L3.52344 9.40535ZM6.84594 2.66285L12.3884 1.29785L11.0309 6.84785L6.85344 2.67035L6.84594 2.66285Z" stroke="none"/>
       <path d="M7.32312 0.450195H1.20313C0.788912 0.450195 0.453125 0.785982 0.453125 1.2002V11.7002C0.453125 12.1144 0.788911 12.4502 1.20312 12.4502H11.7031C12.1173 12.4502 12.4531 12.1144 12.4531 11.7002V8.03353" fill="none" stroke-width="0.9" stroke-miterlimit="10"/>
+    </symbol>
+    <symbol id="ico-media-play" viewBox="-1 -1 46 46">
+      <rect x="0.5" y="0.5" width="43" height="43" rx="21.5" fill="white"/>
+      <rect x="0.5" y="0.5" width="43" height="43" rx="21.5" fill="none" stroke="#0B2188"/>
+      <path d="M30.0939 21.1454C30.7347 21.5349 30.7347 22.4651 30.0939 22.8546L18.7693 29.7369C18.1029 30.1419 17.25 29.6622 17.25 28.8823L17.25 15.1177C17.25 14.3378 18.1029 13.8581 18.7694 14.2631L30.0939 21.1454Z" fill="#0C3096"/>
+    </symbol>
+    <symbol id="ico-media-pause" viewBox="-1 -1 46 46">
+      <rect x="0.5" y="0.5" width="43" height="43" rx="21.5" fill="white"/>
+      <rect x="0.5" y="0.5" width="43" height="43" rx="21.5" fill="none" stroke="#0B2188"/>
+      <path d="M18.5 15.5V28.5" stroke="#0C3096" stroke-width="4" stroke-linecap="round"/>
+      <path d="M25.5 15.5V28.5" stroke="#0C3096" stroke-width="4" stroke-linecap="round"/>
     </symbol>
   </defs>
 </svg>
