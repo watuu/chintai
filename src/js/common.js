@@ -647,7 +647,9 @@ export default class common {
     jsModalVideo() {
         document.addEventListener('DOMContentLoaded', function () {
             const modal = document.getElementById('modal-movie');
+            if (!modal) return;
             const iframeContainer = modal.querySelector('#modal-movie-iframe');
+            if (!iframeContainer) return;
             const triggers = document.querySelectorAll('.jsModalVideo');
 
             triggers.forEach(trigger => {
@@ -672,6 +674,7 @@ export default class common {
     jsPlayAudio() {
         document.addEventListener('DOMContentLoaded', () => {
             const audio = document.getElementById('media-audio');
+            if (!audio) return;
             const btns = document.querySelectorAll('.jsPlayAudio');
 
             btns.forEach(btn => {

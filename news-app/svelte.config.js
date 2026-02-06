@@ -9,11 +9,13 @@ const entries = existsSync(entriesPath)
   ? JSON.parse(readFileSync(entriesPath, 'utf8'))
   : ['*', '/news'];
 
+const basePath = process.env.NODE_ENV === 'production' ? '/news' : '';
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
     paths: {
-      base: process.env.NODE_ENV === 'production' ? '/news' : ''
+      base: basePath
     },
     adapter: adapter({
       pages: 'build',
@@ -21,7 +23,14 @@ const config = {
       fallback: undefined,
       precompress: false,
       strict: true
-    })
+    }),
+    prerender: {
+      // ロゴの href="../" などで / にリンクされ、base 外パスをクロールしようとしてエラーになるのを防ぐ
+      handleHttpError: ({ path, message }) => {
+        if (basePath && !path.startsWith(basePath)) return;
+        throw new Error(message);
+      }
+    }
   }
 };
 

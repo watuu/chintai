@@ -7,7 +7,7 @@
   /** @type {import('./$types').PageData} */
   let { data } = $props();
 
-  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.manic-design.com';
+  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.arutega.jp';
   const siteOrigin =
     env.PUBLIC_SITE_ORIGIN != null && (dev || !env.PUBLIC_SITE_ORIGIN.includes('localhost'))
       ? env.PUBLIC_SITE_ORIGIN
@@ -120,7 +120,7 @@
                 <a href={base + '/' + (item.slug ?? item.id)} class="c-card-news__link">{item.title}</a>
                 {#if pdfUrl}
                 <div class="c-card-news__pdf">
-                  <a href={pdfUrl} target="_blank" rel="noopener">PDF</a>
+                  <a href={pdfUrl} target="_blank" rel="noopener"><span>PDF</span><svg width="13" height="13" aria-hidden="true"><use href="#ico-external-sm"></use></svg></a>
                 </div>
               {/if}                
               </h3>
