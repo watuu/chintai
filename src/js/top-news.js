@@ -50,18 +50,18 @@ function renderCards(listEl, contents, newsPath) {
           escapeHtml(catName) +
           '</span></p>'
         : '') +
-      '<p class="c-card-news__title">' +
+      '<div class="c-card-news__title">' +
       '<a href="' +
       detailUrl +
       '" class="c-card-news__link">' +
       escapeHtml(item.title || '') +
       '</a>' +
       (pdfUrl
-        ? '<span class="c-card-news__pdf"><a href="' +
+        ? '<div class="c-card-news__pdf"><a href="' +
           pdfUrl +
-          '" target="_blank" rel="noopener"><span>PDF</span><svg width="13" height="13" aria-hidden="true"><use href="#ico-external-sm"></use></svg></a></span>'
+          '" target="_blank" rel="noopener"><span>PDF</span><svg width="13" height="13" aria-hidden="true"><use href="#ico-external-sm"></use></svg></a></div>'
         : '') +
-      '</p></div>';
+      '</div></div>';
     listEl.appendChild(card);
   });
 }

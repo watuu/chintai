@@ -16,6 +16,7 @@
 </script>
 
 <svelte:head>
+  <meta name="format-detection" content="telephone=no,address=no"/>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -24,6 +25,17 @@
   />
   <link rel="stylesheet" href={siteOrigin + '/assets/css/style.css'} />
   <script src={siteOrigin + '/assets/js/app.js'}></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-24377698-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "UA-24377698-1");
+  </script>
 </svelte:head>
 
 <header class="l-header">
@@ -88,11 +100,11 @@
           <ul class="cm-nav-main__lv1">
             <li><a href={path + 'company/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">会社情報</span><span class="_en">Company</span></a></li>
             <li><a href={path + 'service/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">サービス</span><span class="_en">Service</span></a></li>
-            <li><a href={path + 'initiative/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">CHINTAIの取り組み</span><span class="_en">Initiative</span></a>
+            <li><a href={path + 'initiatives/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">CHINTAIの取り組み</span><span class="_en">Initiatives</span></a>
               <ul class="cm-nav-main__lv2">
                 <li><a href="https://www.chintai.net/city-planning/" target="_blank" rel="noopener" class="cm-nav-main__sub"><span>社会貢献プロジェクト</span></a></li>
-                <li><a href={path + 'initiative/student/'} data-sveltekit-reload class="cm-nav-main__sub"><span>学生応援活動</span></a></li>
-                <li><a href={path + 'initiative/media/'} data-sveltekit-reload class="cm-nav-main__sub"><span>メディア活動</span></a></li>
+                <li><a href={path + 'initiatives/student/'} data-sveltekit-reload class="cm-nav-main__sub"><span>学生応援活動</span></a></li>
+                <li><a href={path + 'initiatives/media/'} data-sveltekit-reload class="cm-nav-main__sub"><span>メディア活動</span></a></li>
               </ul>
             </li>
             <li><a href={path + 'news/'} data-sveltekit-reload class="cm-nav-main__link"><span class="_ja">お知らせ</span><span class="_en">News</span></a></li>
@@ -118,7 +130,7 @@
         </ul>
       </div>
       <ul class="l-footer-other">
-        <li><a href="https://www.able-partners.co.jp/company/management/social_media.html" target="_blank" rel="noopener"><span>サイトポリシー</span></a></li>
+        <li><a href="https://www.chintai.net/site_info/policy/" target="_blank" rel="noopener"><span>サイトポリシー</span></a></li>
         <li><a href="https://www.chintai.net/site_info/privacy/" target="_blank" rel="noopener"><span>個人情報保護方針</span></a></li>
         <li><a href="https://www.able-partners.co.jp/company/management/social_media.html" target="_blank" rel="noopener"><span>ソーシャルメディアポリシー</span></a></li>
       </ul>

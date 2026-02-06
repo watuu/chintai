@@ -116,14 +116,14 @@
                   <span>{item.category?.name ?? item.category}</span>
                 </p>
               {/if}
-              <h3 class="c-card-news__title">
+              <div class="c-card-news__title">
                 <a href={base + '/' + (item.slug ?? item.id)} class="c-card-news__link">{item.title}</a>
                 {#if pdfUrl}
                 <div class="c-card-news__pdf">
                   <a href={pdfUrl} target="_blank" rel="noopener"><span>PDF</span><svg width="13" height="13" aria-hidden="true"><use href="#ico-external-sm"></use></svg></a>
                 </div>
               {/if}                
-              </h3>
+              </div>
              
             </div>
           </div>

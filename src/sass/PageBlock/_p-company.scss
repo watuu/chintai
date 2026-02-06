@@ -124,6 +124,7 @@
 		letter-spacing: 0.06em;
 	}
 	._ja {
+		margin-top: -5/16+rem;
 		font-size: 10/16+rem;
 		line-height: 1.75;
 		letter-spacing: 0.06em;
@@ -139,7 +140,8 @@
 	}
 }
 .p-company-philosophy__items {
-	margin-top: 30/16+rem;
+	//margin-top: 30/16+rem;
+	margin-top: 0.575rem;
 	@include config.tab {
 		max-width: 580/16+rem;
 		margin-inline: auto;
