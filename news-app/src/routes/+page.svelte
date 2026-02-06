@@ -63,12 +63,11 @@
       <li><span>News</span></li>
     </ul>
   </section>
-
   <div class="p-news__wrap">
     <div class="l-container">
       <div class="p-news__nav">
         <form class="cm-block-filter" method="get" action={base + '/'}>
-          <div class="c-block-filter__inputs">
+          <div class="cm-block-filter__inputs">
             <div class="c-form-select">
               <select name="year" class="c-form-select__input">
                 <option value="">年代</option>
@@ -142,19 +141,19 @@
             <li class="cm-nav-paginate__ctrl">
               {#if offset > 0}
                 <a class="c-btn-circle c-btn-circle--prev" href={paginateHref(offset - limit)}>
-                  <svg width="42" height="42">
+                  <svg width="42" height="42" aria-hidden="true">
                     <use href="#ico-circle"></use>
                   </svg>
-                  <svg class="_arrow" width="42" height="42">
+                  <svg class="_arrow" width="42" height="42" aria-hidden="true">
                     <use href="#ico-arrow-right"></use>
                   </svg>
                 </a>
               {:else}
-                <span class="c-btn-circle c-btn-circle--prev" aria-disabled="true">
-                  <svg width="42" height="42">
+                <span class="c-btn-circle c-btn-circle--prev" aria-disabled="true" style="pointer-events: none; opacity: 0;">
+                  <svg width="42" height="42" aria-hidden="true">
                     <use href="#ico-circle"></use>
                   </svg>
-                  <svg class="_arrow" width="42" height="42">
+                  <svg class="_arrow" width="42" height="42" aria-hidden="true">
                     <use href="#ico-arrow-right"></use>
                   </svg>
                 </span>
@@ -189,20 +188,20 @@
             {/if}
             <li class="cm-nav-paginate__ctrl">
               {#if offset + limit < totalCount}
-                <a class="c-btn-circle" href={paginateHref(offset + limit)}>
-                  <svg width="42" height="42">
-                    <use href="#ico-circle"></use>
-                  </svg>
-                  <svg class="_arrow" width="42" height="42">
-                    <use href="#ico-arrow-right"></use>
-                  </svg>
-                </a>
+              <a class="c-btn-circle" href={paginateHref(offset + limit)}>
+                <svg width="42" height="42" aria-hidden="true">
+                  <use href="#ico-circle"></use>
+                </svg>
+                <svg class="_arrow" width="42" height="42" aria-hidden="true">
+                  <use href="#ico-arrow-right"></use>
+                </svg>
+              </a>
               {:else}
-                <span class="c-btn-circle" aria-disabled="true">
-                  <svg width="42" height="42">
+                <span class="c-btn-circle" aria-disabled="true" style="pointer-events: none; opacity: 0;">
+                  <svg width="42" height="42" aria-hidden="true">
                     <use href="#ico-circle"></use>
                   </svg>
-                  <svg class="_arrow" width="42" height="42">
+                  <svg class="_arrow" width="42" height="42" aria-hidden="true">
                     <use href="#ico-arrow-right"></use>
                   </svg>
                 </span>
