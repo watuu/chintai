@@ -21,7 +21,12 @@
 </script>
 <svelte:head>
   <title>{item.title} | お知らせ | 株式会社CHINTAI</title> 
-</svelte:head>    
+  <meta name="description" content="株式会社CHINTAIのお知らせ「{item.title}」についてです。"/>  
+  <meta property="og:locale" content="ja_JP"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://www.chintai.jp/assets/OGP.jpg"/>
+  <meta name="twitter:card" content="summary"/>
+</svelte:head>
 
 
 <div class="p-news-single">

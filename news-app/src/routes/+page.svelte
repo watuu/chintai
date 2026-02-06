@@ -33,6 +33,13 @@
   const totalCount = $derived(filteredList.length);
   const displayList = $derived(filteredList.slice(offset, offset + limit));
 
+  /** 現在のページ番号（1始まり） */
+  const currentPage = $derived(Math.floor(offset / limit) + 1);
+  /** 2ページ目以降は「お知らせ-2」のようにする */
+  const pageTitle = $derived(
+    currentPage > 1 ? `お知らせ-${currentPage}｜株式会社CHINTAI` : 'お知らせ｜株式会社CHINTAI'
+  );
+
   /** ページャー用のクエリ文字列（year, category を保持） */
   function paginateHref(newOffset, lim = limit) {
     const params = new URLSearchParams();
@@ -45,7 +52,12 @@
 </script>
 
 <svelte:head>
-  <title>お知らせ | 株式会社CHINTAI</title> 
+  <title>{pageTitle}</title> 
+  <meta name="description" content="株式会社CHINTAIのお知らせ一覧ページです。"/>  
+  <meta property="og:locale" content="ja_JP"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://www.chintai.jp/assets/OGP.jpg"/>
+  <meta name="twitter:card" content="summary"/>
 </svelte:head>
 
 <div class="p-news">
