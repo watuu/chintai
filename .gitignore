@@ -15,5 +15,5 @@ Thumbs.db
 # !/public/wp-content/themes
 # /public/wp-content/themes/*
 # !/public/wp-content/themes/xxx
-
+dest/__*
 news-app/.svelte-kit/*
