@@ -80,6 +80,14 @@
 	display: none;
 	@include config.pc {
 		display: block;
+		.page-front & {
+			opacity: 0;
+		}
+		.page-front.loadedLower & {
+			opacity: 1;
+			transition: opacity 1.2s var(--easeTheme);
+			transition-delay: 2.4s;
+		}
 	}
 }
 .l-header-menu {
