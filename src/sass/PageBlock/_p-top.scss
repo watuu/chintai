@@ -56,9 +56,9 @@
 	//	round #{10/16+rem}
 	//);
 	clip-path: inset(
-		25vh
+		20vh
 		calc((100% - (20vh * 6 / 4)) / 2)
-		25vh
+		20vh
 		calc((100% - (20vh * 6 / 4)) / 2)
 		round #{10/16+rem}
 	);

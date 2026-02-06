@@ -1415,7 +1415,7 @@ body.page-gray {
           transform: translate(-50%, -50%);
 }
 .p-top-mv__video {
-  clip-path: inset(25vh calc((100% - 30vh) / 2) 25vh calc((100% - 30vh) / 2) round 0.625rem);
+  clip-path: inset(20vh calc((100% - 30vh) / 2) 20vh calc((100% - 30vh) / 2) round 0.625rem);
 }
 @media screen and (min-width: 1024px) {
   .p-top-mv__video {
