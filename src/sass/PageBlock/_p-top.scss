@@ -57,11 +57,20 @@
 	//);
 	clip-path: inset(
 		25vh
-		calc((100% - (25vh * 6 / 4)) / 2)
+		calc((100% - (20vh * 6 / 4)) / 2)
 		25vh
-		calc((100% - (25vh * 6 / 4)) / 2)
+		calc((100% - (20vh * 6 / 4)) / 2)
 		round #{10/16+rem}
 	);
+	@include config.pc {
+		clip-path: inset(
+			15vh
+			calc((100% - (70vh * 6 / 4)) / 2)
+			15vh
+			calc((100% - (70vh * 6 / 4)) / 2)
+			round #{10/16+rem}
+		);
+	}
 
 	.loadedLower & {
 		will-change: clipPath;
