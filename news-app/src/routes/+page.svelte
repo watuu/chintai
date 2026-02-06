@@ -116,6 +116,9 @@
         {:else}
         {#each displayList as item}
           {@const pdfUrl = item.pdf?.url ?? item.pdfurl}
+          {@const hasContent = item.content && typeof item.content === 'object'}
+          {@const linkUrl = hasContent ? (base + '/' + (item.slug ?? item.id)) : (pdfUrl ?? base + '/' + (item.slug ?? item.id))}
+          {@const isPdfLink = !hasContent && !!pdfUrl}
           <div class="c-card-news">
             <div class="c-card-news__wrap">
               <p class="c-card-news__date">
@@ -128,7 +131,7 @@
                 </p>
               {/if}
               <div class="c-card-news__title">
-                <a href={base + '/' + (item.slug ?? item.id)} class="c-card-news__link">{item.title}</a>
+                <a href={linkUrl} class="c-card-news__link" target={isPdfLink ? '_blank' : undefined} rel={isPdfLink ? 'noopener' : undefined}>{item.title}</a>
                 {#if pdfUrl}
                 <div class="c-card-news__pdf">
                   <a href={pdfUrl} target="_blank" rel="noopener"><span>PDF</span><svg width="13" height="13" aria-hidden="true"><use href="#ico-external-sm"></use></svg></a>
