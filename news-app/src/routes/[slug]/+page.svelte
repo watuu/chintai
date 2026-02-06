@@ -22,18 +22,18 @@
     data.prev
       ? hasContent(data.prev)
         ? base + '/' + (data.prev.slug ?? data.prev.id)
-        : (data.prev.pdf?.url ?? data.prev.pdfurl ?? base + '/' + (data.prev.slug ?? data.prev.id))
+        : (data.prev.pdf?.url ?? data.prev.externalLink ?? base + '/' + (data.prev.slug ?? data.prev.id))
       : '#'
   );
-  const prevIsPdf = $derived(data.prev && !hasContent(data.prev) && !!(data.prev.pdf?.url ?? data.prev.pdfurl));
+  const prevIsPdf = $derived(data.prev && !hasContent(data.prev) && !!(data.prev.pdf?.url ?? data.prev.externalLink));
   const nextLinkUrl = $derived(
     data.next
       ? hasContent(data.next)
         ? base + '/' + (data.next.slug ?? data.next.id)
-        : (data.next.pdf?.url ?? data.next.pdfurl ?? base + '/' + (data.next.slug ?? data.next.id))
+        : (data.next.pdf?.url ?? data.next.externalLink ?? base + '/' + (data.next.slug ?? data.next.id))
       : '#'
   );
-  const nextIsPdf = $derived(data.next && !hasContent(data.next) && !!(data.next.pdf?.url ?? data.next.pdfurl));
+  const nextIsPdf = $derived(data.next && !hasContent(data.next) && !!(data.next.pdf?.url ?? data.next.externalLink));
   const published = $derived(
     item.publishedAt
       ? new Date(item.publishedAt).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')

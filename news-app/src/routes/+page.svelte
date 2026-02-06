@@ -115,10 +115,12 @@
           <p class="p-news__empty">該当する記事はありません。</p>
         {:else}
         {#each displayList as item}
-          {@const pdfUrl = item.pdf?.url ?? item.pdfurl}
-          {@const hasContent = item.content && typeof item.content === 'object'}
-          {@const linkUrl = hasContent ? (base + '/' + (item.slug ?? item.id)) : (pdfUrl ?? base + '/' + (item.slug ?? item.id))}
-          {@const isPdfLink = !hasContent && !!pdfUrl}
+          {@const externalLink = item.pdf?.url ?? item.externalLink}
+          {@const hasContent = item.content}
+          {@const externalLinkIsPdf = externalLink && /\.pdf$/i.test(externalLink)}
+          {@const showTitleAsLink = hasContent || (externalLink && !externalLinkIsPdf)}
+          {@const linkUrl = hasContent ? (base + '/' + (item.slug ?? item.id)) : (externalLink ?? base + '/' + (item.slug ?? item.id))}
+          {@const isExternalLink = showTitleAsLink && !hasContent && !!externalLink}
           <div class="c-card-news">
             <div class="c-card-news__wrap">
               <p class="c-card-news__date">
@@ -131,12 +133,18 @@
                 </p>
               {/if}
               <div class="c-card-news__title">
-                <a href={linkUrl} class="c-card-news__link" target={isPdfLink ? '_blank' : undefined} rel={isPdfLink ? 'noopener' : undefined}>{item.title}</a>
-                {#if pdfUrl}
-                <div class="c-card-news__pdf">
-                  <a href={pdfUrl} target="_blank" rel="noopener"><span>PDF</span><svg width="13" height="13" aria-hidden="true"><use href="#ico-external-sm"></use></svg></a>
-                </div>
-              {/if}                
+                {#if showTitleAsLink}
+                  <a href={linkUrl} class="c-card-news__link" target={isExternalLink ? '_blank' : undefined} rel={isExternalLink ? 'noopener' : undefined}>{item.title}</a>
+                {:else}
+                  <span class="c-card-news__title-text">{item.title}</span>
+                {/if}
+                {#if externalLinkIsPdf}
+                  <div class="c-card-news__pdf">
+                    <a href={externalLink} target="_blank" rel="noopener"><span>PDF</span>
+                      <svg width="13" height="13" aria-hidden="true"><use href="#ico-external-sm"></use></svg>
+                    </a>
+                  </div>
+                {/if}                
               </div>
              
             </div>

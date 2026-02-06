@@ -28,14 +28,18 @@ async function fetchAllSlugs() {
   let offset = 0;
   const limit = 100;
   while (true) {
-    const url = `${base}/news?limit=${limit}&offset=${offset}&fields=id,slug,pdfurl,content`;
+    const url = `${base}/news?limit=${limit}&offset=${offset}&fields=id,slug,pdfurl,content,body`;
     const res = await fetch(url, { headers: { 'X-MICROCMS-API-KEY': key } });
     if (!res.ok) break;
     const data = await res.json();
     const contents = data.contents ?? [];
     for (const c of contents) {
-      const hasContent = c.content && typeof c.content === 'object';
-      if (!c.pdfurl && hasContent) slugs.push('/news/' + (c.slug || c.id));
+      // content または body がある場合のみ slug を使う（サーバーと同じ判定）
+      const hasContent =
+        (c.content != null && c.content !== '') || (c.body != null && c.body !== '');
+      if (!hasContent) continue; // content がまったくない場合は slug 使わない
+      if (c.pdfurl) continue; // PDF のみの場合はリダイレクトになるのでプリレンダーしない
+      slugs.push('/news/' + (c.slug || c.id));
     }
     if (contents.length < limit) break;
     offset += limit;

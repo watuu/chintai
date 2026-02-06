@@ -1,1 +1,5 @@
-["*", "/news", "/news/placeholder", "/api/news/latest.json"]
+[
+  "*",
+  "/news",
+  "/api/news/latest.json"
+]
