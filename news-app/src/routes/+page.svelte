@@ -3,15 +3,12 @@
   import { browser, dev } from '$app/environment';
   import { base } from '$app/paths';
   import { env } from '$env/dynamic/public';
+  import { getSiteOrigin } from '$lib/site-origin.js';
 
   /** @type {import('./$types').PageData} */
   let { data } = $props();
 
-  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.arutega.jp';
-  const siteOrigin =
-    env.PUBLIC_SITE_ORIGIN != null && (dev || !env.PUBLIC_SITE_ORIGIN.includes('localhost'))
-      ? env.PUBLIC_SITE_ORIGIN
-      : defaultOrigin;
+  const siteOrigin = getSiteOrigin(env, dev);
 
   const limit = 10;
   const urlYear = $derived(browser ? ($page.url.searchParams.get('year') ?? '') : '');
