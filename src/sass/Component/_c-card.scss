@@ -90,16 +90,18 @@
 	}
 }
 .c-card-news__link {
+	position: relative;
+	left: 0;
 	display: inline-flex;
 	text-align: left;
-	will-change: padding;
+	will-change: left;
 	&:before {
 		content: '';
 		display: block;
 		width: 8/16+rem;
 		height: 8/16+rem;
 		position: absolute;
-		left: -0.6em;
+		left: -1.6em;
 		top: 0.6em;
 		pointer-events: none;
 		border-radius: 100%;
@@ -107,13 +109,17 @@
 		opacity: 0;
 		transition: var(--duration-s) var(--easeTheme);
 	}
-	&:hover {
-		padding-left: 1em;
-		&:before {
-			opacity: 1;
-			left: 0;
-			transition-delay: 0.13s;
+	@include config.pc {
+		&:hover {
+			position: relative;
+			left: 1em;
+			&:before {
+				opacity: 1;
+				left: -1em;
+				transition-delay: 0.13s;
+			}
 		}
+
 	}
 }
 .c-card-news__pdf {

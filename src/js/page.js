@@ -53,6 +53,9 @@ export default class Page {
             // items.forEach((item, i) => {
             //     gsap.set(item, { display: i === 0 ? 'block' : 'none' });
             // });
+            gsap.set('.p-company-philosophy-figure__pic svg .line', {
+                drawSVG: "0% 0%"
+            })
 
             /* ========== PIN留め ========= */
             ScrollTrigger.create({
@@ -78,10 +81,13 @@ export default class Page {
 
             setStepClass(1);
 
-            let prevStep = 1;
+            let prevStep = 0;
             ScrollTrigger.create({
                 trigger: section,
-                start: () => 'top center',
+                start: () => {
+                    const wrapRect = wrap.getBoundingClientRect();
+                    return `top+=${wrapRect.height / 2} center` ;
+                },
                 end: () => {
                     const wrapRect = wrap.getBoundingClientRect();
                     return `bottom center`;

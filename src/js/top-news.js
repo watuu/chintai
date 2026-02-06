@@ -80,7 +80,7 @@ function renderNewsList() {
   client
     .getList({
       endpoint: 'news',
-      queries: { limit: 6, orders: '-publishedAt' },
+      queries: { limit: 4, orders: '-publishedAt' },
     })
     .then((res) => {
       const contents = res.contents || [];

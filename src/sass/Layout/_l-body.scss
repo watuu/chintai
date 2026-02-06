@@ -6,6 +6,9 @@
 ----------------------------------------------------*/
 html {
 	//overscroll-behavior: none;
+	@include config.pc {
+		overscroll-behavior: none;
+	}
 }
 body {
 	position: relative;

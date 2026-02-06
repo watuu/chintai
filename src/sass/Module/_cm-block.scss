@@ -147,11 +147,13 @@
 }
 .cm-block-student--gakusapo {
 	.cm-block-student__title {
+		img,
 		svg {
 		    width: 126/16+rem;
 		    height: auto;
 		}
 		@include config.pc {
+			img,
 			svg {
 				width: 170/16+rem;
 			}
