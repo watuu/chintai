@@ -294,14 +294,15 @@
 	}
 }
 .cm-section-cta-item__en {
+	margin-top: 2/16+rem;
 	color: #FFF;
 	font-family: var(--Outfit);
 	font-weight: 600;
 	font-size: 24/16+rem;
 	line-height: 100%; /* 24/16+rem */
-	letter-spacing: 0.06em;
 	text-transform: capitalize;
 	@include config.pc {
+		margin-top: 6/16+rem;
 		font-size: 42/16+rem;
 	}
 }
@@ -375,6 +376,7 @@
 	}
 }
 .cm-section-cta-recruit__en {
+	margin-top: 2/16+rem;
 	font-family: var(--Outfit);
 	font-size: 36/16+rem;
 	font-weight: 600;
