@@ -1399,6 +1399,8 @@ body.page-gray {
   overflow: hidden;
 }
 .is-footer-view .p-top-mv__video {
+  -webkit-transition: none !important;
+  transition: none !important;
   opacity: 0;
 }
 .p-top-mv__video iframe,
