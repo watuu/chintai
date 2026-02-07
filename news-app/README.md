@@ -47,13 +47,32 @@ npm run dev
    ```
    `build/` に静的ファイルが出力されます。
 
+## GitHub Actions（FTP デプロイ）
+
+`main` への push、または `repository_dispatch` でビルドし、FTP でサーバーにアップロードします。  
+ワークフロー: `.github/workflows/deploy.yml`
+
+### 必要な Secrets（Settings → Secrets and variables → Actions）
+
+| Secret | 説明 |
+|--------|------|
+| `MICROCMS_SERVICE_DOMAIN` | microCMS のサービス ID |
+| `MICROCMS_API_KEY` | microCMS API キー |
+| `FTP_SERVER` | FTP ホスト名（例: `ftp.example.com`） |
+| `FTP_USERNAME` | FTP ユーザー名 |
+| `FTP_PASSWORD` | FTP パスワード |
+| `FTP_REMOTE_PATH` | アップロード先ディレクトリ（例: `/public_html/news`）。未設定時は FTP のルートへ |
+
+
+詳細: [microCMS ヘルプ - GitHub Actions の設定方法](https://help.microcms.io/ja/knowledge/webhook-github-actions-settings)
+
 ## 環境変数
 
 | 変数 | 説明 |
 |------|------|
 | `MICROCMS_SERVICE_DOMAIN` | microCMS のサービス ID |
 | `MICROCMS_API_KEY` | microCMS API キー（サーバー専用） |
-| `PUBLIC_SITE_ORIGIN` | dest 配下の共通アセット（CSS・画像）を読むオリジン。未設定時は開発で `http://localhost:5173`、本番ビルドで `https://chintai.arutega.jp` を使用 |
+| `PUBLIC_SITE_ORIGIN` | dest 配下の共通アセット（CSS・画像）を読むオリジン。未設定時は `$lib/site-origin.js` のフォールバック（開発: localhost、本番: 同ファイル内の定数）を使用。本番は `.env.production` で設定を推奨 |
 ## microCMS API 想定
 
 - **エンドポイント**: `news`

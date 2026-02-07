@@ -2,13 +2,9 @@
   import { dev } from '$app/environment';
   import { env } from '$env/dynamic/public';
   import { base } from '$app/paths';
+  import { getSiteOrigin } from '$lib/site-origin.js';
 
-  /** dest 配下の共通アセット（CSS・画像）のオリジン。ビルド時は本番URLを優先 */
-  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.arutega.jp';
-  const siteOrigin =
-    env.PUBLIC_SITE_ORIGIN != null && (dev || !env.PUBLIC_SITE_ORIGIN.includes('localhost'))
-      ? env.PUBLIC_SITE_ORIGIN
-      : defaultOrigin;
+  const siteOrigin = getSiteOrigin(env, dev);
   /** メインサイト（dest）のルート。絶対URLにして base チェックを回避・プリレンダーで相対リンクが /news/company に解釈されるのを防ぐ */
   const path = siteOrigin.replace(/\/$/, '') + '/';
   const img = `${siteOrigin}/assets/img/`;

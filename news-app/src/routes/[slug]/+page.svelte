@@ -2,17 +2,35 @@
   import { dev } from '$app/environment';
   import { base } from '$app/paths';
   import { env } from '$env/dynamic/public';
+  import { getSiteOrigin } from '$lib/site-origin.js';
 
   /** @type {import('./$types').PageData} */
   let { data } = $props();
 
-  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.arutega.jp';
-  const siteOrigin =
-    env.PUBLIC_SITE_ORIGIN != null && (dev || !env.PUBLIC_SITE_ORIGIN.includes('localhost'))
-      ? env.PUBLIC_SITE_ORIGIN
-      : defaultOrigin;
+  const siteOrigin = getSiteOrigin(env, dev);
 
   const item = $derived(data.item);
+  /** content または body があるか（一覧ページと同じ判定） */
+  function hasContent(entry) {
+    if (!entry) return false;
+    return (entry.content != null && entry.content !== '') || (entry.body != null && entry.body !== '');
+  }
+  const prevLinkUrl = $derived(
+    data.prev
+      ? hasContent(data.prev)
+        ? base + '/' + (data.prev.slug ?? data.prev.id)
+        : (data.prev.pdf?.url ?? data.prev.externalLink ?? base + '/' + (data.prev.slug ?? data.prev.id))
+      : '#'
+  );
+  const prevIsPdf = $derived(data.prev && !hasContent(data.prev) && !!(data.prev.pdf?.url ?? data.prev.externalLink));
+  const nextLinkUrl = $derived(
+    data.next
+      ? hasContent(data.next)
+        ? base + '/' + (data.next.slug ?? data.next.id)
+        : (data.next.pdf?.url ?? data.next.externalLink ?? base + '/' + (data.next.slug ?? data.next.id))
+      : '#'
+  );
+  const nextIsPdf = $derived(data.next && !hasContent(data.next) && !!(data.next.pdf?.url ?? data.next.externalLink));
   const published = $derived(
     item.publishedAt
       ? new Date(item.publishedAt).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')
@@ -62,7 +80,7 @@
             class="cm-nav-paginate-single__ctrl"
             style="opacity: {data.prev ? 1 : 0}; pointer-events: {data.prev ? 'auto' : 'none'};"
           >
-            <a href={data.prev ? base + '/' + data.prev.id : '#'} aria-hidden={!data.prev}>
+            <a href={prevLinkUrl} aria-hidden={!data.prev} target={prevIsPdf ? '_blank' : undefined} rel={prevIsPdf ? 'noopener' : undefined}>
               <i class="c-btn-circle c-btn-circle--prev">
                 <svg width="42" height="42">
                   <use href="#ico-circle"></use>
@@ -81,7 +99,7 @@
             class="cm-nav-paginate-single__ctrl"
             style="opacity: {data.next ? 1 : 0}; pointer-events: {data.next ? 'auto' : 'none'};"
           >
-            <a href={data.next ? base + '/' + data.next.id : '#'} aria-hidden={!data.next}>
+            <a href={nextLinkUrl} aria-hidden={!data.next} target={nextIsPdf ? '_blank' : undefined} rel={nextIsPdf ? 'noopener' : undefined}>
               <span>次の記事</span>
               <i class="c-btn-circle">
                 <svg width="42" height="42">

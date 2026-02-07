@@ -3,15 +3,12 @@
   import { browser, dev } from '$app/environment';
   import { base } from '$app/paths';
   import { env } from '$env/dynamic/public';
+  import { getSiteOrigin } from '$lib/site-origin.js';
 
   /** @type {import('./$types').PageData} */
   let { data } = $props();
 
-  const defaultOrigin = dev ? 'http://localhost:5173' : 'https://chintai.arutega.jp';
-  const siteOrigin =
-    env.PUBLIC_SITE_ORIGIN != null && (dev || !env.PUBLIC_SITE_ORIGIN.includes('localhost'))
-      ? env.PUBLIC_SITE_ORIGIN
-      : defaultOrigin;
+  const siteOrigin = getSiteOrigin(env, dev);
 
   const limit = 10;
   const urlYear = $derived(browser ? ($page.url.searchParams.get('year') ?? '') : '');
@@ -115,7 +112,12 @@
           <p class="p-news__empty">該当する記事はありません。</p>
         {:else}
         {#each displayList as item}
-          {@const pdfUrl = item.pdf?.url ?? item.pdfurl}
+          {@const externalLink = item.pdf?.url ?? item.externalLink}
+          {@const hasContent = item.content}
+          {@const externalLinkIsPdf = externalLink && /\.pdf$/i.test(externalLink)}
+          {@const showTitleAsLink = hasContent || (externalLink && !externalLinkIsPdf)}
+          {@const linkUrl = hasContent ? (base + '/' + (item.slug ?? item.id)) : (externalLink ?? base + '/' + (item.slug ?? item.id))}
+          {@const isExternalLink = showTitleAsLink && !hasContent && !!externalLink}
           <div class="c-card-news">
             <div class="c-card-news__wrap">
               <p class="c-card-news__date">
@@ -128,12 +130,18 @@
                 </p>
               {/if}
               <div class="c-card-news__title">
-                <a href={base + '/' + (item.slug ?? item.id)} class="c-card-news__link">{item.title}</a>
-                {#if pdfUrl}
-                <div class="c-card-news__pdf">
-                  <a href={pdfUrl} target="_blank" rel="noopener"><span>PDF</span><svg width="13" height="13" aria-hidden="true"><use href="#ico-external-sm"></use></svg></a>
-                </div>
-              {/if}                
+                {#if showTitleAsLink}
+                  <a href={linkUrl} class="c-card-news__link" target={isExternalLink ? '_blank' : undefined} rel={isExternalLink ? 'noopener' : undefined}>{item.title}</a>
+                {:else}
+                  <span class="c-card-news__title-text">{item.title}</span>
+                {/if}
+                {#if externalLinkIsPdf}
+                  <div class="c-card-news__pdf">
+                    <a href={externalLink} target="_blank" rel="noopener"><span>PDF</span>
+                      <svg width="13" height="13" aria-hidden="true"><use href="#ico-external-sm"></use></svg>
+                    </a>
+                  </div>
+                {/if}                
               </div>
              
             </div>

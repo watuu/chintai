@@ -1,0 +1,42 @@
+# microCMS 更新時（repository_dispatch）または main への push でビルドし、FTP でサーバーに反映
+name: Deploy news-app to server
+
+on:
+  push:
+    branches: [main]
+  repository_dispatch:
+    types: [update]
+    # microCMS の Webhook で「トリガーイベント名」に update を指定するとコンテンツ更新時に実行される
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        env:
+          MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+          NODE_ENV: production
+        run: npm run build
+
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./build/
+          # server-dir: リポジトリ Settings → Secrets に FTP_REMOTE_PATH を登録（例: /public_html/news）。未設定時は FTP のルートへ
+          server-dir: ${{ secrets.FTP_REMOTE_PATH }}
