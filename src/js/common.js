@@ -58,6 +58,7 @@ export default class common {
         this.jsParallax();
         this.jsUnderlineText();
         this.jsCircleText();
+        this.jsContextMenu();
         // this.isSectionDark();
         this.isVisible();
         this.isVisibleType();
@@ -579,6 +580,12 @@ export default class common {
         }
     }
 
+    jsContextMenu() {
+        document.querySelectorAll('.js-context-menu').forEach(img => {
+            img.addEventListener('contextmenu', e => e.preventDefault());
+        });
+    }
+
     isSectionDark() {
         const shift = Utility.isPC()?
             114/1440*window.innerWidth/2:
@@ -645,63 +652,58 @@ export default class common {
     }
 
     jsModalVideo() {
-        document.addEventListener('DOMContentLoaded', function () {
-            const modal = document.getElementById('modal-movie');
-            if (!modal) return;
-            const iframeContainer = modal.querySelector('#modal-movie-iframe');
-            if (!iframeContainer) return;
-            const triggers = document.querySelectorAll('.jsModalVideo');
+        const modal = document.getElementById('modal-movie');
+        if (!modal) return;
+        const iframeContainer = modal.querySelector('#modal-movie-iframe');
+        if (!iframeContainer) return;
+        const triggers = document.querySelectorAll('.jsModalVideo');
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', function () {
+                const youtubeId = this.getAttribute('data-video-id');
+                const src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
 
-            triggers.forEach(trigger => {
-                trigger.addEventListener('click', function () {
-                    const youtubeId = this.getAttribute('data-video-id');
-                    const src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
-
-                    iframeContainer.innerHTML = `
-    <iframe width="560" height="315"
-      src="${src}"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
-  `;
-                });
+                iframeContainer.innerHTML = `
+<iframe width="560" height="315"
+  src="${src}"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+`;
             });
         });
     }
 
     jsPlayAudio() {
-        document.addEventListener('DOMContentLoaded', () => {
-            const audio = document.getElementById('media-audio');
-            if (!audio) return;
-            const btns = document.querySelectorAll('.jsPlayAudio');
+        const audio = document.getElementById('media-audio');
+        if (!audio) return;
+        const btns = document.querySelectorAll('.jsPlayAudio');
 
-            btns.forEach(btn => {
-                let currentSrc = null;
+        btns.forEach(btn => {
+            let currentSrc = null;
 
-                btn.addEventListener('click', () => {
-                    const src = btn.dataset.audio;
-                    if (currentSrc !== src) {
-                        audio.src = src;
-                        currentSrc = src;
-                    }
+            btn.addEventListener('click', () => {
+                const src = btn.dataset.audio;
+                if (currentSrc !== src) {
+                    audio.src = src;
+                    currentSrc = src;
+                }
 
-                    if (audio.paused) {
-                        audio.play();
-                        btn.classList.add('is-playing');
-                        btn.setAttribute('aria-label', '音声を停止する');
-                    } else {
-                        audio.pause();
-                        btn.classList.remove('is-playing');
-                        btn.setAttribute('aria-label', '音声を再生する');
-                    }
-                });
+                if (audio.paused) {
+                    audio.play();
+                    btn.classList.add('is-playing');
+                    btn.setAttribute('aria-label', '音声を停止する');
+                } else {
+                    audio.pause();
+                    btn.classList.remove('is-playing');
+                    btn.setAttribute('aria-label', '音声を再生する');
+                }
             });
+        });
 
-            audio.addEventListener('ended', () => {
-                btns.forEach(btn => btn.classList.remove('is-playing'));
-            });
+        audio.addEventListener('ended', () => {
+            btns.forEach(btn => btn.classList.remove('is-playing'));
         });
     }
 

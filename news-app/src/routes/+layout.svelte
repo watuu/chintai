@@ -72,10 +72,10 @@
         </div>
       </div>
       <ul class="l-header-drawer__sns">
-        <li><a href="" target="_blank"><img src={img + 'ico-instagram.svg'} alt="instagram"/></a></li>
-        <li><a href="" target="_blank"><img src={img + 'ico-x.svg'} alt="x"/></a></li>
-        <li><a href="" target="_blank"><img src={img + 'ico-youtube.svg'} alt="youtube"/></a></li>
-        <li><a href="" target="_blank"><img src={img + 'ico-note.svg'} alt="note"/></a></li>
+        <li><a href="https://www.instagram.com/chintiger_chintai/" target="_blank"><img src={img + 'ico-instagram.svg'} alt="instagram"/></a></li>
+        <li><a href="https://x.com/CHINTiger" target="_blank"><img src={img + 'ico-x.svg'} alt="x"/></a></li>
+        <li><a href="https://www.youtube.com/@chintai" target="_blank"><img src={img + 'ico-youtube.svg'} alt="youtube"/></a></li>
+        <li><a href="https://note.chintai.jp/" target="_blank"><img src={img + 'ico-note.svg'} alt="note"/></a></li>
       </ul>
     </div>
   </div>
