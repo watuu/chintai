@@ -59,7 +59,6 @@ export default class common {
         this.jsUnderlineText();
         this.jsCircleText();
         this.jsContextMenu();
-        // this.isSectionDark();
         this.isVisible();
         this.isVisibleType();
 

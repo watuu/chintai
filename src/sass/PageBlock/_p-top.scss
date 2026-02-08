@@ -18,7 +18,7 @@
 	justify-content: center;
 	align-items: center;
 	min-height: 600/16+rem;
-	height: 100vh;
+	height: 100svh;
 	@include config.pc {}
 }
 .p-top-mv__video {
@@ -50,25 +50,25 @@
 		transform: translate(-50%, -50%);
 	}
 	//clip-path: inset(
-	//	calc((100% - (50vh * 4 / 6)) / 2)
+	//	calc((100% - (50svh * 4 / 6)) / 2)
 	//	0
-	//	calc((100% - (50vh * 4 / 6)) / 2)
+	//	calc((100% - (50svh * 4 / 6)) / 2)
 	//	0
 	//	round #{10/16+rem}
 	//);
 	clip-path: inset(
-		20vh
-		calc((100% - (20vh * 6 / 4)) / 2)
-		20vh
-		calc((100% - (20vh * 6 / 4)) / 2)
+		20svh
+		calc((100% - (20svh * 6 / 4)) / 2)
+		20svh
+		calc((100% - (20svh * 6 / 4)) / 2)
 		round #{10/16+rem}
 	);
 	@include config.pc {
 		clip-path: inset(
-			15vh
-			calc((100% - (70vh * 6 / 4)) / 2)
-			15vh
-			calc((100% - (70vh * 6 / 4)) / 2)
+			15svh
+			calc((100% - (70svh * 6 / 4)) / 2)
+			15svh
+			calc((100% - (70svh * 6 / 4)) / 2)
 			round #{10/16+rem}
 		);
 	}
@@ -385,7 +385,7 @@
 /*::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .p-top-initiatives {
-	margin-top: 100vh;
+	margin-top: 100svh;
 	position: relative;
 	padding: var(--padding-section) 0;
 	background: #fff;

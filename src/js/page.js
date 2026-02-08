@@ -47,12 +47,6 @@ export default class Page {
             const svgs = gsap.utils.toArray('.p-company-philosophy-figure__pic svg');
             const items = gsap.utils.toArray('.p-company-philosophy-item');
 
-            // svgs.forEach((svg, i) => {
-            //     gsap.set(svg, { opacity: i === 0 ? 1 : 0 });
-            // });
-            // items.forEach((item, i) => {
-            //     gsap.set(item, { display: i === 0 ? 'block' : 'none' });
-            // });
             gsap.set('.p-company-philosophy-figure__pic svg .line', {
                 drawSVG: "0% 0%"
             })
@@ -69,7 +63,9 @@ export default class Page {
                     return `bottom-=${wrapRect.height / 2} center` ;
                 },
                 pin: wrap,
-                scrub: true,
+                scrub: 0.8,
+                anticipatePin: 1,
+                // pinType: "transform",
                 markers: false,
             });
 
