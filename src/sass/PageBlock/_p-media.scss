@@ -9,7 +9,8 @@
 	@include config.pc {}
 }
 .p-media-nav {
-	padding-top: var(--padding-section);
+	padding: var(--padding-section) 0 var(--padding-block);
+	margin-bottom: -2px;
 	position: relative;
 	border-radius: 20/16+rem 20/16+rem 0 0;
 	background: #F6F7F9;
@@ -72,7 +73,6 @@
 	}
 }
 .p-media__wrap {
-	margin-top: var(--padding-block);
 	background: #fff;
 	> section {
 		display: none;

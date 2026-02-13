@@ -3649,7 +3649,8 @@ a:hover .p-top-service-item__link, .p-top-service-item__link:hover {
   padding-bottom: var(--padding-section);
 }
 .p-media-nav {
-  padding-top: var(--padding-section);
+  padding: var(--padding-section) 0 var(--padding-block);
+  margin-bottom: -2px;
   position: relative;
   border-radius: 1.25rem 1.25rem 0 0;
   background: #F6F7F9;
@@ -3742,7 +3743,6 @@ a:hover .p-top-service-item__link, .p-top-service-item__link:hover {
 }
 
 .p-media__wrap {
-  margin-top: var(--padding-block);
   background: #fff;
 }
 .p-media__wrap > section {
@@ -6782,6 +6782,7 @@ body figure {
 
 .cm-section-header--hasBG {
   height: 25rem;
+  overflow: hidden;
 }
 @media screen and (min-width: 1024px) {
   .cm-section-header--hasBG {
@@ -7644,6 +7645,7 @@ a:hover .cm-section-cta-recruit__pic, .cm-section-cta-recruit__pic:hover {
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.06em;
+  text-align: left;
 }
 @media screen and (max-width: 1023px) {
   .c-card-news__title {
