@@ -1,6 +1,5 @@
 [
   "*",
   "/news",
-  "/api/news/latest.json",
-  "/news/qin4zw9hvx"
+  "/api/news/latest.json"
 ]
