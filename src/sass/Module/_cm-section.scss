@@ -18,6 +18,7 @@
 }
 .cm-section-header--hasBG {
 	height: 400/16+rem;
+	overflow: hidden;
 	@include config.pc {
 		height: 620/16+rem;
 	}

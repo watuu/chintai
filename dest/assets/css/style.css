@@ -1061,8 +1061,8 @@ body.page-gray {
     opacity: 1;
     -webkit-transition: opacity 1.2s var(--easeTheme);
     transition: opacity 1.2s var(--easeTheme);
-    -webkit-transition-delay: 2.4s;
-            transition-delay: 2.4s;
+    -webkit-transition-delay: 1.5s;
+            transition-delay: 1.5s;
   }
 }
 
@@ -1427,10 +1427,10 @@ body.page-gray {
 }
 .loadedLower .p-top-mv__video {
   will-change: clipPath;
-  -webkit-transition: 1.6s var(--easeOutQuart);
-  transition: 1.6s var(--easeOutQuart);
-  -webkit-transition-delay: 2.2s;
-          transition-delay: 2.2s;
+  -webkit-transition: 1.6s var(--easeOutExpo);
+  transition: 1.6s var(--easeOutExpo);
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
   clip-path: inset(0 round 0.625rem);
 }
 @media screen and (min-width: 1024px) {
@@ -1455,8 +1455,8 @@ body.page-gray {
   opacity: 1;
   -webkit-transition: 1.6s var(--easeTheme);
   transition: 1.6s var(--easeTheme);
-  -webkit-transition-delay: 2.4s;
-          transition-delay: 2.4s;
+  -webkit-transition-delay: 1.2s;
+          transition-delay: 1.2s;
 }
 @media screen and (min-width: 1024px) {
   .p-top-mv__logo {
@@ -3649,7 +3649,8 @@ a:hover .p-top-service-item__link, .p-top-service-item__link:hover {
   padding-bottom: var(--padding-section);
 }
 .p-media-nav {
-  padding-top: var(--padding-section);
+  padding: var(--padding-section) 0 var(--padding-block);
+  margin-bottom: -2px;
   position: relative;
   border-radius: 1.25rem 1.25rem 0 0;
   background: #F6F7F9;
@@ -3742,7 +3743,6 @@ a:hover .p-top-service-item__link, .p-top-service-item__link:hover {
 }
 
 .p-media__wrap {
-  margin-top: var(--padding-block);
   background: #fff;
 }
 .p-media__wrap > section {
@@ -6782,6 +6782,7 @@ body figure {
 
 .cm-section-header--hasBG {
   height: 25rem;
+  overflow: hidden;
 }
 @media screen and (min-width: 1024px) {
   .cm-section-header--hasBG {

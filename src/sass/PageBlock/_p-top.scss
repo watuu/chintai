@@ -75,8 +75,10 @@
 
 	.loadedLower & {
 		will-change: clipPath;
-		transition: 1.6s var(--easeOutQuart);
-		transition-delay: 2.2s;
+		//transition: 1.6s var(--easeOutQuart);
+		//transition-delay: 2.2s;
+		transition: 1.6s var(--easeOutExpo);
+		transition-delay: 1.0s;
 		clip-path: inset(0 round #{10/16+rem});
 	}
 	@include config.pc {
@@ -95,7 +97,8 @@
 	.loadedLower & {
 		opacity: 1;
 		transition: 1.6s var(--easeTheme);
-		transition-delay: 2.4s;
+		transition-delay: 1.2s;
+		//transition-delay: 2.4s;
 	}
 	@include config.pc {
 		padding-bottom: 20/16+rem;
